@@ -1,4 +1,4 @@
-package com.example.e_state_twin_android
+package com.idiot.e_state_twin_android
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

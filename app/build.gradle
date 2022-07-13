@@ -7,8 +7,13 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 android {
     compileSdk rootProject.compileSdkVersion
 
+    buildFeatures{
+        dataBinding true
+        viewBinding true
+    }
+
     defaultConfig {
-        applicationId "com.example.e_state_twin_android"
+        applicationId "com.idiot.e_state_twin_android"
         minSdk rootProject.minSdkVersion
         targetSdk rootProject.targetSdkVersion
         versionCode 1
