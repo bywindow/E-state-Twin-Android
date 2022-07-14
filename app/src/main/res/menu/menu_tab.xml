@@ -6,34 +6,34 @@
         app:showAsAction="always"
         android:enabled="true"
         android:title="홈"
-        android:icon="@drawable/ic_launcher_foreground"/>
+        android:icon="@drawable/ic_home_active"/>
 
     <item
         android:id="@+id/ddip_page"
         app:showAsAction="always"
         android:enabled="true"
         android:title="관심목록"
-        android:icon="@drawable/ic_launcher_foreground"/>
+        android:icon="@drawable/ic_interest_active"/>
 
     <item
         android:id="@+id/search_page"
         app:showAsAction="always"
         android:enabled="true"
         android:title="매물검색"
-        android:icon="@drawable/ic_launcher_foreground"/>
+        android:icon="@drawable/ic_search_active"/>
 
     <item
         android:id="@+id/myHome_page"
         app:showAsAction="always"
         android:enabled="true"
         android:title="우리집"
-        android:icon="@drawable/ic_launcher_foreground"/>
+        android:icon="@drawable/ic_my_house_active"/>
 
     <item
         android:id="@+id/more_page"
         app:showAsAction="always"
         android:enabled="true"
         android:title="더보기"
-        android:icon="@drawable/ic_launcher_foreground"/>
+        android:icon="@drawable/ic_more_active"/>
 
 </menu>

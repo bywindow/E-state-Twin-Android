@@ -11,6 +11,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContentView(R.layout.activity_main)
+    }
+
+    fun setBottomNavigationBackground() {
+        val radius = resources.getDimension(R.dimen.bottom_nav_corner)
+        val bottomNavigation = findViewById<>(R.id.bottom_navigation)
+        val bottomNavigationViewBackground = bottomNavigation.background
     }
 }
