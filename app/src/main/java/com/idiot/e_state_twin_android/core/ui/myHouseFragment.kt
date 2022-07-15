@@ -1,4 +1,4 @@
-package com.idiot.e_state_twin_android.core.platform
+package com.idiot.e_state_twin_android.core.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
