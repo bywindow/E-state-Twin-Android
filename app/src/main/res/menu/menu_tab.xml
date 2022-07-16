@@ -2,35 +2,35 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/main_page"
+        android:id="@+id/homeFragment"
         app:showAsAction="always"
         android:enabled="true"
         android:title="홈"
         android:icon="@drawable/ic_home_active"/>
 
     <item
-        android:id="@+id/ddip_page"
+        android:id="@+id/interestFragment"
         app:showAsAction="always"
         android:enabled="true"
         android:title="관심목록"
         android:icon="@drawable/ic_interest_active"/>
 
     <item
-        android:id="@+id/search_page"
+        android:id="@+id/searchFragment"
         app:showAsAction="always"
         android:enabled="true"
         android:title="매물검색"
         android:icon="@drawable/ic_search_active"/>
 
     <item
-        android:id="@+id/myHome_page"
+        android:id="@+id/myHouseFragment"
         app:showAsAction="always"
         android:enabled="true"
         android:title="우리집"
         android:icon="@drawable/ic_my_house_active"/>
 
     <item
-        android:id="@+id/more_page"
+        android:id="@+id/moreFragment"
         app:showAsAction="always"
         android:enabled="true"
         android:title="더보기"
