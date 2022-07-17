@@ -2,4 +2,9 @@
     <string name="app_name">E-State Twin</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">홈</string>
+    <string name="interest">관심목록</string>
+    <string name="search">매물검색</string>
+    <string name="myhouse">우리집</string>
+    <string name="more">더보기</string>
 </resources>

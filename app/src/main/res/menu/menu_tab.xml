@@ -5,35 +5,35 @@
         android:id="@+id/homeFragment"
         app:showAsAction="always"
         android:enabled="true"
-        android:title="홈"
+        android:title="@string/home"
         android:icon="@drawable/ic_home_active"/>
 
     <item
         android:id="@+id/interestFragment"
         app:showAsAction="always"
         android:enabled="true"
-        android:title="관심목록"
+        android:title="@string/interest"
         android:icon="@drawable/ic_interest_active"/>
 
     <item
         android:id="@+id/searchFragment"
         app:showAsAction="always"
         android:enabled="true"
-        android:title="매물검색"
+        android:title="@string/search"
         android:icon="@drawable/ic_search_active"/>
 
     <item
         android:id="@+id/myHouseFragment"
         app:showAsAction="always"
         android:enabled="true"
-        android:title="우리집"
+        android:title="@string/myhouse"
         android:icon="@drawable/ic_my_house_active"/>
 
     <item
         android:id="@+id/moreFragment"
         app:showAsAction="always"
         android:enabled="true"
-        android:title="더보기"
+        android:title="@string/more"
         android:icon="@drawable/ic_more_active"/>
 
 </menu>
