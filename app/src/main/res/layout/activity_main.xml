@@ -23,6 +23,7 @@
             android:elevation="10dp"
             app:itemIconTint="@drawable/bottom_navigation_selector"
             app:itemBackground="@android:color/transparent"
+            app:itemIconSize="@dimen/bottom_icon_size"
             app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="@+id/nav_host"
             app:layout_constraintEnd_toEndOf="parent"
