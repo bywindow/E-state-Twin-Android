@@ -7,4 +7,6 @@
     <string name="search">매물검색</string>
     <string name="myhouse">우리집</string>
     <string name="more">더보기</string>
+    <string name="main_appbar_help">내가 찾고있는 집을\n빠르게 검색해보세요!</string>
+    <string name="appbar_search">매물 검색하기</string>
 </resources>

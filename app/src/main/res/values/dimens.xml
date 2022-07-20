@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="bottom_nav_radius">20dp</dimen>
+    <dimen name="home_appbar_radius">30dp</dimen>
     <dimen name="bottom_icon_size">32dp</dimen>
+    <dimen name="appbar_search_radius">26dp</dimen>
 </resources>

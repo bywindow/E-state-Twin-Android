@@ -22,4 +22,11 @@
         <item name="windowActionBarOverlay">true</item>
 
     </style>
+
+    <!--        메인 앱바 브랜드 도움말 스타일-->
+    <style name="TextAppearance.idiot.Appbar.Text" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lineSpacingExtra">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
