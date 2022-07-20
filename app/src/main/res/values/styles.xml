@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.EStateTwin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/purple_500</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -17,7 +17,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
 <!--        휴대폰 상단 상태바 색깔-->
-        <item name="android:statusBarColor">@android:color/background_dark</item>
+        <item name="android:statusBarColor">@color/purple_700</item>
 <!--        <item name="android:windowLightStatusBar">true</item>-->
         <item name="windowActionBarOverlay">true</item>
 
