@@ -4,4 +4,5 @@
     <dimen name="home_appbar_radius">30dp</dimen>
     <dimen name="bottom_icon_size">32dp</dimen>
     <dimen name="appbar_search_radius">26dp</dimen>
+    <dimen name="app_horizontal_padding">20dp</dimen>
 </resources>
