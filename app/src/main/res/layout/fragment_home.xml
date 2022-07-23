@@ -87,13 +87,25 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/home_recommend_catalog"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="추천매물 리스트들"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/thumbnail_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/ic_btn_change_thumbnail" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/home_recommend_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:clipToPadding="false"
-                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                    app:spanCount="2"/>
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    tools:listitem="@layout/list_item_home_recommend"/>
 
             </LinearLayout>
 
