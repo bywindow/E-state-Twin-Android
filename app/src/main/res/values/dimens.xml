@@ -5,4 +5,10 @@
     <dimen name="bottom_icon_size">32dp</dimen>
     <dimen name="appbar_search_radius">26dp</dimen>
     <dimen name="app_horizontal_padding">20dp</dimen>
+    <dimen name="card_side_margin">10dp</dimen>
+    <dimen name="card_bottom_margin">18dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_image_corner_radius">16dp</dimen>
+    <dimen name="card_margin_main_text">12dp</dimen>
+    <dimen name="card_margin_sub_text">4dp</dimen>
 </resources>
