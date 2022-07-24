@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "E_state_Twin_Android"
 include ':app'
-include ':engine'
