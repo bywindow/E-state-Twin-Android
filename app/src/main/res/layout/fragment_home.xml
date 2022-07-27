@@ -8,9 +8,9 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:descendantFocusability="blocksDescendants"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,12 +61,13 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/home_contents_rounded"
                     android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/app_horizontal_padding"
-                    android:paddingVertical="38dp">
+                    android:paddingTop="38dp"
+                    android:paddingBottom="100dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/app_horizontal_padding">
 
                         <TextView
                             android:id="@+id/home_user_recommend_title"
@@ -96,16 +97,78 @@
                         android:id="@+id/home_recommend_list"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginBottom="30dp"
                         android:clipToPadding="false"
                         android:overScrollMode="never"
                         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         app:spanCount="2"
                         tools:listitem="@layout/list_item_home_recommend" />
 
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingStart="20dp"
+                            android:paddingTop="20dp"
+                            android:paddingEnd="20dp"
+                            android:paddingBottom="20dp">
+
+                            <ImageView
+                                android:id="@+id/home_banner_owner_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img_banner_home_owner"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/home_banner_main_text"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="6dp"
+                                android:text="집주인이신가요?"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@id/home_banner_owner_image"
+                                app:layout_constraintTop_toTopOf="@id/home_banner_owner_image" />
+
+                            <TextView
+                                android:id="@+id/home_banner_sub_text"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="주변 공인중개소에 매물 등록을\n요청하고 임대관리 해보세요."
+                                app:layout_constraintStart_toStartOf="@id/home_banner_main_text"
+                                app:layout_constraintTop_toBottomOf="@id/home_banner_main_text" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:layout_width="0dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="2dp"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:text="매물등록"
+                                android:textAlignment="center"
+                                android:textColor="@color/purple_700"
+                                android:background="@drawable/home_banner_register_button_rounded"
+                                app:layout_constraintStart_toStartOf="@id/home_banner_main_text"
+                                app:layout_constraintTop_toBottomOf="@id/home_banner_sub_text"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

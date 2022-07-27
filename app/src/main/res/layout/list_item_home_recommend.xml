@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:onClick="@{clickListener}"
         android:layout_marginBottom="@dimen/card_bottom_margin"
+        app:cardElevation="0dp"
         app:cardPreventCornerOverlap="false"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Estate.Card">
 
