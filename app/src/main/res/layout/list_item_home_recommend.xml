@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -59,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:text="전세 25억"
+                android:text="@{viewModel.recommendedHouse.housePrice}"
+                tools:text="전세 25억"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
@@ -77,14 +79,16 @@
                     android:id="@+id/house_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아파트"
+                    android:text="@{viewModel.recommendedHouse.houseType}"
+                    tools:text="아파트"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
 
                 <TextView
                     android:id="@+id/house_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="반포동"
+                    android:text="@{viewModel.recommendedHouse.houseAddress}"
+                    tools:text="반포동"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>

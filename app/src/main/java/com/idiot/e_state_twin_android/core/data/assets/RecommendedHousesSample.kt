@@ -4,7 +4,7 @@ import android.content.res.Resources
 import com.idiot.e_state_twin_android.R
 import com.idiot.e_state_twin_android.core.data.models.RecommendedHouse
 
-fun RecommendedHouses(resources: Resources): List<RecommendedHouse> {
+fun RecommendedHousesSample(): List<RecommendedHouse> {
     return listOf(
         RecommendedHouse(
             houseId = 1,
