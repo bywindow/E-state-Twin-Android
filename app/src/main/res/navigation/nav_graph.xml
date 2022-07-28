@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.idiot.e_state_twin_android.core.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_houseDetailFragment"
+            app:destination="@id/houseDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/interestFragment"
@@ -34,5 +38,13 @@
         android:name="com.idiot.e_state_twin_android.core.ui.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
+    <fragment
+        android:id="@+id/houseDetailFragment"
+        android:name="com.idiot.e_state_twin_android.core.ui.HouseDetailFragment"
+        android:label="HouseDetailFragment">
+        <argument
+            android:name="houseId"
+            app:argType="long"/>
+    </fragment>
 
 </navigation>

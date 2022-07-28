@@ -151,20 +151,21 @@
                                 app:layout_constraintTop_toBottomOf="@id/home_banner_main_text" />
 
                             <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/home_register_button"
                                 android:layout_width="0dp"
                                 android:layout_height="32dp"
                                 android:layout_marginTop="14dp"
                                 android:layout_marginBottom="2dp"
+                                android:background="@drawable/home_banner_register_button_rounded"
                                 android:minWidth="0dp"
                                 android:minHeight="0dp"
                                 android:text="매물등록"
                                 android:textAlignment="center"
                                 android:textColor="@color/purple_700"
-                                android:background="@drawable/home_banner_register_button_rounded"
-                                app:layout_constraintStart_toStartOf="@id/home_banner_main_text"
-                                app:layout_constraintTop_toBottomOf="@id/home_banner_sub_text"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"/>
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@id/home_banner_main_text"
+                                app:layout_constraintTop_toBottomOf="@id/home_banner_sub_text" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
