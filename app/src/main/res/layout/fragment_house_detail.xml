@@ -52,52 +52,51 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="18dp"
                 android:gravity="center"
+                android:paddingVertical="18dp"
                 app:divider="@drawable/divider_detail_feat_buttons"
                 app:dividerPadding="10dp"
                 app:showDividers="middle">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/videoPlayButton"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="@dimen/detail_feat_button_width"
                     android:layout_height="@dimen/detail_feat_button_height"
                     android:background="@color/white"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:drawableTop="@drawable/ic_detail_house_video"
                     android:text="매물영상"
-                    android:textSize="10sp"
-                    android:drawableTop="@drawable/ic_detail_house_video"/>
+                    android:textSize="10sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/threeDimenButton"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="@dimen/detail_feat_button_width"
                     android:layout_height="@dimen/detail_feat_button_height"
                     android:background="@color/white"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:drawableTop="@drawable/ic_detail_three_dimen"
                     android:text="현장 미리보기"
-                    android:textSize="10sp"
-                    android:drawableTop="@drawable/btn_detail_three_dimen"
-                    />
+                    android:textSize="10sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/ARPlayButton"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="@dimen/detail_feat_button_width"
                     android:layout_height="@dimen/detail_feat_button_height"
                     android:background="@color/white"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:drawableTop="@drawable/ic_detail_ar_video"
                     android:text="AR 영상"
-                    android:textSize="10sp"
-                    android:drawableTop="@drawable/btn_detail_ar_video"/>
+                    android:textSize="10sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/ARCameraButton"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="@dimen/detail_feat_button_width"
                     android:layout_height="@dimen/detail_feat_button_height"
                     android:background="@color/white"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:drawableTop="@drawable/ic_detail_ar_camera"
                     android:text="AR 카메라"
-                    android:textSize="10sp"
-                    android:drawableTop="@drawable/btn_detail_ar_camera"/>
+                    android:textSize="10sp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
