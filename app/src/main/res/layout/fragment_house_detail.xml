@@ -10,20 +10,23 @@
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="260dp">
+                android:layout_height="wrap_content">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/glideSlideViewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/gray_700" />
+                    android:layout_height="260dp"
+                    android:background="@color/gray_700"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/back_button"
+                    android:id="@+id/backButton"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="20dp"
@@ -34,7 +37,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/share_button"
+                    android:id="@+id/shareButton"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="34dp"
@@ -45,6 +48,58 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="18dp"
+                android:gravity="center"
+                app:divider="@drawable/divider_detail_feat_buttons"
+                app:dividerPadding="10dp"
+                app:showDividers="middle">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/videoPlayButton"
+                    android:layout_width="@dimen/detail_feat_button_width"
+                    android:layout_height="@dimen/detail_feat_button_height"
+                    android:background="@color/white"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="매물영상"
+                    android:textSize="10sp"
+                    android:drawableTop="@drawable/ic_detail_house_video"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/threeDimenButton"
+                    android:layout_width="@dimen/detail_feat_button_width"
+                    android:layout_height="@dimen/detail_feat_button_height"
+                    android:background="@color/white"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="현장 미리보기"
+                    android:textSize="10sp"
+                    android:drawableTop="@drawable/btn_detail_three_dimen"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ARPlayButton"
+                    android:layout_width="@dimen/detail_feat_button_width"
+                    android:layout_height="@dimen/detail_feat_button_height"
+                    android:background="@color/white"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="AR 영상"
+                    android:textSize="10sp"
+                    android:drawableTop="@drawable/btn_detail_ar_video"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ARCameraButton"
+                    android:layout_width="@dimen/detail_feat_button_width"
+                    android:layout_height="@dimen/detail_feat_button_height"
+                    android:background="@color/white"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="AR 카메라"
+                    android:textSize="10sp"
+                    android:drawableTop="@drawable/btn_detail_ar_camera"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 </layout>
