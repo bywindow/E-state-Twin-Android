@@ -13,6 +13,7 @@ import com.idiot.e_state_twin_android.core.adapters.HouseImageSliderAdapter
 import com.idiot.e_state_twin_android.core.data.assets.imageUrlSample
 import com.idiot.e_state_twin_android.databinding.FragmentHouseDetailBinding
 import com.idiot.threeviewer.ViewerActivity
+import java.lang.Exception
 
 class HouseDetailFragment : Fragment() {
 
@@ -28,7 +29,11 @@ class HouseDetailFragment : Fragment() {
         imageSliderBinding.adapter = HouseImageSliderAdapter(imageUrlSample())
 
         binding.threeDimenButton.setOnClickListener {
-            startActivity(Intent(MainActivity(), ViewerActivity::class.java))
+            try {
+                startActivity(Intent(context, ViewerActivity::class.java))
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
 
         return binding.root
