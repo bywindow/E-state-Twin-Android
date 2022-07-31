@@ -38,6 +38,7 @@
         <entry key="app/src/main/res/layout/list_item_home_recommend.xml" value="0.375" />
         <entry key="app/src/main/res/layout/slide_image_house_detail.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_tab.xml" value="0.31717060230396416" />
+        <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1" />
       </map>
     </option>
   </component>

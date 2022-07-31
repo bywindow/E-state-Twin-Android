@@ -38,7 +38,6 @@ android {
 }
 
 dependencies {
-
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -49,6 +48,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation project(":threeviewer")
+
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
     testImplementation 'junit:junit:4.13.2'

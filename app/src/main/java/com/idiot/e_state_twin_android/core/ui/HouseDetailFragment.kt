@@ -1,5 +1,6 @@
 package com.idiot.e_state_twin_android.core.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import com.idiot.e_state_twin_android.R
 import com.idiot.e_state_twin_android.core.adapters.HouseImageSliderAdapter
 import com.idiot.e_state_twin_android.core.data.assets.imageUrlSample
 import com.idiot.e_state_twin_android.databinding.FragmentHouseDetailBinding
+import com.idiot.threeviewer.ViewerActivity
 
 class HouseDetailFragment : Fragment() {
 
@@ -24,6 +26,10 @@ class HouseDetailFragment : Fragment() {
         val imageSliderBinding = binding.glideSlideViewPager
 
         imageSliderBinding.adapter = HouseImageSliderAdapter(imageUrlSample())
+
+        binding.threeDimenButton.setOnClickListener {
+            startActivity(Intent(MainActivity(), ViewerActivity::class.java))
+        }
 
         return binding.root
     }
