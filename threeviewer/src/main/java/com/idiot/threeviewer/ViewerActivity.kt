@@ -1,9 +1,12 @@
 package com.idiot.threeviewer
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.SurfaceView
 import android.view.View
+import android.widget.TextView
 
 class ViewerActivity : AppCompatActivity() {
 
@@ -13,6 +16,10 @@ class ViewerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewer)
+
+        val title = intent.getStringExtra("title")
+        val titleTextView: TextView = findViewById(R.id.toolbar_title_text)
+        titleTextView.text = title.toString()
 
         surfaceView = findViewById<View>(R.id.surface_view) as SurfaceView
         customViewer.run {

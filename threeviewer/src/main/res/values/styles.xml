@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.EStateTwin.Viewer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:toolbarStyle">@style/Base.Theme.Toolbar</item>
+    </style>
+
+    <style name="Base.Theme.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/white</item>
+        <item name="titleTextAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
+</resources>

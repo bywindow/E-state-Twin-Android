@@ -7,7 +7,8 @@
             android:name=".ViewerActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.EStateTwin.Viewer">
             <intent-filter>
                 <action android:name="com.idiot.threeviewer.ViewerActivity" />
                 <category android:name="android.intent.category.DEFAULT" />

@@ -29,7 +29,7 @@
         <entry key="app/src/main/res/drawable/tab_search_selector.xml" value="0.1275" />
         <entry key="app/src/main/res/layout-v26/activity_main.xml" value="0.2164855072463768" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2890411376953125" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_house_detail.xml" value="0.34193840579710144" />
         <entry key="app/src/main/res/layout/fragment_interest.xml" value="0.161231884057971" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.161231884057971" />
@@ -38,7 +38,7 @@
         <entry key="app/src/main/res/layout/list_item_home_recommend.xml" value="0.375" />
         <entry key="app/src/main/res/layout/slide_image_house_detail.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_tab.xml" value="0.31717060230396416" />
-        <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1" />
+        <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
       </map>
     </option>
   </component>

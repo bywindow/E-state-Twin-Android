@@ -1,11 +1,15 @@
 package com.idiot.e_state_twin_android.core.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.idiot.e_state_twin_android.R
@@ -30,7 +34,9 @@ class HouseDetailFragment : Fragment() {
 
         binding.threeDimenButton.setOnClickListener {
             try {
-                startActivity(Intent(context, ViewerActivity::class.java))
+                startActivity(
+                    Intent(context, ViewerActivity::class.java)
+                        .putExtra("title", getString(R.string.viewer_3d_button_text)))
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -38,4 +44,5 @@ class HouseDetailFragment : Fragment() {
 
         return binding.root
     }
+
 }

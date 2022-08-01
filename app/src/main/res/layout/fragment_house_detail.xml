@@ -75,7 +75,7 @@
                     android:layout_height="@dimen/detail_feat_button_height"
                     android:background="@color/white"
                     android:drawableTop="@drawable/ic_detail_three_dimen"
-                    android:text="현장 미리보기"
+                    android:text="@string/viewer_3d_button_text"
                     android:textSize="10sp" />
 
                 <androidx.appcompat.widget.AppCompatButton

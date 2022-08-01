@@ -17,8 +17,8 @@
         <item name="windowNoTitle">true</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
 <!--        휴대폰 상단 상태바 색깔-->
-        <item name="android:statusBarColor">@color/purple_700</item>
-<!--        <item name="android:windowLightStatusBar">true</item>-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="windowActionBarOverlay">true</item>
 
     </style>
