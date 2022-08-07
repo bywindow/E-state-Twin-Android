@@ -30,7 +30,8 @@ class HouseDetailFragment : Fragment() {
         binding = FragmentHouseDetailBinding.inflate(inflater, container, false)
         val imageSliderBinding = binding.glideSlideViewPager
 
-        imageSliderBinding.adapter = HouseImageSliderAdapter(imageUrlSample())
+        val images = imageUrlSample()
+        imageSliderBinding.adapter = HouseImageSliderAdapter(images)
 
         binding.threeDimenButton.setOnClickListener {
             try {

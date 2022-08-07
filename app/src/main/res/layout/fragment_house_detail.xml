@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.idiot.e_state_twin_android.core.viewmodels.HouseDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/gray_100"
         tools:context=".core.ui.HouseDetailFragment">
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -48,12 +55,12 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingVertical="18dp"
+                android:background="@color/white"
                 app:divider="@drawable/divider_detail_feat_buttons"
                 app:dividerPadding="10dp"
                 app:showDividers="middle">
@@ -99,6 +106,31 @@
                     android:textSize="10sp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/basic_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+                android:layout_marginTop="28dp">
+                <TextView
+                    android:id="@+id/basic_price_info_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="전세 25억"/>
+                <TextView
+                    android:id="@+id/basic_info_register_date_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.idiot.sub.Text"
+                    android:text="3일전"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/basic_price_info_textView"
+                    app:layout_constraintBottom_toBottomOf="@+id/basic_price_info_textView"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
 </layout>

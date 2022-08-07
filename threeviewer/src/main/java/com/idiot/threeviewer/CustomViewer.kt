@@ -3,6 +3,7 @@ package com.idiot.threeviewer
 import android.content.Context
 import android.view.Choreographer
 import android.view.SurfaceView
+import com.google.android.filament.Camera
 import com.google.android.filament.Skybox
 import com.google.android.filament.utils.KTXLoader
 import com.google.android.filament.utils.ModelViewer
@@ -26,8 +27,7 @@ class CustomViewer {
     fun setSurfaceView(mSurfaceView: SurfaceView) {
         modelViewer = ModelViewer(mSurfaceView)
         mSurfaceView.setOnTouchListener(modelViewer)
-
-        //Skybox and background color
+//        modelViewer.camera.setProjection(45.0, 1.0, 0.1, 20.0, Camera.Fov.VERTICAL)        //Skybox and background color
         //without this part the scene'll appear broken
         modelViewer.scene.skybox = Skybox.Builder().build(modelViewer.engine)
         modelViewer.scene.skybox?.setColor(1.0f, 1.0f, 1.0f, 1.0f) //White color

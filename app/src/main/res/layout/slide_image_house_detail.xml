@@ -7,7 +7,7 @@
         android:id="@+id/imageContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="매물 사진"
+        android:contentDescription="매물사진"
         android:scaleType="centerCrop"/>
 
 </layout>
