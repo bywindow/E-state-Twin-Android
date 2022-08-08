@@ -11,4 +11,6 @@
     <string name="appbar_search">매물 검색하기</string>
     <string name="home_recommend_card_image_desc">Picture of recommended house</string>
     <string name="viewer_3d_button_text">현장 미리보기</string>
+
+    <string name="square_meter">m<sup><small>2</small></sup></string>
 </resources>

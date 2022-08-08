@@ -19,7 +19,11 @@
         <entry key="app/src/main/res/drawable/home_register_banner_rounded.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/home_tab_selector.xml" value="0.1275" />
         <entry key="app/src/main/res/drawable/ic_btn_search.xml" value="0.2765" />
+        <entry key="app/src/main/res/drawable/ic_detail_cost.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/ic_detail_floor.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_detail_house_video.xml" value="0.231" />
+        <entry key="app/src/main/res/drawable/ic_detail_m_2.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/ic_detail_room.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_half_right_arrow.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.198" />
         <entry key="app/src/main/res/drawable/ic_search_active.xml" value="0.211" />
@@ -32,7 +36,7 @@
         <entry key="app/src/main/res/layout-v26/activity_main.xml" value="0.2164855072463768" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2890411376953125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_house_detail.xml" value="0.34193840579710144" />
+        <entry key="app/src/main/res/layout/fragment_house_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_interest.xml" value="0.161231884057971" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.161231884057971" />
         <entry key="app/src/main/res/layout/fragment_my_house.xml" value="0.161231884057971" />
