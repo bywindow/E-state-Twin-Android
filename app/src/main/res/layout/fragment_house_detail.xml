@@ -19,7 +19,8 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -149,7 +150,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="84dp"
                     android:layout_marginTop="18dp"
-                    app:cardCornerRadius="8dp"
+                    app:cardCornerRadius="@dimen/detail_info_card_corner"
                     app:cardElevation="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/basic_house_name_textView">
@@ -157,96 +158,132 @@
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/basic_room_image"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2dp"
-                                android:src="@drawable/ic_detail_room"/>
+                                android:src="@drawable/ic_detail_room" />
 
                             <TextView
                                 android:id="@+id/basic_room_textView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
-                                android:text="오피스텔"/>
+                                android:text="오피스텔"
+                                android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/basic_floor_image"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2dp"
-                                android:src="@drawable/ic_detail_floor"/>
+                                android:src="@drawable/ic_detail_floor" />
 
                             <TextView
                                 android:id="@+id/basic_floor_textView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
-                                android:text="12층"/>
+                                android:text="12층"
+                                android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/basic_size_image"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2dp"
-                                android:src="@drawable/ic_detail_m_2"/>
+                                android:src="@drawable/ic_detail_m_2" />
 
                             <TextView
                                 android:id="@+id/basic_size_textView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
-                                android:text="@string/square_meter"/>
+                                android:text="@string/square_meter"
+                                android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/basic_cost_image"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/ic_detail_cost"/>
+                                android:src="@drawable/ic_detail_cost" />
 
                             <TextView
                                 android:id="@+id/basic_cost_textView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
-                                android:text="12만원"/>
+                                android:text="12만원"
+                                android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
                         </androidx.appcompat.widget.LinearLayoutCompat>
                     </androidx.appcompat.widget.LinearLayoutCompat>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+                android:layout_marginTop="45dp">
+
+                <TextView
+                    android:id="@+id/option_info_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="옵션 정보"
+                    android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="@dimen/detail_info_card_corner"
+                    app:layout_constraintTop_toBottomOf="@+id/option_info_textView">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/detail_option_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="20dp"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:spanCount="5"
+                        tools:listitem="@layout/list_item_detail_option" />
                 </com.google.android.material.card.MaterialCardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>

@@ -14,6 +14,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.idiot.e_state_twin_android.R
 import com.idiot.e_state_twin_android.core.adapters.HouseImageSliderAdapter
+import com.idiot.e_state_twin_android.core.adapters.HouseOptionListAdapter
+import com.idiot.e_state_twin_android.core.data.assets.OptionSample
 import com.idiot.e_state_twin_android.core.data.assets.imageUrlSample
 import com.idiot.e_state_twin_android.databinding.FragmentHouseDetailBinding
 import com.idiot.threeviewer.ViewerActivity
@@ -32,6 +34,8 @@ class HouseDetailFragment : Fragment() {
 
         val images = imageUrlSample()
         imageSliderBinding.adapter = HouseImageSliderAdapter(images)
+
+        binding.detailOptionList.adapter = HouseOptionListAdapter(OptionSample())
 
         binding.threeDimenButton.setOnClickListener {
             try {

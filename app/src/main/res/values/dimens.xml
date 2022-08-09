@@ -15,4 +15,5 @@
     <dimen name="card_margin_sub_text">4dp</dimen>
     <dimen name="detail_feat_button_width">80dp</dimen>
     <dimen name="detail_feat_button_height">72dp</dimen>
+    <dimen name="detail_info_card_corner">8dp</dimen>
 </resources>
