@@ -5,15 +5,37 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageButton
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.idiot.e_state_twin_android.R
+import com.idiot.e_state_twin_android.core.adapters.UserRecommendAdapter
+import com.idiot.e_state_twin_android.core.data.assets.RecommendedHousesSample
+import com.idiot.e_state_twin_android.core.viewmodels.UserViewModel
+import com.idiot.e_state_twin_android.databinding.FragmentMoreBinding
 
 class MoreFragment : Fragment() {
+
+    private lateinit var binding: FragmentMoreBinding
+    private val viewModel: UserViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_more, container, false)
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_more, container,false
+        )
+
+        subscribeUi(binding)
+
+        return binding.root
+    }
+
+    private fun subscribeUi(binding: FragmentMoreBinding) {
+        binding.toolbarMore.toolbarTitleText.text = "더보기"
+        binding.userNameTextView.text = "홍길동"
+        binding.userRoleTextView.text = "기업회원"
     }
 }

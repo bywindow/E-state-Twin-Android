@@ -1,15 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".core.ui.MoreFragment">
+    
+    <data>
+        <variable
+            name="user"
+            type="com.idiot.e_state_twin_android.core.viewmodels.UserViewModel" />
+    </data>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="MORE" />
+        android:fitsSystemWindows="true">
 
-</FrameLayout>
+        <include
+            android:id="@+id/toolbar_more"
+            layout="@layout/toolbar_layout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/profile_button"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/user_profile_rounded"
+                android:clipToOutline="true"
+                android:src="@drawable/ic_profile_default"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/user_name_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.idiot.ActionBar.Title"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/profile_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="홍길동"/>
+
+            <TextView
+                android:id="@+id/user_role_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="4dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.idiot.sub.Text"
+                android:textSize="11sp"
+                android:textColor="@color/purple_700"
+                android:background="@drawable/user_role_tv_rounded"
+                app:layout_constraintTop_toBottomOf="@+id/user_name_textView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="기업회원"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
