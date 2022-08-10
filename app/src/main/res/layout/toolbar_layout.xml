@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".ViewerActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="title"
+            type="String" />
+    </data>
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -17,7 +20,7 @@
             android:id="@+id/toolbar"
             style="@style/Base.Theme.Toolbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="?attr/actionBarSize"
             app:contentInsetStart="0dp">
 
             <TextView
@@ -26,14 +29,10 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textAppearance="@style/TextAppearance.idiot.ActionBar.Title"
+                android:text="@{title}"
                 tools:text="현장 미리보기"/>
 
         </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <SurfaceView
-        android:id="@+id/surface_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

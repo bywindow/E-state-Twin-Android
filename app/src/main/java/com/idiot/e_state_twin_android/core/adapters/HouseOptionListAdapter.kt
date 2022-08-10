@@ -58,7 +58,6 @@ class HouseOptionListAdapter(private val optionList: List<OptionItem>) :
 //
 //override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //    holder.bind(optionList[position])
-//    Log.d("OPTION", optionList[position].icon.toString())
 //}
 //
 //override fun getItemCount(): Int {
