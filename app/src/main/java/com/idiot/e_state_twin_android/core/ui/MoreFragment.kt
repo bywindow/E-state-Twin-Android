@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.idiot.e_state_twin_android.R
 import com.idiot.e_state_twin_android.core.adapters.UserRecommendAdapter
 import com.idiot.e_state_twin_android.core.data.assets.RecommendedHousesSample
@@ -29,6 +30,7 @@ class MoreFragment : Fragment() {
         )
 
         subscribeUi(binding)
+        navigateTo()
 
         return binding.root
     }
@@ -37,5 +39,13 @@ class MoreFragment : Fragment() {
         binding.toolbarMore.toolbarTitleText.text = "더보기"
         binding.userNameTextView.text = "홍길동"
         binding.userRoleTextView.text = "기업회원"
+    }
+
+    // TODO: Add another tab button clickListener
+    private fun navigateTo() {
+        binding.register.setClickListener {
+            val directions = MoreFragmentDirections.actionMoreFragmentToRegisterForBrokerFragment()
+            it.findNavController().navigate(directions)
+        }
     }
 }

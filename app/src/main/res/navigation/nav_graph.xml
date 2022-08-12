@@ -37,7 +37,11 @@
         android:id="@+id/moreFragment"
         android:name="com.idiot.e_state_twin_android.core.ui.MoreFragment"
         android:label="fragment_more"
-        tools:layout="@layout/fragment_more" />
+        tools:layout="@layout/fragment_more" >
+        <action
+            android:id="@+id/action_moreFragment_to_registerForBrokerFragment"
+            app:destination="@id/registerForBrokerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/houseDetailFragment"
         android:name="com.idiot.e_state_twin_android.core.ui.HouseDetailFragment"
@@ -46,5 +50,10 @@
             android:name="houseId"
             app:argType="long"/>
     </fragment>
+    <fragment
+        android:id="@+id/registerForBrokerFragment"
+        android:name="com.idiot.e_state_twin_android.core.ui.RegisterForBrokerFragment"
+        android:label="fragment_register_for_broker"
+        tools:layout="@layout/fragment_register_for_broker" />
 
 </navigation>
