@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.idiot.e_state_twin_android.R
 
-class myHouseFragment : Fragment() {
+class MyHouseFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

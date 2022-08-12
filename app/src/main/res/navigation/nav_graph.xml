@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/myHouseFragment"
-        android:name="com.idiot.e_state_twin_android.core.ui.myHouseFragment"
+        android:name="com.idiot.e_state_twin_android.core.ui.MyHouseFragment"
         android:label="fragment_my_house"
         tools:layout="@layout/fragment_my_house" />
 
