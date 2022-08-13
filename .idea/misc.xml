@@ -39,6 +39,8 @@
         <entry key="app/src/main/res/drawable/ic_search_active.xml" value="0.211" />
         <entry key="app/src/main/res/drawable/img_user_default.xml" value="0.176" />
         <entry key="app/src/main/res/drawable/interest_tab_selector.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/selctor_register_tab_indicator_color.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/selector_register_tab_color.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/tab_more_selector.xml" value="0.1275" />
         <entry key="app/src/main/res/drawable/tab_my_house_selector.xml" value="0.1275" />
         <entry key="app/src/main/res/drawable/tab_search_selector.xml" value="0.1275" />
@@ -53,6 +55,7 @@
         <entry key="app/src/main/res/layout/fragment_interest.xml" value="0.161231884057971" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_my_house.xml" value="0.161231884057971" />
+        <entry key="app/src/main/res/layout/fragment_new_register_request.xml" value="0.1828774062816616" />
         <entry key="app/src/main/res/layout/fragment_register_for_broker.xml" value="0.1828774062816616" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.161231884057971" />
         <entry key="app/src/main/res/layout/layout_more_tab.xml" value="0.5" />
@@ -65,7 +68,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

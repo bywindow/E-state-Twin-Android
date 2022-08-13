@@ -18,7 +18,8 @@
 
         <include
             android:id="@+id/toolbar_more"
-            layout="@layout/toolbar_layout" />
+            layout="@layout/toolbar_layout"
+            app:title="@{`더보기`}"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

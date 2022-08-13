@@ -36,7 +36,6 @@ class MoreFragment : Fragment() {
     }
 
     private fun subscribeUi(binding: FragmentMoreBinding) {
-        binding.toolbarMore.toolbarTitleText.text = "더보기"
         binding.userNameTextView.text = "홍길동"
         binding.userRoleTextView.text = "기업회원"
     }
