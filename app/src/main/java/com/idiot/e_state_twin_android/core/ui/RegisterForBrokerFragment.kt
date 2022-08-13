@@ -34,6 +34,8 @@ class RegisterForBrokerFragment : Fragment() {
             tab.text = getTabTitle(position)
         }.attach()
 
+        subscribeUi(binding)
+
         return binding.root
     }
 
@@ -43,5 +45,10 @@ class RegisterForBrokerFragment : Fragment() {
             PAUSE_REGISTER_PAGE_INDEX -> getString(R.string.pause_request_title)
             else -> null
         }
+    }
+
+    private fun subscribeUi(binding: FragmentRegisterForBrokerBinding) {
+        binding.toolbar.appBar.elevation = 0f
+        binding.toolbar.appBar.stateListAnimator = null
     }
 }

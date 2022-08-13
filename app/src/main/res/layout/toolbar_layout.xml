@@ -10,6 +10,7 @@
             type="String" />
     </data>
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
@@ -20,7 +21,6 @@
             style="@style/Base.Theme.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:shadowDy="5"
             app:contentInsetStart="0dp">
 
             <TextView

@@ -14,20 +14,25 @@
 
         <include layout="@layout/toolbar_layout"
             android:id="@+id/toolbar"
-            app:title="@{`매물등록`}"/>
+            app:title="@{`매물등록`}"
+            app:elevation="0dp"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_menu"
             style="@style/Widget.MaterialComponents.TabLayout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="-2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:tabIndicator="@drawable/tab_indicator_register_request"
+            app:tabIndicatorHeight="2dp"
             app:tabIndicatorColor="@color/purple_700"
             app:tabSelectedTextColor="@color/purple_700"
             app:tabTextAppearance="@style/TextAppearance.idiot.tab.Text"
-            app:tabTextColor="@color/tab_inactivated" />
+            app:tabTextColor="@color/tab_inactivated"
+            app:tabRippleColor="@null"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"

@@ -41,6 +41,8 @@
         <entry key="app/src/main/res/drawable/interest_tab_selector.xml" value="0.1275" />
         <entry key="app/src/main/res/drawable/selctor_register_tab_indicator_color.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/selector_register_tab_color.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/tab_indicator_register_request.xml" value="0.191" />
+        <entry key="app/src/main/res/drawable/tab_interest_selector.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/tab_more_selector.xml" value="0.1275" />
         <entry key="app/src/main/res/drawable/tab_my_house_selector.xml" value="0.1275" />
         <entry key="app/src/main/res/drawable/tab_search_selector.xml" value="0.1275" />
