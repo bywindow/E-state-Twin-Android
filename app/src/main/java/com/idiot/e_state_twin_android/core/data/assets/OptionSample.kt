@@ -36,14 +36,49 @@ fun OptionSample(): List<OptionItem> {
             desc = "전자도어락"
         ),
         OptionItem(
+            id = 16,
+            icon = R.drawable.ic_option_induction,
+            desc = "인덕션"
+        ),
+        OptionItem(
+            id = 17,
+            icon = R.drawable.ic_option_tv,
+            desc = "TV"
+        ),
+        OptionItem(
             id = 20,
             icon = R.drawable.ic_option_bed,
             desc = "침대"
         ),
         OptionItem(
+            id = 21,
+            icon = R.drawable.ic_option_closet,
+            desc = "옷장"
+        ),
+        OptionItem(
+            id = 22,
+            icon = R.drawable.ic_option_desk,
+            desc = "책상"
+        ),
+        OptionItem(
+            id = 23,
+            icon = R.drawable.ic_option_shoes,
+            desc = "신발장"
+        ),
+        OptionItem(
             id = 30,
             icon = R.drawable.ic_option_bidet,
             desc = "비데"
+        ),
+        OptionItem(
+            id = 40,
+            icon = R.drawable.ic_option_wall,
+            desc = "벽지"
+        ),
+        OptionItem(
+            id = 41,
+            icon = R.drawable.ic_option_curtain,
+            desc = "커튼"
         ),
     )
 }
