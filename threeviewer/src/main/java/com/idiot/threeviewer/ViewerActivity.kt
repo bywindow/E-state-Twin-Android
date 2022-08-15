@@ -27,7 +27,7 @@ class ViewerActivity : AppCompatActivity() {
             setSurfaceView(requireNotNull(surfaceView))
 
             //directory and model each as param
-            loadGlb(this@ViewerActivity, "grogu", "floorplan")
+            loadGlb(this@ViewerActivity, "grogu", "floorplan_test")
 //            loadGltf(this@MainActivity, "warcraft", "scene");
 
             //directory and model as one

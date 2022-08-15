@@ -48,7 +48,7 @@
                     android:clipToOutline="true"
                     android:contentDescription="@string/home_recommend_card_image_desc"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_interior_dummy" />
+                    app:imageResource="@{viewModel.imgResId}" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/thumbnail_button"
@@ -57,7 +57,8 @@
                     android:layout_alignEnd="@+id/imageView"
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
-                    android:background="@drawable/ic_btn_change_thumbnail" />
+                    android:background="@drawable/ic_btn_change_thumbnail"
+                    android:onClick="@{changeThumbnail}"/>
             </RelativeLayout>
 
             <TextView

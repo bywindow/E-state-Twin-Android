@@ -30,10 +30,17 @@
         <entry key="app/src/main/res/drawable/ic_option_ac.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_option_bed.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_option_bidet.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_option_closet.xml" value="0.2275" />
+        <entry key="app/src/main/res/drawable/ic_option_curtain.xml" value="0.2275" />
+        <entry key="app/src/main/res/drawable/ic_option_desk.xml" value="0.2275" />
         <entry key="app/src/main/res/drawable/ic_option_doorlock.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_option_gas.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_option_induction.xml" value="0.2275" />
         <entry key="app/src/main/res/drawable/ic_option_laundry.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_option_refrigerator.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_option_shoes.xml" value="0.2275" />
+        <entry key="app/src/main/res/drawable/ic_option_tv.xml" value="0.2275" />
+        <entry key="app/src/main/res/drawable/ic_option_wall.xml" value="0.2275" />
         <entry key="app/src/main/res/drawable/ic_option_wave.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_profile_default.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ic_search_active.xml" value="0.211" />
