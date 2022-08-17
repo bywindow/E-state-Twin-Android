@@ -43,6 +43,10 @@ class UserRecommendAdapter(private var recommendedList: List<RecommendedHouse>) 
                     navigateToDetail(houseId, view)
                 }
             }
+            binding.setChangeThumbnail {
+                binding.viewModel?.isShowModel = !binding.viewModel?.isShowModel!!
+                Log.d("HOUSEID", binding.viewModel?.isShowModel.toString())
+            }
         }
 
         private fun navigateToDetail(houseId: Long, view: View){
