@@ -13,5 +13,16 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "E_state_Twin_Android"
-include ':app'
-include ':threeviewer'
+
+include ':app',
+        ':common',
+        ':feature:login',
+        ':feature:threeviewer',
+        ':data:api',
+        'data:repository',
+        ':model',
+        ':data:api-builder',
+        ':data:db',
+        ':envvar',
+        ':di'
+

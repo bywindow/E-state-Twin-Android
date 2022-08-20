@@ -17,7 +17,7 @@ android {
         minSdk rootProject.minSdkVersion
         targetSdk rootProject.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,7 +48,19 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
-    implementation project(":threeviewer")
+
+    // DATA
+    implementation project(":data:api")
+    implementation project(":data:repository")
+    implementation project(":data:api-builder")
+    implementation project(":data:db")
+    implementation project(":model")
+    implementation project(":envvar")
+    implementation project(":di")
+    // FEATURE
+    implementation project(":feature:login")
+    implementation project(":feature:threeviewer")
+    implementation project(":common")
 
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
