@@ -47,7 +47,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"
-    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
     // DATA
     implementation project(":data:api")
@@ -61,6 +60,7 @@ dependencies {
     implementation project(":feature:login")
     implementation project(":feature:threeviewer")
     implementation project(":common")
+    implementation project(":common-ui")
 
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 

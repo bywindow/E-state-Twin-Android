@@ -7,6 +7,7 @@ buildscript {
         targetSdkVersion = 32
 
         //App dependencies
+        fragmentVersion = "1.5.0"
         glideVersion = "4.9.0"
         gradleVersion = "7.2.1"
         hiltVersion = "2.41"
