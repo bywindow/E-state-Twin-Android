@@ -840,6 +840,24 @@
                                 app:layout_constraintStart_toStartOf="@id/broker_name_textView"
                                 app:layout_constraintTop_toBottomOf="@id/broker_info_addr_textView" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/broker_call_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/white"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:stateListAnimator="@null"
+                            android:text="전화걸기"
+                            android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                            android:textColor="@color/purple_700"
+                            android:textSize="14sp"
+                            app:icon="@drawable/ic_detail_call"
+                            app:iconGravity="textStart"
+                            app:iconPadding="8dp"
+                            app:iconTint="@color/purple_700" />
                     </androidx.appcompat.widget.LinearLayoutCompat>
                 </com.google.android.material.card.MaterialCardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
