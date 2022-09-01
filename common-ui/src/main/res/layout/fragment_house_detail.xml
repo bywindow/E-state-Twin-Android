@@ -10,857 +10,918 @@
             type="com.idiot.common.detail.viewmodels.HouseDetailViewModel" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_100"
-        tools:context="com.idiot.common_ui.detail.HouseDetailFragment">
+        android:fitsSystemWindows="true">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingBottom="100dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/glideSlideViewPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="260dp"
-                    android:background="@color/gray_700"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/backButton"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="34dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_btn_gnb_back"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/shareButton"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="34dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_btn_gnb_share"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="@color/gray_100"
+            tools:context="com.idiot.common_ui.detail.HouseDetailFragment">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:paddingVertical="18dp"
-                app:divider="@drawable/divider_detail_feat_buttons"
-                app:dividerPadding="10dp"
-                app:showDividers="middle">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/videoPlayButton"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="@dimen/detail_feat_button_width"
-                    android:layout_height="@dimen/detail_feat_button_height"
-                    android:background="@color/white"
-                    android:drawableTop="@drawable/ic_detail_house_video"
-                    android:text="매물영상"
-                    android:textSize="10sp" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/threeDimenButton"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="@dimen/detail_feat_button_width"
-                    android:layout_height="@dimen/detail_feat_button_height"
-                    android:background="@color/white"
-                    android:drawableTop="@drawable/ic_detail_three_dimen"
-                    android:text="@string/viewer_3d_button_text"
-                    android:textSize="10sp" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/ARPlayButton"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="@dimen/detail_feat_button_width"
-                    android:layout_height="@dimen/detail_feat_button_height"
-                    android:background="@color/white"
-                    android:drawableTop="@drawable/ic_detail_ar_video"
-                    android:text="AR 영상"
-                    android:textSize="10sp" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/ARCameraButton"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="@dimen/detail_feat_button_width"
-                    android:layout_height="@dimen/detail_feat_button_height"
-                    android:background="@color/white"
-                    android:drawableTop="@drawable/ic_detail_ar_camera"
-                    android:text="AR 카메라"
-                    android:textSize="10sp" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/basic_info_layout"
-                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/app_horizontal_padding"
-                android:layout_marginTop="28dp">
+                android:orientation="vertical"
+                android:paddingBottom="92dp">
 
-                <TextView
-                    android:id="@+id/basic_price_info_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="전세 25억"
-                    android:textAppearance="@style/TextAppearance.idiot.title.Text"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/basic_info_register_date_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="3일전"
-                    android:textAppearance="@style/TextAppearance.idiot.sub.Text"
-                    app:layout_constraintBottom_toBottomOf="@+id/basic_price_info_textView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/basic_price_info_textView" />
-
-                <TextView
-                    android:id="@+id/basic_house_name_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="아크로리버파크"
-                    android:textAppearance="@style/TextAppearance.idiot.sub.Text"
-                    app:layout_constraintStart_toStartOf="@+id/basic_price_info_textView"
-                    app:layout_constraintTop_toBottomOf="@+id/basic_price_info_textView" />
-
-                <com.google.android.material.card.MaterialCardView
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="84dp"
-                    android:layout_marginTop="18dp"
-                    app:cardCornerRadius="@dimen/detail_info_card_corner"
-                    app:cardElevation="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/basic_house_name_textView">
+                    android:layout_height="wrap_content">
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/glideSlideViewPager"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_height="260dp"
+                        android:background="@color/gray_700"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/backButton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="34dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_btn_gnb_back"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/basic_room_image"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="2dp"
-                                android:src="@drawable/ic_detail_room" />
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/shareButton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_btn_gnb_share"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                            <TextView
-                                android:id="@+id/basic_room_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="오피스텔"
-                                android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/basic_floor_image"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="2dp"
-                                android:src="@drawable/ic_detail_floor" />
-
-                            <TextView
-                                android:id="@+id/basic_floor_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="12층"
-                                android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/basic_size_image"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="2dp"
-                                android:src="@drawable/ic_detail_m_2" />
-
-                            <TextView
-                                android:id="@+id/basic_size_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/square_meter"
-                                android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/basic_cost_image"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_detail_cost" />
-
-                            <TextView
-                                android:id="@+id/basic_cost_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="12만원"
-                                android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-                </com.google.android.material.card.MaterialCardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/app_horizontal_padding"
-                android:layout_marginTop="45dp">
-
-                <TextView
-                    android:id="@+id/option_info_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="옵션 정보"
-                    android:textAppearance="@style/TextAppearance.idiot.title.Text"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.card.MaterialCardView
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:cardCornerRadius="@dimen/detail_info_card_corner"
-                    app:cardElevation="0dp"
-                    app:layout_constraintTop_toBottomOf="@+id/option_info_textView">
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:paddingVertical="18dp"
+                    app:divider="@drawable/divider_detail_feat_buttons"
+                    app:dividerPadding="10dp"
+                    app:showDividers="middle">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/detail_option_list"
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/videoPlayButton"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="@dimen/detail_feat_button_width"
+                        android:layout_height="@dimen/detail_feat_button_height"
+                        android:background="@color/white"
+                        android:drawableTop="@drawable/ic_detail_house_video"
+                        android:text="매물영상"
+                        android:textSize="10sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/threeDimenButton"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="@dimen/detail_feat_button_width"
+                        android:layout_height="@dimen/detail_feat_button_height"
+                        android:background="@color/white"
+                        android:drawableTop="@drawable/ic_detail_three_dimen"
+                        android:text="@string/viewer_3d_button_text"
+                        android:textSize="10sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/ARPlayButton"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="@dimen/detail_feat_button_width"
+                        android:layout_height="@dimen/detail_feat_button_height"
+                        android:background="@color/white"
+                        android:drawableTop="@drawable/ic_detail_ar_video"
+                        android:text="AR 영상"
+                        android:textSize="10sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/ARCameraButton"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="@dimen/detail_feat_button_width"
+                        android:layout_height="@dimen/detail_feat_button_height"
+                        android:background="@color/white"
+                        android:drawableTop="@drawable/ic_detail_ar_camera"
+                        android:text="AR 카메라"
+                        android:textSize="10sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/basic_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+                    android:layout_marginTop="28dp">
+
+                    <TextView
+                        android:id="@+id/basic_price_info_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="전세 25억"
+                        android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/basic_info_register_date_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="3일전"
+                        android:textAppearance="@style/TextAppearance.idiot.sub.Text"
+                        app:layout_constraintBottom_toBottomOf="@+id/basic_price_info_textView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/basic_price_info_textView" />
+
+                    <TextView
+                        android:id="@+id/basic_house_name_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="아크로리버파크"
+                        android:textAppearance="@style/TextAppearance.idiot.sub.Text"
+                        app:layout_constraintStart_toStartOf="@+id/basic_price_info_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/basic_price_info_textView" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="84dp"
+                        android:layout_marginTop="18dp"
+                        app:cardCornerRadius="@dimen/detail_info_card_corner"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/basic_house_name_textView">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/basic_room_image"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2dp"
+                                    android:src="@drawable/ic_detail_room" />
+
+                                <TextView
+                                    android:id="@+id/basic_room_textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="오피스텔"
+                                    android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/basic_floor_image"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2dp"
+                                    android:src="@drawable/ic_detail_floor" />
+
+                                <TextView
+                                    android:id="@+id/basic_floor_textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="12층"
+                                    android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/basic_size_image"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="2dp"
+                                    android:src="@drawable/ic_detail_m_2" />
+
+                                <TextView
+                                    android:id="@+id/basic_size_textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/square_meter"
+                                    android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/basic_cost_image"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_detail_cost" />
+
+                                <TextView
+                                    android:id="@+id/basic_cost_textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="12만원"
+                                    android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+                    android:layout_marginTop="45dp">
+
+                    <TextView
+                        android:id="@+id/option_info_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="옵션 정보"
+                        android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:overScrollMode="never"
-                        android:paddingBottom="20dp"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        app:spanCount="5"
-                        tools:listitem="@layout/list_item_detail_option" />
-                </com.google.android.material.card.MaterialCardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="@dimen/detail_info_card_corner"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toBottomOf="@+id/option_info_textView">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/app_horizontal_padding"
-                android:layout_marginTop="40dp">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/detail_option_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:overScrollMode="never"
+                            android:paddingBottom="20dp"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:spanCount="5"
+                            tools:listitem="@layout/list_item_detail_option" />
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/price_info_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="가격 정보"
-                    android:textAppearance="@style/TextAppearance.idiot.title.Text"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.card.MaterialCardView
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:paddingHorizontal="10dp"
-                    app:cardCornerRadius="@dimen/detail_info_card_corner"
-                    app:cardElevation="0dp"
-                    app:layout_constraintTop_toBottomOf="@+id/price_info_textView">
+                    android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+                    android:layout_marginTop="40dp">
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <TextView
+                        android:id="@+id/price_info_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="가격 정보"
+                        android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:divider="@drawable/divider_detail_content"
-                        app:dividerPadding="10dp"
-                        app:showDividers="middle">
+                        android:layout_marginTop="8dp"
+                        android:paddingHorizontal="10dp"
+                        app:cardCornerRadius="@dimen/detail_info_card_corner"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toBottomOf="@+id/price_info_textView">
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/deposit_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="전/월세 가격"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/deposit_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="2000만원 / 20만원"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/maintenance_fee_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="관리비"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+                            android:orientation="vertical"
+                            app:divider="@drawable/divider_detail_content"
+                            app:dividerPadding="10dp"
+                            app:showDividers="middle">
 
                             <androidx.appcompat.widget.LinearLayoutCompat
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:orientation="vertical">
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
 
                                 <TextView
-                                    android:id="@+id/maintenance_fee_content_textView"
+                                    android:id="@+id/deposit_textView"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="매월 7만원"
+                                    android:layout_weight="1"
+                                    android:text="전/월세 가격"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/deposit_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="2000만원 / 20만원"
                                     android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
 
                                 <TextView
-                                    android:id="@+id/maintenance_fee_sub_content_textView"
+                                    android:id="@+id/maintenance_fee_textView"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="(청소비, 경비비, 승강기유지비, 수선유지비, 인터넷)"
+                                    android:layout_weight="1"
+                                    android:text="관리비"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/maintenance_fee_content_textView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="매월 7만원"
+                                        android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+
+                                    <TextView
+                                        android:id="@+id/maintenance_fee_sub_content_textView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="(청소비, 경비비, 승강기유지비, 수선유지비, 인터넷)"
+                                        android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                                        android:textColor="#9094a8"
+                                        android:textSize="12sp" />
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/parking_fee_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="주차여부"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/parking_fee_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="1대 / 주차비 5만원"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:id="@+id/detail_info_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="상세 정보"
+                        android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:paddingHorizontal="10dp"
+                        app:cardCornerRadius="@dimen/detail_info_card_corner"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_info_textView">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:divider="@drawable/divider_detail_content"
+                            app:dividerPadding="10dp"
+                            app:showDividers="middle">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/home_type_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="건물 유형"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/home_type_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="오피스텔"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/home_name_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="건물이름"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+
+                                <TextView
+                                    android:id="@+id/home_name_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="아크로리버파크"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/home_register_date_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="매물등록 날짜"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/home_register_date_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="2022.05.12"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/floor_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="층수 및 현재 층"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/floor_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="12층 / 15층"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/area_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="면적"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/net_area_content_textView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/square_meter"
+                                        android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+
+                                    <TextView
+                                        android:id="@+id/area_content_textView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/square_meter"
+                                        android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/heat_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="난방종류"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/heat_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="개별난방"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/elevator_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="엘리베이터"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/elevator_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="있음"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/duplex_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="복층 유무"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/duplex_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="복층"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/loft_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="방 구조"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/loft_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="1.5룸"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/verands_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="베란다/발코니"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/verands_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="없음"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/short_term_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="단기임대"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/short_term_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="가능"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="10dp"
+                                android:paddingStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/move_in_available_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="입주가능일"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
+
+                                <TextView
+                                    android:id="@+id/move_in_available_content_textView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:text="2022.07.13"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+                    android:layout_marginTop="40dp">
+
+                    <TextView
+                        android:id="@+id/broker_info_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="중개사무소 정보"
+                        android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="@dimen/detail_info_card_corner"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toBottomOf="@+id/broker_info_textView">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:divider="@drawable/divider_detail_content"
+                            app:showDividers="middle">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="20dp">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/broker_profile_imageView"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginTop="20dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/broker_name_textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="14dp"
+                                    android:fontFamily="@font/notosanskr_medium"
+                                    android:includeFontPadding="false"
+                                    android:text="이소마공인중개사사무소"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    app:layout_constraintStart_toEndOf="@id/broker_profile_imageView"
+                                    app:layout_constraintTop_toTopOf="@id/broker_profile_imageView" />
+
+                                <TextView
+                                    android:id="@+id/broker_info_host_textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:includeFontPadding="false"
+                                    android:text="대표 : 이소마"
                                     android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-                                    android:textColor="#9094a8"
-                                    android:textSize="12sp" />
-                            </androidx.appcompat.widget.LinearLayoutCompat>
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/parking_fee_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="주차여부"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/parking_fee_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="1대 / 주차비 5만원"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-                </com.google.android.material.card.MaterialCardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/app_horizontal_padding"
-                android:layout_marginTop="40dp">
-
-                <TextView
-                    android:id="@+id/detail_info_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="상세 정보"
-                    android:textAppearance="@style/TextAppearance.idiot.title.Text"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:paddingHorizontal="10dp"
-                    app:cardCornerRadius="@dimen/detail_info_card_corner"
-                    app:cardElevation="0dp"
-                    app:layout_constraintTop_toBottomOf="@+id/detail_info_textView">
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:divider="@drawable/divider_detail_content"
-                        app:dividerPadding="10dp"
-                        app:showDividers="middle">
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/home_type_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="건물 유형"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/home_type_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="오피스텔"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/home_name_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="건물이름"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-
-                            <TextView
-                                android:id="@+id/home_name_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="아크로리버파크"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/home_register_date_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="매물등록 날짜"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/home_register_date_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="2022.05.12"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/floor_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="층수 및 현재 층"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/floor_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="12층 / 15층"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/area_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="면적"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <androidx.appcompat.widget.LinearLayoutCompat
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:orientation="vertical">
+                                    android:textSize="11sp"
+                                    app:layout_constraintStart_toStartOf="@id/broker_name_textView"
+                                    app:layout_constraintTop_toBottomOf="@id/broker_name_textView" />
 
                                 <TextView
-                                    android:id="@+id/net_area_content_textView"
-                                    android:layout_width="match_parent"
+                                    android:id="@+id/broker_info_addr_textView"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/square_meter"
-                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                                    android:layout_marginTop="2dp"
+                                    android:includeFontPadding="false"
+                                    android:text="주소 : 서울특별시 강남구 테헤란로 129-2"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                                    android:textSize="11sp"
+                                    app:layout_constraintStart_toStartOf="@id/broker_name_textView"
+                                    app:layout_constraintTop_toBottomOf="@id/broker_info_host_textView" />
 
                                 <TextView
-                                    android:id="@+id/area_content_textView"
-                                    android:layout_width="match_parent"
+                                    android:id="@+id/broker_info_phone_textView"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/square_meter"
-                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                            </androidx.appcompat.widget.LinearLayoutCompat>
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                                    android:layout_marginTop="2dp"
+                                    android:includeFontPadding="false"
+                                    android:text="전화 : 02-1958-9999"
+                                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                                    android:textSize="11sp"
+                                    app:layout_constraintStart_toStartOf="@id/broker_name_textView"
+                                    app:layout_constraintTop_toBottomOf="@id/broker_info_addr_textView" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/heat_textView"
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/broker_call_button"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="난방종류"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/heat_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="개별난방"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/elevator_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="엘리베이터"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/elevator_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="있음"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/duplex_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="복층 유무"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/duplex_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="복층"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/loft_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="방 구조"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/loft_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="1.5룸"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/verands_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="베란다/발코니"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/verands_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="없음"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/short_term_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="단기임대"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/short_term_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="가능"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="15dp">
-
-                            <TextView
-                                android:id="@+id/move_in_available_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="입주가능일"
-                                android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
-
-                            <TextView
-                                android:id="@+id/move_in_available_content_textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight=".5"
-                                android:text="2022.07.13"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-                </com.google.android.material.card.MaterialCardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/app_horizontal_padding"
-                android:layout_marginTop="40dp">
-
-                <TextView
-                    android:id="@+id/broker_info_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="중개사무소 정보"
-                    android:textAppearance="@style/TextAppearance.idiot.title.Text"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:cardCornerRadius="@dimen/detail_info_card_corner"
-                    app:cardElevation="0dp"
-                    app:layout_constraintTop_toBottomOf="@+id/broker_info_textView">
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:divider="@drawable/divider_detail_content"
-                        app:showDividers="middle">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="20dp">
-
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/broker_profile_imageView"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="20dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/broker_name_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="14dp"
-                                android:fontFamily="@font/notosanskr_medium"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:backgroundTint="@color/white"
+                                android:gravity="center"
                                 android:includeFontPadding="false"
-                                android:text="이소마공인중개사사무소"
-                                android:textColor="@color/black"
+                                android:stateListAnimator="@null"
+                                android:text="전화걸기"
+                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                                android:textColor="@color/purple_700"
                                 android:textSize="14sp"
-                                app:layout_constraintStart_toEndOf="@id/broker_profile_imageView"
-                                app:layout_constraintTop_toTopOf="@id/broker_profile_imageView" />
+                                app:icon="@drawable/ic_detail_call"
+                                app:iconGravity="textStart"
+                                app:iconPadding="8dp"
+                                app:iconTint="@color/purple_700" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
 
-                            <TextView
-                                android:id="@+id/broker_info_host_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:includeFontPadding="false"
-                                android:text="대표 : 이소마"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-                                android:textSize="11sp"
-                                app:layout_constraintStart_toStartOf="@id/broker_name_textView"
-                                app:layout_constraintTop_toBottomOf="@id/broker_name_textView" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:background="@color/white">
 
-                            <TextView
-                                android:id="@+id/broker_info_addr_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:includeFontPadding="false"
-                                android:text="주소 : 서울특별시 강남구 테헤란로 129-2"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-                                android:textSize="11sp"
-                                app:layout_constraintStart_toStartOf="@id/broker_name_textView"
-                                app:layout_constraintTop_toBottomOf="@id/broker_info_host_textView" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/house_like_button"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/ic_btn_detail_like"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-                            <TextView
-                                android:id="@+id/broker_info_phone_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:includeFontPadding="false"
-                                android:text="전화 : 02-1958-9999"
-                                android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-                                android:textSize="11sp"
-                                app:layout_constraintStart_toStartOf="@id/broker_name_textView"
-                                app:layout_constraintTop_toBottomOf="@id/broker_info_addr_textView" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/visit_reservation"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:minHeight="0dp"
+                android:text="방문예약"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                android:textSize="14sp"
+                android:textColor="@color/purple_700"
+                android:includeFontPadding="false"
+                android:layout_marginStart="14dp"
+                android:background="@drawable/tv_detail_visit_reservation_background"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/house_like_button"
+                app:layout_constraintEnd_toStartOf="@id/run_process"/>
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/broker_call_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:layout_gravity="center"
-                            android:backgroundTint="@color/white"
-                            android:gravity="center"
-                            android:includeFontPadding="false"
-                            android:stateListAnimator="@null"
-                            android:text="전화걸기"
-                            android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-                            android:textColor="@color/purple_700"
-                            android:textSize="14sp"
-                            app:icon="@drawable/ic_detail_call"
-                            app:iconGravity="textStart"
-                            app:iconPadding="8dp"
-                            app:iconTint="@color/purple_700" />
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-                </com.google.android.material.card.MaterialCardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/run_process"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:minHeight="0dp"
+                android:text="계약진행"
+                android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                android:includeFontPadding="false"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/tv_detail_run_process_background"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/visit_reservation"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

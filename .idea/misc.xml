@@ -86,6 +86,7 @@
         <entry key="common-ui/src/main/res/drawable/home_contents_rounded.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_change_thumbnail.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_depth.xml" value="0.2045" />
+        <entry key="common-ui/src/main/res/drawable/ic_btn_detail_like.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_gnb_share.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_search.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_detail_call_1.xml" value="0.1955" />
@@ -105,6 +106,8 @@
         <entry key="common-ui/src/main/res/drawable/ic_search_inactive.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/img_banner_home_owner.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/tab_indicator_register_request.xml" value="0.2045" />
+        <entry key="common-ui/src/main/res/drawable/tv_detail_run_process_background.xml" value="0.1955" />
+        <entry key="common-ui/src/main/res/drawable/tv_detail_visit_reservation_background.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/user_profile_rounded.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/font-v26/notosanskr.xml" value="0.40520833333333334" />
         <entry key="common-ui/src/main/res/font-v26/pretendard.xml" value="0.3507692307692308" />
