@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.idiot.common_ui.R
 import com.idiot.common_ui.detail.adapters.HouseImageSliderAdapter
 import com.idiot.common_ui.detail.adapters.HouseOptionListAdapter
@@ -41,7 +42,14 @@ class HouseDetailFragment : Fragment() {
             }
         }
 
+        test(binding)
+
         return binding.root
     }
 
+    private fun test(binding: FragmentHouseDetailBinding) {
+        Glide.with(this)
+            .load("https://cdn.pixabay.com/photo/2016/11/23/00/44/arches-1851520_960_720.jpg")
+            .into(binding.brokerProfileImageView)
+    }
 }
