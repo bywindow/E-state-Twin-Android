@@ -75,6 +75,8 @@
         <entry key="app/src/main/res/layout/toolbar_layout.xml" value="0.15425531914893617" />
         <entry key="app/src/main/res/menu/menu_tab.xml" value="0.31717060230396416" />
         <entry key="common-ui/src/main/res/drawable/appbar_search_rounded.xml" value="0.2045" />
+        <entry key="common-ui/src/main/res/drawable/bottom_navigation_rounded.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/bottom_navigation_selector.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/card_image_rounded.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/divider_more_tab.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/home_appbar_rounded.xml" value="0.2045" />
@@ -86,6 +88,16 @@
         <entry key="common-ui/src/main/res/drawable/ic_detail_floor.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_detail_m_2.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_half_right_arrow.xml" value="0.2045" />
+        <entry key="common-ui/src/main/res/drawable/ic_home_active.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_home_inactive.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_interest_active.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_interest_inactive.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_more_active.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_more_inactive.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_my_house_active.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_my_house_inactive.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_search_active.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_search_inactive.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/img_banner_home_owner.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/tab_indicator_register_request.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/font-v26/pretendard.xml" value="0.3507692307692308" />
@@ -105,6 +117,7 @@
         <entry key="common-ui/src/main/res/layout/list_new_register_request.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/slide_image_house_detail.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/toolbar_layout.xml" value="0.1590678824721378" />
+        <entry key="common-ui/src/main/res/menu/menu_tab.xml" value="0.2786458333333333" />
         <entry key="data/repository/src/main/res/drawable/ic_option_ac.xml" value="0.2045" />
         <entry key="feature/threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1539855072463768" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />

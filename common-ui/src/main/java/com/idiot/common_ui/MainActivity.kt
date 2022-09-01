@@ -1,4 +1,4 @@
-package com.idiot.e_state_twin_android
+package com.idiot.common_ui
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.idiot.e_state_twin_android.databinding.ActivityMainBinding
+import com.idiot.common_ui.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
