@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
             inflater, R.layout.fragment_home, container,false
         )
         binding.homeRecommendList.adapter = UserRecommendAdapter(RecommendedHousesSample())
-
+        binding.homeRecommendList.itemAnimator = null
         return binding.root
     }
 }

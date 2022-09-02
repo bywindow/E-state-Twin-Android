@@ -117,7 +117,7 @@
         <entry key="common-ui/src/main/res/layout/activity_main.xml" value="0.1828774062816616" />
         <entry key="common-ui/src/main/res/layout/fragment_dip_estate.xml" value="0.1259259259259259" />
         <entry key="common-ui/src/main/res/layout/fragment_home.xml" value="0.1828774062816616" />
-        <entry key="common-ui/src/main/res/layout/fragment_house_detail.xml" value="0.33" />
+        <entry key="common-ui/src/main/res/layout/fragment_house_detail.xml" value="0.20672097759674135" />
         <entry key="common-ui/src/main/res/layout/fragment_inquiry_estate.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_interest.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_more.xml" value="0.1590678824721378" />
@@ -129,13 +129,19 @@
         <entry key="common-ui/src/main/res/layout/fragment_search.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_tenant_mode.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/layout_more_tab.xml" value="0.1590678824721378" />
+        <entry key="common-ui/src/main/res/layout/layout_myhouse_tab.xml" value="0.15424164524421594" />
         <entry key="common-ui/src/main/res/layout/list_item_detail_option.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/list_item_home_recommend.xml" value="0.1828774062816616" />
         <entry key="common-ui/src/main/res/layout/list_new_register_request.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/slide_image_house_detail.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/toolbar_layout.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/menu/menu_tab.xml" value="0.2786458333333333" />
+        <entry key="common/src/main/res/drawable/ic_option_laundry.xml" value="0.1665" />
+        <entry key="common/src/main/res/drawable/ic_option_sink.xml" value="0.1665" />
         <entry key="data/repository/src/main/res/drawable/ic_option_ac.xml" value="0.2045" />
+        <entry key="data/repository/src/main/res/drawable/ic_option_laundry.xml" value="0.1665" />
+        <entry key="data/repository/src/main/res/drawable/ic_option_sink.xml" value="0.1665" />
+        <entry key="data/repository/src/main/res/drawable/ic_special.xml" value="0.1665" />
         <entry key="feature/threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1539855072463768" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
       </map>
