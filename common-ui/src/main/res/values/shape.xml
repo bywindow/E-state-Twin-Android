@@ -2,6 +2,6 @@
 <resources>
     <style name="ShapeAppearance.Estate.Card" parent="ShapeAppearance.MaterialComponents">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">0dp</item>
+        <item name="cornerSize">4dp</item>
     </style>
 </resources>
