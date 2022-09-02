@@ -8,8 +8,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.FragmentInterestBinding
+import com.idiot.common_ui.interest.adapters.DIP_ESTATE_PAGE_INDEX
+import com.idiot.common_ui.interest.adapters.INQUIRY_ESTATE_PAGE_INDEX
+import com.idiot.common_ui.interest.adapters.InterestPagerAdapter
+import com.idiot.common_ui.interest.adapters.RECENT_ESTATE_PAGE_INDEX
 
 class InterestFragment : Fragment() {
 
@@ -27,10 +32,24 @@ class InterestFragment : Fragment() {
         )
         viewPager = binding.viewPager
         tabLayout = binding.tabMenu
+        viewPager.adapter = InterestPagerAdapter(this)
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = getTabTitle(position)
+        }.attach()
 
         subscribeUi(binding)
 
         return binding.root
+    }
+
+    private fun getTabTitle(position: Int): String? {
+        return when (position) {
+            RECENT_ESTATE_PAGE_INDEX -> getString(R.string.recent_estate)
+            DIP_ESTATE_PAGE_INDEX -> getString(R.string.dip_estate)
+            INQUIRY_ESTATE_PAGE_INDEX -> getString(R.string.inquiry_estate)
+            else -> null
+        }
     }
 
     private fun subscribeUi(binding: FragmentInterestBinding) {
