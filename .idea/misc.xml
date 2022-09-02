@@ -125,6 +125,7 @@
         <entry key="common-ui/src/main/res/layout/fragment_new_register_request.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_owner_mode.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/fragment_recent_estate.xml" value="0.1" />
+        <entry key="common-ui/src/main/res/layout/fragment_register.xml" value="0.10561268209083119" />
         <entry key="common-ui/src/main/res/layout/fragment_register_for_broker.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_search.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_tenant_mode.xml" value="0.25" />
@@ -132,6 +133,7 @@
         <entry key="common-ui/src/main/res/layout/layout_myhouse_tab.xml" value="0.15424164524421594" />
         <entry key="common-ui/src/main/res/layout/list_item_detail_option.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/list_item_home_recommend.xml" value="0.1828774062816616" />
+        <entry key="common-ui/src/main/res/layout/list_item_new_register.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/list_item_owner_house.xml" value="0.33" />
         <entry key="common-ui/src/main/res/layout/list_new_register_request.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/slide_image_house_detail.xml" value="0.1590678824721378" />

@@ -11,14 +11,18 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/gray_100">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/register_request_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            android:paddingHorizontal="@dimen/card_side_margin"
+            android:paddingTop="@dimen/card_side_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_item_new_register"/>
 
     </FrameLayout>
 

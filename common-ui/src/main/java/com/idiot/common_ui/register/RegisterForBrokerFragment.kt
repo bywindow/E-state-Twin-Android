@@ -25,29 +25,7 @@ class RegisterForBrokerFragment : Fragment() {
 
         binding = FragmentRegisterForBrokerBinding.inflate(inflater, container, false)
 
-        val viewPager = binding.viewPager
-        val tabLayout = binding.tabMenu
-        viewPager.adapter = RegisterPagerAdapter(this)
-
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = getTabTitle(position)
-        }.attach()
-
-        subscribeUi(binding)
-
         return binding.root
     }
 
-    private fun getTabTitle(position: Int): String? {
-        return when (position) {
-            NEW_REGISTER_PAGE_INDEX -> getString(R.string.new_request_title)
-            PAUSE_REGISTER_PAGE_INDEX -> getString(R.string.pause_request_title)
-            else -> null
-        }
-    }
-
-    private fun subscribeUi(binding: FragmentRegisterForBrokerBinding) {
-        binding.toolbar.appBar.elevation = 0f
-        binding.toolbar.appBar.stateListAnimator = null
-    }
 }

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!--    TODO: viewBinding-->
-    <data>
 
+    <data>
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/my_house_card"
+        android:id="@+id/register_house_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/card_bottom_margin"
@@ -32,42 +31,42 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/my_house_type_textView"
+                    android:id="@+id/house_name_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
-                    android:text="집유형"
-                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-                    android:textSize="12sp" />
+                    android:text="house name"
+                    android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                    android:textSize="17sp" />
 
                 <TextView
-                    android:id="@+id/my_house_name_textView"
+                    android:id="@+id/house_addr_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:includeFontPadding="false"
-                    android:text="집이름"
-                    android:textAppearance="@style/TextAppearance.idiot.myhouse.title.Text" />
+                    android:text="house address"
+                    android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text"
+                    android:textSize="12sp"/>
 
                 <TextView
-                    android:id="@+id/my_house_addr_textView"
+                    android:id="@+id/house_owner_name_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:includeFontPadding="false"
+                    android:text="임대인 : whowhowho"
+                    android:textAppearance="@style/TextAppearance.idiot.sub.Text" />
+
+                <TextView
+                    android:id="@+id/house_owner_phone_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:includeFontPadding="false"
-                    android:text="집주소가 들어갈 텍스트뷰입니다."
+                    android:text="연락처 : 000-1234-5678"
                     android:textAppearance="@style/TextAppearance.idiot.sub.Text" />
             </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="18dp"
-                android:src="@drawable/ic_btn_depth"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

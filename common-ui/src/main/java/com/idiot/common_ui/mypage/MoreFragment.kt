@@ -15,7 +15,6 @@ import com.idiot.common_ui.databinding.FragmentMoreBinding
 class MoreFragment : Fragment() {
 
     private lateinit var binding: FragmentMoreBinding
-    private val viewModel: UserViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +39,7 @@ class MoreFragment : Fragment() {
     // TODO: Add another tab button clickListener
     private fun navigateTo() {
         binding.register.setClickListener {
-            val directions = MoreFragmentDirections.actionMoreFragmentToRegisterForBrokerFragment()
+            val directions = MoreFragmentDirections.actionMoreFragmentToRegisterFragment()
             it.findNavController().navigate(directions)
         }
     }
