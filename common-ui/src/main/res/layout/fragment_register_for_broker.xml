@@ -14,12 +14,11 @@
 
         <include layout="@layout/toolbar_layout"
             android:id="@+id/toolbar"
-            app:title="@{`매물등록`}"
-            app:elevation="0dp"/>
+            app:title="@{`매물등록`}"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_menu"
-            style="@style/Widget.MaterialComponents.TabLayout"
+            style="@style/Widget.idiot.TabLayout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_constraintEnd_toEndOf="parent"

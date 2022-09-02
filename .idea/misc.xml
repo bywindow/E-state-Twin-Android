@@ -115,7 +115,7 @@
         <entry key="common-ui/src/main/res/layout/activity_main.xml" value="0.1828774062816616" />
         <entry key="common-ui/src/main/res/layout/fragment_home.xml" value="0.1828774062816616" />
         <entry key="common-ui/src/main/res/layout/fragment_house_detail.xml" value="0.33" />
-        <entry key="common-ui/src/main/res/layout/fragment_interest.xml" value="0.1590678824721378" />
+        <entry key="common-ui/src/main/res/layout/fragment_interest.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_more.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_my_house.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_new_register_request.xml" value="0.1590678824721378" />
