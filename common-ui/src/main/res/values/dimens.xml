@@ -21,4 +21,5 @@
 <!--    myhouse-->
     <dimen name="tenant_mode_help_banner_corner">14dp</dimen>
     <dimen name="my_house_info_banner_corner">8dp</dimen>
+    <dimen name="card_side_margin">12dp</dimen>
 </resources>

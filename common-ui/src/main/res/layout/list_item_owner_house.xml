@@ -13,9 +13,7 @@
         android:id="@+id/my_house_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/app_horizontal_padding"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="@dimen/app_horizontal_padding"
+        android:layout_marginBottom="@dimen/card_bottom_margin"
         android:onClick="@{clickListener}"
         app:cardCornerRadius="@dimen/my_house_info_banner_corner"
         app:cardElevation="5dp"
@@ -57,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:includeFontPadding="false"
-                    android:text="집주가 들어갈 텍스트뷰입니다."
+                    android:text="집주소가 들어갈 텍스트뷰입니다."
                     android:textAppearance="@style/TextAppearance.idiot.sub.Text" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.common.home.viewmodels.UserRecommendViewModel
 import com.idiot.common_ui.R
+import com.idiot.common.home.viewmodels.UserRecommendViewModel
 import com.idiot.common_ui.databinding.ListItemHomeRecommendBinding
+import com.idiot.common_ui.home.HomeFragmentDirections
 import com.idiot.data.api.RecommendedHouse
 
 class UserRecommendAdapter(private var recommendedList: List<RecommendedHouse>) :
@@ -47,10 +48,9 @@ class UserRecommendAdapter(private var recommendedList: List<RecommendedHouse>) 
         }
 
         private fun navigateToDetail(houseId: Long, view: View){
-//            val direction = HomeFragmentDirections
-//                .actionHomeFragmentToHouseDetailFragment(houseId)
-//            view.findNavController().navigate(direction)
-            view.findNavController().navigate(R.id.action_homeFragment_to_houseDetailFragment)
+            val direction = HomeFragmentDirections
+                .actionHomeFragmentToHouseDetailFragment(houseId)
+            view.findNavController().navigate(direction)
         }
 
         fun bind(recommend: RecommendedHouse) {

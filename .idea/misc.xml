@@ -123,7 +123,7 @@
         <entry key="common-ui/src/main/res/layout/fragment_more.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_my_house.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_new_register_request.xml" value="0.1590678824721378" />
-        <entry key="common-ui/src/main/res/layout/fragment_owner_mode.xml" value="0.18" />
+        <entry key="common-ui/src/main/res/layout/fragment_owner_mode.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/fragment_recent_estate.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_register_for_broker.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_search.xml" value="0.1590678824721378" />
@@ -137,8 +137,10 @@
         <entry key="common-ui/src/main/res/layout/slide_image_house_detail.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/toolbar_layout.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/menu/menu_tab.xml" value="0.2786458333333333" />
+        <entry key="common/src/main/res/drawable/card_image_rounded.xml" value="0.1665" />
         <entry key="common/src/main/res/drawable/ic_option_laundry.xml" value="0.1665" />
         <entry key="common/src/main/res/drawable/ic_option_sink.xml" value="0.1665" />
+        <entry key="common/src/main/res/layout/list_item_home_recommend.xml" value="0.1546700942587832" />
         <entry key="data/repository/src/main/res/drawable/ic_option_ac.xml" value="0.2045" />
         <entry key="data/repository/src/main/res/drawable/ic_option_laundry.xml" value="0.1665" />
         <entry key="data/repository/src/main/res/drawable/ic_option_sink.xml" value="0.1665" />
