@@ -75,6 +75,7 @@
         <entry key="app/src/main/res/layout/toolbar_layout.xml" value="0.15425531914893617" />
         <entry key="app/src/main/res/menu/menu_tab.xml" value="0.31717060230396416" />
         <entry key="common-ui/src/main/res/drawable/appbar_search_rounded.xml" value="0.2045" />
+        <entry key="common-ui/src/main/res/drawable/bg_tenant_mode_help_banner.xml" value="0.163" />
         <entry key="common-ui/src/main/res/drawable/bottom_navigation_rounded.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/bottom_navigation_selector.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/card_image_rounded.xml" value="0.2045" />
@@ -105,6 +106,7 @@
         <entry key="common-ui/src/main/res/drawable/ic_search_active.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/ic_search_inactive.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/img_banner_home_owner.xml" value="0.2045" />
+        <entry key="common-ui/src/main/res/drawable/img_chat.xml" value="0.1665" />
         <entry key="common-ui/src/main/res/drawable/tab_indicator_register_request.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/tv_detail_run_process_background.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/tv_detail_visit_reservation_background.xml" value="0.1955" />
@@ -119,11 +121,13 @@
         <entry key="common-ui/src/main/res/layout/fragment_inquiry_estate.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_interest.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_more.xml" value="0.1590678824721378" />
-        <entry key="common-ui/src/main/res/layout/fragment_my_house.xml" value="0.1590678824721378" />
+        <entry key="common-ui/src/main/res/layout/fragment_my_house.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_new_register_request.xml" value="0.1590678824721378" />
+        <entry key="common-ui/src/main/res/layout/fragment_owner_mode.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_recent_estate.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_register_for_broker.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_search.xml" value="0.1590678824721378" />
+        <entry key="common-ui/src/main/res/layout/fragment_tenant_mode.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/layout_more_tab.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/list_item_detail_option.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/list_item_home_recommend.xml" value="0.1828774062816616" />
