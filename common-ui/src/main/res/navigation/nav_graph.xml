@@ -53,6 +53,18 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.idiot.common_ui.register.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_registerInfoFragment"
+            app:destination="@id/registerInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerInfoFragment"
+        android:name="com.idiot.common_ui.register.RegisterInfoFragment"
+        android:label="RegisterInfoFragment">
+        <argument
+            android:name="estateId"
+            app:argType="long"/>
+    </fragment>
 
 </navigation>

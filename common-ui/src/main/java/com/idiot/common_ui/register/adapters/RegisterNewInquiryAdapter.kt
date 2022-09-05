@@ -2,11 +2,14 @@ package com.idiot.common_ui.register.adapters
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.ListItemNewRegisterBinding
+import com.idiot.common_ui.register.RegisterFragmentDirections
 import com.idiot.data.repository.samples.inquiryInfo
 
 class RegisterNewInquiryAdapter(private val inquiry : List<inquiryInfo>) : RecyclerView.Adapter<RegisterNewInquiryAdapter.ViewHolder>() {
@@ -14,8 +17,8 @@ class RegisterNewInquiryAdapter(private val inquiry : List<inquiryInfo>) : Recyc
         private val binding: ListItemNewRegisterBinding
     ) : RecyclerView.ViewHolder(binding.root){
         init {
-            binding.setClickListener {
-                Log.d("HOUSEID", it.toString())
+            binding.setClickListener { view ->
+                navigateTo(0, view)
             }
         }
 
@@ -24,6 +27,11 @@ class RegisterNewInquiryAdapter(private val inquiry : List<inquiryInfo>) : Recyc
             binding.houseAddrTextView.text = "${item.address} $position"
             binding.houseOwnerNameTextView.text = "${item.ownerName} $position"
             binding.houseOwnerPhoneTextView.text = "${item.ownerPhone} $position"
+        }
+
+        private fun navigateTo(estateId: Long, view: View) {
+            val direction = RegisterFragmentDirections.actionRegisterFragmentToRegisterInfoFragment(estateId)
+            view.findNavController().navigate(direction)
         }
     }
 
