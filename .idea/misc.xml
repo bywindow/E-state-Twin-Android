@@ -88,6 +88,7 @@
         <entry key="common-ui/src/main/res/drawable/ic_btn_change_thumbnail.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_depth.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_detail_like.xml" value="0.1955" />
+        <entry key="common-ui/src/main/res/drawable/ic_btn_gnb_back.xml" value="0.1115" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_gnb_share.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_search.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_detail_call_1.xml" value="0.1955" />
@@ -102,6 +103,7 @@
         <entry key="common-ui/src/main/res/drawable/ic_more_inactive.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/ic_my_house_active.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/ic_my_house_inactive.xml" value="0.279" />
+        <entry key="common-ui/src/main/res/drawable/ic_navigate_up.xml" value="0.1115" />
         <entry key="common-ui/src/main/res/drawable/ic_profile_default.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/ic_search_active.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/ic_search_inactive.xml" value="0.279" />
