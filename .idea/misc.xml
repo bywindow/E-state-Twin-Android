@@ -85,6 +85,7 @@
         <entry key="common-ui/src/main/res/drawable/home_appbar_rounded.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/home_banner_register_button_rounded.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/home_contents_rounded.xml" value="0.2045" />
+        <entry key="common-ui/src/main/res/drawable/ic_add_picture.xml" value="0.1005" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_change_thumbnail.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_depth.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_detail_like.xml" value="0.1955" />
@@ -109,6 +110,7 @@
         <entry key="common-ui/src/main/res/drawable/ic_search_inactive.xml" value="0.279" />
         <entry key="common-ui/src/main/res/drawable/img_banner_home_owner.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/img_chat.xml" value="0.1665" />
+        <entry key="common-ui/src/main/res/drawable/register_add_picture_rounded.xml" value="0.25" />
         <entry key="common-ui/src/main/res/drawable/tab_indicator_register_request.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/tv_detail_run_process_background.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/tv_detail_visit_reservation_background.xml" value="0.1955" />
@@ -138,9 +140,11 @@
         <entry key="common-ui/src/main/res/layout/list_item_home_recommend.xml" value="0.1828774062816616" />
         <entry key="common-ui/src/main/res/layout/list_item_new_register.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/list_item_owner_house.xml" value="0.33" />
+        <entry key="common-ui/src/main/res/layout/list_item_register_info_picture_header.xml" value="0.375" />
         <entry key="common-ui/src/main/res/layout/list_new_register_request.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/slide_image_house_detail.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/toolbar_layout.xml" value="0.1590678824721378" />
+        <entry key="common-ui/src/main/res/layout/tv_register_title.xml" value="0.375" />
         <entry key="common-ui/src/main/res/menu/menu_tab.xml" value="0.2786458333333333" />
         <entry key="common/src/main/res/drawable/card_image_rounded.xml" value="0.1665" />
         <entry key="common/src/main/res/drawable/ic_option_laundry.xml" value="0.1665" />
