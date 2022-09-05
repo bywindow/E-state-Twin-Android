@@ -118,6 +118,7 @@
         <entry key="common-ui/src/main/res/font-v26/notosanskr.xml" value="0.40520833333333334" />
         <entry key="common-ui/src/main/res/font-v26/pretendard.xml" value="0.3507692307692308" />
         <entry key="common-ui/src/main/res/font/pretendard.xml" value="0.3517948717948718" />
+        <entry key="common-ui/src/main/res/layout-v31/list_item_register_info_picture.xml" value="0.15425531914893617" />
         <entry key="common-ui/src/main/res/layout/activity_main.xml" value="0.1828774062816616" />
         <entry key="common-ui/src/main/res/layout/fragment_dip_estate.xml" value="0.1259259259259259" />
         <entry key="common-ui/src/main/res/layout/fragment_home.xml" value="0.1828774062816616" />
@@ -140,6 +141,7 @@
         <entry key="common-ui/src/main/res/layout/list_item_home_recommend.xml" value="0.1828774062816616" />
         <entry key="common-ui/src/main/res/layout/list_item_new_register.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/list_item_owner_house.xml" value="0.33" />
+        <entry key="common-ui/src/main/res/layout/list_item_register_info_picture.xml" value="0.13046272493573266" />
         <entry key="common-ui/src/main/res/layout/list_item_register_info_picture_header.xml" value="0.375" />
         <entry key="common-ui/src/main/res/layout/list_new_register_request.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/slide_image_house_detail.xml" value="0.1590678824721378" />
