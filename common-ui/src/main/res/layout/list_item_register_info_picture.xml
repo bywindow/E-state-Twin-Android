@@ -18,6 +18,7 @@
         app:cardElevation="0dp">
 
         <ImageView
+            android:id="@+id/imageItemView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToOutline="true"

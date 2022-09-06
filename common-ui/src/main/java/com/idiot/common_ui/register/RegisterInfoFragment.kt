@@ -23,12 +23,12 @@ class RegisterInfoFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_info, container, false)
         toolbar = binding.toolbarRegisterInfo.toolbar
 
-        subscribeUi(binding)
+        initNavigation()
 
         return binding.root
     }
 
-    private fun subscribeUi(binding: FragmentRegisterInfoBinding) {
+    private fun initNavigation() {
         toolbar.setNavigationIcon(R.drawable.ic_navigate_up)
         toolbar.setNavigationOnClickListener {
             it.findNavController().navigateUp()
