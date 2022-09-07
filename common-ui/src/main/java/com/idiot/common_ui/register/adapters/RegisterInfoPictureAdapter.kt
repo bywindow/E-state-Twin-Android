@@ -1,9 +1,7 @@
 package com.idiot.common_ui.register.adapters
 
-import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
@@ -17,7 +15,7 @@ import com.idiot.model.register.RegisterPicture
 class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit) :
     ListAdapter<RegisterPicture, RegisterInfoPictureAdapter.ViewHolder>(DiffCallback) {
 
-    class ViewHolder(private val binding: ListItemRegisterInfoPictureBinding) :
+    class ViewHolder(binding: ListItemRegisterInfoPictureBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         private val imageView: ImageView = binding.imageItemView

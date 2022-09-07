@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.common_ui.R
 import com.idiot.common.home.viewmodels.UserRecommendViewModel
+import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.ListItemHomeRecommendBinding
 import com.idiot.common_ui.home.HomeFragmentDirections
 import com.idiot.data.api.RecommendedHouse
