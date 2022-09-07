@@ -8,17 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.ListItemRegisterInfoPictureHeaderBinding
 
-class RegisterInfoPictureHeaderAdapter: RecyclerView.Adapter<RegisterInfoPictureHeaderAdapter.ViewHolder>() {
+class RegisterInfoPictureHeaderAdapter(
+    private val onClick: () -> Unit
+): RecyclerView.Adapter<RegisterInfoPictureHeaderAdapter.ViewHolder>() {
 
     class ViewHolder(
-        binding: ListItemRegisterInfoPictureHeaderBinding
+        binding: ListItemRegisterInfoPictureHeaderBinding, val onClick: () -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         init {
             binding.setClickListener {
                 Log.d("register", "add photo")
+                onClick()
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,9 +32,8 @@ class RegisterInfoPictureHeaderAdapter: RecyclerView.Adapter<RegisterInfoPicture
                 R.layout.list_item_register_info_picture_header,
                 parent,
                 false
-            )
+            ), onClick
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -40,4 +43,5 @@ class RegisterInfoPictureHeaderAdapter: RecyclerView.Adapter<RegisterInfoPicture
     override fun getItemCount(): Int {
         return 1
     }
+
 }
