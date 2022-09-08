@@ -1,13 +1,17 @@
 package com.idiot.common_ui.register
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -30,6 +34,13 @@ class RegisterInfoFragment : Fragment() {
                 Log.d("register", "Granted !")
             } else {
                 Log.d("register", "Denied :(")
+            }
+        }
+
+    private val activityResultLauncher: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+
             }
         }
 
@@ -77,11 +88,24 @@ class RegisterInfoFragment : Fragment() {
             }
             shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
                 // Educated 화면을 보여준 후 권한 요청
+                showPermissionContextPopup()
             }
             else -> {
                 requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
             }
         }
+    }
+
+    private fun showPermissionContextPopup() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("권한 요청")
+            .setMessage("사진을 추가하기 위해 권한 요청에 동의해주세요.")
+            .setPositiveButton("확인") { _, _ ->
+                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+            .setNegativeButton("취소") { _, _ -> }
+            .create()
+            .show()
     }
 
 }
