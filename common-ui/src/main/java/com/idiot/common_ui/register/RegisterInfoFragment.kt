@@ -15,9 +15,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.google.android.material.appbar.MaterialToolbar
+import com.idiot.common.register.viewmodels.PictureListFactory
+import com.idiot.common.register.viewmodels.RegisterPictureListViewModel
 import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.FragmentRegisterInfoBinding
 import com.idiot.common_ui.register.adapters.RegisterInfoPictureAdapter
@@ -26,12 +29,19 @@ import com.idiot.model.register.RegisterPicture
 
 class RegisterInfoFragment : Fragment() {
 
+    private lateinit var binding: FragmentRegisterInfoBinding
+    private val pictureListViewModel by viewModels<RegisterPictureListViewModel> {
+        PictureListFactory()
+    }
+    private lateinit var toolbar: MaterialToolbar
+
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()
         ) {isGranted: Boolean ->
             if (isGranted) {
                 // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
                 Log.d("register", "Granted !")
+                navigateToPhoto()
             } else {
                 Log.d("register", "Denied :(")
             }
@@ -40,12 +50,11 @@ class RegisterInfoFragment : Fragment() {
     private val activityResultLauncher: ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == Activity.RESULT_OK && it.data != null) {
-
+                it.data?.clipData?.let { cd ->
+                    pictureListViewModel.insertPicture(cd, cd.itemCount)
+                }
             }
         }
-
-    private lateinit var binding: FragmentRegisterInfoBinding
-    private lateinit var toolbar: MaterialToolbar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,6 +81,13 @@ class RegisterInfoFragment : Fragment() {
         val pictureAdapter = RegisterInfoPictureAdapter { registerPicture -> deletePicture(registerPicture) }
         val concatAdapter = ConcatAdapter(headerAdapter, pictureAdapter)
         binding.estatePictureRecyclerview.adapter = concatAdapter
+
+        pictureListViewModel.pictureList.observe(viewLifecycleOwner) {
+            it?.let {
+                Log.d("register", it.toString())
+                pictureAdapter.submitList(it as MutableList<RegisterPicture>)
+            }
+        }
     }
 
     private fun deletePicture(item: RegisterPicture) {
@@ -85,6 +101,7 @@ class RegisterInfoFragment : Fragment() {
                 Manifest.permission.READ_EXTERNAL_STORAGE
             ) == PackageManager.PERMISSION_GRANTED -> {
                 // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
+                navigateToPhoto()
             }
             shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
                 // Educated 화면을 보여준 후 권한 요청
@@ -108,4 +125,11 @@ class RegisterInfoFragment : Fragment() {
             .show()
     }
 
+    private fun navigateToPhoto() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        intent.action = Intent.ACTION_PICK
+        activityResultLauncher.launch(intent)
+    }
 }

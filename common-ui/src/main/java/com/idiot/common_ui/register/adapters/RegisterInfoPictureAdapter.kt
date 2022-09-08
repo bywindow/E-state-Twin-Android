@@ -29,6 +29,7 @@ class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit)
 
         fun bind(item: RegisterPicture) {
             currentItem = item
+            Log.d("register", item.filePath.toString())
             imageView.setImageURI(item.filePath)
         }
     }
