@@ -65,6 +65,13 @@
         <argument
             android:name="estateId"
             app:argType="long"/>
+        <action
+            android:id="@+id/action_registerInfoFragment_to_addressSearchDialogFragment"
+            app:destination="@id/addressSearchDialogFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addressSearchDialogFragment"
+        android:name="com.idiot.common_ui.register.AddressSearchDialogFragment"
+        android:label="AddressSearchDialogFragment" />
 
 </navigation>

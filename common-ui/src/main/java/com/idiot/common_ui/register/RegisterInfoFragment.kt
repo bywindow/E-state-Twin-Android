@@ -19,12 +19,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.snackbar.Snackbar
 import com.idiot.common.register.viewmodels.PictureListFactory
 import com.idiot.common.register.viewmodels.RegisterPictureListViewModel
 import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.FragmentRegisterInfoBinding
 import com.idiot.common_ui.register.adapters.RegisterInfoPictureAdapter
 import com.idiot.common_ui.register.adapters.RegisterInfoPictureHeaderAdapter
+import com.idiot.envvar.utils.NetworkStatus
 import com.idiot.model.register.RegisterPicture
 
 class RegisterInfoFragment : Fragment() {
@@ -64,6 +66,7 @@ class RegisterInfoFragment : Fragment() {
 
         initNavigation()
         initAdapter()
+        initAddressSearchDialogListener(binding)
 
         return binding.root
     }
@@ -130,5 +133,17 @@ class RegisterInfoFragment : Fragment() {
 
     private fun updatePictureCount(list: List<RegisterPicture>) {
         binding.pictureCountTextView.text = "${list.size}/${getString(R.string.picture_max_count)}"
+    }
+
+    private fun initAddressSearchDialogListener(binding: FragmentRegisterInfoBinding) {
+        binding.addressSearchEditText.setOnClickListener {
+            val networkStatus = NetworkStatus()
+            if (networkStatus.isNetworkAvailable(requireContext())) {
+                val direction = RegisterInfoFragmentDirections.actionRegisterInfoFragmentToAddressSearchDialogFragment()
+                it.findNavController().navigate(direction)
+            } else {
+                Snackbar.make(binding.root, "인터넷 연결을 확인해주세요.", Snackbar.LENGTH_SHORT).show()
+            }
+        }
     }
 }
