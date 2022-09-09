@@ -17,7 +17,6 @@ class RegisterPictureListViewModel() : ViewModel() {
         get() = _pictureList
 
     fun insertPicture(clipData: ClipData, size: Int) {
-//        Log.d("register", "$clipData , $size")
         val currentList = _pictureList.value
         val updatedList = if (currentList == null) mutableListOf<RegisterPicture>() else currentList?.toMutableList()
         (0 until size).forEach {
@@ -27,10 +26,13 @@ class RegisterPictureListViewModel() : ViewModel() {
                 clipData.getItemAt(it).uri
             )
             updatedList?.add(newItem)
-            Log.d("register", "$newItem")
         }
         _pictureList.postValue(updatedList)
-        Log.d("register", _pictureList.value.toString())
+    }
+
+    fun deletePicture(item: RegisterPicture) {
+        //TODO : delete selected photo
+        Log.d("register", "delete! $item")
     }
 }
 

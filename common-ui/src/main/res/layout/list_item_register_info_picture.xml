@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener" />
@@ -11,9 +12,11 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="160dp"
         android:layout_height="116dp"
-        android:onClick="@{clickListener}"
+        android:layout_marginStart="@dimen/picture_item_margin_side"
+        android:layout_marginEnd="@dimen/picture_item_margin_side"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="@{clickListener}"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp">
 

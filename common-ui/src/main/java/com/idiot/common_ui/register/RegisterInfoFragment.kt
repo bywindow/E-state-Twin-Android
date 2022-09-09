@@ -40,14 +40,13 @@ class RegisterInfoFragment : Fragment() {
         ) {isGranted: Boolean ->
             if (isGranted) {
                 // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
-                Log.d("register", "Granted !")
                 navigateToPhoto()
             } else {
                 Log.d("register", "Denied :(")
             }
         }
 
-    private val activityResultLauncher: ActivityResultLauncher<Intent> =
+    private val selectImageResultLauncher: ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == Activity.RESULT_OK && it.data != null) {
                 it.data?.clipData?.let { cd ->
@@ -78,20 +77,16 @@ class RegisterInfoFragment : Fragment() {
 
     private fun initAdapter() {
         val headerAdapter = RegisterInfoPictureHeaderAdapter { addPicture() }
-        val pictureAdapter = RegisterInfoPictureAdapter { registerPicture -> deletePicture(registerPicture) }
+        val pictureAdapter = RegisterInfoPictureAdapter { registerPicture -> pictureListViewModel.deletePicture(registerPicture) }
         val concatAdapter = ConcatAdapter(headerAdapter, pictureAdapter)
         binding.estatePictureRecyclerview.adapter = concatAdapter
 
         pictureListViewModel.pictureList.observe(viewLifecycleOwner) {
             it?.let {
-                Log.d("register", it.toString())
                 pictureAdapter.submitList(it as MutableList<RegisterPicture>)
+                updatePictureCount(it)
             }
         }
-    }
-
-    private fun deletePicture(item: RegisterPicture) {
-        Log.d("register", "delete! $item")
     }
 
     private fun addPicture() {
@@ -130,6 +125,10 @@ class RegisterInfoFragment : Fragment() {
         intent.type = "image/*"
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         intent.action = Intent.ACTION_PICK
-        activityResultLauncher.launch(intent)
+        selectImageResultLauncher.launch(intent)
+    }
+
+    private fun updatePictureCount(list: List<RegisterPicture>) {
+        binding.pictureCountTextView.text = "${list.size}/${getString(R.string.picture_max_count)}"
     }
 }

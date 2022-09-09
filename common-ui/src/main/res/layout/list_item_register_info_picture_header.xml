@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener" />
@@ -12,18 +13,20 @@
         android:id="@+id/register_add_picture_button"
         android:layout_width="160dp"
         android:layout_height="116dp"
-        android:onClick="@{clickListener}"
+        android:layout_marginStart="@dimen/app_horizontal_padding"
+        android:layout_marginEnd="@dimen/picture_item_margin_side"
+        android:background="@drawable/register_add_picture_rounded"
         android:clickable="true"
         android:focusable="true"
-        android:background="@drawable/register_add_picture_rounded"
-        android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginStart="@dimen/app_horizontal_padding">
+        android:onClick="@{clickListener}"
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/ic_add_picture"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:src="@drawable/ic_add_picture" />
     </LinearLayout>
 
 </layout>

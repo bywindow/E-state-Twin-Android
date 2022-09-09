@@ -14,6 +14,7 @@
     <color name="tab_inactivated">#313337</color>
     <color name="detail_info_content">#70748a</color>
     <color name="add_picture_border">#c5c8d4</color>
+    <color name="register_address_border">#e5e5e5</color>
     <color name="gray_500">#9094A8</color>
     <color name="gray_700">#17000000</color> <!--shadow-->
     <color name="white">#FFFFFFFF</color>

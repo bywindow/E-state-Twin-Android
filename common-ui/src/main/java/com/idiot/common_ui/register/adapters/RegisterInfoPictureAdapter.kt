@@ -15,7 +15,7 @@ import com.idiot.model.register.RegisterPicture
 class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit) :
     ListAdapter<RegisterPicture, RegisterInfoPictureAdapter.ViewHolder>(DiffCallback) {
 
-    class ViewHolder(binding: ListItemRegisterInfoPictureBinding) :
+    class ViewHolder(binding: ListItemRegisterInfoPictureBinding, val onClick: (RegisterPicture) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         private val imageView: ImageView = binding.imageItemView
@@ -23,13 +23,14 @@ class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit)
 
         init {
             binding.setClickListener {
-                currentItem?.let { Log.d("register", it.toString()) }
+                currentItem?.let {
+                    onClick(currentItem!!)
+                }
             }
         }
 
         fun bind(item: RegisterPicture) {
             currentItem = item
-            Log.d("register", item.filePath.toString())
             imageView.setImageURI(item.filePath)
         }
     }
@@ -41,7 +42,7 @@ class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit)
                 R.layout.list_item_register_info_picture,
                 parent,
                 false
-            )
+            ), onClick
         )
     }
 
