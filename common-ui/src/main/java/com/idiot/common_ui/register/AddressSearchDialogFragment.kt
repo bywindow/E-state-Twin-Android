@@ -35,7 +35,7 @@ class AddressSearchDialogFragment : DialogFragment() {
             inflater, R.layout.fragment_address_search_dialog, container, false
         )
         navController = findNavController()
-        initWebView()
+        initWebView(binding)
 
         return binding.root
     }
