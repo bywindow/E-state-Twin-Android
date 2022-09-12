@@ -111,6 +111,9 @@
         <entry key="common-ui/src/main/res/drawable/img_banner_home_owner.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/img_chat.xml" value="0.1665" />
         <entry key="common-ui/src/main/res/drawable/register_add_picture_rounded.xml" value="0.25" />
+        <entry key="common-ui/src/main/res/drawable/register_dialog_button_rounded.xml" value="0.1365" />
+        <entry key="common-ui/src/main/res/drawable/register_option_button_active_rounded.xml" value="0.1145" />
+        <entry key="common-ui/src/main/res/drawable/register_option_button_inactive_rounded.xml" value="0.1145" />
         <entry key="common-ui/src/main/res/drawable/tab_indicator_register_request.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/tv_detail_run_process_background.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/tv_detail_visit_reservation_background.xml" value="0.1955" />
@@ -134,7 +137,7 @@
         <entry key="common-ui/src/main/res/layout/fragment_recent_estate.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_register.xml" value="0.10561268209083119" />
         <entry key="common-ui/src/main/res/layout/fragment_register_for_broker.xml" value="0.1590678824721378" />
-        <entry key="common-ui/src/main/res/layout/fragment_register_info.xml" value="0.22592592592592592" />
+        <entry key="common-ui/src/main/res/layout/fragment_register_info.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/fragment_search.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_tenant_mode.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/layout_more_tab.xml" value="0.1590678824721378" />
@@ -145,6 +148,7 @@
         <entry key="common-ui/src/main/res/layout/list_item_owner_house.xml" value="0.33" />
         <entry key="common-ui/src/main/res/layout/list_item_register_info_picture.xml" value="0.13046272493573266" />
         <entry key="common-ui/src/main/res/layout/list_item_register_info_picture_header.xml" value="0.375" />
+        <entry key="common-ui/src/main/res/layout/list_item_register_option.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/list_new_register_request.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/slide_image_house_detail.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/toolbar_layout.xml" value="0.1590678824721378" />

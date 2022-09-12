@@ -27,6 +27,8 @@
     <string name="pause_request_title">등록중인 매물</string>
     <string name="picture_max_count">20</string>
     <string name="address_input_hint">주소를 입력해주세요.</string>
+    <string name="home_detail_dialog_button_text">건물정보 입력</string>
+    <string name="price_dialog_button_text">가격정보 입력</string>
 
     <string name="square_meter">m<sup><small>2</small></sup></string>
 </resources>
