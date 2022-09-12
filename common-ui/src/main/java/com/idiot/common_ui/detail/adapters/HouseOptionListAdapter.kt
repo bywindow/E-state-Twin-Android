@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.idiot.common_ui.R
-import com.idiot.data.api.OptionItem
+import com.idiot.model.HouseOption
 
-class HouseOptionListAdapter(private val optionList: List<OptionItem>) :
+class HouseOptionListAdapter(private val optionList: List<HouseOption>) :
     RecyclerView.Adapter<HouseOptionListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

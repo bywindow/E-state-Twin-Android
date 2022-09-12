@@ -11,7 +11,7 @@ import com.idiot.common_ui.R
 import com.idiot.common_ui.detail.adapters.HouseImageSliderAdapter
 import com.idiot.common_ui.detail.adapters.HouseOptionListAdapter
 import com.idiot.common_ui.databinding.FragmentHouseDetailBinding
-import com.idiot.data.repository.samples.OptionSample
+import com.idiot.data.repository.samples.optionSample
 import com.idiot.e_state_twin_android.core.data.assets.imageUrlSample
 import com.idiot.threeviewer.ViewerActivity
 import java.lang.Exception
@@ -30,7 +30,7 @@ class HouseDetailFragment : Fragment() {
         val images = imageUrlSample()
         imageSliderBinding.adapter = HouseImageSliderAdapter(images)
 
-        binding.detailOptionList.adapter = HouseOptionListAdapter(OptionSample())
+        binding.detailOptionList.adapter = HouseOptionListAdapter(optionSample())
 
         binding.threeDimenButton.setOnClickListener {
             try {

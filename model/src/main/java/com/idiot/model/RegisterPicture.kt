@@ -1,4 +1,4 @@
-package com.idiot.model.register
+package com.idiot.model
 
 import android.net.Uri
 

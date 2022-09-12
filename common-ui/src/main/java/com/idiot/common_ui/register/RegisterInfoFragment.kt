@@ -26,8 +26,8 @@ import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.FragmentRegisterInfoBinding
 import com.idiot.common_ui.register.adapters.RegisterInfoPictureAdapter
 import com.idiot.common_ui.register.adapters.RegisterInfoPictureHeaderAdapter
-import com.idiot.envvar.utils.NetworkStatus
-import com.idiot.model.register.RegisterPicture
+import com.idiot.di.NetworkStatus
+import com.idiot.model.RegisterPicture
 
 class RegisterInfoFragment : Fragment() {
 

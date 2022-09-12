@@ -1,4 +1,4 @@
-package com.idiot.envvar.utils
+package com.idiot.di
 
 import android.content.Context
 import android.net.ConnectivityManager

@@ -2,13 +2,13 @@ package com.idiot.common.detail.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.idiot.data.api.OptionItem
 import com.idiot.data.repository.HouseOptionRepository
+import com.idiot.model.HouseOption
 import kotlinx.coroutines.launch
 
 class HouseOptionViewModel(private val repository: HouseOptionRepository) : ViewModel() {
-    private val _optionList = MutableLiveData<List<OptionItem>>()
-    val optionList : LiveData<List<OptionItem>>
+    private val _optionList = MutableLiveData<List<HouseOption>>()
+    val optionList : LiveData<List<HouseOption>>
         get() = _optionList
 
     init {

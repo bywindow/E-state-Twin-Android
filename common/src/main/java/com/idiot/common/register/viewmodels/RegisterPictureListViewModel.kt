@@ -1,13 +1,10 @@
 package com.idiot.common.register.viewmodels
 
 import android.content.ClipData
-import android.net.Uri
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.idiot.model.register.RegisterPicture
+import androidx.lifecycle.*
+import com.idiot.model.RegisterPicture
+import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.random.Random
 
@@ -17,17 +14,19 @@ class RegisterPictureListViewModel() : ViewModel() {
         get() = _pictureList
 
     fun insertPicture(clipData: ClipData, size: Int) {
-        val currentList = _pictureList.value
-        val updatedList = if (currentList == null) mutableListOf<RegisterPicture>() else currentList?.toMutableList()
-        (0 until size).forEach {
-            val newItem = RegisterPicture(
-                Random.nextLong(),
-                UUID.randomUUID().toString(),
-                clipData.getItemAt(it).uri
-            )
-            updatedList?.add(newItem)
+        viewModelScope.launch {
+            val currentList = _pictureList.value
+            val updatedList = if (currentList == null) mutableListOf<RegisterPicture>() else currentList?.toMutableList()
+            (0 until size).forEach {
+                val newItem = RegisterPicture(
+                    Random.nextLong(),
+                    UUID.randomUUID().toString(),
+                    clipData.getItemAt(it).uri
+                )
+                updatedList?.add(newItem)
+            }
+            _pictureList.postValue(updatedList)
         }
-        _pictureList.postValue(updatedList)
     }
 
     fun deletePicture(item: RegisterPicture) {

@@ -1,6 +1,5 @@
 package com.idiot.common_ui.register.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.ListItemRegisterInfoPictureBinding
-import com.idiot.model.register.RegisterPicture
+import com.idiot.model.RegisterPicture
 
 class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit) :
     ListAdapter<RegisterPicture, RegisterInfoPictureAdapter.ViewHolder>(DiffCallback) {

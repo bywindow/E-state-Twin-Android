@@ -1,4 +1,4 @@
-package com.idiot.model.recommend
+package com.idiot.model
 
 import android.net.Uri
 import com.google.gson.annotations.SerializedName
