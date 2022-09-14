@@ -21,8 +21,7 @@
         <ImageView
             android:id="@+id/option_imageView"
             android:layout_width="42dp"
-            android:layout_height="42dp"
-            tools:src="@drawable/ic_option_ac" />
+            android:layout_height="42dp" />
 
         <TextView
             android:id="@+id/option_textView"
