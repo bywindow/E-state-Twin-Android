@@ -35,7 +35,7 @@ class RegisterPictureListViewModel() : ViewModel() {
     }
 }
 
-class PictureListFactory() : ViewModelProvider.Factory {
+class PictureListFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RegisterPictureListViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

@@ -2,6 +2,7 @@ package com.idiot.common_ui.register
 
 import android.Manifest
 import android.app.Activity
+import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -21,12 +22,15 @@ import androidx.recyclerview.widget.ConcatAdapter
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.snackbar.Snackbar
 import com.idiot.common.register.viewmodels.PictureListFactory
+import com.idiot.common.register.viewmodels.RegisterOptionListViewModel
 import com.idiot.common.register.viewmodels.RegisterPictureListViewModel
 import com.idiot.common_ui.R
 import com.idiot.common_ui.databinding.FragmentRegisterInfoBinding
+import com.idiot.common_ui.register.adapters.RegisterInfoOptionAdapter
 import com.idiot.common_ui.register.adapters.RegisterInfoPictureAdapter
 import com.idiot.common_ui.register.adapters.RegisterInfoPictureHeaderAdapter
 import com.idiot.di.NetworkStatus
+import com.idiot.model.HouseOption
 import com.idiot.model.RegisterPicture
 
 class RegisterInfoFragment : Fragment() {
@@ -35,6 +39,10 @@ class RegisterInfoFragment : Fragment() {
     private val pictureListViewModel by viewModels<RegisterPictureListViewModel> {
         PictureListFactory()
     }
+    private val optionListViewModel by viewModels<RegisterOptionListViewModel> {
+        RegisterOptionListViewModel.OptionListFactory(Application())
+    }
+
     private lateinit var toolbar: MaterialToolbar
 
     private val requestPermissionLauncher =
@@ -88,6 +96,16 @@ class RegisterInfoFragment : Fragment() {
             it?.let {
                 pictureAdapter.submitList(it as MutableList<RegisterPicture>)
                 updatePictureCount(it)
+            }
+        }
+
+        val optionAdapter = RegisterInfoOptionAdapter { houseOption ->  optionListViewModel.changeOptionStatus(houseOption) }
+        binding.registerOptionRecyclerView.adapter = optionAdapter
+
+        optionListViewModel.optionList.observe(viewLifecycleOwner) {
+            it?.let {
+                optionAdapter.submitList(it.values.toList() as MutableList<HouseOption>)
+                optionAdapter.notifyDataSetChanged()
             }
         }
     }
