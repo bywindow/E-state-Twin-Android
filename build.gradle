@@ -17,9 +17,10 @@ buildscript {
         ktxVersion = "1.8.0"
         lifecycleVersion = "2.5.0"
         navigationVersion = "2.5.0"
-        viewPagerVersion = "1.0.0"
         recyclerViewVersion = '1.2.0-alpha06'
         retrofitVersion = "2.9.0"
+        splashScreenVersion = "1.0.0-beta02"
+        viewPagerVersion = "1.0.0"
         workVersion = "2.7.1"
     }
 

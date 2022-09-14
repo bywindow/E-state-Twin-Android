@@ -4,14 +4,18 @@ import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Handler
 import android.util.Base64
 import android.util.Log
 import android.view.View
+import android.view.ViewTreeObserver
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.idiot.common.MainActivityViewModel
 import com.idiot.common_ui.databinding.ActivityMainBinding
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
@@ -19,13 +23,40 @@ import java.security.NoSuchAlgorithmException
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
+    private val viewModel by viewModels<MainActivityViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setUpSplashScreen()
         WindowCompat.setDecorFitsSystemWindows(window, false)
         initBinding()
         initNavigation()
         Log.d("keyHash", ""+getKeyHash(this));
+    }
+
+    private fun setUpSplashScreen() {
+        val content: View = findViewById(android.R.id.content)
+        // TODO : viewModel 추가하고 초기 데이터 세팅 작업
+        content.viewTreeObserver.addOnPreDrawListener(
+            object : ViewTreeObserver.OnPreDrawListener {
+                override fun onPreDraw(): Boolean {
+                    // Check if the initial data is ready.
+                    return if (viewModel.complete.value == true) {
+                        // The content is ready; start drawing.
+                        content.viewTreeObserver.removeOnPreDrawListener(this)
+                        true
+                    } else {
+                        // The content is not ready; suspend.
+                        false
+                    }
+                    return false
+                }
+            }
+        )
+
+        Handler(mainLooper).postDelayed({
+            viewModel.updateComplete()
+        },500)
     }
 
     private fun initBinding() {
