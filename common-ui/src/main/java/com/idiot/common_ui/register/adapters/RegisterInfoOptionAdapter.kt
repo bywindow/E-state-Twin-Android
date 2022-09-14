@@ -33,7 +33,7 @@ class RegisterInfoOptionAdapter(private val onClick: (HouseOption) -> Unit)
         fun bind(item: HouseOption) {
             Log.d("register", "change")
             currentItem = item
-            optionButton.setCompoundDrawablesRelative(optionButton.context.getDrawable(item.icon), null, null, null)
+            optionButton.setImageResource(item.icon)
             optionButton.background =
                 if (item.hasOption) optionButton.context.getDrawable(R.drawable.register_option_button_active_rounded)
                 else  optionButton.context.getDrawable(R.drawable.register_option_button_inactive_rounded)
