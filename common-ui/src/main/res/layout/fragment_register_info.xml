@@ -179,6 +179,64 @@
                         app:spanCount="5"
                         tools:listitem="@layout/list_item_register_option" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp">
+
+                    <include
+                        android:id="@+id/house_video_title"
+                        layout="@layout/tv_register_title"
+                        app:inputTitle="@{`매물영상`}" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/register_house_video_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/app_horizontal_padding"
+                        android:background="@drawable/register_dialog_button_rounded"
+                        android:fontFamily="@font/ff_notosanskr_regular"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:paddingVertical="13dp"
+                        android:text="@string/register_house_video_button_text"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/house_video_title"
+                        app:layout_constraintTop_toBottomOf="@id/house_video_title" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp">
+
+                    <include
+                        android:id="@+id/ar_checklist_title"
+                        layout="@layout/tv_register_title"
+                        app:inputTitle="@{`AR체크리스트`}" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/register_ar_checklist_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/app_horizontal_padding"
+                        android:background="@drawable/register_dialog_button_rounded"
+                        android:fontFamily="@font/ff_notosanskr_regular"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:paddingVertical="13dp"
+                        android:text="@string/register_ar_checklist_button_text"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/ar_checklist_title"
+                        app:layout_constraintTop_toBottomOf="@id/ar_checklist_title" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
