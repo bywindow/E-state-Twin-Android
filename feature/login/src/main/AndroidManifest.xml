@@ -5,7 +5,9 @@
     <application>
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Base.Theme.EstateTwin.Login"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="login_horizontal_padding">40dp</dimen>
+    <dimen name="login_horizontal_padding">50dp</dimen>
     <dimen name="estate_logo_horizontal_padding">110dp</dimen>
+    <dimen name="login_button_corner">20dp</dimen>
+    <dimen name="login_button_size">40dp</dimen>
+    <dimen name="login_button_margin">5dp</dimen>
+    <dimen name="login_icon_margin_start">8dp</dimen>
+    <dimen name="login_icon_size">18dp</dimen>
+    <dimen name="login_text_margin_start">24dp</dimen>
 </resources>

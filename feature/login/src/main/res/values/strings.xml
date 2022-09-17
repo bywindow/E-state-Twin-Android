@@ -1,3 +1,5 @@
 <resources>
-
+    <string name="sign_google">Google로 계속하기</string>
+    <string name="sign_kakao">카카오톡으로 계속하기</string>
+    <string name="sign_naver">네이버로 계속하기</string>
 </resources>
