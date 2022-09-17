@@ -6,8 +6,8 @@
         </shape>
     </item>
 
-    <item>
-        <bitmap android:gravity="center" android:src="@drawable/estate_splash_logo"/>
-    </item>
+<!--    <item>-->
+<!--        <bitmap android:gravity="center" android:src="@drawable/estate_splash_logo"/>-->
+<!--    </item>-->
 
 </layer-list>
