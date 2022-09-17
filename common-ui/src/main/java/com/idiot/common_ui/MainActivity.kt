@@ -27,37 +27,36 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setUpSplashScreen()
         WindowCompat.setDecorFitsSystemWindows(window, false)
         initBinding()
         initNavigation()
         Log.d("keyHash", ""+getKeyHash(this));
     }
 
-    private fun setUpSplashScreen() {
-        val content: View = findViewById(android.R.id.content)
-        // TODO : viewModel 추가하고 초기 데이터 세팅 작업
-        content.viewTreeObserver.addOnPreDrawListener(
-            object : ViewTreeObserver.OnPreDrawListener {
-                override fun onPreDraw(): Boolean {
-                    // Check if the initial data is ready.
-                    return if (viewModel.complete.value == true) {
-                        // The content is ready; start drawing.
-                        content.viewTreeObserver.removeOnPreDrawListener(this)
-                        true
-                    } else {
-                        // The content is not ready; suspend.
-                        false
-                    }
-                    return false
-                }
-            }
-        )
-
-        Handler(mainLooper).postDelayed({
-            viewModel.updateComplete()
-        },500)
-    }
+//    private fun setUpSplashScreen() {
+//        val content: View = findViewById(android.R.id.content)
+//        // TODO : viewModel 추가하고 초기 데이터 세팅 작업
+//        content.viewTreeObserver.addOnPreDrawListener(
+//            object : ViewTreeObserver.OnPreDrawListener {
+//                override fun onPreDraw(): Boolean {
+//                    // Check if the initial data is ready.
+//                    return if (viewModel.complete.value == true) {
+//                        // The content is ready; start drawing.
+//                        content.viewTreeObserver.removeOnPreDrawListener(this)
+//                        true
+//                    } else {
+//                        // The content is not ready; suspend.
+//                        false
+//                    }
+//                    return false
+//                }
+//            }
+//        )
+//
+//        Handler(mainLooper).postDelayed({
+//            viewModel.updateComplete()
+//        },500)
+//    }
 
     private fun initBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
