@@ -147,5 +147,16 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/continue_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="건너뛰기"
+            android:textColor="#ffffff"
+            android:backgroundTint="@android:color/transparent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

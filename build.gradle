@@ -18,6 +18,7 @@ buildscript {
         ktxVersion = "1.8.0"
         lifecycleVersion = "2.5.0"
         navigationVersion = "2.5.0"
+        okhttpLoggingVersion = "4.9.3"
         recyclerViewVersion = '1.2.0-alpha06'
         retrofitVersion = "2.9.0"
         splashScreenVersion = "1.0.0-beta02"
