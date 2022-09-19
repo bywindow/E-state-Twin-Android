@@ -97,6 +97,8 @@
         <entry key="common-ui/src/main/res/drawable/ic_btn_detail_like.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_gnb_back.xml" value="0.1115" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_gnb_share.xml" value="0.1955" />
+        <entry key="common-ui/src/main/res/drawable/ic_btn_gnb_x.xml" value="0.2095" />
+        <entry key="common-ui/src/main/res/drawable/ic_btn_input_drdw.xml" value="0.2095" />
         <entry key="common-ui/src/main/res/drawable/ic_btn_search.xml" value="0.2045" />
         <entry key="common-ui/src/main/res/drawable/ic_detail_call_1.xml" value="0.1955" />
         <entry key="common-ui/src/main/res/drawable/ic_detail_floor.xml" value="0.2045" />
@@ -144,6 +146,7 @@
         <entry key="common-ui/src/main/res/layout/fragment_recent_estate.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_register.xml" value="0.10561268209083119" />
         <entry key="common-ui/src/main/res/layout/fragment_register_for_broker.xml" value="0.1590678824721378" />
+        <entry key="common-ui/src/main/res/layout/fragment_register_house_info.xml" value="0.26766304347826086" />
         <entry key="common-ui/src/main/res/layout/fragment_register_info.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/fragment_search.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_tenant_mode.xml" value="0.25" />

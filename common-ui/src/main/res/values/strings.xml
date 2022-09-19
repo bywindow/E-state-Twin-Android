@@ -31,6 +31,8 @@
     <string name="price_dialog_button_text">가격정보 입력</string>
     <string name="register_house_video_button_text">매물영상 등록</string>
     <string name="register_ar_checklist_button_text">AR체크리스트 등록</string>
+    <string name="house_type_input_hint">건물의 유형을 선택해주세요.</string>
+    <string name="building_name_input_hint">건물의 이름을 입력하세요.</string>
 
     <string name="square_meter">m<sup><small>2</small></sup></string>
 </resources>

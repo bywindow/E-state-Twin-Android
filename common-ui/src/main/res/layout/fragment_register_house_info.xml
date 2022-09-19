@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:id="@+id/house_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_draggable="false"
+        app:behavior_hideable="false"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="14dp">
+
+            <TextView
+                android:id="@+id/house_info_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="건물정보 입력"
+                android:textAppearance="@style/TextAppearance.idiot.tab.title.Text"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_btn_gnb_x"
+                app:layout_constraintBottom_toBottomOf="@id/house_info_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/house_info_title" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="43dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/house_info_title">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="건물유형"
+                    android:textAppearance="@style/TextAppearance.idiot.tab.title.Text" />
+
+                <EditText
+                    android:id="@+id/building_type_selector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/tv_register_address_background"
+                    android:drawableEnd="@drawable/ic_btn_input_drdw"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint="@string/house_type_input_hint"
+                    android:includeFontPadding="false"
+                    android:inputType="none"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="13dp"
+                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:includeFontPadding="false"
+                    android:text="건물이름"
+                    android:textAppearance="@style/TextAppearance.idiot.tab.title.Text" />
+
+                <EditText
+                    android:id="@+id/building_name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/tv_register_address_background"
+                    android:hint="@string/building_name_input_hint"
+                    android:includeFontPadding="false"
+                    android:inputType="text"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="13dp"
+                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

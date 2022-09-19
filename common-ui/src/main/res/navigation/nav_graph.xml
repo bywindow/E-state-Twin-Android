@@ -68,10 +68,18 @@
         <action
             android:id="@+id/action_registerInfoFragment_to_addressSearchDialogFragment"
             app:destination="@id/addressSearchDialogFragment" />
+        <action
+            android:id="@+id/action_registerInfoFragment_to_registerHouseInfoFragment"
+            app:destination="@id/registerHouseInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addressSearchDialogFragment"
         android:name="com.idiot.common_ui.register.AddressSearchDialogFragment"
         android:label="AddressSearchDialogFragment" />
+    <dialog
+        android:id="@+id/registerHouseInfoFragment"
+        android:name="com.idiot.common_ui.register.RegisterHouseInfoFragment"
+        android:label="fragment_register_house_info"
+        tools:layout="@layout/fragment_register_house_info" />
 
 </navigation>
