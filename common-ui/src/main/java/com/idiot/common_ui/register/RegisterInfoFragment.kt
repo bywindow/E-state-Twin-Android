@@ -84,6 +84,13 @@ class RegisterInfoFragment : Fragment() {
         toolbar.setNavigationOnClickListener {
             it.findNavController().navigateUp()
         }
+
+        binding.homeInfoDialogButton.setOnClickListener {
+            openBottomSheetDialog(it)
+        }
+        binding.priceInfoDialogButton.setOnClickListener {
+            openBottomSheetDialog(it)
+        }
     }
 
     private fun initAdapter() {
@@ -162,6 +169,21 @@ class RegisterInfoFragment : Fragment() {
             } else {
                 Snackbar.make(binding.root, "인터넷 연결을 확인해주세요.", Snackbar.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun openBottomSheetDialog(view: View) {
+        when (view.id) {
+            R.id.home_info_dialog_button -> {
+                val direction = RegisterInfoFragmentDirections
+                    .actionRegisterInfoFragmentToRegisterHouseInfoFragment()
+                view.findNavController().navigate(direction)
+            }
+            R.id.price_info_dialog_button -> {
+                //TODO : Add input price page
+                Log.d("register", "price info")
+            }
+            else -> return
         }
     }
 }
