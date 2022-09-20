@@ -3,6 +3,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     compileSdk rootProject.compileSdkVersion
 
@@ -17,6 +20,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "KAKAO_NATIVE_KEY", properties["kakao.native.key"]
     }
 
     buildTypes {
@@ -39,7 +44,7 @@ dependencies {
     implementation project(":data:api")
     implementation project(":data:repository")
     implementation project(":envvar")
-    implementation project(":di")
+    implementation project(':utils')
     implementation project(":common-ui")
 
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
@@ -56,6 +61,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion" // for api
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpLoggingVersion"
+    implementation "com.kakao.sdk:v2-user:$rootProject.kakaoVersion" // kakao login
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

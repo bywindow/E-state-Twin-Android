@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.idiot.feature.login.LoginViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -77,6 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/login_button_size"
                 android:layout_margin="@dimen/login_button_margin"
+                android:focusable="true"
+                android:clickable="true"
                 android:background="@drawable/kakao_login_button_background"
                 android:paddingHorizontal="@dimen/login_icon_margin_start">
 

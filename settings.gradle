@@ -10,6 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 rootProject.name = "E_state_Twin_Android"
@@ -24,6 +25,6 @@ include ':app',
         ':data:api-builder',
         ':data:db',
         ':envvar',
-        ':di'
+        ':utils'
 
 include ':common-ui'

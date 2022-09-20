@@ -10,8 +10,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.idiot.model.users.CommonUser
 
 class LoginViewModel : ViewModel() {
-    private val _commonUserData = MutableLiveData<CommonUser>()
-    val commonUserData: LiveData<CommonUser>
-        get() = _commonUserData
 
+
+    fun kakaoLogin() {
+
+    }
 }
