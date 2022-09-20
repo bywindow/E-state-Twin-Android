@@ -38,6 +38,11 @@
         <item>아파트</item>
         <item>오피스텔</item>
     </string-array>
+    <string-array name="heat_type_list">
+        <item>난방의 종류를 선택해주세요.</item>
+        <item>개별난방</item>
+        <item>중앙난방</item>
+    </string-array>
 
     <string name="square_meter">m<sup><small>2</small></sup></string>
 </resources>

@@ -98,8 +98,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Theme.idiot.BottomSheet" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
-        <item name="behavior_draggable">false</item>
-        <item name="background">@color/white</item>
+    <style name="Theme.idiot.BottomSheet.Rounded" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
     </style>
 </resources>

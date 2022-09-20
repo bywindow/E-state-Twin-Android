@@ -31,7 +31,6 @@ class RegisterInfoOptionAdapter(private val onClick: (HouseOption) -> Unit)
         }
 
         fun bind(item: HouseOption) {
-            Log.d("register", "change")
             currentItem = item
             optionButton.setImageResource(item.icon)
             optionButton.background =

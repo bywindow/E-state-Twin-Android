@@ -24,7 +24,7 @@ class AddressSearchDialogFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, R.style.Theme_idiot_BottomSheet)
+//        setStyle(STYLE_NORMAL, R.style.Theme_idiot_BottomSheet)
     }
 
     override fun onCreateView(
