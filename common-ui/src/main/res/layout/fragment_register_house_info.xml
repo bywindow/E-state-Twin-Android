@@ -54,21 +54,29 @@
                     android:text="건물유형"
                     android:textAppearance="@style/TextAppearance.idiot.tab.title.Text" />
 
-                <EditText
+<!--                <EditText-->
+<!--                    android:id="@+id/building_type_selector"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="6dp"-->
+<!--                    android:background="@drawable/tv_register_address_background"-->
+<!--                    android:drawableEnd="@drawable/ic_btn_input_drdw"-->
+<!--                    android:ems="10"-->
+<!--                    android:focusable="false"-->
+<!--                    android:hint="@string/house_type_input_hint"-->
+<!--                    android:includeFontPadding="false"-->
+<!--                    android:inputType="none"-->
+<!--                    android:paddingHorizontal="15dp"-->
+<!--                    android:paddingVertical="13dp"-->
+<!--                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />-->
+
+
+                <Spinner
                     android:id="@+id/building_type_selector"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:background="@drawable/tv_register_address_background"
-                    android:drawableEnd="@drawable/ic_btn_input_drdw"
-                    android:ems="10"
-                    android:focusable="false"
-                    android:hint="@string/house_type_input_hint"
-                    android:includeFontPadding="false"
-                    android:inputType="none"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="13dp"
-                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                    android:background="@drawable/spinner_background"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:background="@drawable/tv_register_address_background"
+                    android:background="@drawable/register_dialog_button_rounded"
                     android:hint="@string/building_name_input_hint"
                     android:includeFontPadding="false"
                     android:inputType="text"
