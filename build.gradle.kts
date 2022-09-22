@@ -1,22 +1,34 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    repositories {
-        google()
-        jcenter()
-        mavenCentral()
-        /*카카오*/
-//        maven {
-//            url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/'
-//            allowInsecureProtocol true
-//        }
-    }
 
-    dependencies {
-//        classpath "com.android.tools.build:gradle:$gradleVersion"
-//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-//        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
-        classpath(Libraries.agp)
-        classpath(Libraries.kotlin_gradlePlugin)
-        classpath(Libraries.navigation_safeargsPlugin)
+  repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+    /*카카오*/
+    maven{
+      url = uri("http://devrepo.kakao.com:8088/nexus/content/groups/public/")
+      isAllowInsecureProtocol = true
     }
+  }
+
+  dependencies {
+    classpath(com.idiot.e_state_twin_android.Libraries.agp)
+//    classpath(Libraries.ksp)
+    classpath(com.idiot.e_state_twin_android.Libraries.kotlin_gradlePlugin)
+    classpath(com.idiot.e_state_twin_android.Libraries.navigation_safeargsPlugin)
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+    /*카카오*/
+    maven{
+      url = uri("http://devrepo.kakao.com:8088/nexus/content/groups/public/")
+      isAllowInsecureProtocol = true
+    }
+  }
 }

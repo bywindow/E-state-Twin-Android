@@ -16,14 +16,14 @@ class RegisterPictureListViewModel() : ViewModel() {
     fun insertPicture(clipData: ClipData, size: Int) {
         viewModelScope.launch {
             val currentList = _pictureList.value
-            val updatedList = if (currentList == null) mutableListOf<RegisterPicture>() else currentList?.toMutableList()
+            val updatedList = currentList?.toMutableList() ?: mutableListOf<RegisterPicture>()
             (0 until size).forEach {
                 val newItem = RegisterPicture(
                     Random.nextLong(),
                     UUID.randomUUID().toString(),
                     clipData.getItemAt(it).uri
                 )
-                updatedList?.add(newItem)
+              updatedList.add(newItem)
             }
             _pictureList.postValue(updatedList)
         }

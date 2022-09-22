@@ -1,7 +1,5 @@
 package com.idiot.common_ui.register.adapters
 
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil

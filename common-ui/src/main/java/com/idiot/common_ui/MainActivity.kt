@@ -1,14 +1,7 @@
 package com.idiot.common_ui
 
-import android.content.Context
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Handler
-import android.util.Base64
-import android.util.Log
 import android.view.View
-import android.view.ViewTreeObserver
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -17,8 +10,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.idiot.common.MainActivityViewModel
 import com.idiot.common_ui.databinding.ActivityMainBinding
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         initBinding()
         initNavigation()
-        Log.d("keyHash", ""+getKeyHash(this));
+//        Log.d("keyHash", ""+getKeyHash(this));
     }
 
 //    private fun setUpSplashScreen() {
@@ -88,24 +79,24 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.visibility = View.GONE
     }
 
-    fun getKeyHash(context: Context): String? {
-        val pm: PackageManager = context.getPackageManager()
-        try {
-            val packageInfo: PackageInfo =
-                pm.getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES)
-                    ?: return null
-            for (signature in packageInfo.signatures) {
-                try {
-                    val md: MessageDigest = MessageDigest.getInstance("SHA")
-                    md.update(signature.toByteArray())
-                    return Base64.encodeToString(md.digest(), Base64.NO_WRAP)
-                } catch (e: NoSuchAlgorithmException) {
-                    e.printStackTrace()
-                }
-            }
-        } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace()
-        }
-        return null
-    }
+//    fun getKeyHash(context: Context): String? {
+//        val pm: PackageManager = context.getPackageManager()
+//        try {
+//            val packageInfo: PackageInfo =
+//                pm.getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES)
+//                    ?: return null
+//            for (signature in packageInfo.signatures) {
+//                try {
+//                    val md: MessageDigest = MessageDigest.getInstance("SHA")
+//                    md.update(signature.toByteArray())
+//                    return Base64.encodeToString(md.digest(), Base64.NO_WRAP)
+//                } catch (e: NoSuchAlgorithmException) {
+//                    e.printStackTrace()
+//                }
+//            }
+//        } catch (e: PackageManager.NameNotFoundException) {
+//            e.printStackTrace()
+//        }
+//        return null
+//    }
 }

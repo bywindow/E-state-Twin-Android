@@ -1,26 +1,31 @@
+import com.idiot.e_state_twin_android.Libraries
+
 plugins {
   id("com.android.application")
   id("kotlin-android")
   id("kotlin-parcelize")
-  id("kotlin-kapt")
   id("androidx.navigation.safeargs.kotlin")
+//  id("com.google.devtools.ksp")
+  id("kotlin-kapt")
 }
 
 android {
-  compileSdk = Configuration.compileSdk
+  compileSdk = com.idiot.e_state_twin_android.Configuration.compileSdk
   defaultConfig {
     applicationId = "com.idiot.e_state_twin_android"
-    minSdk = Configuration.minSdk
-    targetSdk = Configuration.targetSdk
-    versionCode = Configuration.versionCode
-    versionName = Configuration.versionName
+    minSdk = com.idiot.e_state_twin_android.Configuration.minSdk
+    targetSdk = com.idiot.e_state_twin_android.Configuration.targetSdk
+    versionCode = com.idiot.e_state_twin_android.Configuration.versionCode
+    versionName = com.idiot.e_state_twin_android.Configuration.versionName
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
   }
 
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
   }
 
   buildFeatures {
@@ -29,9 +34,23 @@ android {
   }
 
   buildTypes {
+    getByName("debug") {
+      sourceSets {
+        getByName("main") {
+          java.srcDir(File("build/generated/ksp/debug/kotlin"))
+        }
+      }
+    }
+
     getByName("release") {
       isMinifyEnabled = false
       proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+
+      sourceSets {
+        getByName("main") {
+          java.srcDir(File("build/generated/ksp/release/kotlin"))
+        }
+      }
     }
   }
 
@@ -68,8 +87,6 @@ dependencies {
   implementation(project(":feature:threeviewer"))
   implementation(project(":common"))
   implementation(project(":common-ui"))
-
-  annotationProcessor(Libraries.glide_compiler)
 
   testImplementation(Libraries.junit)
 

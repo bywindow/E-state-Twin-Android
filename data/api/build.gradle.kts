@@ -1,23 +1,26 @@
+import com.idiot.e_state_twin_android.Libraries
+
 plugins {
   id("com.android.library")
   id("kotlin-android")
   id("kotlin-parcelize")
+//  id("com.google.devtools.ksp")
   id("kotlin-kapt")
 }
 
 android {
-  compileSdk = Configuration.compileSdk
+  compileSdk = com.idiot.e_state_twin_android.Configuration.compileSdk
   defaultConfig {
-    minSdk = Configuration.minSdk
-    targetSdk = Configuration.targetSdk
+    minSdk = com.idiot.e_state_twin_android.Configuration.minSdk
+    targetSdk = com.idiot.e_state_twin_android.Configuration.targetSdk
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
   }
 
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
   }
 
   buildFeatures {
@@ -32,9 +35,9 @@ android {
     }
   }
 
-  kotlinOptions {
-    jvmTarget = "1.8"
-  }
+//  kotlinOptions {
+//    jvmTarget = "11"
+//  }
 }
 
 dependencies {

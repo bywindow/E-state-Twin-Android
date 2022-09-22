@@ -1,6 +1,5 @@
 package com.idiot.common.home.viewmodels
 
-import com.idiot.common.R
 import com.idiot.data.api.RecommendedHouse
 
 // need to fix
