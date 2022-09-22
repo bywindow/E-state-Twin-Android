@@ -1,0 +1,1 @@
+/Users/bywindow/dev/e-state-twin-android/buildSrc/build/classes/kotlin/main/Configuration.class:/Users/bywindow/dev/e-state-twin-android/buildSrc/build/classes/kotlin/main/Libraries.class:/Users/bywindow/dev/e-state-twin-android/buildSrc/build/classes/kotlin/main/Versions.class

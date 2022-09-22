@@ -12,7 +12,4 @@ import com.idiot.model.users.CommonUser
 class LoginViewModel : ViewModel() {
 
 
-    fun kakaoLogin() {
-
-    }
 }

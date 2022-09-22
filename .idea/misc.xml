@@ -186,6 +186,7 @@
         <entry key="feature/login/src/main/res/drawable/naver_login_button_background.xml" value="0.16" />
         <entry key="feature/login/src/main/res/font/roboto_medium.xml" value="0.2962962962962963" />
         <entry key="feature/login/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="feature/login/src/main/res/layout/fragment_web_view_dialog.xml" value="0.16168478260869565" />
         <entry key="feature/threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1539855072463768" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
       </map>
