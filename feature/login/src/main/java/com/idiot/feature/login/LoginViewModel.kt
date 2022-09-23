@@ -1,7 +1,6 @@
 package com.idiot.feature.login
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
 import com.idiot.data.repository.AuthRepository
 import com.idiot.model.AuthCodeResponse

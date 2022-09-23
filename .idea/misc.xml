@@ -148,7 +148,7 @@
         <entry key="common-ui/src/main/res/layout/fragment_recent_estate.xml" value="0.1" />
         <entry key="common-ui/src/main/res/layout/fragment_register.xml" value="0.10561268209083119" />
         <entry key="common-ui/src/main/res/layout/fragment_register_for_broker.xml" value="0.1590678824721378" />
-        <entry key="common-ui/src/main/res/layout/fragment_register_house_info.xml" value="0.26766304347826086" />
+        <entry key="common-ui/src/main/res/layout/fragment_register_house_info.xml" value="0.33" />
         <entry key="common-ui/src/main/res/layout/fragment_register_info.xml" value="0.25" />
         <entry key="common-ui/src/main/res/layout/fragment_search.xml" value="0.1590678824721378" />
         <entry key="common-ui/src/main/res/layout/fragment_tenant_mode.xml" value="0.25" />

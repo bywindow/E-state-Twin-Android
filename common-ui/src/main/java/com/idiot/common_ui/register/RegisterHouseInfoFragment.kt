@@ -15,38 +15,48 @@ import com.idiot.common_ui.register.adapters.BuildingTypeSpinnerAdapter
 
 class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentRegisterHouseInfoBinding
+  private lateinit var binding: FragmentRegisterHouseInfoBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, R.style.Theme_idiot_BottomSheet_Rounded)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setStyle(STYLE_NORMAL, R.style.Theme_idiot_BottomSheet_Rounded)
+  }
+
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
+    binding = DataBindingUtil.inflate(
+      inflater, R.layout.fragment_register_house_info, container, false
+    )
+    binding.closeButton.setOnClickListener {
+      dismiss()
     }
+    initSpinners(binding)
+    return binding.root
+  }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_register_house_info, container, false
-        )
-        binding.closeButton.setOnClickListener {
-            dismiss()
-        }
-        initBuildingTypeSpinner(binding)
-        initHeatTypeSpinner(binding)
-        return binding.root
-    }
+  //TODO : save data function
+  private fun initSpinners(binding: FragmentRegisterHouseInfoBinding) {
+    val buildingTypeAdapter = BuildingTypeSpinnerAdapter(
+      requireContext(),
+      R.layout.list_item_building_type_spinner,
+      resources.getStringArray(R.array.building_type_list)
+    )
+    binding.buildingTypeSelector.adapter = buildingTypeAdapter
 
-    //TODO : save data function
+    val heatTypeAdapter = BuildingTypeSpinnerAdapter(
+      requireContext(),
+      R.layout.list_item_building_type_spinner,
+      resources.getStringArray(R.array.heat_type_list)
+    )
+    binding.heatTypeSelector.adapter = heatTypeAdapter
 
-    private fun initBuildingTypeSpinner(binding: FragmentRegisterHouseInfoBinding) {
-        val adapter = BuildingTypeSpinnerAdapter(requireContext(), R.layout.list_item_building_type_spinner, resources.getStringArray(R.array.building_type_list))
-        binding.buildingTypeSelector.adapter = adapter
-    }
-
-    private fun initHeatTypeSpinner(binding: FragmentRegisterHouseInfoBinding) {
-        val adapter = BuildingTypeSpinnerAdapter(requireContext(), R.layout.list_item_building_type_spinner, resources.getStringArray(R.array.heat_type_list))
-        binding.heatTypeSelector.adapter = adapter
-    }
-
+    val roomTypeAdapter = BuildingTypeSpinnerAdapter(
+      requireContext(),
+      R.layout.list_item_building_type_spinner,
+      resources.getStringArray(R.array.room_type_list)
+    )
+    binding.roomTypeSelector.adapter = roomTypeAdapter
+  }
 }
