@@ -7,7 +7,7 @@ buildscript {
     gradlePluginPortal()
     /*카카오*/
     maven{
-      url = uri("http://devrepo.kakao.com:8088/nexus/content/groups/public/")
+      url = uri("https://devrepo.kakao.com/nexus/content/groups/public/")
       isAllowInsecureProtocol = true
     }
   }
@@ -27,7 +27,7 @@ allprojects {
     gradlePluginPortal()
     /*카카오*/
     maven{
-      url = uri("http://devrepo.kakao.com:8088/nexus/content/groups/public/")
+      url = uri("https://devrepo.kakao.com/nexus/content/groups/public/")
       isAllowInsecureProtocol = true
     }
   }

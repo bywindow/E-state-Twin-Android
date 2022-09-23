@@ -73,7 +73,6 @@ dependencies {
   implementation(Libraries.retrofit_gson)
   implementation(Libraries.retrofit)
   implementation(Libraries.okhttp_interceptor)
-  implementation(Libraries.kakao_user)
 
   // DATA
   implementation(project(":data:api"))

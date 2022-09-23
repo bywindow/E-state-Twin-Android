@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.idiot.e_state_twin_android">
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.idiot.e_state_twin_android">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <application
-        android:name=".MainApplication"
-        android:icon="@mipmap/ic_estate_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_estate_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Base.Theme.EStateTwin"
-        android:usesCleartextTraffic="true"
-        tools:ignore="AllowBackup">
+  <application
+    android:name=".MainApplication"
+    android:icon="@mipmap/ic_estate_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_estate_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Base.Theme.EStateTwin"
+    android:usesCleartextTraffic="true"
+    tools:ignore="AllowBackup">
 
-        <activity
-            android:name="com.idiot.feature.login.SplashScreenActivity"
-            android:exported="true"
-            android:theme="@style/Base.Theme.EStateTwin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+<!--    <meta-data-->
+<!--      android:name="com.kakao.sdk.Appkey"-->
+<!--      android:value="@string/kakao_native_app_key"/>-->
 
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="${applicationId}.androidx-startup"
-            android:exported="false"
-            tools:node="merge">
-            <!-- If you are using androidx.startup to initialize other components -->
-            <meta-data
-                android:name="androidx.work.WorkManagerInitializer"
-                android:value="androidx.startup"
-                tools:node="remove" />
-        </provider>
+    <activity
+      android:name="com.idiot.feature.login.SplashScreenActivity"
+      android:exported="true"
+      android:theme="@style/Base.Theme.EStateTwin">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
 
-    </application>
+    <provider
+      android:name="androidx.startup.InitializationProvider"
+      android:authorities="${applicationId}.androidx-startup"
+      android:exported="false"
+      tools:node="merge">
+      <!-- If you are using androidx.startup to initialize other components -->
+      <meta-data
+        android:name="androidx.work.WorkManagerInitializer"
+        android:value="androidx.startup"
+        tools:node="remove" />
+    </provider>
+
+  </application>
 
 </manifest>

@@ -1,4 +1,5 @@
 import com.idiot.e_state_twin_android.Libraries
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
   id("com.android.library")
@@ -16,6 +17,9 @@ android {
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
+
+    buildConfigField("String", "BASE_API", gradleLocalProperties(rootDir).getProperty("base.api"))
+
   }
 
   compileOptions {
@@ -42,11 +46,14 @@ android {
 
 dependencies {
   api(project(":data:api"))
-  implementation(project(":data:repository"))
 
   implementation(Libraries.androidx_core)
   implementation(Libraries.androidx_appcompat)
   implementation(Libraries.material)
+  implementation(Libraries.okhttp_interceptor)
+  api(Libraries.retrofit_gson)
+  api(Libraries.retrofit)
+  implementation(Libraries.kakao_user)
 
   testImplementation(Libraries.junit)
 

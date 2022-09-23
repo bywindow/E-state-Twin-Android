@@ -48,6 +48,8 @@ dependencies {
   implementation(Libraries.material)
   implementation(Libraries.retrofit_gson) // for api
   implementation(Libraries.retrofit)
+  implementation(Libraries.moshi)
+  implementation(Libraries.kakao_user)
 
   testImplementation(Libraries.junit)
 

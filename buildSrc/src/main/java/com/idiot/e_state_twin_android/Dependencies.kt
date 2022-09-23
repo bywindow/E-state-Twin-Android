@@ -75,6 +75,6 @@ object Libraries {
   const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
   const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
   const val circleiamgeview = "de.hdodenhof:circleimageview:${Versions.circleImageView}"
-  const val kakao_user = "com.kakao.sdk:v2-user:${Versions.kakao}"
+  const val kakao_user = "com.kakao.sdk:v2-all:${Versions.kakao}"
   const val junit = "junit:junit:${Versions.junit}"
 }
