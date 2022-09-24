@@ -1,4 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+import com.idiot.e_state_twin_android.Libraries
+
 buildscript {
 
   repositories {
@@ -6,7 +8,7 @@ buildscript {
     mavenCentral()
     gradlePluginPortal()
     /*카카오*/
-    maven{
+    maven {
       url = uri("https://devrepo.kakao.com/nexus/content/groups/public/")
       isAllowInsecureProtocol = true
     }
@@ -17,7 +19,7 @@ buildscript {
 //    classpath(Libraries.ksp)
     classpath(com.idiot.e_state_twin_android.Libraries.kotlin_gradlePlugin)
     classpath(com.idiot.e_state_twin_android.Libraries.navigation_safeargsPlugin)
-      classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
+    classpath(com.idiot.e_state_twin_android.Libraries.sceneform_plugin)
   }
 }
 
@@ -27,7 +29,7 @@ allprojects {
     mavenCentral()
     gradlePluginPortal()
     /*카카오*/
-    maven{
+    maven {
       url = uri("https://devrepo.kakao.com/nexus/content/groups/public/")
       isAllowInsecureProtocol = true
     }
