@@ -17,3 +17,4 @@
 rootProject.name = "E_state_Twin_Android"
 include(":app", ":common", ":common-ui", ":feature:login", ":feature:threeviewer",
   ":data:api", ":data:repository", ":data:api-builder", ":data:db", ":model", ":utils")
+include(":feature:ar")
