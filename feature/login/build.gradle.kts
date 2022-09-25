@@ -65,8 +65,11 @@ dependencies {
   implementation(Libraries.retrofit)
   implementation(Libraries.okhttp_interceptor)
   implementation(Libraries.kakao_user)
+    implementation("androidx.appcompat:appcompat:1.5.1")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-  testImplementation(Libraries.junit)
+    testImplementation(Libraries.junit)
 
   androidTestImplementation(Libraries.androidx_junit)
   androidTestImplementation(Libraries.androidx_espresso)

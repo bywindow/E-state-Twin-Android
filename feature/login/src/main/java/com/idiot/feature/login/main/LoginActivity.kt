@@ -1,4 +1,4 @@
-package com.idiot.feature.login
+package com.idiot.feature.login.main
 
 import android.app.Application
 import android.content.Intent
@@ -13,6 +13,7 @@ import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.common.SignInButton
 import com.idiot.common_ui.MainActivity
+import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivityLoginBinding
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
@@ -20,7 +21,7 @@ import com.kakao.sdk.user.UserApiClient
 class LoginActivity : AppCompatActivity() {
 
   private lateinit var binding: ActivityLoginBinding
-  private val viewModel by viewModels<LoginViewModel>{LoginViewModel.AuthTokenFactory(Application())}
+  private val viewModel by viewModels<LoginViewModel>{ LoginViewModel.AuthTokenFactory(Application()) }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)

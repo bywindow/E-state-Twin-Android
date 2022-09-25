@@ -1,4 +1,4 @@
-package com.idiot.feature.login
+package com.idiot.feature.login.main
 
 import android.app.Application
 import androidx.lifecycle.*
