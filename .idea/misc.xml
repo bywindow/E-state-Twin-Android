@@ -179,6 +179,7 @@
         <entry key="data/repository/src/main/res/drawable/ic_option_refrigerator.xml" value="0.14" />
         <entry key="data/repository/src/main/res/drawable/ic_option_sink.xml" value="0.1665" />
         <entry key="data/repository/src/main/res/drawable/ic_special.xml" value="0.1665" />
+        <entry key="feature/ar/src/main/res/layout/activity_aractivity.xml" value="0.13089117395029992" />
         <entry key="feature/ar/src/main/res/xml/paths.xml" value="0.13046272493573266" />
         <entry key="feature/login/src/main/res/drawable/google_login_button_background.xml" value="0.16" />
         <entry key="feature/login/src/main/res/drawable/ic_btn_google_light_normal_xxxhdpi_9.xml" value="0.16" />
