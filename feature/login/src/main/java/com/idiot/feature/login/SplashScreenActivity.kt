@@ -3,7 +3,7 @@ package com.idiot.feature.login
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.idiot.feature.login.main.LoginActivity
+import com.idiot.feature.login.ui.main.LoginActivity
 import com.kakao.sdk.common.KakaoSdk
 
 class SplashScreenActivity : AppCompatActivity() {

@@ -7,6 +7,7 @@ plugins {
   id("androidx.navigation.safeargs.kotlin")
 //  id("com.google.devtools.ksp")
   id("kotlin-kapt")
+  id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -63,6 +64,8 @@ dependencies {
   implementation(Libraries.androidx_core)
   implementation(Libraries.androidx_appcompat)
   implementation(Libraries.material)
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
   implementation(Libraries.androidx_work)
   implementation(Libraries.navigation_fragment)
   implementation(Libraries.navigation_ui)
