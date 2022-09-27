@@ -1,6 +1,5 @@
 package com.idiot.feature.login.ui.sign
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -10,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ListItemCitiesBinding
+import com.idiot.model.users.UserPreference
 
 class CityAdapter(private val selectedPosition: Int, private val onClick: (Int) -> Unit) :
-  ListAdapter<String, CityAdapter.ViewHolder>(diffUtil) {
+  ListAdapter<UserPreference, CityAdapter.ViewHolder>(diffUtil) {
 
   inner class ViewHolder(private val binding: ListItemCitiesBinding, val onClick: (Int) -> Unit) :
     RecyclerView.ViewHolder(binding.root) {
@@ -26,9 +26,9 @@ class CityAdapter(private val selectedPosition: Int, private val onClick: (Int) 
       }
     }
 
-    fun bind(item: String, position: Int) {
-      binding.city = item
-      binding.isSelected = position == selectedPosition
+    fun bind(item: UserPreference, position: Int) {
+      binding.city = item.name
+      binding.isSelected = item.isChecked
       binding.executePendingBindings()
     }
   }
@@ -53,11 +53,11 @@ class CityAdapter(private val selectedPosition: Int, private val onClick: (Int) 
   }
 
   companion object {
-    private val diffUtil = object : DiffUtil.ItemCallback<String>() {
-      override fun areItemsTheSame(oldItem: String, newItem: String): Boolean =
-        oldItem == newItem
+    private val diffUtil = object : DiffUtil.ItemCallback<UserPreference>() {
+      override fun areItemsTheSame(oldItem: UserPreference, newItem: UserPreference): Boolean =
+        oldItem.isChecked == newItem.isChecked
 
-      override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
+      override fun areContentsTheSame(oldItem: UserPreference, newItem: UserPreference): Boolean =
         oldItem == newItem
     }
   }

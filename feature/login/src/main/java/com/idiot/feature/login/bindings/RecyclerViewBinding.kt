@@ -3,7 +3,7 @@ package com.idiot.feature.login.bindings
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.model.PreferenceCity
+import com.idiot.model.users.UserPreference
 
 object RecyclerViewBinding {
 
@@ -12,9 +12,8 @@ object RecyclerViewBinding {
    */
   @JvmStatic
   @BindingAdapter("adapter", "submitList")
-  fun bindAdapter(view: RecyclerView, adapter: ListAdapter<String, *>, itemList: Array<String>) {
+  fun bindAdapter(view: RecyclerView, adapter: ListAdapter<UserPreference, *>, itemList: List<UserPreference>) {
     view.adapter = adapter
-    val list: List<String> = itemList.toList()
-    adapter.submitList(list.toMutableList())
+    adapter.submitList(itemList.toMutableList())
   }
 }

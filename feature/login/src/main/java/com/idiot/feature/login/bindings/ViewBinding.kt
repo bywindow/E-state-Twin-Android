@@ -1,10 +1,8 @@
 package com.idiot.feature.login.bindings
 
-import android.content.res.Resources
 import android.graphics.Color
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.idiot.feature.login.R
 import com.idiot.feature.login.utils.TransactionTypeUtils

@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
         Log.e("TAG", "failed")
       } else if (tokenInfo != null) {
         Log.d("TAG", "$tokenInfo")
-        viewModel.getUserToken(tokenInfo.id.toString())
+//        viewModel.getUserToken(tokenInfo.id.toString())
       }
     }
     UserApiClient.instance.me { user, error ->
