@@ -166,6 +166,8 @@
           android:layout_weight="2.5"
           android:clipToPadding="false"
           android:fadeScrollbars="true"
+          adapter="@{cityAdapter}"
+          submitList="@{vm.cityList}"
           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
           tools:listitem="@layout/list_item_cities"/>
 

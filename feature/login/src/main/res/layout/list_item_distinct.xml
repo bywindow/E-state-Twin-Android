@@ -5,7 +5,7 @@
 
   <data>
     <variable
-      name="city"
+      name="distinct"
       type="String" />
   </data>
 
@@ -14,18 +14,19 @@
     android:layout_height="wrap_content">
 
     <TextView
-      android:id="@+id/cities_text_view"
+      android:id="@+id/distinct_text_view"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:gravity="center"
-      android:text="@{city}"
-      android:textColor="@color/black"
+      android:gravity="start"
+      android:text="@{distinct}"
+      android:textColor="@color/gray_500"
       android:paddingVertical="10dp"
+      android:paddingHorizontal="@dimen/app_horizontal_padding"
       android:textSize="14sp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      tools:text="서울" />
+      tools:text="강남구" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

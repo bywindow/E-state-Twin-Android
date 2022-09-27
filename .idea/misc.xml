@@ -197,6 +197,7 @@
         <entry key="feature/login/src/main/res/layout/fragment_web_view_dialog.xml" value="0.16168478260869565" />
         <entry key="feature/login/src/main/res/layout/list_item_address.xml" value="0.13046272493573266" />
         <entry key="feature/login/src/main/res/layout/list_item_cities.xml" value="0.25" />
+        <entry key="feature/login/src/main/res/layout/list_item_distinct.xml" value="0.33" />
         <entry key="feature/threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1539855072463768" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
       </map>

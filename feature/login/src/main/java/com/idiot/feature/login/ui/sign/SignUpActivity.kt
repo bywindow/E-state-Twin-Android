@@ -17,8 +17,9 @@ class SignUpActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
     binding.vm = viewModel
+    binding.cityAdapter = CityAdapter()
 
-    initCityList()
+//    initCityList()
   }
 
   fun initCityList() {
