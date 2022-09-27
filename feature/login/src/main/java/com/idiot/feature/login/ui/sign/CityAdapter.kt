@@ -1,22 +1,32 @@
 package com.idiot.feature.login.ui.sign
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ListItemCitiesBinding
-import com.idiot.model.PreferenceCity
 
-class CityAdapter : ListAdapter<String, CityAdapter.ViewHolder>(diffUtil) {
+class CityAdapter(private val selectedPosition: Int) : ListAdapter<String, CityAdapter.ViewHolder>(diffUtil) {
 
   inner class ViewHolder(private val binding: ListItemCitiesBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: String) {
+    init {
+      binding.root.setOnClickListener {
+        val position =
+          bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
+        Log.d("TAG", "$position")
+      }
+    }
+
+    fun bind(item: String, position: Int) {
       binding.city = item
+      binding.isSelected = position == selectedPosition
       binding.executePendingBindings()
     }
   }
@@ -37,7 +47,7 @@ class CityAdapter : ListAdapter<String, CityAdapter.ViewHolder>(diffUtil) {
   }
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.bind(getItem(position))
+    holder.bind(getItem(position), position)
   }
 
   companion object {

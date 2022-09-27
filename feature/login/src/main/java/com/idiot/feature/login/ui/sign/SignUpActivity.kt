@@ -16,17 +16,18 @@ class SignUpActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
+    binding.lifecycleOwner = this
     binding.vm = viewModel
-    binding.cityAdapter = CityAdapter()
+    binding.cityAdapter = CityAdapter(0)
 
 //    initCityList()
   }
 
-  fun initCityList() {
-    val cityAdapter = CityAdapter()
-    binding.citiesRecyclerview.adapter = cityAdapter
-    lifecycleScope.launchWhenStarted {
-      cityAdapter.submitList(viewModel.cityList.toList())
-    }
-  }
+//  fun initCityList() {
+//    val cityAdapter = CityAdapter(viewModel.preferenceCity)
+//    binding.citiesRecyclerview.adapter = cityAdapter
+//    lifecycleScope.launchWhenStarted {
+//      cityAdapter.submitList(viewModel.cityList.toList())
+//    }
+//  }
 }

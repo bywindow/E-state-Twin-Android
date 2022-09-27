@@ -5,7 +5,6 @@
   tools:context=".ui.sign.SignUpActivity">
 
   <data>
-
     <variable
       name="cityAdapter"
       type="com.idiot.feature.login.ui.sign.CityAdapter" />
@@ -70,7 +69,9 @@
         android:background="@drawable/user_info_button_background"
         android:gravity="center"
         android:paddingVertical="8dp"
-        android:text="매매" />
+        android:text="매매"
+        selectedType="@{vm.preferenceTrans}"
+        android:onClick="@{() -> vm.changePrefTrans(1)}"/>
 
       <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/lease_button"
@@ -80,7 +81,9 @@
         android:background="@drawable/user_info_button_background"
         android:gravity="center"
         android:paddingVertical="8dp"
-        android:text="전세" />
+        android:text="전세"
+        selectedType="@{vm.preferenceTrans}"
+        android:onClick="@{() -> vm.changePrefTrans(2)}"/>
 
       <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/monthly_button"
@@ -90,7 +93,9 @@
         android:background="@drawable/user_info_button_background"
         android:gravity="center"
         android:paddingVertical="8dp"
-        android:text="월세" />
+        android:text="월세"
+        selectedType="@{vm.preferenceTrans}"
+        android:onClick="@{() -> vm.changePrefTrans(3)}"/>
     </LinearLayout>
 
     <LinearLayout
@@ -111,7 +116,9 @@
         android:background="@drawable/user_info_button_background"
         android:gravity="center"
         android:paddingVertical="8dp"
-        android:text="아파트" />
+        android:text="아파트"
+        selectedEstate="@{vm.preferenceEstate}"
+        android:onClick="@{() -> vm.changePrefEstate(1)}"/>
 
       <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/officetel_button"
@@ -121,7 +128,9 @@
         android:background="@drawable/user_info_button_background"
         android:gravity="center"
         android:paddingVertical="8dp"
-        android:text="오피스텔" />
+        android:text="오피스텔"
+        selectedEstate="@{vm.preferenceEstate}"
+        android:onClick="@{() -> vm.changePrefEstate(2)}"/>
     </LinearLayout>
 
     <TextView
@@ -161,15 +170,16 @@
 
         <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/cities_recyclerview"
+          adapter="@{cityAdapter}"
+          submitList="@{vm.cityList}"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
+          android:layout_marginVertical="1dp"
           android:layout_weight="2.5"
           android:clipToPadding="false"
           android:fadeScrollbars="true"
-          adapter="@{cityAdapter}"
-          submitList="@{vm.cityList}"
           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-          tools:listitem="@layout/list_item_cities"/>
+          tools:listitem="@layout/list_item_cities" />
 
         <View
           android:id="@+id/region_Decor"
