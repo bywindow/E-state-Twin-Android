@@ -4,9 +4,14 @@
   xmlns:tools="http://schemas.android.com/tools">
 
   <data>
+
     <variable
       name="distinct"
       type="String" />
+
+    <variable
+      name="isSelected"
+      type="Boolean" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,13 +20,14 @@
 
     <TextView
       android:id="@+id/distinct_text_view"
+      isSubCity="@{isSelected}"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:gravity="start"
+      android:paddingHorizontal="@dimen/app_horizontal_padding"
+      android:paddingVertical="10dp"
       android:text="@{distinct}"
       android:textColor="@color/gray_500"
-      android:paddingVertical="10dp"
-      android:paddingHorizontal="@dimen/app_horizontal_padding"
       android:textSize="14sp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"

@@ -71,4 +71,13 @@ object ViewBinding {
     }
   }
 
+  @JvmStatic
+  @BindingAdapter("isSubCity")
+  fun bindIsSubCity(view: TextView, isChecked: Boolean) {
+    if (isChecked) {
+      view.setTextColor(Color.BLACK)
+    } else {
+      view.setTextColor(Color.LTGRAY)
+    }
+  }
 }

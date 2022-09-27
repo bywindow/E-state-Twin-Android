@@ -22,6 +22,7 @@ class SignUpActivity : AppCompatActivity() {
       CityAdapter(selectedPosition = viewModel.preferenceCity.value, onClick = { pos ->
         viewModel.changePrefCity(pos)
       })
+    binding.subCityAdapter = SubCityAdapter { pos -> viewModel.changePrefSubCity(pos) }
 
 //    initCityList()
   }
