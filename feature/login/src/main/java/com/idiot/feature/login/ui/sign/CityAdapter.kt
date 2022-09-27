@@ -11,16 +11,18 @@ import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ListItemCitiesBinding
 
-class CityAdapter(private val selectedPosition: Int) : ListAdapter<String, CityAdapter.ViewHolder>(diffUtil) {
+class CityAdapter(private val selectedPosition: Int, private val onClick: (Int) -> Unit) :
+  ListAdapter<String, CityAdapter.ViewHolder>(diffUtil) {
 
-  inner class ViewHolder(private val binding: ListItemCitiesBinding) :
+  inner class ViewHolder(private val binding: ListItemCitiesBinding, val onClick: (Int) -> Unit) :
     RecyclerView.ViewHolder(binding.root) {
 
     init {
       binding.root.setOnClickListener {
         val position =
           bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
-        Log.d("TAG", "$position")
+//        Log.d("TAG", "$position")
+        onClick(position)
       }
     }
 
@@ -38,7 +40,7 @@ class CityAdapter(private val selectedPosition: Int) : ListAdapter<String, CityA
         R.layout.list_item_cities,
         parent,
         false
-      )
+      ), onClick
     )
   }
 

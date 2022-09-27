@@ -18,7 +18,10 @@ class SignUpActivity : AppCompatActivity() {
     binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
     binding.lifecycleOwner = this
     binding.vm = viewModel
-    binding.cityAdapter = CityAdapter(0)
+    binding.cityAdapter =
+      CityAdapter(selectedPosition = viewModel.preferenceCity.value, onClick = { pos ->
+        viewModel.changePrefCity(pos)
+      })
 
 //    initCityList()
   }

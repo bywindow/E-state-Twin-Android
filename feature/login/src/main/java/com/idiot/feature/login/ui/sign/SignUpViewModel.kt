@@ -35,6 +35,10 @@ class SignUpViewModel @Inject constructor(application: Application) :
   fun changePrefEstate(type: Int) {
     _preferenceEstate.value = type
   }
+
+  fun changePrefCity() {
+
+  }
 }
 
 //data class CityList(var city: List<City>)
