@@ -16,14 +16,10 @@
     android:usesCleartextTraffic="true"
     tools:ignore="AllowBackup">
 
-<!--    <meta-data-->
-<!--      android:name="com.kakao.sdk.Appkey"-->
-<!--      android:value="@string/kakao_native_app_key"/>-->
-
     <activity
       android:name="com.idiot.feature.login.SplashScreenActivity"
       android:exported="true"
-      android:theme="@style/Base.Theme.EStateTwin">
+      android:launchMode="singleTop">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
@@ -32,12 +28,12 @@
 
     <provider
       android:name="androidx.startup.InitializationProvider"
-      android:authorities="${applicationId}.androidx-startup"
+      android:authorities="com.idiot.e_state_twin_android.androidx-startup"
       android:exported="false"
       tools:node="merge">
       <!-- If you are using androidx.startup to initialize other components -->
       <meta-data
-        android:name="androidx.work.WorkManagerInitializer"
+        android:name="com.idiot.e_state_twin_android.TimberInitializer"
         android:value="androidx.startup"
         tools:node="remove" />
     </provider>

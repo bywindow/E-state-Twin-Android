@@ -16,7 +16,6 @@ class SplashScreenActivity : AppCompatActivity() {
          */
         KakaoSdk.init(this, BuildConfig.KAKAO_NATIVE_KEY)
         startActivity(Intent(this, LoginActivity::class.java))
-//        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 }
