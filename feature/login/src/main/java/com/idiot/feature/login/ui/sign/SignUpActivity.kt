@@ -1,10 +1,12 @@
 package com.idiot.feature.login.ui.sign
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import com.idiot.common_ui.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivitySignUpBinding
 
@@ -24,14 +26,13 @@ class SignUpActivity : AppCompatActivity() {
       })
     binding.subCityAdapter = SubCityAdapter { pos -> viewModel.changePrefSubCity(pos) }
 
-//    initCityList()
+    initCompleteButton()
   }
 
-//  fun initCityList() {
-//    val cityAdapter = CityAdapter(viewModel.preferenceCity)
-//    binding.citiesRecyclerview.adapter = cityAdapter
-//    lifecycleScope.launchWhenStarted {
-//      cityAdapter.submitList(viewModel.cityList.toList())
-//    }
-//  }
+  fun initCompleteButton() {
+    binding.completeButton.setOnClickListener {
+      startActivity(Intent(this, MainActivity::class.java))
+      finish()
+    }
+  }
 }
