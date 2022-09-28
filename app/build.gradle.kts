@@ -73,6 +73,7 @@ dependencies {
   implementation(Libraries.lifecycle_viewmodel)
   implementation(Libraries.androidx_viewpager)
   implementation(Libraries.androidx_splash)
+  implementation(Libraries.timber)
   implementation(Libraries.retrofit_gson)
   implementation(Libraries.retrofit)
   implementation(Libraries.okhttp_interceptor)
