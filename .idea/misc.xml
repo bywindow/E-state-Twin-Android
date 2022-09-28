@@ -202,6 +202,11 @@
         <entry key="feature/login/src/main/res/layout/list_item_cities.xml" value="0.25" />
         <entry key="feature/login/src/main/res/layout/list_item_distinct.xml" value="0.33" />
         <entry key="feature/threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1539855072463768" />
+        <entry key="login/src/main/res/font/roboto_medium.xml" value="0.34210526315789475" />
+        <entry key="login/src/main/res/layout/activity_login.xml" value="0.24682971014492755" />
+        <entry key="login/src/main/res/layout/activity_sign_up.xml" value="0.24682971014492755" />
+        <entry key="login/src/main/res/layout/list_item_cities.xml" value="0.24682971014492755" />
+        <entry key="login/src/main/res/layout/list_item_distinct.xml" value="0.24682971014492755" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
       </map>
     </option>

@@ -7,5 +7,5 @@
     <item name="colorAccent">@color/purple_700</item>
     <item name="colorControlHighlight">@color/purple_700</item>
   </style>
-  
+
 </resources>
