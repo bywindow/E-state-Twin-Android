@@ -19,8 +19,13 @@ buildscript {
 //    classpath(Libraries.ksp)
     classpath(com.idiot.e_state_twin_android.Libraries.kotlin_gradlePlugin)
     classpath(com.idiot.e_state_twin_android.Libraries.navigation_safeargsPlugin)
+<<<<<<< HEAD
     classpath(com.idiot.e_state_twin_android.Libraries.sceneform_plugin)
     classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
+=======
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
+    classpath(com.idiot.e_state_twin_android.Libraries.hilt_plugin)
+>>>>>>> master
   }
 }
 

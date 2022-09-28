@@ -182,13 +182,22 @@
         <entry key="feature/ar/src/main/res/layout/activity_aractivity.xml" value="0.13089117395029992" />
         <entry key="feature/ar/src/main/res/xml/paths.xml" value="0.13046272493573266" />
         <entry key="feature/login/src/main/res/drawable/google_login_button_background.xml" value="0.16" />
+        <entry key="feature/login/src/main/res/drawable/ic_btn_gnb_x.xml" value="0.1925" />
         <entry key="feature/login/src/main/res/drawable/ic_btn_google_light_normal_xxxhdpi_9.xml" value="0.16" />
         <entry key="feature/login/src/main/res/drawable/ic_login_kakao.xml" value="0.142" />
         <entry key="feature/login/src/main/res/drawable/kakao_login_button_background.xml" value="0.142" />
         <entry key="feature/login/src/main/res/drawable/naver_login_button_background.xml" value="0.16" />
+        <entry key="feature/login/src/main/res/drawable/sign_up_complete_button_background.xml" value="0.2555" />
+        <entry key="feature/login/src/main/res/drawable/user_info_button_selector.xml" value="0.1745" />
+        <entry key="feature/login/src/main/res/drawable/user_info_button_text_selector.xml" value="0.1745" />
         <entry key="feature/login/src/main/res/font/roboto_medium.xml" value="0.2962962962962963" />
         <entry key="feature/login/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="feature/login/src/main/res/layout/activity_sign_in.xml" value="0.12510711225364182" />
+        <entry key="feature/login/src/main/res/layout/activity_sign_up.xml" value="0.376793208445048" />
         <entry key="feature/login/src/main/res/layout/fragment_web_view_dialog.xml" value="0.16168478260869565" />
+        <entry key="feature/login/src/main/res/layout/list_item_address.xml" value="0.13046272493573266" />
+        <entry key="feature/login/src/main/res/layout/list_item_cities.xml" value="0.25" />
+        <entry key="feature/login/src/main/res/layout/list_item_distinct.xml" value="0.33" />
         <entry key="feature/threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1539855072463768" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
       </map>

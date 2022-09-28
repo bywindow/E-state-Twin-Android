@@ -4,16 +4,16 @@
 
   <application>
     <activity
-      android:name=".LoginActivity"
+      android:name="com.idiot.feature.login.ui.main.LoginActivity"
       android:exported="true"
       android:screenOrientation="portrait"
       android:theme="@style/Base.Theme.EstateTwin.Login" />
-
     <activity
       android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
       android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
+
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
 
@@ -22,6 +22,10 @@
           android:scheme="kakao4a7c8a7f7d39ee580ac8fcc3aec6d396" />
       </intent-filter>
     </activity>
+
+    <activity
+      android:name=".ui.sign.SignUpActivity"
+      android:exported="false" />
   </application>
 
 </manifest>

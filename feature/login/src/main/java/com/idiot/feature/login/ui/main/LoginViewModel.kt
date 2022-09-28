@@ -1,4 +1,4 @@
-package com.idiot.feature.login
+package com.idiot.feature.login.ui.main
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -11,13 +11,14 @@ class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
   val authTokens: LiveData<AuthCodeResponse>
     get() = _authTokens
 
-  fun getAuthToken(code: String) {
+  fun getUserToken(code: String) {
     viewModelScope.launch {
       val tokens = repository.load(code)
       _authTokens.postValue(tokens)
     }
   }
 
+  @Suppress("UNCHECKED_CAST")
   class AuthTokenFactory(private val application: Application): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
       return LoginViewModel(AuthRepository.getInstance(application)!!) as T

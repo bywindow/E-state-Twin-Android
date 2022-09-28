@@ -1,4 +1,4 @@
-package com.idiot.feature.login
+package com.idiot.feature.login.ui.main
 
 import android.app.Application
 import android.content.Intent
@@ -13,14 +13,16 @@ import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.common.SignInButton
 import com.idiot.common_ui.MainActivity
+import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivityLoginBinding
+import com.idiot.feature.login.ui.sign.SignUpActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
 
 class LoginActivity : AppCompatActivity() {
 
   private lateinit var binding: ActivityLoginBinding
-  private val viewModel by viewModels<LoginViewModel>{LoginViewModel.AuthTokenFactory(Application())}
+  private val viewModel by viewModels<LoginViewModel>{ LoginViewModel.AuthTokenFactory(Application()) }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -64,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
         Log.e("TAG", "failed")
       } else if (tokenInfo != null) {
         Log.d("TAG", "$tokenInfo")
-        viewModel.getAuthToken(tokenInfo.id.toString())
+//        viewModel.getUserToken(tokenInfo.id.toString())
       }
     }
     UserApiClient.instance.me { user, error ->
@@ -122,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
 
   private fun initContinueButton() {
     binding.continueButton.setOnClickListener {
-      startActivity(Intent(this, MainActivity::class.java))
+      startActivity(Intent(this, SignUpActivity::class.java))
       finish()
     }
   }

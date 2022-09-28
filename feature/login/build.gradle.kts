@@ -7,6 +7,7 @@ plugins {
   id("kotlin-parcelize")
 //  id("com.google.devtools.ksp")
   id("kotlin-kapt")
+  id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -18,7 +19,11 @@ android {
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
 
-    buildConfigField("String", "KAKAO_NATIVE_KEY", gradleLocalProperties(rootDir).getProperty("kakao.native.key"))
+    buildConfigField(
+      "String",
+      "KAKAO_NATIVE_KEY",
+      gradleLocalProperties(rootDir).getProperty("kakao.native.key")
+    )
   }
 
   compileOptions {
@@ -54,6 +59,8 @@ dependencies {
   implementation(Libraries.androidx_core)
   implementation(Libraries.androidx_appcompat)
   implementation(Libraries.material)
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
   implementation(Libraries.androidx_constraintLayout)
   implementation(Libraries.androidx_work)
   implementation(Libraries.navigation_fragment)
@@ -65,6 +72,9 @@ dependencies {
   implementation(Libraries.retrofit)
   implementation(Libraries.okhttp_interceptor)
   implementation(Libraries.kakao_user)
+  implementation("androidx.appcompat:appcompat:1.5.1")
+  implementation("com.google.android.material:material:1.4.0")
+  implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
   testImplementation(Libraries.junit)
 
