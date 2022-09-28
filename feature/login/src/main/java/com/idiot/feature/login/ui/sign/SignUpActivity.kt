@@ -29,7 +29,7 @@ class SignUpActivity : AppCompatActivity() {
     initCompleteButton()
   }
 
-  fun initCompleteButton() {
+  private fun initCompleteButton() {
     binding.completeButton.setOnClickListener {
       startActivity(Intent(this, MainActivity::class.java))
       finish()
