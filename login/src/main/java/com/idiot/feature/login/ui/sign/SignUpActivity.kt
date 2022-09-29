@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import com.idiot.common_ui.MainActivity
+import com.idiot.common.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivitySignUpBinding
 
@@ -30,7 +30,7 @@ class SignUpActivity : AppCompatActivity() {
 
   private fun initCompleteButton() {
     binding.completeButton.setOnClickListener {
-      startActivity(Intent(this, MainActivity::class.java))
+      startActivity(Intent(this, com.idiot.common.MainActivity::class.java))
       finish()
     }
   }

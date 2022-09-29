@@ -17,7 +17,7 @@
     tools:ignore="AllowBackup">
 
     <activity
-      android:name="com.idiot.feature.login.SplashScreenActivity"
+      android:name="com.idiot.feature.login.ui.SplashScreenActivity"
       android:exported="true"
       android:launchMode="singleTop">
       <intent-filter>

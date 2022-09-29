@@ -5,7 +5,6 @@ import android.graphics.Color
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import com.idiot.feature.login.R
-import dagger.hilt.android.internal.Contexts.getApplication
 
 object TransactionTypeUtils {
 
@@ -15,7 +14,7 @@ object TransactionTypeUtils {
   }
 
   fun getActiveColor(view: AppCompatButton) {
-    view.setBackgroundColor(ContextCompat.getColor(view.context, com.idiot.common_ui.R.color.purple_700))
+    view.setBackgroundColor(ContextCompat.getColor(view.context, com.idiot.home.R.color.purple_700))
     view.setTextColor(Color.WHITE)
   }
 

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.idiot.common_ui">
+  package="com.idiot.home">
 
-    <application>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"/>
-    </application>
+  <application>
+    <activity
+      android:name="com.idiot.common.MainActivity"
+      android:launchMode="singleTop"
+      android:exported="true" />
+  </application>
 
 </manifest>

@@ -182,6 +182,11 @@
         <entry key="data/repository/src/main/res/drawable/ic_option_refrigerator.xml" value="0.14" />
         <entry key="data/repository/src/main/res/drawable/ic_option_sink.xml" value="0.1665" />
         <entry key="data/repository/src/main/res/drawable/ic_special.xml" value="0.1665" />
+        <entry key="dip/src/main/res/drawable/tab_indicator_register_request.xml" value="0.241" />
+        <entry key="dip/src/main/res/layout/fragment_inquiry_estate.xml" value="0.1546700942587832" />
+        <entry key="dip/src/main/res/layout/fragment_interest.xml" value="0.21331521739130435" />
+        <entry key="dip/src/main/res/layout/fragment_recent_estate.xml" value="0.1546700942587832" />
+        <entry key="dip/src/main/res/layout/toolbar_layout.xml" value="0.1546700942587832" />
         <entry key="feature/ar/src/main/res/layout/activity_aractivity.xml" value="0.13089117395029992" />
         <entry key="feature/ar/src/main/res/xml/paths.xml" value="0.13046272493573266" />
         <entry key="feature/login/src/main/res/drawable/google_login_button_background.xml" value="0.16" />
@@ -202,12 +207,29 @@
         <entry key="feature/login/src/main/res/layout/list_item_cities.xml" value="0.25" />
         <entry key="feature/login/src/main/res/layout/list_item_distinct.xml" value="0.33" />
         <entry key="feature/threeviewer/src/main/res/layout/activity_viewer.xml" value="0.1539855072463768" />
+        <entry key="home/src/main/res/drawable/appbar_search_rounded.xml" value="0.2565" />
+        <entry key="home/src/main/res/layout/activity_main.xml" value="0.1546700942587832" />
+        <entry key="home/src/main/res/layout/fragment_address_search_dialog.xml" value="0.14824335904027422" />
+        <entry key="home/src/main/res/layout/fragment_dip_estate.xml" value="0.1546700942587832" />
+        <entry key="home/src/main/res/layout/fragment_home.xml" value="0.1546700942587832" />
+        <entry key="home/src/main/res/layout/fragment_interest.xml" value="0.1546700942587832" />
+        <entry key="home/src/main/res/layout/layout_more_tab.xml" value="0.33" />
+        <entry key="home/src/main/res/layout/toolbar_layout.xml" value="0.1546700942587832" />
         <entry key="login/src/main/res/font/roboto_medium.xml" value="0.34210526315789475" />
         <entry key="login/src/main/res/layout/activity_login.xml" value="0.24682971014492755" />
         <entry key="login/src/main/res/layout/activity_sign_up.xml" value="0.24682971014492755" />
         <entry key="login/src/main/res/layout/list_item_cities.xml" value="0.24682971014492755" />
         <entry key="login/src/main/res/layout/list_item_distinct.xml" value="0.24682971014492755" />
+        <entry key="more/src/main/res/drawable/ic_navigate_up.xml" value="0.16" />
+        <entry key="more/src/main/res/layout/list_item_register_option.xml" value="0.29393115942028986" />
+        <entry key="more/src/main/res/layout/list_new_register_request.xml" value="0.14824335904027422" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
+        <entry key="utils/src/main/res/drawable/ic_navigate_up.xml" value="0.1775" />
+        <entry key="utils/src/main/res/font-v26/ff_notosanskr_regular.xml" value="0.39897435897435896" />
+        <entry key="utils/src/main/res/font-v26/pretendard.xml" value="0.39897435897435896" />
+        <entry key="utils/src/main/res/font/ff_notosanskr_regular.xml" value="0.33766233766233766" />
+        <entry key="utils/src/main/res/font/pretendard.xml" value="0.33766233766233766" />
+        <entry key="utils/src/main/res/layout/toolbar_layout.xml" value="0.1546700942587832" />
       </map>
     </option>
   </component>

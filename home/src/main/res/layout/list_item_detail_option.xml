@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.idiot.common.detail.viewmodels.HouseOptionViewModel" />
+            type="com.idiot.home.ui.HouseOptionViewModel" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat

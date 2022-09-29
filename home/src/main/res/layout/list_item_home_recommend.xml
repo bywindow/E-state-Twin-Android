@@ -14,7 +14,7 @@
         <!--        Add viewmodel -->
         <variable
             name="viewModel"
-            type="com.idiot.common.home.viewmodels.UserRecommendViewModel" />
+            type="com.idiot.home.ui.UserRecommendViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

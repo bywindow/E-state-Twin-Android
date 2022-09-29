@@ -90,6 +90,7 @@ dependencies {
   implementation(project(":feature:threeviewer"))
   implementation(project(":common"))
   implementation(project(":home"))
+  implementation(project(":more"))
 
   testImplementation(Libraries.junit)
 

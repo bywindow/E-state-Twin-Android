@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.common.SignInButton
-import com.idiot.common_ui.MainActivity
+import com.idiot.common.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivityLoginBinding
 import com.idiot.feature.login.ui.sign.SignUpActivity
@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
         }
       }
     }
-    val intent = Intent(applicationContext, MainActivity::class.java)
+    val intent = Intent(applicationContext, com.idiot.common.MainActivity::class.java)
     startActivity(intent)
     finish()
   }

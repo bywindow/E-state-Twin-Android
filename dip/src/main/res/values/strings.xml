@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="interest">관심목록</string>
+  <string name="recent_estate">최근 본 방</string>
+  <string name="dip_estate">찜한 방</string>
+  <string name="inquiry_estate">문의한 방</string>
+</resources>
