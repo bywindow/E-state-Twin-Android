@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                   
+
+    
+
+                 
+                       
+                            
+           
+
+    <TextView
+        android:id="@+id/building_type_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="13dp"
+                              
+        android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+        tools:text="오피스텔"  android:tag="layout/list_item_building_type_spinner_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"/>
+         

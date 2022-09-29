@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    
+                 
+                        
+                            
+           
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false" android:tag="layout/list_new_register_request_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="133dp"
+            android:paddingHorizontal="15dp"
+            android:paddingTop="17dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/house_name_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.idiot.title.Text"
+                android:textSize="17sp"
+                android:text="아크로리버하임" />
+            <TextView
+                android:id="@+id/house_address_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
+                android:textSize="12sp"
+                android:paddingTop="3dp"
+                android:gravity="start"
+                android:text="서울특별시 서초구 신반포로15길 19 101동 1207호"/>
+            <TextView
+                android:id="@+id/owner_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="binding_1"           
+                android:paddingTop="10dp"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+         

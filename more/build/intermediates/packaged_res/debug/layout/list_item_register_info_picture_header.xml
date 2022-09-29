@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                        
+
+    
+
+                 
+                                
+                                                       
+           
+
+    <LinearLayout
+        android:id="@+id/register_add_picture_button"
+        android:layout_width="160dp"
+        android:layout_height="116dp"
+        android:layout_marginStart="@dimen/app_horizontal_padding"
+        android:layout_marginEnd="@dimen/picture_item_margin_side"
+        android:background="@drawable/register_add_picture_rounded"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+                                          
+        android:orientation="horizontal" android:tag="layout/list_item_register_info_picture_header_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_add_picture" />
+    </LinearLayout>
+
+         

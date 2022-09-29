@@ -1,0 +1,58 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.idiot.feature.login" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="24"
+6-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="32" />
+7-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
+8
+9    <application>
+9-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:5:3-29:17
+10        <activity
+10-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:6:5-10:60
+11            android:name="com.idiot.feature.login.ui.main.LoginActivity"
+11-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:7:7-67
+12            android:exported="true"
+12-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:8:7-30
+13            android:screenOrientation="portrait"
+13-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:9:7-43
+14            android:theme="@style/Base.Theme.EstateTwin.Login" />
+14-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:10:7-57
+15        <activity
+15-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:11:5-24:16
+16            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+16-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:12:7-64
+17            android:exported="true" >
+17-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:13:7-30
+18            <intent-filter>
+18-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:14:7-23:23
+19                <action android:name="android.intent.action.VIEW" />
+19-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:15:9-61
+19-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:15:17-58
+20
+21                <category android:name="android.intent.category.DEFAULT" />
+21-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:17:9-68
+21-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:17:19-65
+22                <category android:name="android.intent.category.BROWSABLE" />
+22-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:18:9-70
+22-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:18:19-67
+23
+24                <data
+24-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:20:9-22:68
+25                    android:host="oauth"
+25-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:21:11-31
+26                    android:scheme="kakao4a7c8a7f7d39ee580ac8fcc3aec6d396" />
+26-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:22:11-65
+27            </intent-filter>
+28        </activity>
+29        <activity
+29-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:26:5-28:34
+30            android:name="com.idiot.feature.login.ui.sign.SignUpActivity"
+30-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:27:7-45
+31            android:exported="false" />
+31-->/Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:28:7-31
+32    </application>
+33
+34</manifest>

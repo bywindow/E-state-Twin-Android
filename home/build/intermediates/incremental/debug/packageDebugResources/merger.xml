@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res"/><source path="/Users/bywindow/dev/e-state-twin-android/home/build/generated/res/rs/debug"/><source path="/Users/bywindow/dev/e-state-twin-android/home/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res"><file path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/values-v27/styles.xml" qualifiers="v27"/><file name="ic_detail_house_video" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_house_video.xml" qualifiers="" type="drawable"/><file name="appbar_search_rounded" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/appbar_search_rounded.xml" qualifiers="" type="drawable"/><file name="img_banner_home_owner" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/img_banner_home_owner.xml" qualifiers="" type="drawable"/><file name="ic_home_active" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_home_active.xml" qualifiers="" type="drawable"/><file name="ic_detail_room" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_room.xml" qualifiers="" type="drawable"/><file name="home_contents_rounded" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/home_contents_rounded.xml" qualifiers="" type="drawable"/><file name="divider_detail_content" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/divider_detail_content.xml" qualifiers="" type="drawable"/><file name="home_appbar_rounded" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/home_appbar_rounded.xml" qualifiers="" type="drawable"/><file name="ic_interest_inactive" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_interest_inactive.xml" qualifiers="" type="drawable"/><file name="ic_btn_change_thumbnail" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_btn_change_thumbnail.xml" qualifiers="" type="drawable"/><file name="card_image_rounded" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/card_image_rounded.xml" qualifiers="" type="drawable"/><file name="ic_search_inactive" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_search_inactive.xml" qualifiers="" type="drawable"/><file name="register_add_picture_rounded" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/register_add_picture_rounded.xml" qualifiers="" type="drawable"/><file name="ic_more_inactive" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_more_inactive.xml" qualifiers="" type="drawable"/><file name="ic_btn_gnb_share" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_btn_gnb_share.xml" qualifiers="" type="drawable"/><file name="ic_btn_search" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_btn_search.xml" qualifiers="" type="drawable"/><file name="divider_detail_feat_buttons" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/divider_detail_feat_buttons.xml" qualifiers="" type="drawable"/><file name="ic_my_house_active" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_my_house_active.xml" qualifiers="" type="drawable"/><file name="ic_detail_three_dimen" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_three_dimen.xml" qualifiers="" type="drawable"/><file name="ic_detail_cost" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_cost.xml" qualifiers="" type="drawable"/><file name="ic_detail_ar_camera" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_ar_camera.xml" qualifiers="" type="drawable"/><file name="ic_half_right_arrow" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_half_right_arrow.xml" qualifiers="" type="drawable"/><file name="ic_detail_m_2" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_m_2.xml" qualifiers="" type="drawable"/><file name="ic_detail_floor" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_floor.xml" qualifiers="" type="drawable"/><file name="home_banner_register_button_rounded" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/home_banner_register_button_rounded.xml" qualifiers="" type="drawable"/><file name="ic_interest_active" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_interest_active.xml" qualifiers="" type="drawable"/><file name="bottom_navigation_selector" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/bottom_navigation_selector.xml" qualifiers="" type="drawable"/><file name="ic_my_house_inactive" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_my_house_inactive.xml" qualifiers="" type="drawable"/><file name="ic_home_inactive" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_home_inactive.xml" qualifiers="" type="drawable"/><file name="bottom_navigation_rounded" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/bottom_navigation_rounded.xml" qualifiers="" type="drawable"/><file name="ic_detail_call" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_call.xml" qualifiers="" type="drawable"/><file name="ic_btn_gnb_back" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_btn_gnb_back.xml" qualifiers="" type="drawable"/><file name="ic_add_picture" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_add_picture.xml" qualifiers="" type="drawable"/><file name="ic_detail_ar_video" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_detail_ar_video.xml" qualifiers="" type="drawable"/><file name="ic_more_active" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_more_active.xml" qualifiers="" type="drawable"/><file name="tv_detail_visit_reservation_background" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/tv_detail_visit_reservation_background.xml" qualifiers="" type="drawable"/><file name="tv_detail_run_process_background" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/tv_detail_run_process_background.xml" qualifiers="" type="drawable"/><file name="ic_search_active" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_search_active.xml" qualifiers="" type="drawable"/><file name="ic_btn_detail_like" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/drawable/ic_btn_detail_like.xml" qualifiers="" type="drawable"/><file name="list_item_home_recommend" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/layout/list_item_home_recommend.xml" qualifiers="" type="layout"/><file name="slide_image_house_detail" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/layout/slide_image_house_detail.xml" qualifiers="" type="layout"/><file name="fragment_home" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/layout/fragment_home.xml" qualifiers="" type="layout"/><file name="fragment_house_detail" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/layout/fragment_house_detail.xml" qualifiers="" type="layout"/><file name="list_item_detail_option" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/layout/list_item_detail_option.xml" qualifiers="" type="layout"/><file path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/values-night/styles.xml" qualifiers="night-v8"/><file path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/values/colors.xml" qualifiers=""><color name="purple_200">#F4EBFF</color><color name="purple_500">#8450BF</color><color name="purple_700">#7637BE</color><color name="teal_200">#FF03DAC5</color><color name="teal_700">#FF018786</color><color name="black">#FF000000</color><color name="black_100">#141414</color><color name="divider">#f5f5f5</color><color name="gray_100">#f9f9f9</color><color name="profile_background">#f8f8f8</color><color name="help_text">#575a6b</color><color name="tab_inactivated">#313337</color><color name="detail_info_content">#70748a</color><color name="register_info_edit_text_hint">#73738b</color><color name="add_picture_border">#c5c8d4</color><color name="register_address_border">#e5e5e5</color><color name="gray_500">#9094A8</color><color name="gray_700">#17000000</color><color name="white">#FFFFFFFF</color></file><file path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/values/dimens.xml" qualifiers=""><dimen name="app_horizontal_padding">20dp</dimen><dimen name="bottom_nav_radius">20dp</dimen><dimen name="home_appbar_radius">30dp</dimen><dimen name="home_appbar_height">210dp</dimen><dimen name="bottom_icon_size">32dp</dimen><dimen name="appbar_search_radius">26dp</dimen><dimen name="appbar_search_height">46dp</dimen><dimen name="card_bottom_margin">18dp</dimen><dimen name="card_image_corner_radius">16dp</dimen><dimen name="card_margin_main_text">12dp</dimen><dimen name="card_margin_sub_text">4dp</dimen><dimen name="detail_feat_button_width">80dp</dimen><dimen name="detail_feat_button_height">72dp</dimen><dimen name="detail_info_card_corner">8dp</dimen><dimen name="price_info_title_text_width">68dp</dimen><dimen name="tenant_mode_help_banner_corner">14dp</dimen><dimen name="my_house_info_banner_corner">8dp</dimen><dimen name="card_side_margin">12dp</dimen><dimen name="picture_item_margin_side">4dp</dimen></file><file path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/values/styles.xml" qualifiers=""><style name="Base.Theme.EStateTwin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/purple_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        
+        
+        <item name="android:colorBackground">@color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="windowActionBarOverlay">true</item>
+        
+        <item name="android:textViewStyle">@style/PretendardTextView</item>
+        <item name="android:buttonStyle">@style/PretendardButton</item>
+    </style><style name="Widget.idiot.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextAppearance">@style/TextAppearance.idiot.tab.Text</item>
+    </style><style name="TextAppearance.idiot.Appbar.Text" parent="TextAppearance.AppCompat.Large">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lineSpacingExtra">22sp</item>
+    </style><style name="TextAppearance.idiot.ActionBar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style><style name="PretendardTextView" parent="android:Widget.TextView">
+        <item name="fontFamily">@font/pretendard</item>
+        <item name="android:includeFontPadding">false</item>
+    </style><style name="PretendardButton" parent="TextAppearance.AppCompat.Widget.Button">
+        <item name="fontFamily">@font/pretendard</item>
+    </style><style name="TextAppearance.idiot.title.Text" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/pretendard</item>
+    </style><style name="TextAppearance.idiot.tab.Text" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/notosanskr_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/tab_inactivated</item>
+    </style><style name="TextAppearance.idiot.sub.Text" parent="TextAppearance.AppCompat.Small">
+        <item name="android:fontFamily">@font/ff_notosanskr_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/gray_500</item>
+        <item name="android:textSize">13sp</item>
+    </style><style name="TextAppearance.idiot.icon.Text" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/pretendard</item>
+    </style><style name="TextAppearance.idiot.info.subTitle.Text" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/notosanskr_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">13sp</item>
+    </style><style name="TextAppearance.idiot.tab.title.Text" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/notosanskr_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">13sp</item>
+    </style><style name="TextAppearance.idiot.info.content.Text" parent="TextAppearance.AppCompat.Medium">
+        <item name="fontFamily">@font/ff_notosanskr_regular</item>
+        <item name="android:textColor">@color/detail_info_content</item>
+        <item name="android:textSize">13sp</item>
+    </style><style name="Theme.idiot.BottomSheet.Rounded" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style><style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style></file><file path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/values/shape.xml" qualifiers=""><style name="ShapeAppearance.Estate.Card" parent="ShapeAppearance.MaterialComponents">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style></file><file path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">E-State Twin</string><string name="hello_blank_fragment">Hello blank fragment</string><string name="home">홈</string><string name="main_appbar_help">내가 찾고있는 집을\n빠르게 검색해보세요!</string><string name="appbar_search">매물 검색하기</string><string name="home_recommend_card_image_desc">Picture of recommended house</string><string name="viewer_3d_button_text">현장 미리보기</string><string name="search">매물검색</string><string name="square_meter">m<sup><small>2</small></sup></string></file><file name="graph_home" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/navigation/graph_home.xml" qualifiers="" type="navigation"/><file name="notosanskr_bold" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font-v26/notosanskr_bold.otf" qualifiers="v26" type="font"/><file name="notosanskr_light" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font-v26/notosanskr_light.otf" qualifiers="v26" type="font"/><file name="notosanskr_regular" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font-v26/notosanskr_regular.otf" qualifiers="v26" type="font"/><file name="notosanskr_thin" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font-v26/notosanskr_thin.otf" qualifiers="v26" type="font"/><file name="ff_notosanskr_regular" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font-v26/ff_notosanskr_regular.xml" qualifiers="v26" type="font"/><file name="notosanskr_medium" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font-v26/notosanskr_medium.otf" qualifiers="v26" type="font"/><file name="notosanskr_black" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font-v26/notosanskr_black.otf" qualifiers="v26" type="font"/><file name="pretendard" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font-v26/pretendard.xml" qualifiers="v26" type="font"/><file name="pretendard_semibold" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font/pretendard_semibold.otf" qualifiers="" type="font"/><file name="pretendard_bold" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font/pretendard_bold.otf" qualifiers="" type="font"/><file name="pretendard_regular" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font/pretendard_regular.otf" qualifiers="" type="font"/><file name="pretendard" path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/font/pretendard.xml" qualifiers="" type="font"/><file path="/Users/bywindow/dev/e-state-twin-android/home/src/main/res/values-v31/styles.xml" qualifiers="v31"><style name="Base.Theme.EStateTwin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/purple_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:colorBackground">@color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="windowActionBarOverlay">true</item>
+        
+        <item name="android:textViewStyle">@style/PretendardTextView</item>
+        <item name="android:buttonStyle">@style/PretendardButton</item>
+    </style></file></source><source path="/Users/bywindow/dev/e-state-twin-android/home/build/generated/res/rs/debug"/><source path="/Users/bywindow/dev/e-state-twin-android/home/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/bywindow/dev/e-state-twin-android/home/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/bywindow/dev/e-state-twin-android/home/src/debug/res"/></dataSet><mergedItems/></merger>

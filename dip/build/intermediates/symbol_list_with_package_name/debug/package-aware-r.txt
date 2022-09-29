@@ -1,0 +1,15 @@
+com.idiot.dip
+id graph_dip
+id interestFragment
+id tab_menu
+id toolbar_interest
+id view_pager
+layout fragment_dip_estate
+layout fragment_inquiry_estate
+layout fragment_interest
+layout fragment_recent_estate
+navigation graph_dip
+string dip_estate
+string inquiry_estate
+string interest
+string recent_estate
