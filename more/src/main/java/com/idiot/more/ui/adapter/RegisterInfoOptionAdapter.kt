@@ -6,8 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.home.R
-import com.idiot.home.databinding.ListItemRegisterOptionBinding
+import com.idiot.more.R
+import com.idiot.more.databinding.ListItemRegisterOptionBinding
 import com.idiot.model.HouseOption
 
 class RegisterInfoOptionAdapter(private val onClick: (HouseOption) -> Unit)

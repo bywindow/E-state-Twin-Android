@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.idiot.home.databinding.FragmentNewRegisterRequestBinding
+import com.idiot.more.databinding.FragmentNewRegisterRequestBinding
 import com.idiot.data.repository.samples.RegisterSample
 import com.idiot.more.ui.adapter.RegisterNewInquiryAdapter
 

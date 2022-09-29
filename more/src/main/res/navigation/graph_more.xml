@@ -25,6 +25,9 @@
     android:id="@+id/registerInfoFragment"
     android:name="com.idiot.more.ui.RegisterInfoFragment"
     android:label="RegisterInfoFragment" >
+    <argument
+      android:name="estateId"
+      app:argType="long"/>
     <action
       android:id="@+id/action_registerInfoFragment_to_registerHouseInfoFragment"
       app:destination="@id/registerHouseInfoFragment" />

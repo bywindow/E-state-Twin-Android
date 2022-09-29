@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.idiot.home.R
+import com.idiot.dip.R
 
 class DipEstateFragment : Fragment() {
 

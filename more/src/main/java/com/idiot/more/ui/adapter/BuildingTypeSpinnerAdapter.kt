@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter
 import androidx.annotation.LayoutRes
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import com.idiot.home.R
-import com.idiot.home.databinding.ListItemBuildingTypeSpinnerBinding
+import com.idiot.more.R
+import com.idiot.more.databinding.ListItemBuildingTypeSpinnerBinding
 import java.lang.Exception
 
 class BuildingTypeSpinnerAdapter(

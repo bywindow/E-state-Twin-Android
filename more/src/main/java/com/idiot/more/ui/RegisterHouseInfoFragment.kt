@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.idiot.home.R
-import com.idiot.home.databinding.FragmentRegisterHouseInfoBinding
+import com.idiot.more.R
+import com.idiot.more.databinding.FragmentRegisterHouseInfoBinding
 import com.idiot.more.ui.adapter.BuildingTypeSpinnerAdapter
 
 class RegisterHouseInfoFragment : BottomSheetDialogFragment() {

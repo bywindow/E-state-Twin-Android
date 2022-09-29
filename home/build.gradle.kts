@@ -42,7 +42,8 @@ android {
 }
 
 dependencies {
-  implementation(project(":common"))
+  implementation(project(":data:api"))
+
   implementation(project(":data:repository"))
   implementation(project(":feature:threeviewer"))
   implementation(project(":utils"))

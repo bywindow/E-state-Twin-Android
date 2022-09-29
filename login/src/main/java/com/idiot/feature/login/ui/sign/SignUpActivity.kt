@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import com.idiot.common.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivitySignUpBinding
 

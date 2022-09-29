@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.home.R
-import com.idiot.home.databinding.ListItemNewRegisterBinding
-import com.idiot.home.register.RegisterFragmentDirections
+import com.idiot.more.R
+import com.idiot.more.databinding.ListItemNewRegisterBinding
 import com.idiot.data.repository.samples.inquiryInfo
+import com.idiot.more.ui.RegisterFragmentDirections
 
 class RegisterNewInquiryAdapter(private val inquiry : List<inquiryInfo>) : RecyclerView.Adapter<RegisterNewInquiryAdapter.ViewHolder>() {
     class ViewHolder(

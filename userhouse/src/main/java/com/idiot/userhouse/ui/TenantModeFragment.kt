@@ -37,7 +37,7 @@ class TenantModeFragment : Fragment() {
         return binding.root
     }
 
-    private fun subscribeUi(binding: FragmentTenantModeBinding, viewModel: com.idiot.userhouse.ui.TenantModeViewModel) {
+    private fun subscribeUi(binding: FragmentTenantModeBinding, viewModel: TenantModeViewModel) {
         viewModel.assetManageTabTitles.forEachIndexed { index, title ->
             val tabView = LayoutInflater.from(requireContext()).inflate(R.layout.layout_myhouse_tab, null, false)
             tabView.findViewById<TextView>(R.id.tab_title).text = title

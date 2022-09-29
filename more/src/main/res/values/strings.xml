@@ -11,6 +11,9 @@
   <string name="register_ar_checklist_button_text">AR체크리스트 등록</string>
   <string name="house_type_input_hint">건물의 유형을 선택해주세요.</string>
   <string name="building_name_input_hint">건물의 이름을 입력하세요.</string>
+  <string name="square_meter">m<sup><small>2</small></sup></string>
+  <string name="home_recommend_card_image_desc">Picture of recommended house</string>
+
   <string-array name="building_type_list">
     <item>건물의 유형을 선택해주세요.</item>
     <item>아파트</item>

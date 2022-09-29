@@ -26,7 +26,7 @@ class CityAdapter(private val selectedPosition: Int, private val onClick: (Int) 
       }
     }
 
-    fun bind(item: UserPreference, position: Int) {
+    fun bind(item: UserPreference) {
       binding.city = item.name
       binding.isSelected = item.isChecked
       binding.executePendingBindings()
@@ -49,7 +49,7 @@ class CityAdapter(private val selectedPosition: Int, private val onClick: (Int) 
   }
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.bind(getItem(position), position)
+    holder.bind(getItem(position))
   }
 
   companion object {

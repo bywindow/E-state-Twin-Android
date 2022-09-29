@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.idiot.home.com.idiot.more.ui.MoreFragment">
 
-    <data>
-
-        <variable
-            name="user"
-            type="com.idiot.common.home.viewmodels.UserViewModel" />
-    </data>
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

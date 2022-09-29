@@ -4,4 +4,5 @@
   <color name="city_background_active">#FFFFFF</color>
   <color name="city_text_color_inactive">#BBBBBB</color>
   <color name="city_text_color_active">#000000</color>
+  <color name="purple_700">#7637BE</color>
 </resources>

@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.home.R
-import com.idiot.home.databinding.ListItemRegisterInfoPictureHeaderBinding
+import com.idiot.more.R
+import com.idiot.more.databinding.ListItemRegisterInfoPictureHeaderBinding
 
 class RegisterInfoPictureHeaderAdapter(
     private val onClick: () -> Unit

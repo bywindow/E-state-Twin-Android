@@ -14,7 +14,7 @@ object TransactionTypeUtils {
   }
 
   fun getActiveColor(view: AppCompatButton) {
-    view.setBackgroundColor(ContextCompat.getColor(view.context, com.idiot.home.R.color.purple_700))
+    view.setBackgroundColor(ContextCompat.getColor(view.context, com.idiot.utils.R.color.purple_700))
     view.setTextColor(Color.WHITE)
   }
 

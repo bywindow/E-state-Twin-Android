@@ -15,5 +15,9 @@
   <fragment
     android:id="@+id/houseDetailFragment"
     android:name="com.idiot.home.ui.HouseDetailFragment"
-    android:label="HouseDetailFragment" />
+    android:label="HouseDetailFragment">
+    <argument
+      android:name="houseId"
+      app:argType="long"/>
+  </fragment>
 </navigation>

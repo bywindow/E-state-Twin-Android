@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.common.SignInButton
-import com.idiot.common.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivityLoginBinding
 import com.idiot.feature.login.ui.sign.SignUpActivity
@@ -44,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
           Log.e("TAG", "로그인 실패", error)
         } else if (token != null) {
           Log.i("TAG", "로그인 성공 $token")
-          saveKakaoUser(token.accessToken)
+          saveKakaoUser()
         }
       }
 //       카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
@@ -60,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
   }
 
   //TODO : 서버에 토큰 저장하고 회원가입 페이지로 이동
-  private fun saveKakaoUser(token: String) {
+  private fun saveKakaoUser() {
     UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
       if (error != null) {
         Log.e("TAG", "failed")
@@ -100,9 +99,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         if (scopes.isNotEmpty()) {
-          UserApiClient.instance.loginWithNewScopes(this, scopes) { token, error ->
-            if (error != null) {
-              Log.e("TAG", "additional agree failed", error)
+          UserApiClient.instance.loginWithNewScopes(this, scopes) { token, errorScope ->
+            if (errorScope != null) {
+              Log.e("TAG", "additional agree failed", errorScope)
             } else {
               Log.d("TAG", "allowed scopes: ${token!!.scopes}")
               UserApiClient.instance.me { user, error ->

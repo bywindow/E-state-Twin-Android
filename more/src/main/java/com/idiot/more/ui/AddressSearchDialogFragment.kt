@@ -10,19 +10,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.idiot.home.R
-import com.idiot.home.databinding.FragmentAddressSearchDialogBinding
+import com.idiot.more.R
+import com.idiot.more.databinding.FragmentAddressSearchDialogBinding
 
 class AddressSearchDialogFragment : DialogFragment() {
 
     private lateinit var binding: FragmentAddressSearchDialogBinding
 
     private lateinit var navController: NavController
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        setStyle(STYLE_NORMAL, R.style.Theme_idiot_BottomSheet)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
