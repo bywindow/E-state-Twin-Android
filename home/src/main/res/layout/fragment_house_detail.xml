@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/gray_100"
-            tools:context="com.idiot.home.detail.HouseDetailFragment">
+            tools:context="com.idiot.home.ui.HouseDetailFragment">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"

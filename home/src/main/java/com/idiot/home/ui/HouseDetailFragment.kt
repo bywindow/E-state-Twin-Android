@@ -1,4 +1,4 @@
-package com.idiot.home.detail
+package com.idiot.home.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.idiot.home.R
-import com.idiot.home.detail.adapters.HouseImageSliderAdapter
-import com.idiot.home.detail.adapters.HouseOptionListAdapter
 import com.idiot.home.databinding.FragmentHouseDetailBinding
 import com.idiot.data.repository.samples.optionSample
 import com.idiot.e_state_twin_android.core.data.assets.imageUrlSample

@@ -1,4 +1,4 @@
-package com.idiot.home.detail.adapters
+package com.idiot.home.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

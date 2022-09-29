@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/graph_dip"
+  app:startDestination="@id/dipEstateFragment">
+
+  <fragment
+    android:id="@+id/dipEstateFragment"
+    android:name="com.idiot.dip.ui.DipEstateFragment"
+    android:label="fragment_dip_estate"
+    tools:layout="@layout/fragment_dip_estate" />
+
+</navigation>

@@ -224,6 +224,7 @@
         <entry key="more/src/main/res/drawable/ic_navigate_up.xml" value="0.16" />
         <entry key="more/src/main/res/layout/list_item_register_option.xml" value="0.29393115942028986" />
         <entry key="more/src/main/res/layout/list_new_register_request.xml" value="0.14824335904027422" />
+        <entry key="search/src/main/res/layout/fragment_search.xml" value="0.12777777777777777" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
         <entry key="userhouse/src/main/res/layout/fragment_my_house.xml" value="0.13089117395029992" />
         <entry key="userhouse/src/main/res/layout/fragment_owner_mode.xml" value="0.13089117395029992" />
