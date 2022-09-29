@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/nav_graph">
+
+  <include app:graph="@navigation/graph_home"/>
+  <include app:graph="@navigation/graph_dip"/>
+  <include app:graph="@navigation/graph_userhouse"/>
+  <include app:graph="@navigation/graph_search"/>
+  <include app:graph="@navigation/graph_more"/>
+
+</navigation>

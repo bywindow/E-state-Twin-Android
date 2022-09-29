@@ -14,17 +14,21 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/common-ui" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/api" />
             <option value="$PROJECT_DIR$/data/api-builder" />
             <option value="$PROJECT_DIR$/data/db" />
             <option value="$PROJECT_DIR$/data/repository" />
+            <option value="$PROJECT_DIR$/dip" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/ar" />
-            <option value="$PROJECT_DIR$/feature/login" />
             <option value="$PROJECT_DIR$/feature/threeviewer" />
+            <option value="$PROJECT_DIR$/home" />
+            <option value="$PROJECT_DIR$/login" />
             <option value="$PROJECT_DIR$/model" />
+            <option value="$PROJECT_DIR$/more" />
+            <option value="$PROJECT_DIR$/search" />
+            <option value="$PROJECT_DIR$/userhouse" />
             <option value="$PROJECT_DIR$/utils" />
           </set>
         </option>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="register_address_border">#e5e5e5</color>
+  <color name="register_info_edit_text_hint">#73738b</color>
+  <color name="add_picture_border">#c5c8d4</color>
+</resources>

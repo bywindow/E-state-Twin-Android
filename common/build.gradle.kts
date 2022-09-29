@@ -33,15 +33,16 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
     }
   }
-
-//  kotlinOptions {
-//    jvmTarget = "11"
-//  }
 }
 
 dependencies {
-  api(project(":data:api"))
   implementation(project(":data:repository"))
+  implementation(project(":home"))
+  implementation(project(":dip"))
+  implementation(project(":search"))
+  implementation(project(":userhouse"))
+  implementation(project(":more"))
+  implementation(project(":utils"))
 
   implementation(Libraries.androidx_core)
   implementation(Libraries.androidx_appcompat)
@@ -50,6 +51,8 @@ dependencies {
   implementation(Libraries.androidx_fragment)
   implementation(Libraries.lifecycle_livedata)
   implementation(Libraries.lifecycle_viewmodel)
+  implementation(Libraries.navigation_ui)
+  implementation(Libraries.navigation_fragment)
 
   testImplementation(Libraries.junit)
 
