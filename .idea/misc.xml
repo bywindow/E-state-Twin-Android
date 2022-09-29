@@ -175,6 +175,7 @@
         <entry key="common/src/main/res/drawable/ic_option_sink.xml" value="0.1665" />
         <entry key="common/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="common/src/main/res/layout/list_item_home_recommend.xml" value="0.1546700942587832" />
+        <entry key="common/src/main/res/menu/menu_tab.xml" value="0.16710526315789473" />
         <entry key="data/repository/src/main/res/drawable/ic_option_ac.xml" value="0.2045" />
         <entry key="data/repository/src/main/res/drawable/ic_option_bed.xml" value="0.14" />
         <entry key="data/repository/src/main/res/drawable/ic_option_bidet.xml" value="0.14" />

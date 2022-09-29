@@ -2,35 +2,35 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/graph_home"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/home"
         android:icon="@drawable/ic_home_active"/>
 
     <item
-        android:id="@+id/interestFragment"
+        android:id="@+id/graph_dip"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/interest"
         android:icon="@drawable/ic_interest_active"/>
 
     <item
-        android:id="@+id/searchFragment"
+        android:id="@+id/graph_search"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/search"
         android:icon="@drawable/ic_search_active"/>
 
     <item
-        android:id="@+id/myHouseFragment"
+        android:id="@+id/graph_userhouse"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/myhouse"
         android:icon="@drawable/ic_my_house_active"/>
 
     <item
-        android:id="@+id/moreFragment"
+        android:id="@+id/graph_more"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/more"
