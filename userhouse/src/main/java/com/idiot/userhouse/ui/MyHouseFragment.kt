@@ -1,4 +1,4 @@
-package com.idiot.home.myhouse
+package com.idiot.userhouse.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.idiot.home.R
-import com.idiot.home.databinding.FragmentMyHouseBinding
-import com.idiot.home.myhouse.adapters.MyHousePagerAdapter
-import com.idiot.home.myhouse.adapters.OWNER_MODE_PAGE_INDEX
-import com.idiot.home.myhouse.adapters.TENANT_MODE_PAGE_INDEX
+import com.idiot.userhouse.R
+import com.idiot.userhouse.databinding.FragmentMyHouseBinding
 
 class MyHouseFragment : Fragment() {
 

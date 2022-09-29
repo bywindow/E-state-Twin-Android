@@ -183,6 +183,7 @@
         <entry key="data/repository/src/main/res/drawable/ic_option_sink.xml" value="0.1665" />
         <entry key="data/repository/src/main/res/drawable/ic_special.xml" value="0.1665" />
         <entry key="dip/src/main/res/drawable/tab_indicator_register_request.xml" value="0.241" />
+        <entry key="dip/src/main/res/layout/fragment_dip_estate.xml" value="0.13089117395029992" />
         <entry key="dip/src/main/res/layout/fragment_inquiry_estate.xml" value="0.1546700942587832" />
         <entry key="dip/src/main/res/layout/fragment_interest.xml" value="0.21331521739130435" />
         <entry key="dip/src/main/res/layout/fragment_recent_estate.xml" value="0.1546700942587832" />
@@ -224,7 +225,15 @@
         <entry key="more/src/main/res/layout/list_item_register_option.xml" value="0.29393115942028986" />
         <entry key="more/src/main/res/layout/list_new_register_request.xml" value="0.14824335904027422" />
         <entry key="threeviewer/src/main/res/layout/activity_viewer.xml" value="0.25" />
+        <entry key="userhouse/src/main/res/layout/fragment_my_house.xml" value="0.13089117395029992" />
+        <entry key="userhouse/src/main/res/layout/fragment_owner_mode.xml" value="0.13089117395029992" />
+        <entry key="userhouse/src/main/res/layout/fragment_tenant_mode.xml" value="0.13089117395029992" />
+        <entry key="userhouse/src/main/res/layout/layout_myhouse_tab.xml" value="0.13089117395029992" />
+        <entry key="userhouse/src/main/res/layout/list_item_owner_house.xml" value="0.165" />
+        <entry key="utils/src/main/res/drawable/divider_more_tab.xml" value="0.1055" />
+        <entry key="utils/src/main/res/drawable/ic_btn_depth.xml" value="0.1055" />
         <entry key="utils/src/main/res/drawable/ic_navigate_up.xml" value="0.1775" />
+        <entry key="utils/src/main/res/drawable/tab_indicator_register_request.xml" value="0.1755" />
         <entry key="utils/src/main/res/font-v26/ff_notosanskr_regular.xml" value="0.39897435897435896" />
         <entry key="utils/src/main/res/font-v26/pretendard.xml" value="0.39897435897435896" />
         <entry key="utils/src/main/res/font/ff_notosanskr_regular.xml" value="0.33766233766233766" />

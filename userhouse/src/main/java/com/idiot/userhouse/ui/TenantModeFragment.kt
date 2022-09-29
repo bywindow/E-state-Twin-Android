@@ -1,8 +1,7 @@
-package com.idiot.home.myhouse
+package com.idiot.userhouse.ui
 
 import android.app.Application
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.idiot.userhouse.ui.TenantModeViewModel
-import com.idiot.home.R
-import com.idiot.home.databinding.FragmentTenantModeBinding
+import com.idiot.userhouse.R
+import com.idiot.userhouse.databinding.FragmentTenantModeBinding
 
 class TenantModeFragment : Fragment() {
 

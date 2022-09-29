@@ -1,4 +1,4 @@
-package com.idiot.home.myhouse
+package com.idiot.userhouse.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.idiot.home.R
-import com.idiot.home.databinding.FragmentOwnerModeBinding
-import com.idiot.home.myhouse.adapters.OwnerHouseAdapter
+import com.idiot.userhouse.R
+import com.idiot.userhouse.databinding.FragmentOwnerModeBinding
 import com.idiot.data.repository.samples.OwnerHouseSample
 
 class OwnerModeFragment : Fragment() {

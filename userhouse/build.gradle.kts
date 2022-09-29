@@ -44,12 +44,18 @@ android {
 dependencies {
 
   implementation(project(":data:repository"))
+  implementation(project(":utils"))
 
-  implementation("androidx.core:core-ktx:1.7.0")
-  implementation("androidx.appcompat:appcompat:1.5.1")
-  implementation("com.google.android.material:material:1.6.1")
-  testImplementation("junit:junit:4.13.2")
-  androidTestImplementation("androidx.test.ext:junit:1.1.3")
-  androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+  implementation(com.idiot.e_state_twin_android.Libraries.androidx_core)
+  implementation(com.idiot.e_state_twin_android.Libraries.androidx_appcompat)
+  implementation(com.idiot.e_state_twin_android.Libraries.material)
+  implementation(com.idiot.e_state_twin_android.Libraries.navigation_fragment)
+  implementation(com.idiot.e_state_twin_android.Libraries.navigation_ui)
+  implementation(com.idiot.e_state_twin_android.Libraries.recyclerview)
+
+  testImplementation(com.idiot.e_state_twin_android.Libraries.junit)
+
+  androidTestImplementation(com.idiot.e_state_twin_android.Libraries.androidx_junit)
+  androidTestImplementation(com.idiot.e_state_twin_android.Libraries.androidx_espresso)
 
 }

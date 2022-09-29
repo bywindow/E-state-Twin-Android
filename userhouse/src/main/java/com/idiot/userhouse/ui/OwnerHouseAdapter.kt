@@ -1,12 +1,12 @@
-package com.idiot.home.myhouse.adapters
+package com.idiot.userhouse.ui
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.home.R
-import com.idiot.home.databinding.ListItemOwnerHouseBinding
+import com.idiot.userhouse.R
+import com.idiot.userhouse.databinding.ListItemOwnerHouseBinding
 import com.idiot.data.repository.samples.info
 
 class OwnerHouseAdapter(private val houses: List<info>) : RecyclerView.Adapter<OwnerHouseAdapter.ViewHolder>() {

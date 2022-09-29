@@ -5,7 +5,7 @@
   android:id="@+id/nav_graph">
 
   <include app:graph="@navigation/graph_home"/>
-
+  <include app:graph="@navigation/graph_userhouse"/>
   <include app:graph="@navigation/graph_more"/>
 
 </navigation>
