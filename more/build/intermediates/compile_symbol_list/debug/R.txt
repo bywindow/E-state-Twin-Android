@@ -28,13 +28,16 @@ int id address_title 0x0
 int id ar_checklist_title 0x0
 int id area_input 0x0
 int id area_title 0x0
+int id available_date_title 0x0
 int id building_current_floor_input 0x0
 int id building_name_input 0x0
 int id building_total_floor_input 0x0
 int id building_type_item 0x0
 int id building_type_selector 0x0
 int id close_button 0x0
+int id complete_button 0x0
 int id current_floor_title 0x0
+int id date_picker 0x0
 int id duplex_title 0x0
 int id elevator_title 0x0
 int id estate_picture_recyclerview 0x0

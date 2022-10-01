@@ -40,6 +40,9 @@ public class FragmentRegisterHouseInfoBindingImpl extends FragmentRegisterHouseI
         sViewsWithIds.put(R.id.short_term_title, 24);
         sViewsWithIds.put(R.id.short_able_button, 25);
         sViewsWithIds.put(R.id.short_disable_button, 26);
+        sViewsWithIds.put(R.id.available_date_title, 27);
+        sViewsWithIds.put(R.id.date_picker, 28);
+        sViewsWithIds.put(R.id.complete_button, 29);
     }
     // views
     // variables
@@ -48,18 +51,21 @@ public class FragmentRegisterHouseInfoBindingImpl extends FragmentRegisterHouseI
     // Inverse Binding Event Handlers
 
     public FragmentRegisterHouseInfoBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 27, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 30, sIncludes, sViewsWithIds));
     }
     private FragmentRegisterHouseInfoBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.EditText) bindings[12]
             , (android.widget.TextView) bindings[11]
+            , (android.widget.TextView) bindings[27]
             , (android.widget.EditText) bindings[8]
             , (android.widget.EditText) bindings[4]
             , (android.widget.EditText) bindings[6]
             , (android.widget.Spinner) bindings[3]
             , (androidx.appcompat.widget.AppCompatButton) bindings[2]
+            , (androidx.appcompat.widget.AppCompatButton) bindings[29]
             , (android.widget.TextView) bindings[7]
+            , (androidx.appcompat.widget.AppCompatButton) bindings[28]
             , (android.widget.TextView) bindings[17]
             , (android.widget.TextView) bindings[14]
             , (androidx.appcompat.widget.AppCompatButton) bindings[18]

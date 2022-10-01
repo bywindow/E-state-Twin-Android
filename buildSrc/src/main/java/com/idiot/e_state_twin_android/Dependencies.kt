@@ -7,7 +7,7 @@ object Versions {
   const val hilt = "2.38.1"
   const val javaRelease = "8"
   const val jvmTarget = "1.8"
-  const val material = "1.6.1"
+  const val material = "1.8.0-alpha01"
   const val filament = "1.20.1"
   const val arcore = "1.32.0"
   const val sceneform = "1.17.1"

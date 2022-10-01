@@ -243,7 +243,7 @@
         <entry key="more/src/main/res/drawable/user_profile_rounded.xml" value="0.1055" />
         <entry key="more/src/main/res/drawable/user_role_tv_rounded.xml" value="0.1055" />
         <entry key="more/src/main/res/layout/fragment_more.xml" value="0.1" />
-        <entry key="more/src/main/res/layout/fragment_register_house_info.xml" value="0.1" />
+        <entry key="more/src/main/res/layout/fragment_register_house_info.xml" value="0.33" />
         <entry key="more/src/main/res/layout/fragment_register_info.xml" value="0.23681776133209992" />
         <entry key="more/src/main/res/layout/list_item_building_type_spinner.xml" value="0.1" />
         <entry key="more/src/main/res/layout/list_item_register_option.xml" value="0.29393115942028986" />

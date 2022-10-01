@@ -29,13 +29,16 @@ id address_title
 id ar_checklist_title
 id area_input
 id area_title
+id available_date_title
 id building_current_floor_input
 id building_name_input
 id building_total_floor_input
 id building_type_item
 id building_type_selector
 id close_button
+id complete_button
 id current_floor_title
+id date_picker
 id duplex_title
 id elevator_title
 id estate_picture_recyclerview

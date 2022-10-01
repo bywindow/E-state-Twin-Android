@@ -1,69 +1,69 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:2:1-31:12
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:2:1-31:12
+INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:2:1-31:12
+INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:2:1-31:12
 	package
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:3:3-36
-		INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
-		INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:3:3-36
+		INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
+		INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:5:3-29:17
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:5:3-29:17
 activity#com.idiot.feature.login.ui.main.LoginActivity
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:6:5-10:60
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:6:5-10:60
 	android:screenOrientation
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:9:7-43
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:9:7-43
 	android:exported
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:8:7-30
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:8:7-30
 	android:theme
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:10:7-57
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:10:7-57
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:7:7-67
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:7:7-67
 activity#com.kakao.sdk.auth.AuthCodeHandlerActivity
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:11:5-24:16
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:11:5-24:16
 	android:exported
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:13:7-30
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:13:7-30
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:12:7-64
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:12:7-64
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:oauth+data:scheme:kakao4a7c8a7f7d39ee580ac8fcc3aec6d396
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:14:7-23:23
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:14:7-23:23
 action#android.intent.action.VIEW
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:15:9-61
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:15:9-61
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:15:17-58
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:15:17-58
 category#android.intent.category.DEFAULT
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:17:9-68
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:17:9-68
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:17:19-65
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:17:19-65
 category#android.intent.category.BROWSABLE
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:18:9-70
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:18:9-70
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:18:19-67
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:18:19-67
 data
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:20:9-22:68
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:20:9-22:68
 	android:host
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:21:11-31
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:21:11-31
 	android:scheme
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:22:11-65
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:22:11-65
 activity#com.idiot.feature.login.ui.sign.SignUpActivity
-ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:26:5-28:34
+ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:26:5-28:34
 	android:exported
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:28:7-31
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:28:7-31
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml:27:7-45
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml:27:7-45
 uses-sdk
-INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
-INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
-INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
-INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
+INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
+INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
+INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
+INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
-		INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
+		INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
+		INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
-		ADDED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
-		INJECTED from /Users/bywindow/dev/e-state-twin-android/feature/login/src/main/AndroidManifest.xml
+		INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
+		ADDED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml
+		INJECTED from /Users/bywindow/dev/e-state-twin-android/login/src/main/AndroidManifest.xml

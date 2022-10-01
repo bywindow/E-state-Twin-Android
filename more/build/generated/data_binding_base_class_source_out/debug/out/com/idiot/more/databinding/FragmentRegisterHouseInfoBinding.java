@@ -26,6 +26,9 @@ public abstract class FragmentRegisterHouseInfoBinding extends ViewDataBinding {
   public final TextView areaTitle;
 
   @NonNull
+  public final TextView availableDateTitle;
+
+  @NonNull
   public final EditText buildingCurrentFloorInput;
 
   @NonNull
@@ -41,7 +44,13 @@ public abstract class FragmentRegisterHouseInfoBinding extends ViewDataBinding {
   public final AppCompatButton closeButton;
 
   @NonNull
+  public final AppCompatButton completeButton;
+
+  @NonNull
   public final TextView currentFloorTitle;
+
+  @NonNull
+  public final AppCompatButton datePicker;
 
   @NonNull
   public final TextView duplexTitle;
@@ -101,26 +110,29 @@ public abstract class FragmentRegisterHouseInfoBinding extends ViewDataBinding {
   public final TextView verandaTitle;
 
   protected FragmentRegisterHouseInfoBinding(Object _bindingComponent, View _root,
-      int _localFieldCount, EditText areaInput, TextView areaTitle,
+      int _localFieldCount, EditText areaInput, TextView areaTitle, TextView availableDateTitle,
       EditText buildingCurrentFloorInput, EditText buildingNameInput,
       EditText buildingTotalFloorInput, Spinner buildingTypeSelector, AppCompatButton closeButton,
-      TextView currentFloorTitle, TextView duplexTitle, TextView elevatorTitle,
-      AppCompatButton hasDuplexButton, AppCompatButton hasElevatorButton,
-      AppCompatButton hasNotDuplexButton, AppCompatButton hasNotElevatorButton,
-      AppCompatButton hasNotVerandaButton, AppCompatButton hasVerandaButton,
-      Spinner heatTypeSelector, FrameLayout houseInfoLayout, ConstraintLayout houseInfoTitle,
-      EditText netAreaInput, TextView netAreaTitle, Spinner roomTypeSelector,
-      AppCompatButton shortAbleButton, AppCompatButton shortDisableButton, TextView shortTermTitle,
-      TextView totalFloorTitle, TextView verandaTitle) {
+      AppCompatButton completeButton, TextView currentFloorTitle, AppCompatButton datePicker,
+      TextView duplexTitle, TextView elevatorTitle, AppCompatButton hasDuplexButton,
+      AppCompatButton hasElevatorButton, AppCompatButton hasNotDuplexButton,
+      AppCompatButton hasNotElevatorButton, AppCompatButton hasNotVerandaButton,
+      AppCompatButton hasVerandaButton, Spinner heatTypeSelector, FrameLayout houseInfoLayout,
+      ConstraintLayout houseInfoTitle, EditText netAreaInput, TextView netAreaTitle,
+      Spinner roomTypeSelector, AppCompatButton shortAbleButton, AppCompatButton shortDisableButton,
+      TextView shortTermTitle, TextView totalFloorTitle, TextView verandaTitle) {
     super(_bindingComponent, _root, _localFieldCount);
     this.areaInput = areaInput;
     this.areaTitle = areaTitle;
+    this.availableDateTitle = availableDateTitle;
     this.buildingCurrentFloorInput = buildingCurrentFloorInput;
     this.buildingNameInput = buildingNameInput;
     this.buildingTotalFloorInput = buildingTotalFloorInput;
     this.buildingTypeSelector = buildingTypeSelector;
     this.closeButton = closeButton;
+    this.completeButton = completeButton;
     this.currentFloorTitle = currentFloorTitle;
+    this.datePicker = datePicker;
     this.duplexTitle = duplexTitle;
     this.elevatorTitle = elevatorTitle;
     this.hasDuplexButton = hasDuplexButton;
