@@ -23,12 +23,12 @@ int id action_moreFragment_to_registerFragment 0x0
 int id action_registerFragment_to_registerInfoFragment 0x0
 int id action_registerInfoFragment_to_addressSearchDialogFragment 0x0
 int id action_registerInfoFragment_to_registerHouseInfoFragment 0x0
-int id add_checklist_button 0x0
 int id addressSearchDialogFragment 0x0
 int id address_search_edit_text 0x0
 int id address_search_web_view 0x0
 int id address_title 0x0
 int id ar_checklist_title 0x0
+int id ar_root_view 0x0
 int id area_input 0x0
 int id area_title 0x0
 int id available_date_title 0x0
@@ -39,6 +39,7 @@ int id building_type_item 0x0
 int id building_type_selector 0x0
 int id close_button 0x0
 int id complete_button 0x0
+int id container_view 0x0
 int id current_floor_title 0x0
 int id date_picker 0x0
 int id duplex_title 0x0
@@ -92,7 +93,6 @@ int id register_option_text_view 0x0
 int id register_request_list 0x0
 int id room_type_selector 0x0
 int id running_process 0x0
-int id sceneform_fragment 0x0
 int id setting_alarm 0x0
 int id short_able_button 0x0
 int id short_disable_button 0x0
@@ -108,6 +108,7 @@ int id veranda_title 0x0
 int id view_pager 0x0
 int layout activity_register_aractivity 0x0
 int layout fragment_address_search_dialog 0x0
+int layout fragment_ar_checklist 0x0
 int layout fragment_more 0x0
 int layout fragment_new_register_request 0x0
 int layout fragment_register 0x0
@@ -125,6 +126,7 @@ int layout tv_register_title 0x0
 int navigation graph_more 0x0
 int string address_input_hint 0x0
 int string building_name_input_hint 0x0
+int string hello_blank_fragment 0x0
 int string home_detail_dialog_button_text 0x0
 int string home_recommend_card_image_desc 0x0
 int string house_type_input_hint 0x0

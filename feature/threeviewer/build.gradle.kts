@@ -43,9 +43,9 @@ dependencies {
   implementation(Libraries.androidx_appcompat)
   implementation(Libraries.material)
   implementation(Libraries.androidx_constraintLayout)
-  implementation(Libraries.filament_android)
-  implementation(Libraries.filament_utils)
-  implementation(Libraries.gltfio_android)
+//  implementation(Libraries.filament_android)
+//  implementation(Libraries.filament_utils)
+//  implementation(Libraries.gltfio_android)
 
   testImplementation(Libraries.junit)
 

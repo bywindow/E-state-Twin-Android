@@ -25,12 +25,12 @@ id action_moreFragment_to_registerFragment
 id action_registerFragment_to_registerInfoFragment
 id action_registerInfoFragment_to_addressSearchDialogFragment
 id action_registerInfoFragment_to_registerHouseInfoFragment
-id add_checklist_button
 id addressSearchDialogFragment
 id address_search_edit_text
 id address_search_web_view
 id address_title
 id ar_checklist_title
+id ar_root_view
 id area_input
 id area_title
 id available_date_title
@@ -41,6 +41,7 @@ id building_type_item
 id building_type_selector
 id close_button
 id complete_button
+id container_view
 id current_floor_title
 id date_picker
 id duplex_title
@@ -94,7 +95,6 @@ id register_option_text_view
 id register_request_list
 id room_type_selector
 id running_process
-id sceneform_fragment
 id setting_alarm
 id short_able_button
 id short_disable_button
@@ -110,6 +110,7 @@ id veranda_title
 id view_pager
 layout activity_register_aractivity
 layout fragment_address_search_dialog
+layout fragment_ar_checklist
 layout fragment_more
 layout fragment_new_register_request
 layout fragment_register
@@ -127,6 +128,7 @@ layout tv_register_title
 navigation graph_more
 string address_input_hint
 string building_name_input_hint
+string hello_blank_fragment
 string home_detail_dialog_button_text
 string home_recommend_card_image_desc
 string house_type_input_hint

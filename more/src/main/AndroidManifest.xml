@@ -3,7 +3,6 @@
   package="com.idiot.more">
 
   <uses-permission android:name="android.permission.CAMERA" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <uses-feature android:name="android.hardware.camera.ar" android:required="true" />
 
   <application>
@@ -11,7 +10,6 @@
       android:name=".ui.RegisterARActivity"
       android:exported="false" />
 
-    <meta-data android:name="com.google.ar.core" android:value="required" />
     <provider
       android:name="androidx.core.content.FileProvider"
       android:authorities="com.idiot.e_state_twin_android.provider"

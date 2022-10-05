@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="more">더보기</string>
-    <string name="new_request_title">새로운 요청</string>
-    <string name="pause_request_title">등록중인 매물</string>
-    <string name="picture_max_count">20</string>
-    <string name="address_input_hint">주소를 입력해주세요.</string>
-    <string name="home_detail_dialog_button_text">건물정보 입력</string>
-    <string name="price_dialog_button_text">가격정보 입력</string>
-    <string name="register_house_video_button_text">매물영상 등록</string>
-    <string name="register_ar_checklist_button_text">AR체크리스트 등록</string>
-    <string name="house_type_input_hint">건물의 유형을 선택해주세요.</string>
-    <string name="building_name_input_hint">건물의 이름을 입력하세요.</string>
-    <string name="square_meter">m<sup><small>2</small></sup></string>
-    <string name="home_recommend_card_image_desc">Picture of recommended house</string>
+  <string name="more">더보기</string>
+  <string name="new_request_title">새로운 요청</string>
+  <string name="pause_request_title">등록중인 매물</string>
+  <string name="picture_max_count">20</string>
+  <string name="address_input_hint">주소를 입력해주세요.</string>
+  <string name="home_detail_dialog_button_text">건물정보 입력</string>
+  <string name="price_dialog_button_text">가격정보 입력</string>
+  <string name="register_house_video_button_text">매물영상 등록</string>
+  <string name="register_ar_checklist_button_text">AR체크리스트 등록</string>
+  <string name="house_type_input_hint">건물의 유형을 선택해주세요.</string>
+  <string name="building_name_input_hint">건물의 이름을 입력하세요.</string>
+  <string name="square_meter">m<sup><small>2</small></sup></string>
+  <string name="home_recommend_card_image_desc">Picture of recommended house</string>
 
-    <string-array name="building_type_list">
-        <item>건물의 유형을 선택해주세요.</item>
-        <item>아파트</item>
-        <item>오피스텔</item>
-    </string-array>
-    <string-array name="heat_type_list">
-        <item>난방의 종류를 선택해주세요.</item>
-        <item>개별난방</item>
-        <item>중앙난방</item>
-    </string-array>
-    <string-array name="room_type_list">
-        <item>방 구조의 형태를 선택해주세요.</item>
-        <item>1.5층</item>
-        <item>주방분리형</item>
-    </string-array>
+  <string-array name="building_type_list">
+    <item>건물의 유형을 선택해주세요.</item>
+    <item>아파트</item>
+    <item>오피스텔</item>
+  </string-array>
+  <string-array name="heat_type_list">
+    <item>난방의 종류를 선택해주세요.</item>
+    <item>개별난방</item>
+    <item>중앙난방</item>
+  </string-array>
+  <string-array name="room_type_list">
+    <item>방 구조의 형태를 선택해주세요.</item>
+    <item>1.5층</item>
+    <item>주방분리형</item>
+  </string-array>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
