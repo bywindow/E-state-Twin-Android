@@ -140,3 +140,4 @@ string square_meter
 style TextAppearance_idiot_ActionBar_Title
 style Theme_idiot_BottomSheet_Rounded
 style bottomSheetStyleWrapper
+xml paths

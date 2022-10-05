@@ -139,3 +139,4 @@ int string square_meter 0x0
 int style TextAppearance_idiot_ActionBar_Title 0x0
 int style Theme_idiot_BottomSheet_Rounded 0x0
 int style bottomSheetStyleWrapper 0x0
+int xml paths 0x0

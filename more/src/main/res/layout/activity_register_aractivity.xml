@@ -10,23 +10,24 @@
 
     <androidx.fragment.app.FragmentContainerView
       android:id="@+id/sceneform_fragment"
+      android:name="com.idiot.more.ui.PermissionArFragment"
       android:layout_width="match_parent"
       android:layout_height="0dp"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"/>
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/add_checklist_button"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias=".9"
+      android:background="@drawable/bg_add_checklist"
       android:drawableStart="@drawable/ic_check"
-      android:padding="15dp"
-      android:background="@drawable/bg_add_checklist"/>
+      android:padding="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias=".9" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

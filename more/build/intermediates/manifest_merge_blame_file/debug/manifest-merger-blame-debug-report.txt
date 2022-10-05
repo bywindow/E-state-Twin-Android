@@ -8,14 +8,53 @@
 7        android:targetSdkVersion="32" />
 7-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml
 8
-9    <application>
-9-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:5:5-9:19
-10        <activity
-10-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:9-8:40
-11            android:name="com.idiot.more.ui.RegisterARActivity"
-11-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:7:13-50
-12            android:exported="false" />
-12-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:8:13-37
-13    </application>
-14
-15</manifest>
+9    <uses-permission android:name="android.permission.CAMERA" />
+9-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:5:3-63
+9-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:5:20-60
+10    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+10-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:3-78
+10-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:20-76
+11
+12    <uses-feature
+12-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:7:3-85
+13        android:name="android.hardware.camera.ar"
+13-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:7:17-58
+14        android:required="true" />
+14-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:7:59-82
+15
+16    <application>
+16-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:9:3-24:17
+17        <activity
+17-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:10:5-12:34
+18            android:name="com.idiot.more.ui.RegisterARActivity"
+18-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:11:7-44
+19            android:exported="false" />
+19-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:12:7-31
+20
+21        <meta-data
+21-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:14:5-77
+22            android:name="com.google.ar.core"
+22-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:14:16-49
+23            android:value="required" />
+23-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:14:50-74
+24
+25        <provider
+25-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:15:5-23:16
+26            android:name="androidx.core.content.FileProvider"
+26-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:16:7-56
+27            android:authorities="com.idiot.e_state_twin_android.provider"
+27-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:17:7-68
+28            android:exported="false"
+28-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:18:7-31
+29            android:grantUriPermissions="true" >
+29-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:19:7-41
+30            <meta-data
+30-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:20:7-22:40
+31                android:name="android.support.FILE_PROVIDER_PATHS"
+31-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:21:9-59
+32                android:resource="@xml/paths" />
+32-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:22:9-38
+33        </provider>
+34    </application>
+35
+36</manifest>
