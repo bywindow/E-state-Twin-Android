@@ -120,12 +120,11 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   @Override
   public List<DataBinderMapper> collectDependencies() {
-    ArrayList<DataBinderMapper> result = new ArrayList<DataBinderMapper>(6);
+    ArrayList<DataBinderMapper> result = new ArrayList<DataBinderMapper>(5);
     result.add(new androidx.databinding.library.baseAdapters.DataBinderMapperImpl());
     result.add(new com.idiot.data.api.DataBinderMapperImpl());
     result.add(new com.idiot.data.repository.DataBinderMapperImpl());
     result.add(new com.idiot.model.DataBinderMapperImpl());
-    result.add(new com.idiot.threeviewer.DataBinderMapperImpl());
     result.add(new com.idiot.utils.DataBinderMapperImpl());
     return result;
   }

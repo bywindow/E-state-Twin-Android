@@ -53,6 +53,7 @@ dependencies {
   implementation(Libraries.lifecycle_viewmodel)
   implementation(Libraries.navigation_ui)
   implementation(Libraries.navigation_fragment)
+  implementation(Libraries.timber)
 
   testImplementation(Libraries.junit)
 

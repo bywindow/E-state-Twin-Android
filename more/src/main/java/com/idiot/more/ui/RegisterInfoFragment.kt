@@ -34,155 +34,163 @@ import com.idiot.more.ui.viewModel.RegisterPictureListViewModel
 
 class RegisterInfoFragment : Fragment() {
 
-    private lateinit var binding: FragmentRegisterInfoBinding
-    private val pictureListViewModel by viewModels<RegisterPictureListViewModel> {
-      RegisterPictureListViewModel.PictureListFactory()
-    }
-    private val optionListViewModel by viewModels<RegisterOptionListViewModel> {
-        RegisterOptionListViewModel.OptionListFactory(Application())
+  private lateinit var binding: FragmentRegisterInfoBinding
+  private val pictureListViewModel by viewModels<RegisterPictureListViewModel> {
+    RegisterPictureListViewModel.PictureListFactory()
+  }
+  private val optionListViewModel by viewModels<RegisterOptionListViewModel> {
+    RegisterOptionListViewModel.OptionListFactory(Application())
+  }
+
+  private lateinit var toolbar: MaterialToolbar
+
+  private val requestPermissionLauncher =
+    registerForActivityResult(
+      ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+      if (isGranted) {
+        // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
+        navigateToPhoto()
+      } else {
+        Log.d("register", "Denied :(")
+      }
     }
 
-    private lateinit var toolbar: MaterialToolbar
-
-    private val requestPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()
-        ) {isGranted: Boolean ->
-            if (isGranted) {
-                // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
-                navigateToPhoto()
-            } else {
-                Log.d("register", "Denied :(")
-            }
+  private val selectImageResultLauncher: ActivityResultLauncher<Intent> =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+      if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+        it.data?.clipData?.let { cd ->
+          pictureListViewModel.insertPicture(cd, cd.itemCount)
         }
-
-    private val selectImageResultLauncher: ActivityResultLauncher<Intent> =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == Activity.RESULT_OK && it.data != null) {
-                it.data?.clipData?.let { cd ->
-                    pictureListViewModel.insertPicture(cd, cd.itemCount)
-                }
-            }
-        }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_info, container, false)
-        toolbar = binding.toolbarRegisterInfo.toolbar
-
-        initNavigation()
-        initAdapter()
-        initAddressSearchDialogListener(binding)
-
-        return binding.root
+      }
     }
 
-    private fun initNavigation() {
-        toolbar.setNavigationIcon(R.drawable.ic_navigate_up)
-        toolbar.setNavigationOnClickListener {
-            it.findNavController().navigateUp()
-        }
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
+    binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_info, container, false)
+    toolbar = binding.toolbarRegisterInfo.toolbar
 
-        binding.homeInfoDialogButton.setOnClickListener {
-            openBottomSheetDialog(it)
-        }
-        binding.priceInfoDialogButton.setOnClickListener {
-            openBottomSheetDialog(it)
-        }
+    initNavigation()
+    initAdapter()
+    initAddressSearchDialogListener(binding)
+
+    return binding.root
+  }
+
+  private fun initNavigation() {
+    toolbar.setNavigationIcon(R.drawable.ic_navigate_up)
+    toolbar.setNavigationOnClickListener {
+      it.findNavController().navigateUp()
     }
 
-    private fun initAdapter() {
-        val headerAdapter = RegisterInfoPictureHeaderAdapter { addPicture() }
-        val pictureAdapter = RegisterInfoPictureAdapter { registerPicture -> pictureListViewModel.deletePicture(registerPicture) }
-        val concatAdapter = ConcatAdapter(headerAdapter, pictureAdapter)
-        binding.estatePictureRecyclerview.adapter = concatAdapter
+    binding.homeInfoDialogButton.setOnClickListener {
+      openBottomSheetDialog(it)
+    }
+    binding.priceInfoDialogButton.setOnClickListener {
+      openBottomSheetDialog(it)
+    }
+    binding.registerArChecklistButton.setOnClickListener {
+      startActivity(Intent(context, RegisterARActivity::class.java))
+    }
+  }
 
-        pictureListViewModel.pictureList.observe(viewLifecycleOwner) {
-            it?.let {
-                pictureAdapter.submitList(it as MutableList<RegisterPicture>)
-                updatePictureCount(it)
-            }
-        }
+  private fun initAdapter() {
+    val headerAdapter = RegisterInfoPictureHeaderAdapter { addPicture() }
+    val pictureAdapter = RegisterInfoPictureAdapter { registerPicture ->
+      pictureListViewModel.deletePicture(registerPicture)
+    }
+    val concatAdapter = ConcatAdapter(headerAdapter, pictureAdapter)
+    binding.estatePictureRecyclerview.adapter = concatAdapter
 
-        val optionAdapter = RegisterInfoOptionAdapter { houseOption ->  optionListViewModel.changeOptionStatus(houseOption) }
-        binding.registerOptionRecyclerView.adapter = optionAdapter
-
-        optionListViewModel.optionList.observe(viewLifecycleOwner) {
-            it?.let {
-                optionAdapter.submitList(it.values.toList() as MutableList<HouseOption>)
-                optionAdapter.notifyDataSetChanged()
-            }
-        }
+    pictureListViewModel.pictureList.observe(viewLifecycleOwner) {
+      it?.let {
+        pictureAdapter.submitList(it as MutableList<RegisterPicture>)
+        updatePictureCount(it)
+      }
     }
 
-    private fun addPicture() {
-        when {
-            ContextCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            ) == PackageManager.PERMISSION_GRANTED -> {
-                // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
-                navigateToPhoto()
-            }
-            shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
-                // Educated 화면을 보여준 후 권한 요청
-                showPermissionContextPopup()
-            }
-            else -> {
-                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-            }
-        }
-    }
+    val optionAdapter =
+      RegisterInfoOptionAdapter { houseOption -> optionListViewModel.changeOptionStatus(houseOption) }
+    binding.registerOptionRecyclerView.adapter = optionAdapter
 
-    private fun showPermissionContextPopup() {
-        AlertDialog.Builder(requireContext())
-            .setTitle("권한 요청")
-            .setMessage("사진을 추가하기 위해 권한 요청에 동의해주세요.")
-            .setPositiveButton("확인") { _, _ ->
-                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-            }
-            .setNegativeButton("취소") { _, _ -> }
-            .create()
-            .show()
+    optionListViewModel.optionList.observe(viewLifecycleOwner) {
+      it?.let {
+        optionAdapter.submitList(it.values.toList() as MutableList<HouseOption>)
+        optionAdapter.notifyDataSetChanged()
+      }
     }
+  }
 
-    private fun navigateToPhoto() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        intent.action = Intent.ACTION_PICK
-        selectImageResultLauncher.launch(intent)
+  private fun addPicture() {
+    when {
+      ContextCompat.checkSelfPermission(
+        requireContext(),
+        Manifest.permission.READ_EXTERNAL_STORAGE
+      ) == PackageManager.PERMISSION_GRANTED -> {
+        // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
+        navigateToPhoto()
+      }
+      shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
+        // Educated 화면을 보여준 후 권한 요청
+        showPermissionContextPopup()
+      }
+      else -> {
+        requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+      }
     }
+  }
 
-    private fun updatePictureCount(list: List<RegisterPicture>) {
-        binding.pictureCountTextView.text = "${list.size}/${getString(R.string.picture_max_count)}"
-    }
+  private fun showPermissionContextPopup() {
+    AlertDialog.Builder(requireContext())
+      .setTitle("권한 요청")
+      .setMessage("사진을 추가하기 위해 권한 요청에 동의해주세요.")
+      .setPositiveButton("확인") { _, _ ->
+        requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+      }
+      .setNegativeButton("취소") { _, _ -> }
+      .create()
+      .show()
+  }
 
-    private fun initAddressSearchDialogListener(binding: FragmentRegisterInfoBinding) {
-        binding.addressSearchEditText.setOnClickListener {
-            val networkStatus = NetworkStatus()
-            if (networkStatus.isNetworkAvailable(requireContext())) {
-                val direction = RegisterInfoFragmentDirections.actionRegisterInfoFragmentToAddressSearchDialogFragment()
-                it.findNavController().navigate(direction)
-            } else {
-                Snackbar.make(binding.root, "인터넷 연결을 확인해주세요.", Snackbar.LENGTH_SHORT).show()
-            }
-        }
-    }
+  private fun navigateToPhoto() {
+    val intent = Intent()
+    intent.type = "image/*"
+    intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+    intent.action = Intent.ACTION_PICK
+    selectImageResultLauncher.launch(intent)
+  }
 
-    private fun openBottomSheetDialog(view: View) {
-        when (view.id) {
-            R.id.home_info_dialog_button -> {
-                val direction = RegisterInfoFragmentDirections
-                    .actionRegisterInfoFragmentToRegisterHouseInfoFragment()
-                view.findNavController().navigate(direction)
-            }
-            R.id.price_info_dialog_button -> {
-                //TODO : Add input price page
-                Log.d("register", "price info")
-            }
-            else -> return
-        }
+  private fun updatePictureCount(list: List<RegisterPicture>) {
+    binding.pictureCountTextView.text = "${list.size}/${getString(R.string.picture_max_count)}"
+  }
+
+  private fun initAddressSearchDialogListener(binding: FragmentRegisterInfoBinding) {
+    binding.addressSearchEditText.setOnClickListener {
+      val networkStatus = NetworkStatus()
+      if (networkStatus.isNetworkAvailable(requireContext())) {
+        val direction =
+          RegisterInfoFragmentDirections.actionRegisterInfoFragmentToAddressSearchDialogFragment()
+        it.findNavController().navigate(direction)
+      } else {
+        Snackbar.make(binding.root, "인터넷 연결을 확인해주세요.", Snackbar.LENGTH_SHORT).show()
+      }
     }
+  }
+
+  private fun openBottomSheetDialog(view: View) {
+    when (view.id) {
+      R.id.home_info_dialog_button -> {
+        val direction = RegisterInfoFragmentDirections
+          .actionRegisterInfoFragmentToRegisterHouseInfoFragment()
+        view.findNavController().navigate(direction)
+      }
+      R.id.price_info_dialog_button -> {
+        //TODO : Add input price page
+        Log.d("register", "price info")
+      }
+      else -> return
+    }
+  }
 }

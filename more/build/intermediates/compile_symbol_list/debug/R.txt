@@ -4,9 +4,11 @@ int array room_type_list 0x0
 int color add_picture_border 0x0
 int color register_address_border 0x0
 int color register_info_edit_text_hint 0x0
+int drawable bg_add_checklist 0x0
 int drawable bottom_navigation_rounded 0x0
 int drawable ic_add_picture 0x0
 int drawable ic_btn_input_drdw 0x0
+int drawable ic_check 0x0
 int drawable ic_navigate_up 0x0
 int drawable ic_profile_default 0x0
 int drawable register_add_picture_rounded 0x0
@@ -21,6 +23,7 @@ int id action_moreFragment_to_registerFragment 0x0
 int id action_registerFragment_to_registerInfoFragment 0x0
 int id action_registerInfoFragment_to_addressSearchDialogFragment 0x0
 int id action_registerInfoFragment_to_registerHouseInfoFragment 0x0
+int id add_checklist_button 0x0
 int id addressSearchDialogFragment 0x0
 int id address_search_edit_text 0x0
 int id address_search_web_view 0x0
@@ -89,6 +92,7 @@ int id register_option_text_view 0x0
 int id register_request_list 0x0
 int id room_type_selector 0x0
 int id running_process 0x0
+int id sceneform_fragment 0x0
 int id setting_alarm 0x0
 int id short_able_button 0x0
 int id short_disable_button 0x0
@@ -102,6 +106,7 @@ int id user_name_textView 0x0
 int id user_role_textView 0x0
 int id veranda_title 0x0
 int id view_pager 0x0
+int layout activity_register_aractivity 0x0
 int layout fragment_address_search_dialog 0x0
 int layout fragment_more 0x0
 int layout fragment_new_register_request 0x0

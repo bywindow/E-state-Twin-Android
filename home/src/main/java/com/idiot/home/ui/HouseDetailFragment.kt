@@ -11,7 +11,7 @@ import com.idiot.home.R
 import com.idiot.home.databinding.FragmentHouseDetailBinding
 import com.idiot.data.repository.samples.optionSample
 import com.idiot.e_state_twin_android.core.data.assets.imageUrlSample
-import com.idiot.threeviewer.ViewerActivity
+//import com.idiot.threeviewer.ViewerActivity
 import java.lang.Exception
 
 class HouseDetailFragment : Fragment() {
@@ -31,13 +31,13 @@ class HouseDetailFragment : Fragment() {
         binding.detailOptionList.adapter = HouseOptionListAdapter(optionSample())
 
         binding.threeDimenButton.setOnClickListener {
-            try {
-                startActivity(
-                    Intent(context, ViewerActivity::class.java)
-                        .putExtra("title", getString(R.string.viewer_3d_button_text)))
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+//            try {
+//                startActivity(
+//                    Intent(context, ViewerActivity::class.java)
+//                        .putExtra("title", getString(R.string.viewer_3d_button_text)))
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//            }
         }
 
         test(binding)

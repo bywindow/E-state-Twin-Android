@@ -1,255 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-                                                       
-                                                   
+                                                     
+                                                 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true" android:tag="layout/fragment_register_info_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <include
+      android:id="@+id/toolbar_register_info"
+      layout="@layout/toolbar_layout"
+                               />
+
+    <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true" android:tag="layout/fragment_register_info_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+        android:orientation="vertical"
+        android:paddingTop="?android:attr/actionBarSize">
 
-        <include
-            android:id="@+id/toolbar_register_info"
-            layout="@layout/toolbar_layout"
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="33dp" android:tag="binding_1">
+
+          <include
+            android:id="@+id/picture_title"
+            layout="@layout/tv_register_title"
                                      />
 
-        <androidx.core.widget.NestedScrollView
+          <TextView
+            android:id="@+id/picture_count_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/app_horizontal_padding"
+            android:includeFontPadding="false"
+            android:text="0/20"
+            android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/picture_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/picture_title" />
+
+          <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/estate_picture_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clipToPadding="true"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/picture_item_margin_side"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/picture_title"
+            tools:listitem="@layout/list_item_register_info_picture_header" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingTop="?android:attr/actionBarSize">
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="22dp" android:tag="binding_2">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="33dp" android:tag="binding_1">
+          <include
+            android:id="@+id/address_title"
+            layout="@layout/tv_register_title"
+                                     />
 
-                    <include
-                        android:id="@+id/picture_title"
-                        layout="@layout/tv_register_title"
-                                                 />
+          <EditText
+            android:id="@+id/address_search_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="@dimen/app_horizontal_padding"
+            android:background="@drawable/tv_register_address_background"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="@string/address_input_hint"
+            android:includeFontPadding="false"
+            android:inputType="textPersonName"
+            android:paddingVertical="13dp"
+            android:paddingStart="15dp"
+            android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/address_title"
+            app:layout_constraintTop_toBottomOf="@id/address_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:id="@+id/picture_count_textView"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/app_horizontal_padding"
-                        android:includeFontPadding="false"
-                        android:text="0/20"
-                        android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-                        android:textSize="11sp"
-                        app:layout_constraintBottom_toBottomOf="@id/picture_title"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/picture_title" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp" android:tag="binding_3">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/estate_picture_recyclerview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:clipToPadding="true"
-                        android:orientation="horizontal"
-                        android:paddingEnd="@dimen/picture_item_margin_side"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintTop_toBottomOf="@id/picture_title"
-                        tools:listitem="@layout/list_item_register_info_picture_header" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+          <include
+            android:id="@+id/house_detail_title"
+            layout="@layout/tv_register_title"
+                                       />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp" android:tag="binding_2">
+          <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/home_info_dialog_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="@dimen/app_horizontal_padding"
+            android:background="@drawable/register_dialog_button_rounded"
+            android:drawableEnd="@drawable/ic_btn_depth"
+            android:fontFamily="@font/ff_notosanskr_regular"
+            android:gravity="left|center"
+            android:includeFontPadding="false"
+            android:paddingVertical="7dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/home_detail_dialog_button_text"
+            android:textColor="@color/detail_info_content"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/house_detail_title"
+            app:layout_constraintTop_toBottomOf="@id/house_detail_title" />
 
-                    <include
-                        android:id="@+id/address_title"
-                        layout="@layout/tv_register_title"
-                                                 />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <EditText
-                        android:id="@+id/address_search_edit_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginEnd="@dimen/app_horizontal_padding"
-                        android:background="@drawable/tv_register_address_background"
-                        android:ems="10"
-                        android:focusable="false"
-                        android:hint="@string/address_input_hint"
-                        android:includeFontPadding="false"
-                        android:inputType="textPersonName"
-                        android:paddingVertical="13dp"
-                        android:paddingStart="15dp"
-                        android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/address_title"
-                        app:layout_constraintTop_toBottomOf="@id/address_title" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp" android:tag="binding_4">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp" android:tag="binding_3">
+          <include
+            android:id="@+id/price_detail_title"
+            layout="@layout/tv_register_title"
+                                       />
 
-                    <include
-                        android:id="@+id/house_detail_title"
-                        layout="@layout/tv_register_title"
-                                                   />
+          <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/price_info_dialog_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="@dimen/app_horizontal_padding"
+            android:background="@drawable/register_dialog_button_rounded"
+            android:drawableEnd="@drawable/ic_btn_depth"
+            android:fontFamily="@font/ff_notosanskr_regular"
+            android:gravity="left|center"
+            android:includeFontPadding="false"
+            android:paddingVertical="7dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/price_dialog_button_text"
+            android:textColor="@color/detail_info_content"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/price_detail_title"
+            app:layout_constraintTop_toBottomOf="@id/price_detail_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/home_info_dialog_button"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginEnd="@dimen/app_horizontal_padding"
-                        android:background="@drawable/register_dialog_button_rounded"
-                        android:drawableEnd="@drawable/ic_btn_depth"
-                        android:fontFamily="@font/ff_notosanskr_regular"
-                        android:gravity="left|center"
-                        android:includeFontPadding="false"
-                        android:paddingVertical="7dp"
-                        android:paddingStart="15dp"
-                        android:paddingEnd="15dp"
-                        android:text="@string/home_detail_dialog_button_text"
-                        android:textColor="@color/detail_info_content"
-                        android:textSize="13sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/house_detail_title"
-                        app:layout_constraintTop_toBottomOf="@id/house_detail_title" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp" android:tag="binding_5">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+          <include
+            android:id="@+id/option_title"
+            layout="@layout/tv_register_title"
+                                     />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp" android:tag="binding_4">
+          <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/register_option_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="17.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:stateListAnimator="@null"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/option_title"
+            app:spanCount="5"
+            tools:listitem="@layout/list_item_register_option" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <include
-                        android:id="@+id/price_detail_title"
-                        layout="@layout/tv_register_title"
-                                                   />
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp" android:tag="binding_6">
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/price_info_dialog_button"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginEnd="@dimen/app_horizontal_padding"
-                        android:background="@drawable/register_dialog_button_rounded"
-                        android:drawableEnd="@drawable/ic_btn_depth"
-                        android:fontFamily="@font/ff_notosanskr_regular"
-                        android:gravity="left|center"
-                        android:includeFontPadding="false"
-                        android:paddingVertical="7dp"
-                        android:paddingStart="15dp"
-                        android:paddingEnd="15dp"
-                        android:text="@string/price_dialog_button_text"
-                        android:textColor="@color/detail_info_content"
-                        android:textSize="13sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/price_detail_title"
-                        app:layout_constraintTop_toBottomOf="@id/price_detail_title" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+          <include
+            android:id="@+id/house_video_title"
+            layout="@layout/tv_register_title"
+                                       />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp" android:tag="binding_5">
+          <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_house_video_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="@dimen/app_horizontal_padding"
+            android:background="@drawable/register_dialog_button_rounded"
+            android:fontFamily="@font/ff_notosanskr_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingVertical="13dp"
+            android:text="@string/register_house_video_button_text"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/house_video_title"
+            app:layout_constraintTop_toBottomOf="@id/house_video_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <include
-                        android:id="@+id/option_title"
-                        layout="@layout/tv_register_title"
-                                                 />
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp" android:tag="binding_7">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/register_option_recycler_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="17.5dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@android:color/transparent"
-                        android:clipToPadding="false"
-                        android:overScrollMode="never"
-                        android:stateListAnimator="@null"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        app:layout_constraintTop_toBottomOf="@id/option_title"
-                        app:spanCount="5"
-                        tools:listitem="@layout/list_item_register_option" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+          <include
+            android:id="@+id/ar_checklist_title"
+            layout="@layout/tv_register_title"
+                                          />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp" android:tag="binding_6">
+          <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_ar_checklist_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="@dimen/app_horizontal_padding"
+            android:background="@drawable/register_dialog_button_rounded"
+            android:fontFamily="@font/ff_notosanskr_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingVertical="13dp"
+            android:text="@string/register_ar_checklist_button_text"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/ar_checklist_title"
+            app:layout_constraintTop_toBottomOf="@id/ar_checklist_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <include
-                        android:id="@+id/house_video_title"
-                        layout="@layout/tv_register_title"
-                                                   />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/register_house_video_button"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginEnd="@dimen/app_horizontal_padding"
-                        android:background="@drawable/register_dialog_button_rounded"
-                        android:fontFamily="@font/ff_notosanskr_regular"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:paddingVertical="13dp"
-                        android:text="@string/register_house_video_button_text"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/house_video_title"
-                        app:layout_constraintTop_toBottomOf="@id/house_video_title" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp" android:tag="binding_7">
-
-                    <include
-                        android:id="@+id/ar_checklist_title"
-                        layout="@layout/tv_register_title"
-                                                      />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/register_ar_checklist_button"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginEnd="@dimen/app_horizontal_padding"
-                        android:background="@drawable/register_dialog_button_rounded"
-                        android:fontFamily="@font/ff_notosanskr_regular"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:paddingVertical="13dp"
-                        android:text="@string/register_ar_checklist_button_text"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/ar_checklist_title"
-                        app:layout_constraintTop_toBottomOf="@id/ar_checklist_title" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/register_complete_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:background="@color/purple_700"
-                    android:gravity="center"
-                    android:paddingVertical="16dp"
-                    android:text="확인"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.core.widget.NestedScrollView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/register_complete_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="40dp"
+          android:background="@color/purple_700"
+          android:gravity="center"
+          android:paddingVertical="16dp"
+          android:text="확인"
+          android:textColor="@color/white"
+          android:textSize="16sp" />
+      </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
          

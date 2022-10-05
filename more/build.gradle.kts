@@ -1,4 +1,5 @@
 import com.idiot.e_state_twin_android.Libraries
+import com.idiot.e_state_twin_android.Configuration
 
 plugins {
   id("com.android.library")
@@ -9,11 +10,11 @@ plugins {
   id("androidx.navigation.safeargs.kotlin")
 }
 android {
-  compileSdk = com.idiot.e_state_twin_android.Configuration.compileSdk
+  compileSdk = Configuration.compileSdk
 
   defaultConfig {
-    minSdk = com.idiot.e_state_twin_android.Configuration.minSdk
-    targetSdk = com.idiot.e_state_twin_android.Configuration.targetSdk
+    minSdk = Configuration.minSdk
+    targetSdk = Configuration.targetSdk
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
@@ -54,6 +55,12 @@ dependencies {
   implementation(Libraries.navigation_fragment)
   implementation(Libraries.navigation_ui)
   implementation(Libraries.recyclerview)
+  implementation(Libraries.arcore)
+  implementation(Libraries.sceneformUX)
+  implementation(Libraries.sceneformAnim)
+  implementation("androidx.appcompat:appcompat:1.5.1")
+  implementation("com.google.android.material:material:1.4.0")
+  implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
   testImplementation(Libraries.junit)
 

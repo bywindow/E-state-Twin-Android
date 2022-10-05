@@ -6,4 +6,10 @@
         android:minSdkVersion="24"
         android:targetSdkVersion="32" />
 
+    <application>
+        <activity
+            android:name="com.idiot.more.ui.RegisterARActivity"
+            android:exported="false" />
+    </application>
+
 </manifest>

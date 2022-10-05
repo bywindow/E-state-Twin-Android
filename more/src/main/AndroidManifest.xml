@@ -2,4 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.idiot.more">
 
+    <application>
+        <activity
+            android:name=".ui.RegisterARActivity"
+            android:exported="false" />
+    </application>
+
 </manifest>

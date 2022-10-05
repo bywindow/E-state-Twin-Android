@@ -45,7 +45,7 @@ dependencies {
   implementation(project(":data:api"))
 
   implementation(project(":data:repository"))
-  implementation(project(":feature:threeviewer"))
+//  implementation(project(":feature:threeviewer"))
   implementation(project(":utils"))
 
   implementation(Libraries.androidx_core)

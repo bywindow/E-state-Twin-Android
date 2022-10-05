@@ -6,9 +6,11 @@ array room_type_list
 color add_picture_border
 color register_address_border
 color register_info_edit_text_hint
+drawable bg_add_checklist
 drawable bottom_navigation_rounded
 drawable ic_add_picture
 drawable ic_btn_input_drdw
+drawable ic_check
 drawable ic_navigate_up
 drawable ic_profile_default
 drawable register_add_picture_rounded
@@ -23,6 +25,7 @@ id action_moreFragment_to_registerFragment
 id action_registerFragment_to_registerInfoFragment
 id action_registerInfoFragment_to_addressSearchDialogFragment
 id action_registerInfoFragment_to_registerHouseInfoFragment
+id add_checklist_button
 id addressSearchDialogFragment
 id address_search_edit_text
 id address_search_web_view
@@ -91,6 +94,7 @@ id register_option_text_view
 id register_request_list
 id room_type_selector
 id running_process
+id sceneform_fragment
 id setting_alarm
 id short_able_button
 id short_disable_button
@@ -104,6 +108,7 @@ id user_name_textView
 id user_role_textView
 id veranda_title
 id view_pager
+layout activity_register_aractivity
 layout fragment_address_search_dialog
 layout fragment_more
 layout fragment_new_register_request

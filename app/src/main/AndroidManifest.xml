@@ -34,8 +34,7 @@
       <!-- If you are using androidx.startup to initialize other components -->
       <meta-data
         android:name="com.idiot.e_state_twin_android.TimberInitializer"
-        android:value="androidx.startup"
-        tools:node="remove" />
+        android:value="androidx.startup"/>
     </provider>
 
   </application>

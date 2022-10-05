@@ -228,9 +228,11 @@
         <entry key="login/src/main/res/layout/activity_sign_up.xml" value="0.24682971014492755" />
         <entry key="login/src/main/res/layout/list_item_cities.xml" value="0.24682971014492755" />
         <entry key="login/src/main/res/layout/list_item_distinct.xml" value="0.24682971014492755" />
+        <entry key="more/src/main/res/drawable/bg_add_checklist.xml" value="0.247" />
         <entry key="more/src/main/res/drawable/bottom_navigation_rounded.xml" value="0.129" />
         <entry key="more/src/main/res/drawable/ic_add_picture.xml" value="0.129" />
         <entry key="more/src/main/res/drawable/ic_btn_input_drdw.xml" value="0.106" />
+        <entry key="more/src/main/res/drawable/ic_check.xml" value="0.247" />
         <entry key="more/src/main/res/drawable/ic_navigate_up.xml" value="0.16" />
         <entry key="more/src/main/res/drawable/ic_profile_default.xml" value="0.1055" />
         <entry key="more/src/main/res/drawable/register_add_picture_rounded.xml" value="0.129" />
@@ -242,6 +244,7 @@
         <entry key="more/src/main/res/drawable/tv_register_address_background.xml" value="0.106" />
         <entry key="more/src/main/res/drawable/user_profile_rounded.xml" value="0.1055" />
         <entry key="more/src/main/res/drawable/user_role_tv_rounded.xml" value="0.1055" />
+        <entry key="more/src/main/res/layout/activity_register_aractivity.xml" value="0.20380434782608695" />
         <entry key="more/src/main/res/layout/fragment_more.xml" value="0.1" />
         <entry key="more/src/main/res/layout/fragment_register_house_info.xml" value="0.33" />
         <entry key="more/src/main/res/layout/fragment_register_info.xml" value="0.23681776133209992" />
