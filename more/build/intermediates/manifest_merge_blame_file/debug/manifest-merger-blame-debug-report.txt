@@ -13,38 +13,42 @@
 9-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:5:20-60
 10
 11    <uses-feature
-11-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:3-85
+11-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:3-8:31
 12        android:name="android.hardware.camera.ar"
-12-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:17-58
+12-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:7:5-46
 13        android:required="true" />
-13-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:59-82
+13-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:8:5-28
 14
 15    <application>
-15-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:8:3-22:17
+15-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:10:3-26:17
 16        <activity
-16-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:9:5-11:34
+16-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:11:5-15:44
 17            android:name="com.idiot.more.ui.RegisterARActivity"
-17-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:10:7-44
-18            android:exported="false" />
-18-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:11:7-31
-19
-20        <provider
-20-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:13:5-21:16
-21            android:name="androidx.core.content.FileProvider"
-21-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:14:7-56
-22            android:authorities="com.idiot.e_state_twin_android.provider"
-22-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:15:7-68
-23            android:exported="false"
-23-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:16:7-31
-24            android:grantUriPermissions="true" >
-24-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:17:7-41
-25            <meta-data
-25-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:18:7-20:40
-26                android:name="android.support.FILE_PROVIDER_PATHS"
-26-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:19:9-59
-27                android:resource="@xml/paths" />
-27-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:20:9-38
-28        </provider>
-29    </application>
-30
-31</manifest>
+17-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:12:7-44
+18            android:configChanges="orientation|screenSize"
+18-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:13:7-53
+19            android:exported="false"
+19-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:14:7-31
+20            android:screenOrientation="locked" />
+20-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:15:7-41
+21
+22        <provider
+22-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:17:5-25:16
+23            android:name="androidx.core.content.FileProvider"
+23-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:18:7-56
+24            android:authorities="com.idiot.e_state_twin_android.provider"
+24-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:19:7-68
+25            android:exported="false"
+25-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:20:7-31
+26            android:grantUriPermissions="true" >
+26-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:21:7-41
+27            <meta-data
+27-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:22:7-24:41
+28                android:name="android.support.FILE_PROVIDER_PATHS"
+28-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:23:9-59
+29                android:resource="@xml/paths" />
+29-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:24:9-38
+30        </provider>
+31    </application>
+32
+33</manifest>

@@ -15,7 +15,9 @@
     <application>
         <activity
             android:name="com.idiot.more.ui.RegisterARActivity"
-            android:exported="false" />
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="locked" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

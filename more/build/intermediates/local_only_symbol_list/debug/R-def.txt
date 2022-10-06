@@ -7,6 +7,7 @@ color add_picture_border
 color register_address_border
 color register_info_edit_text_hint
 drawable bg_add_checklist
+drawable bg_complete_checklist
 drawable bottom_navigation_rounded
 drawable ic_add_picture
 drawable ic_btn_input_drdw
@@ -25,6 +26,7 @@ id action_moreFragment_to_registerFragment
 id action_registerFragment_to_registerInfoFragment
 id action_registerInfoFragment_to_addressSearchDialogFragment
 id action_registerInfoFragment_to_registerHouseInfoFragment
+id add_checklist_button
 id addressSearchDialogFragment
 id address_search_edit_text
 id address_search_web_view
@@ -39,6 +41,7 @@ id building_name_input
 id building_total_floor_input
 id building_type_item
 id building_type_selector
+id checklist_complete_button
 id close_button
 id complete_button
 id container_view
@@ -67,6 +70,7 @@ id house_owner_phone_textView
 id house_video_title
 id imageItemView
 id list_item_register_option_layout
+id loading_view
 id moreFragment
 id more_tab
 id more_tab_textView
@@ -95,6 +99,7 @@ id register_option_text_view
 id register_request_list
 id room_type_selector
 id running_process
+id scene_view
 id setting_alarm
 id short_able_button
 id short_disable_button
@@ -126,9 +131,10 @@ layout list_item_register_option
 layout list_new_register_request
 layout tv_register_title
 navigation graph_more
+string add_checklist
 string address_input_hint
 string building_name_input_hint
-string hello_blank_fragment
+string complete_checklist
 string home_detail_dialog_button_text
 string home_recommend_card_image_desc
 string house_type_input_hint

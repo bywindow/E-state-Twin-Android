@@ -1,60 +1,84 @@
 package com.idiot.more.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.isGone
+import androidx.databinding.DataBindingUtil
 import com.idiot.more.R
+import com.idiot.more.databinding.FragmentArChecklistBinding
+import io.github.sceneview.ar.ArSceneView
+import io.github.sceneview.ar.node.ArModelNode
+import io.github.sceneview.ar.node.PlacementMode
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ArChecklistFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ArChecklistFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+  private lateinit var sceneView: ArSceneView
+  private lateinit var loadingView: View
+  private lateinit var checklistButton: AppCompatButton
+
+  private lateinit var binding: FragmentArChecklistBinding
+
+  private lateinit var cloudAnchorNode: ArModelNode
+
+  private var isLoading = true
+    set(value) {
+      field = value
+      loadingView.isGone = !value
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ar_checklist, container, false)
+//  override fun onCreate(savedInstanceState: Bundle?) {
+//    super.onCreate(savedInstanceState)
+//    isLoading = true
+//  }
+
+  override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
+    binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ar_checklist, container, false)
+    return binding.root
+  }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
+    sceneView = binding.sceneView.apply {
+      cloudAnchorEnabled = true
+      instructions.searchPlaneInfoNode.position.y = -0.5f
+    }
+    loadingView = binding.loadingView
+    checklistButton = binding.addChecklistButton.apply {
+      setOnClickListener {
+        addChecklistButtonClicked()
+      }
+    }
+    isLoading = false
+  }
+
+  private fun addChecklistButtonClicked() {
+    val frame = sceneView.currentFrame ?: return
+    cloudAnchorNode = ArModelNode(placementMode = PlacementMode.PLANE_HORIZONTAL).apply {
+      parent = sceneView
+      isSmoothPoseEnable = true
+      isVisible = true
+      loadModelAsync(
+        context = requireContext(),
+        lifecycle = lifecycle,
+        glbFileLocation = "models/ic_anchor.glb"
+      ) {
+        isLoading = false
+      }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ArChecklistFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ArChecklistFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    if (!cloudAnchorNode.isAnchored) {
+      cloudAnchorNode.anchor()
+      Log.d("TAG", cloudAnchorNode.toString())
     }
+  }
 }
