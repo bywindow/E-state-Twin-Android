@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.idiot.feature.login.BuildConfig
 import com.idiot.feature.login.ui.main.LoginActivity
 import com.kakao.sdk.common.KakaoSdk
+import dagger.hilt.android.AndroidEntryPoint
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

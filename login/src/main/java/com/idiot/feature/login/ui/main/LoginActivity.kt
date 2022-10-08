@@ -10,6 +10,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.gms.common.SignInButton
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivityLoginBinding
@@ -17,6 +20,10 @@ import com.idiot.feature.login.ui.sign.SignUpActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
@@ -30,18 +37,18 @@ class LoginActivity : AppCompatActivity() {
     initContinueButton()
     initLoginClickListener(binding)
     subscribeUi(binding)
+    Timber.d("TAG: loginactivity")
   }
 
   private fun initLoginClickListener(binding: ActivityLoginBinding) {
     binding.kakaoButton.setOnClickListener {
 
       val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
-        Log.d("TAG", "$token")
         if (error != null) {
           Log.e("TAG", "로그인 실패", error)
         } else if (token != null) {
           Log.i("TAG", "로그인 성공 $token")
-          saveKakaoUser()
+          saveKakaoUser(token)
         }
       }
 //       카카오톡이 설치되어 있으면 카카오톡으로 로그인, 아니면 카카오계정으로 로그인
@@ -57,7 +64,11 @@ class LoginActivity : AppCompatActivity() {
   }
 
   //TODO : 서버에 토큰 저장하고 회원가입 페이지로 이동
-  private fun saveKakaoUser() {
+  private fun saveKakaoUser(token: OAuthToken) {
+    lifecycleScope.launch {
+      viewModel.requestToken(provider = "kakao", code = token.accessToken)
+    }
+
     UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
       if (error != null) {
         Log.e("TAG", "failed")

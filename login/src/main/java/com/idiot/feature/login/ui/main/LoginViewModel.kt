@@ -6,6 +6,7 @@ import com.idiot.model.TokenResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,7 +17,12 @@ class LoginViewModel @Inject constructor(
   private val _token: MutableStateFlow<TokenResponse?> = MutableStateFlow(null)
   val token: StateFlow<TokenResponse?> = _token
 
-  suspend fun requestToken(accessToken: String) {
-    val tokenResponse = repository.requestToken(accessToken)
+  init {
+      Timber.d("TAG: LoginViewModel")
+  }
+
+  suspend fun requestToken(provider: String, code: String) {
+    val tokenResponse = repository.requestToken(provider, code)
+    Timber.d("$tokenResponse")
   }
 }
