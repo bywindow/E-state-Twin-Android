@@ -4,7 +4,7 @@ object Versions {
   const val kotlin = "1.7.10"
   const val agp = "7.2.1"
   const val ksp = "1.7.10-1.0.6"
-  const val hilt = "2.38.1"
+  const val hilt = "2.42"
   const val javaRelease = "8"
   const val jvmTarget = "1.8"
   const val material = "1.8.0-alpha01"

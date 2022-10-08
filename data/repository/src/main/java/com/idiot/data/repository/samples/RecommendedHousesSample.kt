@@ -1,6 +1,6 @@
 package com.idiot.e_state_twin_android.core.data.assets
 
-import com.idiot.data.api.RecommendedHouse
+import com.idiot.model.RecommendedHouse
 
 fun RecommendedHousesSample(): List<RecommendedHouse> {
     return listOf(

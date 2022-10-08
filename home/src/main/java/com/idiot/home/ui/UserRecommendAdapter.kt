@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.data.api.RecommendedHouse
+import com.idiot.model.RecommendedHouse
 import com.idiot.home.R
 import com.idiot.home.databinding.ListItemHomeRecommendBinding
 

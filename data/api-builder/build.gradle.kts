@@ -5,8 +5,8 @@ plugins {
   id("com.android.library")
   id("kotlin-android")
   id("kotlin-parcelize")
-//  id("com.google.devtools.ksp")
   id("kotlin-kapt")
+  id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -38,22 +38,22 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
     }
   }
-
-//  kotlinOptions {
-//    jvmTarget = "11"
-//  }
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
 }
 
 dependencies {
   api(project(":data:api"))
 
-  implementation(Libraries.androidx_core)
-  implementation(Libraries.androidx_appcompat)
-  implementation(Libraries.material)
   implementation(Libraries.okhttp_interceptor)
-  api(Libraries.retrofit_gson)
-  api(Libraries.retrofit)
+  implementation(Libraries.retrofit_gson)
+  implementation(Libraries.retrofit)
+  implementation(Libraries.retrofit_moshi)
   implementation(Libraries.kakao_user)
+
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
 
   testImplementation(Libraries.junit)
 

@@ -33,10 +33,6 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
     }
   }
-
-//  kotlinOptions {
-//    jvmTarget = "11"
-//  }
 }
 
 dependencies {

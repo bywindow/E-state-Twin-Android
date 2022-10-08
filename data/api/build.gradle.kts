@@ -4,7 +4,7 @@ plugins {
   id("com.android.library")
   id("kotlin-android")
   id("kotlin-parcelize")
-//  id("com.google.devtools.ksp")
+  id("dagger.hilt.android.plugin")
   id("kotlin-kapt")
 }
 
@@ -46,9 +46,14 @@ dependencies {
   implementation(Libraries.androidx_core)
   implementation(Libraries.androidx_appcompat)
   implementation(Libraries.material)
-  implementation(Libraries.retrofit_gson) // for api
+
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
+
+  implementation(Libraries.okhttp_interceptor)
+  implementation(Libraries.retrofit_gson)
   implementation(Libraries.retrofit)
-  implementation(Libraries.moshi)
+  implementation(Libraries.retrofit_moshi)
   implementation(Libraries.kakao_user)
 
   testImplementation(Libraries.junit)

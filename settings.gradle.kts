@@ -15,7 +15,7 @@
 //    }
 //}
 rootProject.name = "E_state_Twin_Android"
-include(":app", ":common", ":home", ":login", ":feature:threeviewer",
+include(":app", ":common", ":home", ":login",
   ":data:api", ":data:repository", ":data:api-builder", ":data:db", ":model", ":utils")
 include(":search")
 include(":dip")

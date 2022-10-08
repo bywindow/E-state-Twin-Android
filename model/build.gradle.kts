@@ -49,6 +49,8 @@ dependencies {
   implementation(Libraries.moshi)
   implementation(Libraries.moshi_codegen)
 
+  api(Libraries.timber)
+
   testImplementation(Libraries.junit)
 
   androidTestImplementation(Libraries.androidx_junit)

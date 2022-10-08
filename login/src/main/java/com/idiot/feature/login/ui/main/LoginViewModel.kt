@@ -1,27 +1,22 @@
 package com.idiot.feature.login.ui.main
 
-import android.app.Application
-import androidx.lifecycle.*
-import com.idiot.data.repository.AuthRepository
-import com.idiot.model.AuthCodeResponse
-import kotlinx.coroutines.launch
+import androidx.lifecycle.ViewModel
+import com.idiot.data.repository.TokenRepository
+import com.idiot.model.TokenResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import javax.inject.Inject
 
-class LoginViewModel(private val repository: AuthRepository) : ViewModel() {
-  private val _authTokens = MutableLiveData<AuthCodeResponse>()
-  val authTokens: LiveData<AuthCodeResponse>
-    get() = _authTokens
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+  private val repository: TokenRepository
+) : ViewModel() {
 
-  fun getUserToken(code: String) {
-    viewModelScope.launch {
-      val tokens = repository.load(code)
-      _authTokens.postValue(tokens)
-    }
-  }
+  private val _token: MutableStateFlow<TokenResponse?> = MutableStateFlow(null)
+  val token: StateFlow<TokenResponse?> = _token
 
-  @Suppress("UNCHECKED_CAST")
-  class AuthTokenFactory(private val application: Application): ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-      return LoginViewModel(AuthRepository.getInstance(application)!!) as T
-    }
+  suspend fun requestToken(accessToken: String) {
+    val tokenResponse = repository.requestToken(accessToken)
   }
 }

@@ -25,16 +25,12 @@ class ArChecklistFragment : Fragment() {
 
   private lateinit var cloudAnchorNode: ArModelNode
 
-  private var isLoading = true
-    set(value) {
-      field = value
-      loadingView.isGone = !value
-    }
+  private var isLoading = false
 
-//  override fun onCreate(savedInstanceState: Bundle?) {
-//    super.onCreate(savedInstanceState)
-//    isLoading = true
-//  }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    isLoading = true
+  }
 
   override fun onCreateView(
     inflater: LayoutInflater,

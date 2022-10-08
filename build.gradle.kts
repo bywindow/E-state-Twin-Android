@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 import com.idiot.e_state_twin_android.Libraries
+
 buildscript {
 
   repositories {
@@ -14,13 +15,9 @@ buildscript {
   }
 
   dependencies {
-    classpath(com.idiot.e_state_twin_android.Libraries.agp)
-//    classpath(Libraries.ksp)
     classpath(com.idiot.e_state_twin_android.Libraries.kotlin_gradlePlugin)
+    classpath(com.idiot.e_state_twin_android.Libraries.agp)
     classpath(com.idiot.e_state_twin_android.Libraries.navigation_safeargsPlugin)
-//    classpath(com.idiot.e_state_twin_android.Libraries.sceneform_plugin)
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     classpath(com.idiot.e_state_twin_android.Libraries.hilt_plugin)
   }
 }

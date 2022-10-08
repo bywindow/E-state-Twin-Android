@@ -4,8 +4,12 @@ package com.idiot.feature.login.ui.sign;
 import android.app.Application;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
+import dagger.internal.QualifierMetadata;
+import dagger.internal.ScopeMetadata;
 import javax.inject.Provider;
 
+@ScopeMetadata
+@QualifierMetadata
 @DaggerGenerated
 @SuppressWarnings({
     "unchecked",

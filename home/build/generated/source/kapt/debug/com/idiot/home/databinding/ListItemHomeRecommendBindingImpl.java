@@ -125,7 +125,7 @@ public class ListItemHomeRecommendBindingImpl extends ListItemHomeRecommendBindi
         }
         java.lang.String viewModelRecommendedHouseHousePrice = null;
         java.lang.String viewModelRecommendedHouseHouseAddress = null;
-        com.idiot.data.api.RecommendedHouse viewModelRecommendedHouse = null;
+        com.idiot.model.RecommendedHouse viewModelRecommendedHouse = null;
         android.view.View.OnClickListener clickListener = mClickListener;
         java.lang.String viewModelRecommendedHouseHouseType = null;
         com.idiot.home.ui.UserRecommendViewModel viewModel = mViewModel;

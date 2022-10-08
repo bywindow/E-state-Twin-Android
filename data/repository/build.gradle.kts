@@ -42,13 +42,20 @@ android {
 
 dependencies {
   api(project(":model"))
-  implementation(project(":data:api"))
   implementation(project(":data:api-builder"))
 
   implementation(Libraries.androidx_core)
   implementation(Libraries.androidx_appcompat)
   implementation(Libraries.material)
   implementation(Libraries.kakao_user)
+
+  implementation(Libraries.okhttp_interceptor)
+  implementation(Libraries.retrofit_gson)
+  implementation(Libraries.retrofit)
+  implementation(Libraries.retrofit_moshi)
+
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
 
   testImplementation(Libraries.junit)
 

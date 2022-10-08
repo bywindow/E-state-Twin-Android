@@ -1,6 +1,5 @@
 package com.idiot.feature.login.ui.main
 
-import android.app.Application
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -17,11 +16,13 @@ import com.idiot.feature.login.databinding.ActivityLoginBinding
 import com.idiot.feature.login.ui.sign.SignUpActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
   private lateinit var binding: ActivityLoginBinding
-  private val viewModel by viewModels<LoginViewModel>{ LoginViewModel.AuthTokenFactory(Application()) }
+  private val viewModel: LoginViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -31,11 +32,8 @@ class LoginActivity : AppCompatActivity() {
     subscribeUi(binding)
   }
 
-
-
   private fun initLoginClickListener(binding: ActivityLoginBinding) {
     binding.kakaoButton.setOnClickListener {
-//      viewModel.getAuthToken("kakao")
 
       val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         Log.d("TAG", "$token")
@@ -65,7 +63,6 @@ class LoginActivity : AppCompatActivity() {
         Log.e("TAG", "failed")
       } else if (tokenInfo != null) {
         Log.d("TAG", "$tokenInfo")
-//        viewModel.getUserToken(tokenInfo.id.toString())
       }
     }
     UserApiClient.instance.me { user, error ->
