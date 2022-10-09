@@ -23,6 +23,6 @@ class LoginViewModel @Inject constructor(
 
   suspend fun requestToken(provider: String, code: String) {
     val tokenResponse = repository.requestToken(provider, code)
-    Timber.d("$tokenResponse")
+    _token.value = tokenResponse
   }
 }

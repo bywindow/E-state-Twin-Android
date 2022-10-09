@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
+import com.google.ar.core.Anchor
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentArChecklistBinding
 import io.github.sceneview.ar.ArSceneView
@@ -75,6 +77,14 @@ class ArChecklistFragment : Fragment() {
     if (!cloudAnchorNode.isAnchored) {
       cloudAnchorNode.anchor()
       Log.d("TAG", cloudAnchorNode.toString())
+      Log.d("TAG", sceneView.arSession?.estimateFeatureMapQualityForHosting(frame.camera.pose).toString())
+      cloudAnchorNode.hostCloudAnchor { anchor: Anchor, success: Boolean ->
+        if (success) {
+          Toast.makeText(requireContext(), "앵커 등록 완료: $anchor", Toast.LENGTH_SHORT).show()
+        } else {
+          Toast.makeText(requireContext(), "앵커 등록 실패", Toast.LENGTH_SHORT).show()
+        }
+      }
     }
   }
 }

@@ -1,52 +1,62 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:2:1-28:12
+ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:2:1-34:12
 	package
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:3:3-27
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:4:3-27
 		INJECTED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml
 		INJECTED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:3:3-49
 	xmlns:android
 		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.CAMERA
-ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:5:3-63
+ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:3-63
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:5:20-60
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:20-60
 uses-feature#android.hardware.camera.ar
-ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:6:3-8:31
+ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:7:3-9:31
 	android:required
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:8:5-28
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:9:5-28
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:7:5-46
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:8:5-46
 application
-ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:10:3-26:17
+ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:11:3-32:17
 activity#com.idiot.more.ui.RegisterARActivity
-ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:11:5-15:44
+ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:12:5-16:44
 	android:screenOrientation
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:15:7-41
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:16:7-41
 	android:exported
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:14:7-31
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:15:7-31
 	android:configChanges
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:13:7-53
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:14:7-53
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:12:7-44
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:13:7-44
 provider#androidx.core.content.FileProvider
-ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:17:5-25:16
+ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:18:5-26:16
 	android:grantUriPermissions
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:21:7-41
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:22:7-41
 	android:authorities
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:19:7-68
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:20:7-68
 	android:exported
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:20:7-31
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:21:7-31
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:18:7-56
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:19:7-56
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:22:7-24:41
+ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:23:7-25:41
 	android:resource
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:24:9-38
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:25:9-38
 	android:name
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:23:9-59
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:24:9-59
+meta-data#com.google.ar.core
+ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:28:5-31:38
+	tools:replace
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:31:7-36
+	android:value
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:30:7-62
+	android:name
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:29:7-40
 uses-sdk
 INJECTED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml

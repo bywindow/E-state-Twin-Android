@@ -14,6 +14,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.gms.common.SignInButton
+import com.idiot.common.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivityLoginBinding
 import com.idiot.feature.login.ui.sign.SignUpActivity
@@ -65,10 +66,6 @@ class LoginActivity : AppCompatActivity() {
 
   //TODO : 서버에 토큰 저장하고 회원가입 페이지로 이동
   private fun saveKakaoUser(token: OAuthToken) {
-    lifecycleScope.launch {
-      viewModel.requestToken(provider = "kakao", code = token.accessToken)
-    }
-
     UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
       if (error != null) {
         Log.e("TAG", "failed")
@@ -124,9 +121,19 @@ class LoginActivity : AppCompatActivity() {
         }
       }
     }
-    val intent = Intent(applicationContext, com.idiot.common.MainActivity::class.java)
-    startActivity(intent)
-    finish()
+    lifecycleScope.launch {
+      viewModel.requestToken(provider = "kakao", code = token.accessToken)
+      Timber.d("token : ${viewModel.token.value}")
+      if (viewModel.token.value?.isMember == true) {
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+      } else {
+        val intent = Intent(applicationContext, SignUpActivity::class.java)
+        startActivity(intent)
+        finish()
+      }
+    }
   }
 
   private fun initContinueButton() {
