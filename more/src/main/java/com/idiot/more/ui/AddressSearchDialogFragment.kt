@@ -38,7 +38,7 @@ class AddressSearchDialogFragment : DialogFragment() {
         webView.settings.javaScriptCanOpenWindowsAutomatically = true
         webView.webChromeClient = WebChromeClient()
         webView.addJavascriptInterface(AndroidBridge(), "Android")
-        webView.loadUrl("https://idiot-model-bucket.s3.ap-northeast-2.amazonaws.com/static/daum_map.html")
+        webView.loadUrl("http://www.estatetwin.net/api/daum_map.html")
     }
 
     inner class AndroidBridge {
