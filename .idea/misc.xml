@@ -246,6 +246,7 @@
         <entry key="more/src/main/res/drawable/user_profile_rounded.xml" value="0.1055" />
         <entry key="more/src/main/res/drawable/user_role_tv_rounded.xml" value="0.1055" />
         <entry key="more/src/main/res/layout/activity_register_aractivity.xml" value="0.20380434782608695" />
+        <entry key="more/src/main/res/layout/fragment_address_search_dialog.xml" value="0.2758152173913043" />
         <entry key="more/src/main/res/layout/fragment_ar_checklist.xml" value="0.33" />
         <entry key="more/src/main/res/layout/fragment_more.xml" value="0.1" />
         <entry key="more/src/main/res/layout/fragment_register_house_info.xml" value="0.33" />
