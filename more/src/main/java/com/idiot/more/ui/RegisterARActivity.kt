@@ -27,4 +27,5 @@ class RegisterARActivity : AppCompatActivity() {
       add(R.id.container_view, ArChecklistFragment::class.java, Bundle())
     }
   }
+
 }

@@ -2,21 +2,21 @@ package com.idiot.more.ui
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
-import com.google.ar.core.Anchor
-import com.google.ar.core.Camera
+import androidx.fragment.app.Fragment
+import com.google.ar.core.Session
+import com.google.ar.core.exceptions.SessionPausedException
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentArChecklistBinding
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
+import timber.log.Timber
 
 class ArChecklistFragment : Fragment() {
 
@@ -57,14 +57,17 @@ class ArChecklistFragment : Fragment() {
         addChecklistButtonClicked()
       }
     }
+    sessionCloseButtonClicked()
     isLoading = false
   }
 
   private fun addChecklistButtonClicked() {
+    isLoading = true
+    var mapQualityStatus = false
     val frame = sceneView.currentFrame ?: return
-    cloudAnchorNode = ArModelNode(placementMode = PlacementMode.PLANE_HORIZONTAL).apply {
+    binding.addChecklistButton.isClickable = false
+    cloudAnchorNode = ArModelNode(placementMode = PlacementMode.BEST_AVAILABLE).apply {
       parent = sceneView
-      isSmoothPoseEnable = true
       isVisible = true
       loadModelAsync(
         context = requireContext(),
@@ -74,11 +77,42 @@ class ArChecklistFragment : Fragment() {
         isLoading = false
       }
     }
-    if (!cloudAnchorNode.isAnchored) {
-      cloudAnchorNode.anchor()
-      Log.d("TAG", cloudAnchorNode.toString())
-      Log.d("TAG", sceneView.arSession?.estimateFeatureMapQualityForHosting(frame.camera.pose).toString())
-    }
+    cloudAnchorNode.anchor()
+    Thread(Runnable {
+      while (!mapQualityStatus) {
+        Thread.sleep(500)
+        requireActivity().runOnUiThread {
+          try {
+            val mapStatus = sceneView.arSession?.estimateFeatureMapQualityForHosting(frame.camera.pose)
+            Timber.d("mapQuality: ${mapStatus}")
+            if (mapStatus == Session.FeatureMapQuality.INSUFFICIENT) return@runOnUiThread
+            mapQualityStatus = true
+          } catch (e: SessionPausedException) {
+            e.printStackTrace()
+          }
+        }
+      }
+      if (mapQualityStatus) {
+        cloudAnchorNode.hostCloudAnchor{ anchor, success ->
+          Timber.d("mapQuality: hosting...")
+          if (success) {
+            Toast.makeText(requireContext(), "hosted: ${cloudAnchorNode.anchor?.cloudAnchorId}", Toast.LENGTH_SHORT).show()
+            binding.addChecklistButton.isClickable = true
+            mapQualityStatus = false
+          } else {
+            Timber.d("mapQuality: Unable to host the Cloud Anchor. The Cloud Anchor state is ${anchor.cloudAnchorState}"
+            )
+          }
+        }
+      }
+    }).start()
   }
 
+  private fun sessionCloseButtonClicked() {
+    binding.checklistCompleteButton.setOnClickListener {
+      sceneView.arSession?.close()
+      Timber.d("ARfragment: closing...")
+      requireActivity().finish()
+    }
+  }
 }
