@@ -44,7 +44,6 @@ id building_type_selector
 id checklist_complete_button
 id close_button
 id complete_button
-id container_view
 id current_floor_title
 id date_picker
 id duplex_title

@@ -42,7 +42,6 @@ int id building_type_selector 0x0
 int id checklist_complete_button 0x0
 int id close_button 0x0
 int id complete_button 0x0
-int id container_view 0x0
 int id current_floor_title 0x0
 int id date_picker 0x0
 int id duplex_title 0x0

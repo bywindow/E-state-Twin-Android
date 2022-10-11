@@ -9,14 +9,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.fragment.app.FragmentContainerView
-      android:id="@+id/container_view"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
+    <io.github.sceneview.ar.ArSceneView
+      android:id="@+id/scene_view"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"/>
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/add_checklist_button"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@drawable/bg_add_checklist"
+      android:gravity="center"
+      android:padding="8dp"
+      android:text="@string/add_checklist"
+      android:textColor="@color/white"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="@id/checklist_complete_button"
+      app:layout_constraintStart_toStartOf="@id/checklist_complete_button"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias=".8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/checklist_complete_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="13dp"
+      android:background="@drawable/bg_complete_checklist"
+      android:gravity="center"
+      android:padding="8dp"
+      android:text="@string/complete_checklist"
+      android:textColor="@color/purple_700"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/add_checklist_button" />
+
+    <FrameLayout
+      android:id="@+id/loading_view"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:background="#40000000"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.0"
+      tools:visibility="visible">
+
+      <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        app:indicatorSize="64dp"
+        app:trackColor="@color/white" />
+    </FrameLayout>
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 
