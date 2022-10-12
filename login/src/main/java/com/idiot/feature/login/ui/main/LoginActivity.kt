@@ -1,6 +1,5 @@
 package com.idiot.feature.login.ui.main
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -14,7 +13,6 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.common.SignInButton
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivityLoginBinding
-import com.idiot.feature.login.ui.sign.SignUpActivity
 import com.idiot.feature.login.utils.UpdateViewOnEvent.updateViewOnEvent
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
@@ -31,10 +29,8 @@ class LoginActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-    initContinueButton()
     initLoginClickListener(binding)
     subscribeUi(binding)
-    Timber.d("TAG: loginactivity")
   }
 
   private fun initLoginClickListener(binding: ActivityLoginBinding) {
@@ -130,13 +126,6 @@ class LoginActivity : AppCompatActivity() {
         updateViewOnEvent(it, this@LoginActivity, isMember)
         finish()
       }
-    }
-  }
-
-  private fun initContinueButton() {
-    binding.continueButton.setOnClickListener {
-      startActivity(Intent(this, SignUpActivity::class.java))
-      finish()
     }
   }
 
