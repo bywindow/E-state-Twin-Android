@@ -46,4 +46,5 @@ object NetworkModule {
   fun provideEstateClient(estateService: EstateService): EstateClient {
     return EstateClient(estateService)
   }
+
 }

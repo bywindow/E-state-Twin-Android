@@ -112,7 +112,6 @@ int id veranda_title 0x0
 int id view_pager 0x0
 int layout activity_register_aractivity 0x0
 int layout fragment_address_search_dialog 0x0
-int layout fragment_ar_checklist 0x0
 int layout fragment_more 0x0
 int layout fragment_new_register_request 0x0
 int layout fragment_register 0x0

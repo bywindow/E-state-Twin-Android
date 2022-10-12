@@ -113,7 +113,6 @@ id veranda_title
 id view_pager
 layout activity_register_aractivity
 layout fragment_address_search_dialog
-layout fragment_ar_checklist
 layout fragment_more
 layout fragment_new_register_request
 layout fragment_register

@@ -42,12 +42,14 @@ android {
 
 dependencies {
   api(project(":model"))
+  implementation(project(":data:db"))
   implementation(project(":data:api-builder"))
 
   implementation(Libraries.androidx_core)
   implementation(Libraries.androidx_appcompat)
   implementation(Libraries.material)
   implementation(Libraries.kakao_user)
+  implementation(Libraries.preference_datastore)
 
   implementation(Libraries.okhttp_interceptor)
   implementation(Libraries.retrofit_gson)

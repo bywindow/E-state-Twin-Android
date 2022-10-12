@@ -2,6 +2,7 @@ package com.idiot.feature.login.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.idiot.data.repository.TokenRepository
+import com.idiot.data.repository.UserPreferenceRepository
 import com.idiot.model.TokenResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,7 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-  private val repository: TokenRepository
+  private val repository: TokenRepository,
+  private val userPreferenceRepository: UserPreferenceRepository
 ) : ViewModel() {
 
   private val _token: MutableStateFlow<TokenResponse?> = MutableStateFlow(null)

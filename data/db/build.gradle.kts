@@ -6,6 +6,7 @@ plugins {
   id("kotlin-parcelize")
 //  id("com.google.devtools.ksp")
   id("kotlin-kapt")
+  id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -42,12 +43,11 @@ android {
 
 dependencies {
   api(project(":model"))
-
   implementation(project(":data:api"))
 
-  implementation(Libraries.androidx_core)
-  implementation(Libraries.androidx_appcompat)
-  implementation(Libraries.material)
+  implementation(Libraries.preference_datastore)
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
 
   testImplementation(Libraries.junit)
 

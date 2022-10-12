@@ -17,6 +17,7 @@ buildscript {
   dependencies {
     classpath(com.idiot.e_state_twin_android.Libraries.kotlin_gradlePlugin)
     classpath(com.idiot.e_state_twin_android.Libraries.agp)
+    classpath(com.idiot.e_state_twin_android.Libraries.kotlin_serialization)
     classpath(com.idiot.e_state_twin_android.Libraries.navigation_safeargsPlugin)
     classpath(com.idiot.e_state_twin_android.Libraries.hilt_plugin)
   }
