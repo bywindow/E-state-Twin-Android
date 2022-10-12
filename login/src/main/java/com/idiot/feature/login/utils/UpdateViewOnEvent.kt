@@ -1,9 +1,7 @@
 package com.idiot.feature.login.utils
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
 import com.idiot.common.MainActivity
 import com.idiot.feature.login.ui.main.LoginActivity
 import com.idiot.feature.login.ui.main.LoginEvent

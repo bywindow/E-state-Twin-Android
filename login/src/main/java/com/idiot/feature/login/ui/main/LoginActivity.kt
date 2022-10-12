@@ -12,7 +12,6 @@ import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.common.SignInButton
-import com.idiot.common.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivityLoginBinding
 import com.idiot.feature.login.ui.sign.SignUpActivity
@@ -56,7 +55,6 @@ class LoginActivity : AppCompatActivity() {
       } else {
         Log.d("TAG", "isKakaoTalkLoginAvailable(false) ")
         UserApiClient.instance.loginWithKakaoAccount(this@LoginActivity, callback = callback)
-//        viewModel.getAuthToken(token)
       }
     }
   }
@@ -135,38 +133,36 @@ class LoginActivity : AppCompatActivity() {
     }
   }
 
-
-
-    private fun initContinueButton() {
-      binding.continueButton.setOnClickListener {
-        startActivity(Intent(this, SignUpActivity::class.java))
-        finish()
-      }
+  private fun initContinueButton() {
+    binding.continueButton.setOnClickListener {
+      startActivity(Intent(this, SignUpActivity::class.java))
+      finish()
     }
+  }
 
-    private fun subscribeUi(binding: ActivityLoginBinding) {
-      binding.googleButton.setSize(SignInButton.SIZE_ICON_ONLY)
-    }
+  private fun subscribeUi(binding: ActivityLoginBinding) {
+    binding.googleButton.setSize(SignInButton.SIZE_ICON_ONLY)
+  }
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-      super.onWindowFocusChanged(hasFocus)
-      if (hasFocus) {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-          val controller = window.insetsController
-          controller.let {
-            it!!.hide(WindowInsets.Type.navigationBars())
-            it.systemBarsBehavior =
-              WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-          }
-        } else {
+  override fun onWindowFocusChanged(hasFocus: Boolean) {
+    super.onWindowFocusChanged(hasFocus)
+    if (hasFocus) {
+      WindowCompat.setDecorFitsSystemWindows(window, false)
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val controller = window.insetsController
+        controller.let {
+          it!!.hide(WindowInsets.Type.navigationBars())
+          it.systemBarsBehavior =
+            WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+      } else {
 //                window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE
 //                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 //                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 //                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
-        }
       }
     }
   }
+}
 
 
