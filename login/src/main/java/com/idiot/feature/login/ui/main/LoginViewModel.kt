@@ -7,6 +7,7 @@ import com.idiot.model.TokenResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -27,4 +28,24 @@ class LoginViewModel @Inject constructor(
     val tokenResponse = repository.requestToken(provider, code)
     _token.value = tokenResponse
   }
+
+  fun cacheToken(
+    accessToken: String,
+    refreshToken: String
+  ) = flow {
+    userPreferenceRepository.setToken(accessToken, refreshToken)
+    emit(LoginEvent.TokenCachedSuccess)
+  }
+
+  fun getToken() = flow {
+    val result = userPreferenceRepository.getAccessToken()
+    val accessToken = result.getOrNull().orEmpty()
+    emit(LoginEvent.CachedTokenFetchSuccess(accessToken))
+  }
+
+}
+
+sealed class LoginEvent {
+  object TokenCachedSuccess : LoginEvent()
+  class CachedTokenFetchSuccess(val accessToken: String) : LoginEvent()
 }
