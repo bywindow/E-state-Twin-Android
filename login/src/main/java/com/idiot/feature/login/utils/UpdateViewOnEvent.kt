@@ -6,6 +6,7 @@ import com.idiot.common.MainActivity
 import com.idiot.feature.login.ui.main.LoginActivity
 import com.idiot.feature.login.ui.main.LoginEvent
 import com.idiot.feature.login.ui.sign.SignUpActivity
+import com.idiot.feature.login.ui.sign.SignUpEvent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import timber.log.Timber
 
@@ -24,17 +25,29 @@ object UpdateViewOnEvent {
           context.startActivity(Intent(context, MainActivity::class.java))
         }
       }
-      LoginEvent.TokenCachedSuccess -> {
+      is LoginEvent.TokenCachedSuccess -> {
         // 토큰 저장 성공
         Timber.d("Token Saved Completely")
         if (isMember) {
           context.startActivity(Intent(context, MainActivity::class.java))
           Timber.d("이미 멤버입니다")
         } else {
-          context.startActivity(Intent(context, SignUpActivity::class.java))
+          val intent = Intent(context, SignUpActivity::class.java)
+          intent.putExtra("accessToken", event.accessToken)
+          context.startActivity(intent)
           Timber.d("뉴비입니다")
         }
       }
+    }
+  }
+
+  fun moveToMainActivity(event: SignUpEvent, @ApplicationContext context: Context) {
+    when (event) {
+      SignUpEvent.UserDataUploadSuccess -> {
+        Timber.d("유저 정보 저장 성공")
+        context.startActivity(Intent(context, MainActivity::class.java))
+      }
+      else -> {}
     }
   }
 }

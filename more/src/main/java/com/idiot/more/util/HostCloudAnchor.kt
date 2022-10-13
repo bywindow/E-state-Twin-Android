@@ -1,7 +1,5 @@
 package com.idiot.more.util
 
-import android.os.SystemClock
-import com.google.ar.core.Camera
 import com.google.ar.core.Session
 import io.github.sceneview.ar.ArSceneView
 import timber.log.Timber

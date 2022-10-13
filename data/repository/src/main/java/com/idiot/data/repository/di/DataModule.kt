@@ -1,9 +1,6 @@
 package com.idiot.data.repository.di
 
-import com.idiot.data.repository.TokenRepository
-import com.idiot.data.repository.TokenRepositoryImpl
-import com.idiot.data.repository.UserPreferenceRepository
-import com.idiot.data.repository.UserPreferenceRepositoryImpl
+import com.idiot.data.repository.*
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -24,4 +21,9 @@ interface DataModule {
   fun bindsUserPreferencesRepository(
     userPreferenceRepositoryImpl: UserPreferenceRepositoryImpl
   ): UserPreferenceRepository
+
+  @Binds
+  fun bindsUserSignUpRepository(
+    userSignUpRepositoryImpl: UserSignUpRepositoryImpl
+  ): UserSignUpRepository
 }

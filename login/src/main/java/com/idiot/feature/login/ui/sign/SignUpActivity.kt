@@ -1,24 +1,34 @@
 package com.idiot.feature.login.ui.sign
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import com.idiot.common.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivitySignUpBinding
+import com.idiot.feature.login.utils.UpdateViewOnEvent
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SignUpActivity : AppCompatActivity() {
 
-  private val viewModel: SignUpViewModel by viewModels()
   private lateinit var binding: ActivitySignUpBinding
+  private val viewModel: SignUpViewModel by viewModels()
+  lateinit var accessToken: String
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
     binding.lifecycleOwner = this
     binding.vm = viewModel
+
+    accessToken = intent.getStringExtra("accessToken").toString()
 
     binding.citiesRecyclerview.setHasFixedSize(true)
     binding.distinctRecyclerview.setHasFixedSize(true)
@@ -37,8 +47,12 @@ class SignUpActivity : AppCompatActivity() {
 
   private fun initCompleteButton() {
     binding.completeButton.setOnClickListener {
-      startActivity(Intent(this, com.idiot.common.MainActivity::class.java))
-      finish()
+      lifecycleScope.launch {
+        viewModel.requestSingUp(accessToken).collect() {
+          UpdateViewOnEvent.moveToMainActivity(it, this@SignUpActivity)
+          finish()
+        }
+      }
     }
   }
 }

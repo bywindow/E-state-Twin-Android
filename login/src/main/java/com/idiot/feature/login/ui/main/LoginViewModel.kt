@@ -34,7 +34,7 @@ class LoginViewModel @Inject constructor(
     refreshToken: String
   ) = flow {
     userPreferenceRepository.setToken(accessToken, refreshToken)
-    emit(LoginEvent.TokenCachedSuccess)
+    emit(LoginEvent.TokenCachedSuccess(accessToken))
   }
 
   fun getToken() = flow {
@@ -43,11 +43,9 @@ class LoginViewModel @Inject constructor(
     emit(LoginEvent.CachedTokenFetchSuccess(accessToken))
   }
 
-
-
 }
 
 sealed class LoginEvent {
-  object TokenCachedSuccess : LoginEvent()
+  class TokenCachedSuccess(val accessToken: String) : LoginEvent()
   class CachedTokenFetchSuccess(val accessToken: String) : LoginEvent()
 }

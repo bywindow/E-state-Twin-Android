@@ -2,6 +2,7 @@
 package com.idiot.feature.login.ui.sign;
 
 import android.app.Application;
+import com.idiot.data.repository.UserSignUpRepository;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
@@ -18,20 +19,26 @@ import javax.inject.Provider;
 public final class SignUpViewModel_Factory implements Factory<SignUpViewModel> {
   private final Provider<Application> applicationProvider;
 
-  public SignUpViewModel_Factory(Provider<Application> applicationProvider) {
+  private final Provider<UserSignUpRepository> userSignUpRepositoryProvider;
+
+  public SignUpViewModel_Factory(Provider<Application> applicationProvider,
+      Provider<UserSignUpRepository> userSignUpRepositoryProvider) {
     this.applicationProvider = applicationProvider;
+    this.userSignUpRepositoryProvider = userSignUpRepositoryProvider;
   }
 
   @Override
   public SignUpViewModel get() {
-    return newInstance(applicationProvider.get());
+    return newInstance(applicationProvider.get(), userSignUpRepositoryProvider.get());
   }
 
-  public static SignUpViewModel_Factory create(Provider<Application> applicationProvider) {
-    return new SignUpViewModel_Factory(applicationProvider);
+  public static SignUpViewModel_Factory create(Provider<Application> applicationProvider,
+      Provider<UserSignUpRepository> userSignUpRepositoryProvider) {
+    return new SignUpViewModel_Factory(applicationProvider, userSignUpRepositoryProvider);
   }
 
-  public static SignUpViewModel newInstance(Application application) {
-    return new SignUpViewModel(application);
+  public static SignUpViewModel newInstance(Application application,
+      UserSignUpRepository userSignUpRepository) {
+    return new SignUpViewModel(application, userSignUpRepository);
   }
 }

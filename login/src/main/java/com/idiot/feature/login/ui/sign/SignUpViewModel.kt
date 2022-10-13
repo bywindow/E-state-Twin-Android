@@ -2,17 +2,24 @@ package com.idiot.feature.login.ui.sign
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import com.idiot.data.repository.UserPreferenceRepository
+import com.idiot.data.repository.UserSignUpRepository
 import com.idiot.feature.login.R
 import com.idiot.feature.login.utils.TransactionTypeUtils
 import com.idiot.model.users.UserPreference
+import com.idiot.model.users.UserSignUp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
 import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class SignUpViewModel @Inject constructor(application: Application) :
+class SignUpViewModel @Inject constructor(
+  application: Application,
+  private val userSignUpRepository: UserSignUpRepository
+) :
   AndroidViewModel(application) {
 
   private val _preferenceTrans = MutableStateFlow(0)
@@ -74,4 +81,25 @@ class SignUpViewModel @Inject constructor(application: Application) :
     if (position == preferenceSubCity.value) return
     _preferenceSubCity.value = position
   }
+
+  suspend fun requestSingUp(accessToken: String) = flow {
+    val transactionTypeList = listOf<String>("", "MONTHLYRENT", "LEASE", "TRADING")
+    val estateTypeList = listOf<String>("", "APARTMENT", "OFFICETELS")
+    Timber.d("accessToken: $accessToken")
+    val data = UserSignUp(
+      birthday = "2022-01-01",
+      phone = "010-0000-0000",
+      transactionType = transactionTypeList[preferenceTrans.value],
+      estateType = estateTypeList[preferenceEstate.value],
+      borough = subList.value[preferenceSubCity.value].name
+    )
+    Timber.d("data: $data")
+    val signUpResponse = userSignUpRepository.requestSignUp(accessToken, data = data)
+    Timber.d("sign: $signUpResponse")
+    emit(SignUpEvent.UserDataUploadSuccess)
+  }
+}
+
+sealed class SignUpEvent {
+  object UserDataUploadSuccess : SignUpEvent()
 }

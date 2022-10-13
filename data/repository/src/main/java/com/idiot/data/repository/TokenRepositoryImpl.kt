@@ -12,9 +12,8 @@ class TokenRepositoryImpl @Inject constructor(
 
   @WorkerThread
   override suspend fun requestToken(provider: String, code: String) : TokenResponse? {
-    Timber.d("TAG: Request")
     val response = estateClient.requestToken(provider = provider, body = code)
-    Timber.d("TAG: $response")
+    Timber.d("JWT 토큰 발급 : $response")
     return if (response.isSuccessful) response.body() as TokenResponse else null
   }
 }
