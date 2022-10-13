@@ -41,7 +41,7 @@ public class ListItemDistinctBindingImpl extends ListItemDistinctBinding  {
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x4L;
+                mDirtyFlags = 0x2L;
         }
         requestRebind();
     }
@@ -59,11 +59,8 @@ public class ListItemDistinctBindingImpl extends ListItemDistinctBinding  {
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
-        if (BR.isSelected == variableId) {
-            setIsSelected((java.lang.Boolean) variable);
-        }
-        else if (BR.distinct == variableId) {
-            setDistinct((java.lang.String) variable);
+        if (BR.model == variableId) {
+            setModel((com.idiot.model.users.UserPreference) variable);
         }
         else {
             variableSet = false;
@@ -71,20 +68,12 @@ public class ListItemDistinctBindingImpl extends ListItemDistinctBinding  {
             return variableSet;
     }
 
-    public void setIsSelected(@Nullable java.lang.Boolean IsSelected) {
-        this.mIsSelected = IsSelected;
+    public void setModel(@Nullable com.idiot.model.users.UserPreference Model) {
+        this.mModel = Model;
         synchronized(this) {
             mDirtyFlags |= 0x1L;
         }
-        notifyPropertyChanged(BR.isSelected);
-        super.requestRebind();
-    }
-    public void setDistinct(@Nullable java.lang.String Distinct) {
-        this.mDistinct = Distinct;
-        synchronized(this) {
-            mDirtyFlags |= 0x2L;
-        }
-        notifyPropertyChanged(BR.distinct);
+        notifyPropertyChanged(BR.model);
         super.requestRebind();
     }
 
@@ -102,29 +91,23 @@ public class ListItemDistinctBindingImpl extends ListItemDistinctBinding  {
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        java.lang.Boolean isSelected = mIsSelected;
-        boolean androidxDatabindingViewDataBindingSafeUnboxIsSelected = false;
-        java.lang.String distinct = mDistinct;
+        com.idiot.model.users.UserPreference model = mModel;
+        java.lang.String modelName = null;
 
-        if ((dirtyFlags & 0x5L) != 0) {
-
+        if ((dirtyFlags & 0x3L) != 0) {
 
 
-                // read androidx.databinding.ViewDataBinding.safeUnbox(isSelected)
-                androidxDatabindingViewDataBindingSafeUnboxIsSelected = androidx.databinding.ViewDataBinding.safeUnbox(isSelected);
-        }
-        if ((dirtyFlags & 0x6L) != 0) {
+
+                if (model != null) {
+                    // read model.name
+                    modelName = model.getName();
+                }
         }
         // batch finished
-        if ((dirtyFlags & 0x5L) != 0) {
+        if ((dirtyFlags & 0x3L) != 0) {
             // api target 1
 
-            com.idiot.feature.login.bindings.ViewBinding.bindIsSubCity(this.distinctTextView, androidxDatabindingViewDataBindingSafeUnboxIsSelected);
-        }
-        if ((dirtyFlags & 0x6L) != 0) {
-            // api target 1
-
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.distinctTextView, distinct);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.distinctTextView, modelName);
         }
     }
     // Listener Stub Implementations
@@ -132,9 +115,8 @@ public class ListItemDistinctBindingImpl extends ListItemDistinctBinding  {
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): isSelected
-        flag 1 (0x2L): distinct
-        flag 2 (0x3L): null
+        flag 0 (0x1L): model
+        flag 1 (0x2L): null
     flag mapping end*/
     //end
 }

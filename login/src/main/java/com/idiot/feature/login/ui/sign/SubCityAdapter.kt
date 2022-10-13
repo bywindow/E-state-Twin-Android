@@ -1,5 +1,6 @@
 package com.idiot.feature.login.ui.sign
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,11 +9,14 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.idiot.feature.login.R
+import com.idiot.feature.login.databinding.ListItemCitiesBinding
 import com.idiot.feature.login.databinding.ListItemDistinctBinding
 import com.idiot.model.users.UserPreference
 
-class SubCityAdapter(private val onClick: (Int) -> Unit) :
+class SubCityAdapter(private val list: ArrayList<UserPreference>, private val onClick: (Int) -> Unit) :
   ListAdapter<UserPreference, SubCityAdapter.ViewHolder>(diffUtil) {
+
+  private var selectedPosition: Int = 0
 
   inner class ViewHolder(private val binding: ListItemDistinctBinding, val onClick: (Int) -> Unit) :
     RecyclerView.ViewHolder(binding.root) {
@@ -21,12 +25,23 @@ class SubCityAdapter(private val onClick: (Int) -> Unit) :
           binding.root.setOnClickListener {
             val position = bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
             onClick(position)
+            if (selectedPosition != absoluteAdapterPosition) {
+              binding.setChecked()
+              notifyItemChanged(selectedPosition)
+              selectedPosition = absoluteAdapterPosition
+            }
           }
       }
 
     fun bind(item: UserPreference) {
-      binding.distinct = item.name
-      binding.isSelected = item.isChecked
+      binding.model = item
+      if (selectedPosition == absoluteAdapterPosition) {
+        list[absoluteAdapterPosition].isChecked = true
+        binding.setChecked()
+      } else {
+        list[absoluteAdapterPosition].isChecked = false
+        binding.setUnchecked()
+      }
       binding.executePendingBindings()
     }
   }
@@ -48,6 +63,14 @@ class SubCityAdapter(private val onClick: (Int) -> Unit) :
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     holder.bind(getItem(position))
+  }
+
+  private fun ListItemDistinctBinding.setChecked() {
+    distinctTextView.setTextColor(Color.BLACK)
+  }
+
+  private fun ListItemDistinctBinding.setUnchecked() {
+    distinctTextView.setTextColor(Color.LTGRAY)
   }
 
   companion object {

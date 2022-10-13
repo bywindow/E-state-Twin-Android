@@ -4,7 +4,6 @@ package com.idiot.feature.login.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -15,16 +14,12 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.google.android.gms.common.SignInButton;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.idiot.feature.login.R;
 import com.idiot.feature.login.ui.main.LoginViewModel;
 import java.lang.Deprecated;
 import java.lang.Object;
 
 public abstract class ActivityLoginBinding extends ViewDataBinding {
-  @NonNull
-  public final ExtendedFloatingActionButton continueButton;
-
   @NonNull
   public final ConstraintLayout googleActiveButton;
 
@@ -47,9 +42,6 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   public final TextView kakaoTextView;
 
   @NonNull
-  public final WebView loginWebView;
-
-  @NonNull
   public final ConstraintLayout naverButton;
 
   @NonNull
@@ -68,14 +60,12 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
   protected LoginViewModel mViewmodel;
 
   protected ActivityLoginBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ExtendedFloatingActionButton continueButton, ConstraintLayout googleActiveButton,
-      SignInButton googleButton, ImageView googleIcon, TextView googleTextView,
-      ConstraintLayout kakaoButton, ImageView kakaoIcon, TextView kakaoTextView,
-      WebView loginWebView, ConstraintLayout naverButton, ImageView naverIcon,
+      ConstraintLayout googleActiveButton, SignInButton googleButton, ImageView googleIcon,
+      TextView googleTextView, ConstraintLayout kakaoButton, ImageView kakaoIcon,
+      TextView kakaoTextView, ConstraintLayout naverButton, ImageView naverIcon,
       TextView naverTextView, LinearLayoutCompat signInButtonLayout,
       LinearLayoutCompat snsIconLayout) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.continueButton = continueButton;
     this.googleActiveButton = googleActiveButton;
     this.googleButton = googleButton;
     this.googleIcon = googleIcon;
@@ -83,7 +73,6 @@ public abstract class ActivityLoginBinding extends ViewDataBinding {
     this.kakaoButton = kakaoButton;
     this.kakaoIcon = kakaoIcon;
     this.kakaoTextView = kakaoTextView;
-    this.loginWebView = loginWebView;
     this.naverButton = naverButton;
     this.naverIcon = naverIcon;
     this.naverTextView = naverTextView;

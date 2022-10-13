@@ -183,6 +183,8 @@
           android:layout_weight="2.5"
           android:clipToPadding="false"
           android:fadeScrollbars="true"
+          android:stateListAnimator="@null"
+                                    
           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
           tools:listitem="@layout/list_item_cities" />
 
@@ -193,7 +195,7 @@
           android:background="@color/gray_500" />
 
         <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/ditincts_recyclerview"
+          android:id="@+id/distinct_recyclerview"
           android:tag="binding_7"    
                                     
           android:layout_width="match_parent"
@@ -201,6 +203,8 @@
           android:layout_weight="1"
           android:clipToPadding="false"
           android:fadeScrollbars="true"
+          android:stateListAnimator="@null"
+                                    
           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
           tools:listitem="@layout/list_item_distinct" />
 

@@ -41,7 +41,7 @@ public class ListItemCitiesBindingImpl extends ListItemCitiesBinding  {
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x4L;
+                mDirtyFlags = 0x2L;
         }
         requestRebind();
     }
@@ -59,11 +59,8 @@ public class ListItemCitiesBindingImpl extends ListItemCitiesBinding  {
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
-        if (BR.isSelected == variableId) {
-            setIsSelected((boolean) variable);
-        }
-        else if (BR.city == variableId) {
-            setCity((java.lang.String) variable);
+        if (BR.model == variableId) {
+            setModel((com.idiot.model.users.UserPreference) variable);
         }
         else {
             variableSet = false;
@@ -71,20 +68,12 @@ public class ListItemCitiesBindingImpl extends ListItemCitiesBinding  {
             return variableSet;
     }
 
-    public void setIsSelected(boolean IsSelected) {
-        this.mIsSelected = IsSelected;
+    public void setModel(@Nullable com.idiot.model.users.UserPreference Model) {
+        this.mModel = Model;
         synchronized(this) {
             mDirtyFlags |= 0x1L;
         }
-        notifyPropertyChanged(BR.isSelected);
-        super.requestRebind();
-    }
-    public void setCity(@Nullable java.lang.String City) {
-        this.mCity = City;
-        synchronized(this) {
-            mDirtyFlags |= 0x2L;
-        }
-        notifyPropertyChanged(BR.city);
+        notifyPropertyChanged(BR.model);
         super.requestRebind();
     }
 
@@ -102,23 +91,23 @@ public class ListItemCitiesBindingImpl extends ListItemCitiesBinding  {
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        boolean isSelected = mIsSelected;
-        java.lang.String city = mCity;
+        com.idiot.model.users.UserPreference model = mModel;
+        java.lang.String modelName = null;
 
-        if ((dirtyFlags & 0x5L) != 0) {
-        }
-        if ((dirtyFlags & 0x6L) != 0) {
+        if ((dirtyFlags & 0x3L) != 0) {
+
+
+
+                if (model != null) {
+                    // read model.name
+                    modelName = model.getName();
+                }
         }
         // batch finished
-        if ((dirtyFlags & 0x6L) != 0) {
+        if ((dirtyFlags & 0x3L) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.citiesTextView, city);
-        }
-        if ((dirtyFlags & 0x5L) != 0) {
-            // api target 1
-
-            com.idiot.feature.login.bindings.ViewBinding.bindIsChecked(this.citiesTextView, isSelected);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.citiesTextView, modelName);
         }
     }
     // Listener Stub Implementations
@@ -126,9 +115,8 @@ public class ListItemCitiesBindingImpl extends ListItemCitiesBinding  {
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): isSelected
-        flag 1 (0x2L): city
-        flag 2 (0x3L): null
+        flag 0 (0x1L): model
+        flag 1 (0x2L): null
     flag mapping end*/
     //end
 }

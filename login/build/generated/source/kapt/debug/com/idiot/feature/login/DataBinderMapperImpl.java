@@ -121,26 +121,24 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(17);
+    static final SparseArray<String> sKeys = new SparseArray<String>(15);
 
     static {
       sKeys.put(0, "_all");
       sKeys.put(1, "changeThumbnail");
-      sKeys.put(2, "city");
-      sKeys.put(3, "cityAdapter");
-      sKeys.put(4, "clickListener");
-      sKeys.put(5, "distinct");
-      sKeys.put(6, "hasRequest");
-      sKeys.put(7, "inputTitle");
-      sKeys.put(8, "isSelected");
-      sKeys.put(9, "owner");
-      sKeys.put(10, "subCityAdapter");
-      sKeys.put(11, "tabTitle");
-      sKeys.put(12, "title");
-      sKeys.put(13, "type");
-      sKeys.put(14, "viewModel");
-      sKeys.put(15, "viewmodel");
-      sKeys.put(16, "vm");
+      sKeys.put(2, "cityAdapter");
+      sKeys.put(3, "clickListener");
+      sKeys.put(4, "hasRequest");
+      sKeys.put(5, "inputTitle");
+      sKeys.put(6, "model");
+      sKeys.put(7, "owner");
+      sKeys.put(8, "subCityAdapter");
+      sKeys.put(9, "tabTitle");
+      sKeys.put(10, "title");
+      sKeys.put(11, "type");
+      sKeys.put(12, "viewModel");
+      sKeys.put(13, "viewmodel");
+      sKeys.put(14, "vm");
     }
   }
 

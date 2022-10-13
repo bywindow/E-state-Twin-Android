@@ -26,8 +26,6 @@ public class ActivityLoginBindingImpl extends ActivityLoginBinding  {
         sViewsWithIds.put(R.id.naver_icon, 10);
         sViewsWithIds.put(R.id.naver_text_view, 11);
         sViewsWithIds.put(R.id.sign_in_button_layout, 12);
-        sViewsWithIds.put(R.id.continue_button, 13);
-        sViewsWithIds.put(R.id.login_web_view, 14);
     }
     // views
     @NonNull
@@ -38,11 +36,10 @@ public class ActivityLoginBindingImpl extends ActivityLoginBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityLoginBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 15, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 13, sIncludes, sViewsWithIds));
     }
     private ActivityLoginBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton) bindings[13]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[3]
             , (com.google.android.gms.common.SignInButton) bindings[2]
             , (android.widget.ImageView) bindings[4]
@@ -50,7 +47,6 @@ public class ActivityLoginBindingImpl extends ActivityLoginBinding  {
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[6]
             , (android.widget.ImageView) bindings[7]
             , (android.widget.TextView) bindings[8]
-            , (android.webkit.WebView) bindings[14]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[9]
             , (android.widget.ImageView) bindings[10]
             , (android.widget.TextView) bindings[11]

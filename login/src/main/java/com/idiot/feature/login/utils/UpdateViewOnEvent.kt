@@ -16,7 +16,7 @@ object UpdateViewOnEvent {
       is LoginEvent.CachedTokenFetchSuccess -> {
         val accessToken = event.accessToken
         Timber.d("TOKEN: $accessToken")
-        if (accessToken.isEmpty()) {
+        if (accessToken.isEmpty() || accessToken == "null") {
           // 로컬에 저장된 토큰이 없을 때는 회원가입으로 이동하여 토큰 발급
           context.startActivity(Intent(context, LoginActivity::class.java))
         } else {

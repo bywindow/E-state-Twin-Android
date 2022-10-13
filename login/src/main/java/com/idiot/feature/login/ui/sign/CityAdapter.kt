@@ -1,5 +1,6 @@
 package com.idiot.feature.login.ui.sign
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -11,24 +12,35 @@ import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ListItemCitiesBinding
 import com.idiot.model.users.UserPreference
 
-class CityAdapter(private val selectedPosition: Int, private val onClick: (Int) -> Unit) :
+class CityAdapter(private val list: ArrayList<UserPreference>, private val onClick: (Int) -> Unit) :
   ListAdapter<UserPreference, CityAdapter.ViewHolder>(diffUtil) {
+
+  private var selectedPosition: Int = 0
 
   inner class ViewHolder(private val binding: ListItemCitiesBinding, val onClick: (Int) -> Unit) :
     RecyclerView.ViewHolder(binding.root) {
 
     init {
       binding.root.setOnClickListener {
-        val position =
-          bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
-//        Log.d("TAG", "$position")
+        val position = bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
         onClick(position)
+        if (selectedPosition != absoluteAdapterPosition) {
+          binding.setChecked()
+          notifyItemChanged(selectedPosition)
+          selectedPosition = absoluteAdapterPosition
+        }
       }
     }
 
     fun bind(item: UserPreference) {
-      binding.city = item.name
-      binding.isSelected = item.isChecked
+      binding.model = item
+      if (selectedPosition == absoluteAdapterPosition) {
+        list[absoluteAdapterPosition].isChecked = true
+        binding.setChecked()
+      } else {
+        list[absoluteAdapterPosition].isChecked = false
+        binding.setUnchecked()
+      }
       binding.executePendingBindings()
     }
   }
@@ -52,10 +64,20 @@ class CityAdapter(private val selectedPosition: Int, private val onClick: (Int) 
     holder.bind(getItem(position))
   }
 
+  private fun ListItemCitiesBinding.setChecked() {
+    citiesTextView.setTextColor(Color.BLACK)
+    citiesTextView.setBackgroundColor(Color.WHITE)
+  }
+
+  private fun ListItemCitiesBinding.setUnchecked() {
+    citiesTextView.setBackgroundColor(Color.LTGRAY)
+    citiesTextView.setTextColor(Color.DKGRAY)
+  }
+
   companion object {
     private val diffUtil = object : DiffUtil.ItemCallback<UserPreference>() {
       override fun areItemsTheSame(oldItem: UserPreference, newItem: UserPreference): Boolean =
-        oldItem.isChecked == newItem.isChecked
+        oldItem.id == newItem.id
 
       override fun areContentsTheSame(oldItem: UserPreference, newItem: UserPreference): Boolean =
         oldItem == newItem

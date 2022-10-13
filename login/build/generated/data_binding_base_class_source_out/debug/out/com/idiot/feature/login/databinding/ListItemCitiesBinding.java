@@ -11,6 +11,7 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.idiot.feature.login.R;
+import com.idiot.model.users.UserPreference;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -19,10 +20,7 @@ public abstract class ListItemCitiesBinding extends ViewDataBinding {
   public final TextView citiesTextView;
 
   @Bindable
-  protected String mCity;
-
-  @Bindable
-  protected boolean mIsSelected;
+  protected UserPreference mModel;
 
   protected ListItemCitiesBinding(Object _bindingComponent, View _root, int _localFieldCount,
       TextView citiesTextView) {
@@ -30,17 +28,11 @@ public abstract class ListItemCitiesBinding extends ViewDataBinding {
     this.citiesTextView = citiesTextView;
   }
 
-  public abstract void setCity(@Nullable String city);
+  public abstract void setModel(@Nullable UserPreference model);
 
   @Nullable
-  public String getCity() {
-    return mCity;
-  }
-
-  public abstract void setIsSelected(boolean isSelected);
-
-  public boolean getIsSelected() {
-    return mIsSelected;
+  public UserPreference getModel() {
+    return mModel;
   }
 
   @NonNull

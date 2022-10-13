@@ -10,18 +10,6 @@ import com.idiot.feature.login.utils.TransactionTypeUtils
 object ViewBinding {
 
   @JvmStatic
-  @BindingAdapter("isChecked")
-  fun bindIsChecked(view: TextView, isChecked: Boolean) {
-    if (isChecked) {
-      view.setTextColor(Color.BLACK)
-      view.setBackgroundColor(Color.WHITE)
-    } else {
-      view.setBackgroundColor(Color.LTGRAY)
-      view.setTextColor(Color.DKGRAY)
-    }
-  }
-
-  @JvmStatic
   @BindingAdapter("selectedType")
   fun bindSelectType(view: AppCompatButton, selectedType: Int) {
     when (view.id) {

@@ -8,6 +8,7 @@ import com.idiot.model.users.UserPreference
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -50,6 +51,7 @@ class SignUpViewModel @Inject constructor(application: Application) :
 
   fun changePrefTrans(type: Int) {
     _preferenceTrans.value = type
+    Timber.d("선호거래유형 : ${preferenceTrans.value}, ${preferenceEstate.value}\t 선호지역 : ${preferenceCity.value}, ${preferenceSubCity.value}")
   }
 
   fun changePrefEstate(type: Int) {
@@ -59,11 +61,6 @@ class SignUpViewModel @Inject constructor(application: Application) :
   fun changePrefCity(position: Int) {
     if (position == preferenceCity.value) return
     _preferenceCity.value = position
-    _cityList.value = _cityList.value.map {
-      if (it.id == position) {
-        it.copy(isChecked = true)
-      } else it.copy(isChecked = false)
-    }
     val subTemp: MutableList<UserPreference> = mutableListOf()
     TransactionTypeUtils.getSubCityList(position, getApplication()).forEachIndexed { index, item ->
       if (index == 0) subTemp.add(index, UserPreference(id = index, name = item, isChecked = true))
@@ -76,12 +73,5 @@ class SignUpViewModel @Inject constructor(application: Application) :
   fun changePrefSubCity(position: Int) {
     if (position == preferenceSubCity.value) return
     _preferenceSubCity.value = position
-    _subList.value = _subList.value.map {
-      if (it.id == position) {
-        it.copy(isChecked = true)
-      } else {
-        it.copy(isChecked = false)
-      }
-    }
   }
 }

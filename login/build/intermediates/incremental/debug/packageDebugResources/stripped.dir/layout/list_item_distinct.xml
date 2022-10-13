@@ -4,14 +4,9 @@
                                                  
 
   
-
              
-                     
-                      
-
-             
-                       
-                       
+                  
+                                                    
          
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,13 +15,12 @@
 
     <TextView
       android:id="@+id/distinct_text_view"
-      android:tag="binding_1"  
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:gravity="start"
       android:paddingHorizontal="@dimen/app_horizontal_padding"
       android:paddingVertical="10dp"
-                                
+      android:tag="binding_1"     
       android:textColor="@color/gray_500"
       android:textSize="14sp"
       app:layout_constraintEnd_toEndOf="parent"

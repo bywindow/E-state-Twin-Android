@@ -46,9 +46,8 @@ id cities_recyclerview
 id cities_text_view
 id close_button
 id complete_button
-id continue_button
+id distinct_recyclerview
 id distinct_text_view
-id ditincts_recyclerview
 id estate_type_buttons
 id google_active_button
 id google_button
@@ -58,7 +57,6 @@ id kakao_button
 id kakao_icon
 id kakao_text_view
 id lease_button
-id login_web_view
 id monthly_button
 id naver_button
 id naver_icon

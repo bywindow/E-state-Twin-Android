@@ -34,7 +34,7 @@ public abstract class ActivitySignUpBinding extends ViewDataBinding {
   public final AppCompatButton completeButton;
 
   @NonNull
-  public final RecyclerView ditinctsRecyclerview;
+  public final RecyclerView distinctRecyclerview;
 
   @NonNull
   public final LinearLayout estateTypeButtons;
@@ -83,7 +83,7 @@ public abstract class ActivitySignUpBinding extends ViewDataBinding {
 
   protected ActivitySignUpBinding(Object _bindingComponent, View _root, int _localFieldCount,
       AppCompatButton apartmentButton, RecyclerView citiesRecyclerview, AppCompatButton closeButton,
-      AppCompatButton completeButton, RecyclerView ditinctsRecyclerview,
+      AppCompatButton completeButton, RecyclerView distinctRecyclerview,
       LinearLayout estateTypeButtons, AppCompatButton leaseButton, AppCompatButton monthlyButton,
       AppCompatButton officetelButton, View regionBottomDecor, View regionDecor,
       TextView regionTitle, View regionTopDecor, TextView signUpHelpTextView,
@@ -93,7 +93,7 @@ public abstract class ActivitySignUpBinding extends ViewDataBinding {
     this.citiesRecyclerview = citiesRecyclerview;
     this.closeButton = closeButton;
     this.completeButton = completeButton;
-    this.ditinctsRecyclerview = ditinctsRecyclerview;
+    this.distinctRecyclerview = distinctRecyclerview;
     this.estateTypeButtons = estateTypeButtons;
     this.leaseButton = leaseButton;
     this.monthlyButton = monthlyButton;

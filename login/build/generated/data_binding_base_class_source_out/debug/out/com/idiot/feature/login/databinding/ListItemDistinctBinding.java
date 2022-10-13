@@ -11,6 +11,7 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.idiot.feature.login.R;
+import com.idiot.model.users.UserPreference;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -19,10 +20,7 @@ public abstract class ListItemDistinctBinding extends ViewDataBinding {
   public final TextView distinctTextView;
 
   @Bindable
-  protected String mDistinct;
-
-  @Bindable
-  protected Boolean mIsSelected;
+  protected UserPreference mModel;
 
   protected ListItemDistinctBinding(Object _bindingComponent, View _root, int _localFieldCount,
       TextView distinctTextView) {
@@ -30,18 +28,11 @@ public abstract class ListItemDistinctBinding extends ViewDataBinding {
     this.distinctTextView = distinctTextView;
   }
 
-  public abstract void setDistinct(@Nullable String distinct);
+  public abstract void setModel(@Nullable UserPreference model);
 
   @Nullable
-  public String getDistinct() {
-    return mDistinct;
-  }
-
-  public abstract void setIsSelected(@Nullable Boolean isSelected);
-
-  @Nullable
-  public Boolean getIsSelected() {
-    return mIsSelected;
+  public UserPreference getModel() {
+    return mModel;
   }
 
   @NonNull

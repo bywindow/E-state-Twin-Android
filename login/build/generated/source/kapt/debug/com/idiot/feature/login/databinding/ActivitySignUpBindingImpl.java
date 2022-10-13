@@ -68,7 +68,7 @@ public class ActivitySignUpBindingImpl extends ActivitySignUpBinding implements 
             );
         this.apartmentButton.setTag(null);
         this.citiesRecyclerview.setTag(null);
-        this.ditinctsRecyclerview.setTag(null);
+        this.distinctRecyclerview.setTag(null);
         this.leaseButton.setTag(null);
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
@@ -301,6 +301,8 @@ public class ActivitySignUpBindingImpl extends ActivitySignUpBinding implements 
             // api target 1
 
             this.apartmentButton.setOnClickListener(mCallback4);
+            this.citiesRecyclerview.setItemAnimator((androidx.recyclerview.widget.RecyclerView.ItemAnimator) null);
+            this.distinctRecyclerview.setItemAnimator((androidx.recyclerview.widget.RecyclerView.ItemAnimator) null);
             this.leaseButton.setOnClickListener(mCallback2);
             this.monthlyButton.setOnClickListener(mCallback3);
             this.officetelButton.setOnClickListener(mCallback5);
@@ -314,7 +316,7 @@ public class ActivitySignUpBindingImpl extends ActivitySignUpBinding implements 
         if ((dirtyFlags & 0xd4L) != 0) {
             // api target 1
 
-            com.idiot.feature.login.bindings.RecyclerViewBinding.bindAdapter(this.ditinctsRecyclerview, subCityAdapter, vmSubListGetValue);
+            com.idiot.feature.login.bindings.RecyclerViewBinding.bindAdapter(this.distinctRecyclerview, subCityAdapter, vmSubListGetValue);
         }
         if ((dirtyFlags & 0x91L) != 0) {
             // api target 1

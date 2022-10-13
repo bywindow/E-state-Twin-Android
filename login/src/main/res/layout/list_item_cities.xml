@@ -5,11 +5,8 @@
 
   <data>
     <variable
-      name="city"
-      type="String" />
-    <variable
-      name="isSelected"
-      type="boolean" />
+      name="model"
+      type="com.idiot.model.users.UserPreference" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,8 +18,7 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:gravity="center"
-      android:text="@{city}"
-      isChecked="@{isSelected}"
+      android:text="@{model.name}"
       android:textColor="@color/black"
       android:paddingVertical="10dp"
       android:textSize="14sp"
