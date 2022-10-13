@@ -24,13 +24,12 @@ class SignUpActivity : AppCompatActivity() {
     binding.distinctRecyclerview.setHasFixedSize(true)
 
     binding.cityAdapter = CityAdapter(
-      list = ArrayList(viewModel.cityList.value),
       onClick = { pos -> viewModel.changePrefCity(pos) }).apply {
       stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT
     }
-    binding.subCityAdapter = SubCityAdapter(list = ArrayList(viewModel.subList.value),
+    binding.subCityAdapter = SubCityAdapter(
       onClick = { pos -> viewModel.changePrefSubCity(pos) }).apply {
-      stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT
+      stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
     }
 
     initCompleteButton()

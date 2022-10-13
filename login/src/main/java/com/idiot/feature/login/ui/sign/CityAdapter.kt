@@ -12,7 +12,7 @@ import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ListItemCitiesBinding
 import com.idiot.model.users.UserPreference
 
-class CityAdapter(private val list: ArrayList<UserPreference>, private val onClick: (Int) -> Unit) :
+class CityAdapter(private val onClick: (Int) -> Unit) :
   ListAdapter<UserPreference, CityAdapter.ViewHolder>(diffUtil) {
 
   private var selectedPosition: Int = 0
@@ -35,10 +35,8 @@ class CityAdapter(private val list: ArrayList<UserPreference>, private val onCli
     fun bind(item: UserPreference) {
       binding.model = item
       if (selectedPosition == absoluteAdapterPosition) {
-        list[absoluteAdapterPosition].isChecked = true
         binding.setChecked()
       } else {
-        list[absoluteAdapterPosition].isChecked = false
         binding.setUnchecked()
       }
       binding.executePendingBindings()

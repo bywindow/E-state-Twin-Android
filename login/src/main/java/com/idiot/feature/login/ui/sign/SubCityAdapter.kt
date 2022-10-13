@@ -13,7 +13,7 @@ import com.idiot.feature.login.databinding.ListItemCitiesBinding
 import com.idiot.feature.login.databinding.ListItemDistinctBinding
 import com.idiot.model.users.UserPreference
 
-class SubCityAdapter(private val list: ArrayList<UserPreference>, private val onClick: (Int) -> Unit) :
+class SubCityAdapter(private val onClick: (Int) -> Unit) :
   ListAdapter<UserPreference, SubCityAdapter.ViewHolder>(diffUtil) {
 
   private var selectedPosition: Int = 0
@@ -21,25 +21,25 @@ class SubCityAdapter(private val list: ArrayList<UserPreference>, private val on
   inner class ViewHolder(private val binding: ListItemDistinctBinding, val onClick: (Int) -> Unit) :
     RecyclerView.ViewHolder(binding.root) {
 
-      init {
-          binding.root.setOnClickListener {
-            val position = bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
-            onClick(position)
-            if (selectedPosition != absoluteAdapterPosition) {
-              binding.setChecked()
-              notifyItemChanged(selectedPosition)
-              selectedPosition = absoluteAdapterPosition
-            }
-          }
+    init {
+      selectedPosition = 0
+      binding.root.setOnClickListener {
+        val position =
+          bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setOnClickListener
+        onClick(position)
+        if (selectedPosition != absoluteAdapterPosition) {
+          binding.setChecked()
+          notifyItemChanged(selectedPosition)
+          selectedPosition = absoluteAdapterPosition
+        }
       }
+    }
 
     fun bind(item: UserPreference) {
       binding.model = item
       if (selectedPosition == absoluteAdapterPosition) {
-        list[absoluteAdapterPosition].isChecked = true
         binding.setChecked()
       } else {
-        list[absoluteAdapterPosition].isChecked = false
         binding.setUnchecked()
       }
       binding.executePendingBindings()
