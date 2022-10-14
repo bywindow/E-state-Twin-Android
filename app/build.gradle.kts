@@ -1,4 +1,5 @@
 import com.idiot.e_state_twin_android.Libraries
+import com.idiot.e_state_twin_android.Configuration
 
 plugins {
   id("com.android.application")
@@ -11,13 +12,13 @@ plugins {
 }
 
 android {
-  compileSdk = com.idiot.e_state_twin_android.Configuration.compileSdk
+  compileSdk = Configuration.compileSdk
   defaultConfig {
     applicationId = "com.idiot.e_state_twin_android"
-    minSdk = com.idiot.e_state_twin_android.Configuration.minSdk
-    targetSdk = com.idiot.e_state_twin_android.Configuration.targetSdk
-    versionCode = com.idiot.e_state_twin_android.Configuration.versionCode
-    versionName = com.idiot.e_state_twin_android.Configuration.versionName
+    minSdk = Configuration.minSdk
+    targetSdk = Configuration.targetSdk
+    versionCode = Configuration.versionCode
+    versionName = Configuration.versionName
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
