@@ -51,7 +51,6 @@ android {
 
 dependencies {
   implementation(project(":model"))
-  implementation(project(":data:api"))
   implementation(project(":data:repository"))
   implementation(project(":utils"))
   implementation(project(":common"))
