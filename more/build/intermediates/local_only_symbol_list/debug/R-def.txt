@@ -129,6 +129,7 @@ layout list_item_register_option
 layout list_new_register_request
 layout tv_register_title
 navigation graph_more
+string GOOGLE_API_KEY
 string add_checklist
 string address_input_hint
 string building_name_input_hint

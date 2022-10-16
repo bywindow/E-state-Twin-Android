@@ -54,7 +54,7 @@ ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifes
 	tools:replace
 		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:31:7-36
 	android:value
-		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:30:7-62
+		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:30:7-45
 	android:name
 		ADDED from /Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:29:7-40
 uses-sdk

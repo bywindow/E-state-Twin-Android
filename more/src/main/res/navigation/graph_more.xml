@@ -18,6 +18,7 @@
     android:id="@+id/registerFragment"
     android:name="com.idiot.more.ui.RegisterFragment"
     android:label="RegisterFragment" >
+    <deepLink app:uri="estate://register_fragment"/>
     <action
       android:id="@+id/action_registerFragment_to_registerInfoFragment"
       app:destination="@id/registerInfoFragment" />

@@ -1,5 +1,6 @@
 import com.idiot.e_state_twin_android.Libraries
 import com.idiot.e_state_twin_android.Configuration
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
   id("com.android.library")
@@ -18,6 +19,12 @@ android {
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
+
+    resValue(
+      "string",
+      "GOOGLE_API_KEY",
+      gradleLocalProperties(rootDir).getProperty("google.api.key")
+    )
   }
 
   buildTypes {

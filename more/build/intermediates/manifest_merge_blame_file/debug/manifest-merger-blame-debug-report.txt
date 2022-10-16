@@ -55,8 +55,8 @@
 33-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:28:5-31:38
 34            android:name="com.google.ar.core"
 34-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:29:7-40
-35            android:value="AIzaSyCcq6okckJ4ff4y-L1I-WdPv98JpRrC3rE"
-35-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:30:7-62
+35            android:value="@string/GOOGLE_API_KEY"
+35-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:30:7-45
 36            tools:replace="android:value" />
 36-->/Users/bywindow/dev/e-state-twin-android/more/src/main/AndroidManifest.xml:31:7-36
 37    </application>

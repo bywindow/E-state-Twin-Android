@@ -1,5 +1,6 @@
 package com.idiot.home.ui
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavHost
+import androidx.navigation.fragment.findNavController
 import com.idiot.home.R
 import com.idiot.home.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,6 +33,7 @@ class HomeFragment : Fragment() {
       inflater, R.layout.fragment_home, container, false
     )
     initRecommendedEstate()
+    initRegisterButtonClicked()
     binding.vm = viewModel
     binding.homeRecommendList.adapter = UserRecommendAdapter(emptyList())
     binding.homeRecommendList.itemAnimator = null
@@ -41,6 +45,13 @@ class HomeFragment : Fragment() {
       viewModel.fetchRecommendedEstate().collect() {
         Timber.d("${viewModel.recommendedEstates.value}")
       }
+    }
+  }
+
+  private fun initRegisterButtonClicked() {
+    binding.homeRegisterButton.setOnClickListener {
+      val uri = Uri.parse("estate://register_fragment")
+      findNavController().navigate(uri)
     }
   }
 }

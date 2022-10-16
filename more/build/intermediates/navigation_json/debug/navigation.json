@@ -2,6 +2,29 @@
   {
     "name": "graph_more",
     "navigationXmlIds": [],
-    "deepLinks": []
+    "deepLinks": [
+      {
+        "schemes": [
+          "estate"
+        ],
+        "port": -1,
+        "path": "/",
+        "sourceFilePosition": {
+          "mSourceFile": {
+            "mFilePath": "/Users/bywindow/dev/e-state-twin-android/more/src/main/res/navigation/graph_more.xml",
+            "mDescription": "graph_more"
+          },
+          "mSourcePosition": {
+            "mStartLine": 20,
+            "mStartColumn": 4,
+            "mStartOffset": 707,
+            "mEndLine": 20,
+            "mEndColumn": 52,
+            "mEndOffset": 755
+          }
+        },
+        "isAutoVerify": false
+      }
+    ]
   }
 ]
