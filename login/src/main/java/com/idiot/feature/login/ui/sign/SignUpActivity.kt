@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.idiot.common.MainActivity
 import com.idiot.feature.login.R
 import com.idiot.feature.login.databinding.ActivitySignUpBinding
+import com.idiot.feature.login.ui.main.LoginActivity
 import com.idiot.feature.login.utils.UpdateViewOnEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -43,6 +44,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     initCompleteButton()
+    initCloseButton()
   }
 
   private fun initCompleteButton() {
@@ -53,6 +55,13 @@ class SignUpActivity : AppCompatActivity() {
           finish()
         }
       }
+    }
+  }
+
+  private fun initCloseButton() {
+    binding.closeButton.setOnClickListener {
+      startActivity(Intent(this, LoginActivity::class.java))
+      finish()
     }
   }
 }

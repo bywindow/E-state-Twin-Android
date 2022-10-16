@@ -52,7 +52,8 @@
         android:background="@drawable/google_login_button_background"
         android:clickable="true"
         android:focusable="true"
-        android:paddingHorizontal="@dimen/login_icon_margin_start">
+        android:paddingHorizontal="@dimen/login_icon_margin_start"
+        android:visibility="gone">
 
         <ImageView
           android:id="@+id/google_icon"
@@ -99,14 +100,14 @@
 
         <TextView
           android:id="@+id/kakao_text_view"
-          android:layout_width="0dp"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginStart="@dimen/login_text_margin_start"
           android:includeFontPadding="false"
           android:text="@string/sign_kakao"
           android:textAppearance="@style/TextAppearance.Signin.Medium"
           app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toEndOf="@id/kakao_icon"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
 
       </androidx.constraintlayout.widget.ConstraintLayout>
@@ -118,7 +119,8 @@
         android:layout_height="@dimen/login_button_size"
         android:layout_margin="@dimen/login_button_margin"
         android:background="@drawable/naver_login_button_background"
-        android:paddingHorizontal="@dimen/login_icon_margin_start">
+        android:paddingHorizontal="@dimen/login_icon_margin_start"
+        android:visibility="gone">
 
         <ImageView
           android:id="@+id/naver_icon"
