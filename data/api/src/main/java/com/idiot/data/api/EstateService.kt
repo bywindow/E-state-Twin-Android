@@ -21,6 +21,7 @@ interface EstateService {
 
   @POST("user/signup")
   suspend fun requestSignUp(
+    @Header("Content-Type") contentType: String = "application/json",
     @Header("X-AUTH-TOKEN") accessToken: String,
     @Body body: RequestBody
   ): Response<UserSignUpResponse>

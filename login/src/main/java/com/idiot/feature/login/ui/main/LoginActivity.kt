@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
   }
 
   private fun saveKakaoUser(token: OAuthToken) {
+    var userBirthday: String? = null
     UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
       if (error != null) {
         Log.e("TAG", "failed")
@@ -103,6 +104,7 @@ class LoginActivity : AppCompatActivity() {
                   Log.e("TAG", "user request failed", error)
                 } else if (user != null) {
                   Log.i("TAG", "user request success: $user")
+                  userBirthday = user.kakaoAccount?.birthday.toString()
                 }
               }
             }
@@ -116,7 +118,8 @@ class LoginActivity : AppCompatActivity() {
       val accessToken = viewModel.token.value?.accessToken.toString()
       val refreshToken = viewModel.token.value?.refreshToken.toString()
       val isMember = viewModel.token.value?.isMember ?: false
-
+      val birthday = userBirthday ?: "0101"
+      //TODO: 생일 저장
       viewModel.cacheToken(
         accessToken = accessToken,
         refreshToken = refreshToken
