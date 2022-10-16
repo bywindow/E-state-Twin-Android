@@ -55,18 +55,17 @@ class LoginActivity : AppCompatActivity() {
     }
   }
 
-  //TODO : 서버에 토큰 저장하고 회원가입 페이지로 이동
   private fun saveKakaoUser(token: OAuthToken) {
     UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
       if (error != null) {
         Log.e("TAG", "failed")
       } else if (tokenInfo != null) {
-        Log.d("TAG", "$tokenInfo")
+        Log.d("token", "$tokenInfo")
       }
     }
     UserApiClient.instance.me { user, error ->
       if (error != null) {
-        Log.d("TAG", "faild: $error")
+        Log.e("token", "faild: $error")
       } else if (user != null) {
         val scopes = mutableListOf<String>()
         if (user.kakaoAccount?.emailNeedsAgreement == true) {
@@ -93,8 +92,7 @@ class LoginActivity : AppCompatActivity() {
         if (user.kakaoAccount?.ciNeedsAgreement == true) {
           scopes.add("account_ci")
         }
-
-        if (scopes.isNotEmpty()) {
+        if (token.scopes?.isNotEmpty() == true) {
           UserApiClient.instance.loginWithNewScopes(this, scopes) { token, errorScope ->
             if (errorScope != null) {
               Log.e("TAG", "additional agree failed", errorScope)
