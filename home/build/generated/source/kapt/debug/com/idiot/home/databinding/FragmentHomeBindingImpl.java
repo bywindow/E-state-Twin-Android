@@ -59,7 +59,7 @@ public class FragmentHomeBindingImpl extends FragmentHomeBinding  {
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x1L;
+                mDirtyFlags = 0x2L;
         }
         requestRebind();
     }
@@ -77,7 +77,17 @@ public class FragmentHomeBindingImpl extends FragmentHomeBinding  {
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
+        if (BR.vm == variableId) {
+            setVm((com.idiot.home.ui.HomeViewModel) variable);
+        }
+        else {
+            variableSet = false;
+        }
             return variableSet;
+    }
+
+    public void setVm(@Nullable com.idiot.home.ui.HomeViewModel Vm) {
+        this.mVm = Vm;
     }
 
     @Override
@@ -101,7 +111,8 @@ public class FragmentHomeBindingImpl extends FragmentHomeBinding  {
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): null
+        flag 0 (0x1L): vm
+        flag 1 (0x2L): null
     flag mapping end*/
     //end
 }

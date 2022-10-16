@@ -9,7 +9,7 @@ public class BR {
 
   public static int title = 3;
 
-  public static int viewModel = 4;
+  public static int viewmodel = 4;
 
-  public static int viewmodel = 5;
+  public static int vm = 5;
 }

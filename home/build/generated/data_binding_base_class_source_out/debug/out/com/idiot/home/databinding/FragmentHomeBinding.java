@@ -10,10 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 import com.idiot.home.R;
+import com.idiot.home.ui.HomeViewModel;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -48,6 +50,9 @@ public abstract class FragmentHomeBinding extends ViewDataBinding {
   @NonNull
   public final AppCompatButton userRecommendButton;
 
+  @Bindable
+  protected HomeViewModel mVm;
+
   protected FragmentHomeBinding(Object _bindingComponent, View _root, int _localFieldCount,
       AppCompatButton appbarSearchButton, ConstraintLayout homeAppbar, TextView homeBannerMainText,
       ImageView homeBannerOwnerImage, TextView homeBannerSubText, RecyclerView homeRecommendList,
@@ -64,6 +69,13 @@ public abstract class FragmentHomeBinding extends ViewDataBinding {
     this.homeUserRecommendTitle = homeUserRecommendTitle;
     this.mainAppbarText = mainAppbarText;
     this.userRecommendButton = userRecommendButton;
+  }
+
+  public abstract void setVm(@Nullable HomeViewModel vm);
+
+  @Nullable
+  public HomeViewModel getVm() {
+    return mVm;
   }
 
   @NonNull

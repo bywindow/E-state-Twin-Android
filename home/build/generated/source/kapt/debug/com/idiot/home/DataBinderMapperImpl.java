@@ -137,8 +137,8 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put(1, "changeThumbnail");
       sKeys.put(2, "clickListener");
       sKeys.put(3, "title");
-      sKeys.put(4, "viewModel");
-      sKeys.put(5, "viewmodel");
+      sKeys.put(4, "viewmodel");
+      sKeys.put(5, "vm");
     }
   }
 

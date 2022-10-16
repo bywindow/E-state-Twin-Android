@@ -25,9 +25,7 @@ public class BR {
 
   public static int type = 11;
 
-  public static int viewModel = 12;
+  public static int viewmodel = 12;
 
-  public static int viewmodel = 13;
-
-  public static int vm = 14;
+  public static int vm = 13;
 }

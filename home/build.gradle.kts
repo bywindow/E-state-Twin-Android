@@ -6,6 +6,7 @@ plugins {
   id("kotlin-parcelize")
 //  id("com.google.devtools.ksp")
   id("kotlin-kapt")
+  id("dagger.hilt.android.plugin")
   id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -56,6 +57,9 @@ dependencies {
   implementation(Libraries.navigation_ui)
   implementation(Libraries.circleiamgeview)
   implementation(Libraries.recyclerview)
+
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
 
   kapt(Libraries.glide_compiler)
 

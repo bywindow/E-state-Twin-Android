@@ -1,5 +1,6 @@
 package com.idiot.data.api
 
+import com.idiot.model.RecommendedEstate
 import com.idiot.model.TokenResponse
 import com.idiot.model.users.UserSignUpResponse
 import okhttp3.RequestBody
@@ -24,6 +25,12 @@ class EstateClient @Inject constructor(
   ): Response<UserSignUpResponse> = estateService.requestSignUp(
     accessToken = accessToken,
     body = body
+  )
+
+  suspend fun requestRecommendedEstate(
+    accessToken: String
+  ): Response<List<RecommendedEstate>> = estateService.requestRecommendedEstate(
+    accessToken = accessToken
   )
 
 }

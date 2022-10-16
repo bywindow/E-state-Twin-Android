@@ -14,8 +14,11 @@ public class ListItemHomeRecommendBindingImpl extends ListItemHomeRecommendBindi
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.relativeLayout, 5);
-        sViewsWithIds.put(R.id.imageView, 6);
+        sViewsWithIds.put(R.id.relativeLayout, 2);
+        sViewsWithIds.put(R.id.imageView, 3);
+        sViewsWithIds.put(R.id.house_price, 4);
+        sViewsWithIds.put(R.id.house_type, 5);
+        sViewsWithIds.put(R.id.house_address, 6);
     }
     // views
     @NonNull
@@ -30,16 +33,13 @@ public class ListItemHomeRecommendBindingImpl extends ListItemHomeRecommendBindi
     }
     private ListItemHomeRecommendBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
+            , (android.widget.TextView) bindings[6]
             , (android.widget.TextView) bindings[4]
-            , (android.widget.TextView) bindings[2]
-            , (android.widget.TextView) bindings[3]
-            , (android.widget.ImageView) bindings[6]
-            , (android.widget.RelativeLayout) bindings[5]
+            , (android.widget.TextView) bindings[5]
+            , (android.widget.ImageView) bindings[3]
+            , (android.widget.RelativeLayout) bindings[2]
             , (androidx.appcompat.widget.AppCompatButton) bindings[1]
             );
-        this.houseAddress.setTag(null);
-        this.housePrice.setTag(null);
-        this.houseType.setTag(null);
         this.mboundView0 = (com.google.android.material.card.MaterialCardView) bindings[0];
         this.mboundView0.setTag(null);
         this.thumbnailButton.setTag(null);
@@ -51,7 +51,7 @@ public class ListItemHomeRecommendBindingImpl extends ListItemHomeRecommendBindi
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x8L;
+                mDirtyFlags = 0x4L;
         }
         requestRebind();
     }
@@ -72,9 +72,6 @@ public class ListItemHomeRecommendBindingImpl extends ListItemHomeRecommendBindi
         if (BR.clickListener == variableId) {
             setClickListener((android.view.View.OnClickListener) variable);
         }
-        else if (BR.viewModel == variableId) {
-            setViewModel((com.idiot.home.ui.UserRecommendViewModel) variable);
-        }
         else if (BR.changeThumbnail == variableId) {
             setChangeThumbnail((android.view.View.OnClickListener) variable);
         }
@@ -92,18 +89,10 @@ public class ListItemHomeRecommendBindingImpl extends ListItemHomeRecommendBindi
         notifyPropertyChanged(BR.clickListener);
         super.requestRebind();
     }
-    public void setViewModel(@Nullable com.idiot.home.ui.UserRecommendViewModel ViewModel) {
-        this.mViewModel = ViewModel;
-        synchronized(this) {
-            mDirtyFlags |= 0x2L;
-        }
-        notifyPropertyChanged(BR.viewModel);
-        super.requestRebind();
-    }
     public void setChangeThumbnail(@Nullable android.view.View.OnClickListener ChangeThumbnail) {
         this.mChangeThumbnail = ChangeThumbnail;
         synchronized(this) {
-            mDirtyFlags |= 0x4L;
+            mDirtyFlags |= 0x2L;
         }
         notifyPropertyChanged(BR.changeThumbnail);
         super.requestRebind();
@@ -123,51 +112,20 @@ public class ListItemHomeRecommendBindingImpl extends ListItemHomeRecommendBindi
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        java.lang.String viewModelRecommendedHouseHousePrice = null;
-        java.lang.String viewModelRecommendedHouseHouseAddress = null;
-        com.idiot.model.RecommendedHouse viewModelRecommendedHouse = null;
         android.view.View.OnClickListener clickListener = mClickListener;
-        java.lang.String viewModelRecommendedHouseHouseType = null;
-        com.idiot.home.ui.UserRecommendViewModel viewModel = mViewModel;
         android.view.View.OnClickListener changeThumbnail = mChangeThumbnail;
 
-        if ((dirtyFlags & 0x9L) != 0) {
+        if ((dirtyFlags & 0x5L) != 0) {
         }
-        if ((dirtyFlags & 0xaL) != 0) {
-
-
-
-                if (viewModel != null) {
-                    // read viewModel.recommendedHouse
-                    viewModelRecommendedHouse = viewModel.getRecommendedHouse();
-                }
-
-
-                if (viewModelRecommendedHouse != null) {
-                    // read viewModel.recommendedHouse.housePrice
-                    viewModelRecommendedHouseHousePrice = viewModelRecommendedHouse.getHousePrice();
-                    // read viewModel.recommendedHouse.houseAddress
-                    viewModelRecommendedHouseHouseAddress = viewModelRecommendedHouse.getHouseAddress();
-                    // read viewModel.recommendedHouse.houseType
-                    viewModelRecommendedHouseHouseType = viewModelRecommendedHouse.getHouseType();
-                }
-        }
-        if ((dirtyFlags & 0xcL) != 0) {
+        if ((dirtyFlags & 0x6L) != 0) {
         }
         // batch finished
-        if ((dirtyFlags & 0xaL) != 0) {
-            // api target 1
-
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.houseAddress, viewModelRecommendedHouseHouseAddress);
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.housePrice, viewModelRecommendedHouseHousePrice);
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.houseType, viewModelRecommendedHouseHouseType);
-        }
-        if ((dirtyFlags & 0x9L) != 0) {
+        if ((dirtyFlags & 0x5L) != 0) {
             // api target 1
 
             this.mboundView0.setOnClickListener(clickListener);
         }
-        if ((dirtyFlags & 0xcL) != 0) {
+        if ((dirtyFlags & 0x6L) != 0) {
             // api target 1
 
             this.thumbnailButton.setOnClickListener(changeThumbnail);
@@ -179,9 +137,8 @@ public class ListItemHomeRecommendBindingImpl extends ListItemHomeRecommendBindi
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
         flag 0 (0x1L): clickListener
-        flag 1 (0x2L): viewModel
-        flag 2 (0x3L): changeThumbnail
-        flag 3 (0x4L): null
+        flag 1 (0x2L): changeThumbnail
+        flag 2 (0x3L): null
     flag mapping end*/
     //end
 }

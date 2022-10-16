@@ -26,4 +26,9 @@ interface DataModule {
   fun bindsUserSignUpRepository(
     userSignUpRepositoryImpl: UserSignUpRepositoryImpl
   ): UserSignUpRepository
+
+  @Binds
+  fun bindsRecommendedEstateRepository(
+    recommendedEstateRepositoryImpl: RecommendedEstateRepositoryImpl
+  ): RecommendedEstateRepository
 }

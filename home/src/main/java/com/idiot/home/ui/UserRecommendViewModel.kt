@@ -1,10 +1,10 @@
 package com.idiot.home.ui
 
-import com.idiot.model.RecommendedHouse
+import com.idiot.model.RecommendedEstate
 
 // need to fix
-class UserRecommendViewModel(item: RecommendedHouse) {
-    val recommendedHouse: RecommendedHouse = item
+class UserRecommendViewModel(item: RecommendedEstate) {
+    val recommendedEstate: RecommendedEstate = item
     var isShowModel : Boolean = false
     val imgResId: String = ""
 }

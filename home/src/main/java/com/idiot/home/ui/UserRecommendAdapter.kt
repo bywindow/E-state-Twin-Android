@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.idiot.model.RecommendedHouse
+import com.idiot.model.RecommendedEstate
 import com.idiot.home.R
 import com.idiot.home.databinding.ListItemHomeRecommendBinding
 
-class UserRecommendAdapter(private var recommendedList: List<RecommendedHouse>) :
+class UserRecommendAdapter(private var recommendedList: List<RecommendedEstate>) :
     RecyclerView.Adapter<UserRecommendAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,14 +34,11 @@ class UserRecommendAdapter(private var recommendedList: List<RecommendedHouse>) 
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener { view ->
-                binding.viewModel?.recommendedHouse?.houseId?.let { houseId ->
-                    Log.d("HOUSEID", houseId.toString())
-                    navigateToDetail(houseId, view)
-                }
+
             }
             binding.setChangeThumbnail {
-                binding.viewModel?.isShowModel = !binding.viewModel?.isShowModel!!
-                Log.d("HOUSEID", binding.viewModel?.isShowModel.toString())
+
+
             }
         }
 
@@ -51,9 +48,9 @@ class UserRecommendAdapter(private var recommendedList: List<RecommendedHouse>) 
             view.findNavController().navigate(direction)
         }
 
-        fun bind(recommend: RecommendedHouse) {
+        fun bind(recommend: RecommendedEstate) {
             with(binding) {
-                viewModel = UserRecommendViewModel(recommend)
+
                 executePendingBindings()
             }
         }

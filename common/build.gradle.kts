@@ -6,6 +6,7 @@ plugins {
   id("kotlin-parcelize")
 //  id("com.google.devtools.ksp")
   id("kotlin-kapt")
+  id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -54,6 +55,9 @@ dependencies {
   implementation(Libraries.navigation_ui)
   implementation(Libraries.navigation_fragment)
   implementation(Libraries.timber)
+
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
 
   testImplementation(Libraries.junit)
 

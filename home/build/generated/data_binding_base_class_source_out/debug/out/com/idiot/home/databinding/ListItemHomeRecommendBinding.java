@@ -14,7 +14,6 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.idiot.home.R;
-import com.idiot.home.ui.UserRecommendViewModel;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -43,9 +42,6 @@ public abstract class ListItemHomeRecommendBinding extends ViewDataBinding {
   @Bindable
   protected View.OnClickListener mChangeThumbnail;
 
-  @Bindable
-  protected UserRecommendViewModel mViewModel;
-
   protected ListItemHomeRecommendBinding(Object _bindingComponent, View _root, int _localFieldCount,
       TextView houseAddress, TextView housePrice, TextView houseType, ImageView imageView,
       RelativeLayout relativeLayout, AppCompatButton thumbnailButton) {
@@ -70,13 +66,6 @@ public abstract class ListItemHomeRecommendBinding extends ViewDataBinding {
   @Nullable
   public View.OnClickListener getChangeThumbnail() {
     return mChangeThumbnail;
-  }
-
-  public abstract void setViewModel(@Nullable UserRecommendViewModel viewModel);
-
-  @Nullable
-  public UserRecommendViewModel getViewModel() {
-    return mViewModel;
   }
 
   @NonNull
