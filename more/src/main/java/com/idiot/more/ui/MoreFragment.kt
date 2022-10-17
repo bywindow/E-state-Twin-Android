@@ -6,13 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentMoreBinding
+import com.idiot.more.ui.viewModel.MoreViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MoreFragment : Fragment() {
 
   private lateinit var binding: FragmentMoreBinding
+  private val viewModel: MoreViewModel by viewModels()
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +38,14 @@ class MoreFragment : Fragment() {
   }
 
   private fun subscribeUi(binding: FragmentMoreBinding) {
-    binding.userNameTextView.text = "홍길동"
-    binding.userRoleTextView.text = "기업회원"
+//    binding.userNameTextView.text = "홍길동"
+//    binding.userRoleTextView.text = "기업회원"
+    viewLifecycleOwner.lifecycleScope.launch {
+      viewModel.fetchUserInfo().collect() {
+        val value = viewModel.userInfo.value
+        binding.model = value
+      }
+    }
   }
 
   // TODO: Add another tab button clickListener

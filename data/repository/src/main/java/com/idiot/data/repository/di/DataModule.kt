@@ -32,4 +32,9 @@ interface DataModule {
     recommendedEstateRepositoryImpl: RecommendedEstateRepositoryImpl
   ): RecommendedEstateRepository
 
+  @Binds
+  fun bindsMyPageRepository(
+    myPageRepositoryImpl: MyPageRepositoryImpl
+  ): MyPageRepository
+
 }

@@ -25,6 +25,7 @@ class EstateImageS3UploadRepository() {
       Timber.d("s3 request file: $requestFile")
       imagePartList.add(MultipartBody.Part.createFormData("files", "estate_image", requestFile))
     }
+    Timber.d("s3 request file list: $imagePartList")
     val response = S3NetworkModule.s3UploadService.requestEstateImageUri(files = imagePartList)
     Timber.d("s3 response: $response")
     return if (response.isSuccessful) response.body() as S3UploadResponse else null

@@ -1,100 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.idiot.home.com.idiot.more.ui.MoreFragment">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context="com.idiot.home.com.idiot.more.ui.MoreFragment">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+  <data>
+    <variable
+      name="model"
+      type="com.idiot.model.users.MyPageResponse" />
+  </data>
+
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+      android:id="@+id/toolbar_more"
+      layout="@layout/toolbar_layout"
+      app:title="@{`더보기`}" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="?attr/actionBarSize">
+
+      <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/profile_button"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/user_profile_rounded"
+        android:clipToOutline="true"
+        android:src="@drawable/ic_profile_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/user_name_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.idiot.ActionBar.Title"
+        android:textSize="18sp"
+        android:text="@{model.name}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_button"
+        tools:text="홍길동" />
+
+      <TextView
+        android:id="@+id/user_role_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/user_role_tv_rounded"
+        android:gravity="center"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="4dp"
+        android:textAppearance="@style/TextAppearance.idiot.sub.Text"
+        android:textColor="@color/purple_700"
+        android:textSize="11sp"
+        android:text="@{model.isBroker ? `기업회원` : `개인회원`}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_name_textView"
+        tools:text="기업회원" />
+
+      <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:orientation="vertical"
+        app:divider="@drawable/divider_more_tab"
+        app:dividerPadding="@dimen/app_horizontal_padding"
+        app:layout_constraintTop_toBottomOf="@+id/user_role_textView"
+        app:showDividers="middle|beginning|end">
 
         <include
-            android:id="@+id/toolbar_more"
-            layout="@layout/toolbar_layout"
-            app:title="@{`더보기`}"/>
+          android:id="@+id/refactor_user"
+          layout="@layout/layout_more_tab"
+          app:tabTitle="@{`내 정보 수정`}" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="?attr/actionBarSize">
+        <include
+          android:id="@+id/setting_alarm"
+          layout="@layout/layout_more_tab"
+          app:tabTitle="@{`알림 설정`}" />
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/profile_button"
-                android:layout_width="92dp"
-                android:layout_height="92dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/user_profile_rounded"
-                android:clipToOutline="true"
-                android:src="@drawable/ic_profile_default"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <include
+          android:id="@+id/running_process"
+          layout="@layout/layout_more_tab"
+          app:tabTitle="@{`진행중인 계약`}" />
 
-            <TextView
-                android:id="@+id/user_name_textView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:gravity="center"
-                android:textAppearance="@style/TextAppearance.idiot.ActionBar.Title"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profile_button"
-                tools:text="홍길동" />
+        <include
+          android:id="@+id/register"
+          layout="@layout/layout_more_tab"
+          app:tabTitle="@{`매물 등록`}" />
 
-            <TextView
-                android:id="@+id/user_role_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/user_role_tv_rounded"
-                android:gravity="center"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="4dp"
-                android:textAppearance="@style/TextAppearance.idiot.sub.Text"
-                android:textColor="@color/purple_700"
-                android:textSize="11sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_name_textView"
-                tools:text="기업회원" />
+      </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:orientation="vertical"
-                app:divider="@drawable/divider_more_tab"
-                app:showDividers="middle|beginning|end"
-                app:dividerPadding="@dimen/app_horizontal_padding"
-                app:layout_constraintTop_toBottomOf="@+id/user_role_textView">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <include
-                    android:id="@+id/refactor_user"
-                    layout="@layout/layout_more_tab"
-                    app:tabTitle="@{`내 정보 수정`}" />
-
-                <include
-                    android:id="@+id/setting_alarm"
-                    layout="@layout/layout_more_tab"
-                    app:tabTitle="@{`알림 설정`}" />
-
-                <include
-                    android:id="@+id/running_process"
-                    layout="@layout/layout_more_tab"
-                    app:tabTitle="@{`진행중인 계약`}" />
-
-                <include
-                    android:id="@+id/register"
-                    layout="@layout/layout_more_tab"
-                    app:tabTitle="@{`매물 등록`}" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

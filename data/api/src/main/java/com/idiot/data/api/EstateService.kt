@@ -2,6 +2,7 @@ package com.idiot.data.api
 
 import com.idiot.model.RecommendedEstate
 import com.idiot.model.TokenResponse
+import com.idiot.model.users.MyPageResponse
 import com.idiot.model.users.UserSignUpResponse
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -27,4 +28,8 @@ interface EstateService {
     @Header("X-AUTH-TOKEN") accessToken: String
   ): Response<List<RecommendedEstate>>
 
+  @GET("user/me")
+  suspend fun requestMyPage(
+    @Header("X-AUTH-TOKEN") accessToken: String
+  ): Response<MyPageResponse>
 }

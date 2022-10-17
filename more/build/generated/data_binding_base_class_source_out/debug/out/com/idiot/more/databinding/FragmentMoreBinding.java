@@ -8,8 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import com.idiot.model.users.MyPageResponse;
 import com.idiot.more.R;
 import com.idiot.utils.databinding.ToolbarLayoutBinding;
 import java.lang.Deprecated;
@@ -40,6 +42,9 @@ public abstract class FragmentMoreBinding extends ViewDataBinding {
   @NonNull
   public final TextView userRoleTextView;
 
+  @Bindable
+  protected MyPageResponse mModel;
+
   protected FragmentMoreBinding(Object _bindingComponent, View _root, int _localFieldCount,
       AppCompatImageButton profileButton, LayoutMoreTabBinding refactorUser,
       LayoutMoreTabBinding register, LayoutMoreTabBinding runningProcess,
@@ -54,6 +59,13 @@ public abstract class FragmentMoreBinding extends ViewDataBinding {
     this.toolbarMore = toolbarMore;
     this.userNameTextView = userNameTextView;
     this.userRoleTextView = userRoleTextView;
+  }
+
+  public abstract void setModel(@Nullable MyPageResponse model);
+
+  @Nullable
+  public MyPageResponse getModel() {
+    return mModel;
   }
 
   @NonNull

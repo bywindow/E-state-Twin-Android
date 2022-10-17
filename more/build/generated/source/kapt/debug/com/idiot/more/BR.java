@@ -9,11 +9,13 @@ public class BR {
 
   public static int inputTitle = 3;
 
-  public static int owner = 4;
+  public static int model = 4;
 
-  public static int tabTitle = 5;
+  public static int owner = 5;
 
-  public static int title = 6;
+  public static int tabTitle = 6;
 
-  public static int type = 7;
+  public static int title = 7;
+
+  public static int type = 8;
 }
