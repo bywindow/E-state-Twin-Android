@@ -4,7 +4,6 @@ import com.idiot.model.RecommendedEstate
 import com.idiot.model.TokenResponse
 import com.idiot.model.users.UserSignUpResponse
 import okhttp3.RequestBody
-import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -27,4 +26,5 @@ interface EstateService {
   suspend fun requestRecommendedEstate(
     @Header("X-AUTH-TOKEN") accessToken: String
   ): Response<List<RecommendedEstate>>
+
 }

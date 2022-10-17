@@ -23,7 +23,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.snackbar.Snackbar
 import com.idiot.utils.NetworkStatus
 import com.idiot.model.HouseOption
-import com.idiot.model.RegisterPicture
+import com.idiot.model.RegisterEstatePicture
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentRegisterInfoBinding
 import com.idiot.more.ui.adapter.RegisterInfoOptionAdapter
@@ -31,7 +31,9 @@ import com.idiot.more.ui.adapter.RegisterInfoPictureAdapter
 import com.idiot.more.ui.adapter.RegisterInfoPictureHeaderAdapter
 import com.idiot.more.ui.viewModel.RegisterOptionListViewModel
 import com.idiot.more.ui.viewModel.RegisterPictureListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterInfoFragment : Fragment() {
 
   private lateinit var binding: FragmentRegisterInfoBinding
@@ -106,7 +108,7 @@ class RegisterInfoFragment : Fragment() {
 
     pictureListViewModel.pictureList.observe(viewLifecycleOwner) {
       it?.let {
-        pictureAdapter.submitList(it as MutableList<RegisterPicture>)
+        pictureAdapter.submitList(it as MutableList<RegisterEstatePicture>)
         updatePictureCount(it)
       }
     }
@@ -162,7 +164,7 @@ class RegisterInfoFragment : Fragment() {
     selectImageResultLauncher.launch(intent)
   }
 
-  private fun updatePictureCount(list: List<RegisterPicture>) {
+  private fun updatePictureCount(list: List<RegisterEstatePicture>) {
     binding.pictureCountTextView.text = "${list.size}/${getString(R.string.picture_max_count)}"
   }
 

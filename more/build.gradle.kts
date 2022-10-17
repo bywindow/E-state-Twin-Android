@@ -9,6 +9,7 @@ plugins {
 //  id("com.google.devtools.ksp")
   id("kotlin-kapt")
   id("androidx.navigation.safeargs.kotlin")
+  id("dagger.hilt.android.plugin")
 }
 android {
   compileSdk = Configuration.compileSdk
@@ -25,6 +26,7 @@ android {
       "GOOGLE_API_KEY",
       gradleLocalProperties(rootDir).getProperty("google.api.key")
     )
+
   }
 
   buildTypes {
@@ -63,9 +65,9 @@ dependencies {
   implementation(Libraries.navigation_ui)
   implementation(Libraries.recyclerview)
   implementation(Libraries.sceneview)
-  implementation("androidx.appcompat:appcompat:1.5.1")
-  implementation("com.google.android.material:material:1.4.0")
-  implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
 
   testImplementation(Libraries.junit)
 

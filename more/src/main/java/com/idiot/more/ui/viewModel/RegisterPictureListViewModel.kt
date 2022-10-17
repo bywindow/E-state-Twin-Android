@@ -3,25 +3,26 @@ package com.idiot.more.ui.viewModel
 import android.content.ClipData
 import android.util.Log
 import androidx.lifecycle.*
-import com.idiot.model.RegisterPicture
+import com.idiot.model.RegisterEstatePicture
 import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.random.Random
 
 class RegisterPictureListViewModel() : ViewModel() {
-  private val _pictureList = MutableLiveData<List<RegisterPicture>>()
-  val pictureList: LiveData<List<RegisterPicture>>
+  private val _pictureList = MutableLiveData<List<RegisterEstatePicture>>()
+  val pictureList: LiveData<List<RegisterEstatePicture>>
     get() = _pictureList
 
   fun insertPicture(clipData: ClipData, size: Int) {
     viewModelScope.launch {
       val currentList = _pictureList.value
-      val updatedList = currentList?.toMutableList() ?: mutableListOf<RegisterPicture>()
+      val updatedList = currentList?.toMutableList() ?: mutableListOf<RegisterEstatePicture>()
       (0 until size).forEach {
-        val newItem = RegisterPicture(
+        val newItem = RegisterEstatePicture(
           Random.nextLong(),
           UUID.randomUUID().toString(),
-          clipData.getItemAt(it).uri
+          clipData.getItemAt(it).uri,
+          null
         )
         updatedList.add(newItem)
       }
@@ -29,7 +30,7 @@ class RegisterPictureListViewModel() : ViewModel() {
     }
   }
 
-  fun deletePicture(item: RegisterPicture) {
+  fun deletePicture(item: RegisterEstatePicture) {
     //TODO : delete selected photo
     Log.d("register", "delete! $item")
   }

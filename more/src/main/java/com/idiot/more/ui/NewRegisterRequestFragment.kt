@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import com.idiot.more.databinding.FragmentNewRegisterRequestBinding
 import com.idiot.data.repository.samples.RegisterSample
 import com.idiot.more.ui.adapter.RegisterNewInquiryAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewRegisterRequestFragment : Fragment() {
 
     private lateinit var binding: FragmentNewRegisterRequestBinding

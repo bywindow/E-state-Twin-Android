@@ -14,7 +14,9 @@ import com.idiot.more.databinding.FragmentRegisterBinding
 import com.idiot.more.ui.adapter.NEW_REGISTER_PAGE_INDEX
 import com.idiot.more.ui.adapter.PAUSE_REGISTER_PAGE_INDEX
 import com.idiot.more.ui.adapter.RegisterPagerAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding

@@ -9,16 +9,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.idiot.more.R
 import com.idiot.more.databinding.ListItemRegisterInfoPictureBinding
-import com.idiot.model.RegisterPicture
+import com.idiot.model.RegisterEstatePicture
 
-class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit) :
-    ListAdapter<RegisterPicture, RegisterInfoPictureAdapter.ViewHolder>(DiffCallback) {
+class RegisterInfoPictureAdapter(private val onClick: (RegisterEstatePicture) -> Unit) :
+    ListAdapter<RegisterEstatePicture, RegisterInfoPictureAdapter.ViewHolder>(DiffCallback) {
 
-    class ViewHolder(binding: ListItemRegisterInfoPictureBinding, val onClick: (RegisterPicture) -> Unit) :
+    class ViewHolder(binding: ListItemRegisterInfoPictureBinding, val onClick: (RegisterEstatePicture) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         private val imageView: ImageView = binding.imageItemView
-        private var currentItem: RegisterPicture? = null
+        private var currentItem: RegisterEstatePicture? = null
 
         init {
             binding.setClickListener {
@@ -28,7 +28,7 @@ class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit)
             }
         }
 
-        fun bind(item: RegisterPicture) {
+        fun bind(item: RegisterEstatePicture) {
             currentItem = item
             imageView.setImageURI(item.filePath)
         }
@@ -50,12 +50,12 @@ class RegisterInfoPictureAdapter(private val onClick: (RegisterPicture) -> Unit)
     }
 }
 
-object DiffCallback : DiffUtil.ItemCallback<RegisterPicture>() {
-    override fun areItemsTheSame(oldItem: RegisterPicture, newItem: RegisterPicture): Boolean {
+object DiffCallback : DiffUtil.ItemCallback<RegisterEstatePicture>() {
+    override fun areItemsTheSame(oldItem: RegisterEstatePicture, newItem: RegisterEstatePicture): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: RegisterPicture, newItem: RegisterPicture): Boolean {
+    override fun areContentsTheSame(oldItem: RegisterEstatePicture, newItem: RegisterEstatePicture): Boolean {
         return oldItem.id == newItem.id
     }
 }

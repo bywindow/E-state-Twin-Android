@@ -19,7 +19,7 @@ android {
     consumerProguardFiles("consumer-rules.pro")
 
     buildConfigField("String", "BASE_API", gradleLocalProperties(rootDir).getProperty("base.api"))
-
+    buildConfigField("String", "S3_API_URI", gradleLocalProperties(rootDir).getProperty("s3.api.uri"))
   }
 
   compileOptions {
