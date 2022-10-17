@@ -84,7 +84,7 @@ class RegisterARActivity : AppCompatActivity() {
         cloudAnchorNode.hostCloudAnchor{ anchor, success ->
           Timber.d("mapQuality: hosting...")
           if (success) {
-            Toast.makeText(this, "hosted: ${anchor.cloudAnchorId}", Toast.LENGTH_SHORT).show()
+            Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
             binding.addChecklistButton.isClickable = true
             mapQualityStatus = false
           } else {
