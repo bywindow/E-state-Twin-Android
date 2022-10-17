@@ -20,6 +20,7 @@ buildscript {
     classpath(com.idiot.e_state_twin_android.Libraries.kotlin_serialization)
     classpath(com.idiot.e_state_twin_android.Libraries.navigation_safeargsPlugin)
     classpath(com.idiot.e_state_twin_android.Libraries.hilt_plugin)
+      classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
   }
 }
 

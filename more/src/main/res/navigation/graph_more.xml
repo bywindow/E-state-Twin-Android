@@ -12,6 +12,9 @@
     <action
       android:id="@+id/action_moreFragment_to_registerFragment"
       app:destination="@id/registerFragment" />
+    <action
+      android:id="@+id/action_moreFragment_to_myPageFragment"
+      app:destination="@id/myPageFragment" />
   </fragment>
 
   <fragment
@@ -45,5 +48,10 @@
     android:id="@+id/addressSearchDialogFragment"
     android:name="com.idiot.more.ui.AddressSearchDialogFragment"
     android:label="AddressSearchDialogFragment" />
+  <fragment
+    android:id="@+id/myPageFragment"
+    android:name="com.idiot.more.ui.MyPageFragment"
+    android:label="fragment_my_page"
+    tools:layout="@layout/fragment_my_page" />
 
 </navigation>

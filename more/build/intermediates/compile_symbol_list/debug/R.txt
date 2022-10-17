@@ -20,6 +20,7 @@ int drawable spinner_background 0x0
 int drawable tv_register_address_background 0x0
 int drawable user_profile_rounded 0x0
 int drawable user_role_tv_rounded 0x0
+int id action_moreFragment_to_myPageFragment 0x0
 int id action_moreFragment_to_registerFragment 0x0
 int id action_registerFragment_to_registerInfoFragment 0x0
 int id action_registerInfoFragment_to_addressSearchDialogFragment 0x0
@@ -71,6 +72,7 @@ int id loading_view 0x0
 int id moreFragment 0x0
 int id more_tab 0x0
 int id more_tab_textView 0x0
+int id myPageFragment 0x0
 int id net_area_input 0x0
 int id net_area_title 0x0
 int id option_title 0x0
@@ -103,6 +105,7 @@ int id short_disable_button 0x0
 int id short_term_title 0x0
 int id tab_menu 0x0
 int id toolbar_more 0x0
+int id toolbar_my_page 0x0
 int id toolbar_register 0x0
 int id toolbar_register_info 0x0
 int id total_floor_title 0x0
@@ -113,6 +116,7 @@ int id view_pager 0x0
 int layout activity_register_aractivity 0x0
 int layout fragment_address_search_dialog 0x0
 int layout fragment_more 0x0
+int layout fragment_my_page 0x0
 int layout fragment_new_register_request 0x0
 int layout fragment_register 0x0
 int layout fragment_register_for_broker 0x0
@@ -132,6 +136,7 @@ int string add_checklist 0x0
 int string address_input_hint 0x0
 int string building_name_input_hint 0x0
 int string complete_checklist 0x0
+int string hello_blank_fragment 0x0
 int string home_detail_dialog_button_text 0x0
 int string home_recommend_card_image_desc 0x0
 int string house_type_input_hint 0x0

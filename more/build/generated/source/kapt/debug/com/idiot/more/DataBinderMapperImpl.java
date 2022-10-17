@@ -9,6 +9,7 @@ import androidx.databinding.ViewDataBinding;
 import com.idiot.more.databinding.ActivityRegisterAractivityBindingImpl;
 import com.idiot.more.databinding.FragmentAddressSearchDialogBindingImpl;
 import com.idiot.more.databinding.FragmentMoreBindingImpl;
+import com.idiot.more.databinding.FragmentMyPageBindingImpl;
 import com.idiot.more.databinding.FragmentNewRegisterRequestBindingImpl;
 import com.idiot.more.databinding.FragmentRegisterBindingImpl;
 import com.idiot.more.databinding.FragmentRegisterForBrokerBindingImpl;
@@ -39,38 +40,41 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_FRAGMENTMORE = 3;
 
-  private static final int LAYOUT_FRAGMENTNEWREGISTERREQUEST = 4;
+  private static final int LAYOUT_FRAGMENTMYPAGE = 4;
 
-  private static final int LAYOUT_FRAGMENTREGISTER = 5;
+  private static final int LAYOUT_FRAGMENTNEWREGISTERREQUEST = 5;
 
-  private static final int LAYOUT_FRAGMENTREGISTERFORBROKER = 6;
+  private static final int LAYOUT_FRAGMENTREGISTER = 6;
 
-  private static final int LAYOUT_FRAGMENTREGISTERHOUSEINFO = 7;
+  private static final int LAYOUT_FRAGMENTREGISTERFORBROKER = 7;
 
-  private static final int LAYOUT_FRAGMENTREGISTERINFO = 8;
+  private static final int LAYOUT_FRAGMENTREGISTERHOUSEINFO = 8;
 
-  private static final int LAYOUT_LAYOUTMORETAB = 9;
+  private static final int LAYOUT_FRAGMENTREGISTERINFO = 9;
 
-  private static final int LAYOUT_LISTITEMBUILDINGTYPESPINNER = 10;
+  private static final int LAYOUT_LAYOUTMORETAB = 10;
 
-  private static final int LAYOUT_LISTITEMNEWREGISTER = 11;
+  private static final int LAYOUT_LISTITEMBUILDINGTYPESPINNER = 11;
 
-  private static final int LAYOUT_LISTITEMREGISTERINFOPICTURE = 12;
+  private static final int LAYOUT_LISTITEMNEWREGISTER = 12;
 
-  private static final int LAYOUT_LISTITEMREGISTERINFOPICTUREHEADER = 13;
+  private static final int LAYOUT_LISTITEMREGISTERINFOPICTURE = 13;
 
-  private static final int LAYOUT_LISTITEMREGISTEROPTION = 14;
+  private static final int LAYOUT_LISTITEMREGISTERINFOPICTUREHEADER = 14;
 
-  private static final int LAYOUT_LISTNEWREGISTERREQUEST = 15;
+  private static final int LAYOUT_LISTITEMREGISTEROPTION = 15;
 
-  private static final int LAYOUT_TVREGISTERTITLE = 16;
+  private static final int LAYOUT_LISTNEWREGISTERREQUEST = 16;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(16);
+  private static final int LAYOUT_TVREGISTERTITLE = 17;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(17);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.idiot.more.R.layout.activity_register_aractivity, LAYOUT_ACTIVITYREGISTERARACTIVITY);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.idiot.more.R.layout.fragment_address_search_dialog, LAYOUT_FRAGMENTADDRESSSEARCHDIALOG);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.idiot.more.R.layout.fragment_more, LAYOUT_FRAGMENTMORE);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.idiot.more.R.layout.fragment_my_page, LAYOUT_FRAGMENTMYPAGE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.idiot.more.R.layout.fragment_new_register_request, LAYOUT_FRAGMENTNEWREGISTERREQUEST);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.idiot.more.R.layout.fragment_register, LAYOUT_FRAGMENTREGISTER);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.idiot.more.R.layout.fragment_register_for_broker, LAYOUT_FRAGMENTREGISTERFORBROKER);
@@ -112,6 +116,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new FragmentMoreBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for fragment_more is invalid. Received: " + tag);
+        }
+        case  LAYOUT_FRAGMENTMYPAGE: {
+          if ("layout/fragment_my_page_0".equals(tag)) {
+            return new FragmentMyPageBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for fragment_my_page is invalid. Received: " + tag);
         }
         case  LAYOUT_FRAGMENTNEWREGISTERREQUEST: {
           if ("layout/fragment_new_register_request_0".equals(tag)) {
@@ -254,12 +264,13 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(16);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(17);
 
     static {
       sKeys.put("layout/activity_register_aractivity_0", com.idiot.more.R.layout.activity_register_aractivity);
       sKeys.put("layout/fragment_address_search_dialog_0", com.idiot.more.R.layout.fragment_address_search_dialog);
       sKeys.put("layout/fragment_more_0", com.idiot.more.R.layout.fragment_more);
+      sKeys.put("layout/fragment_my_page_0", com.idiot.more.R.layout.fragment_my_page);
       sKeys.put("layout/fragment_new_register_request_0", com.idiot.more.R.layout.fragment_new_register_request);
       sKeys.put("layout/fragment_register_0", com.idiot.more.R.layout.fragment_register);
       sKeys.put("layout/fragment_register_for_broker_0", com.idiot.more.R.layout.fragment_register_for_broker);

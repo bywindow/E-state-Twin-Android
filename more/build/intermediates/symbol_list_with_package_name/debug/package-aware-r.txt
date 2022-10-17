@@ -21,6 +21,7 @@ drawable spinner_background
 drawable tv_register_address_background
 drawable user_profile_rounded
 drawable user_role_tv_rounded
+id action_moreFragment_to_myPageFragment
 id action_moreFragment_to_registerFragment
 id action_registerFragment_to_registerInfoFragment
 id action_registerInfoFragment_to_addressSearchDialogFragment
@@ -72,6 +73,7 @@ id loading_view
 id moreFragment
 id more_tab
 id more_tab_textView
+id myPageFragment
 id net_area_input
 id net_area_title
 id option_title
@@ -104,6 +106,7 @@ id short_disable_button
 id short_term_title
 id tab_menu
 id toolbar_more
+id toolbar_my_page
 id toolbar_register
 id toolbar_register_info
 id total_floor_title
@@ -114,6 +117,7 @@ id view_pager
 layout activity_register_aractivity
 layout fragment_address_search_dialog
 layout fragment_more
+layout fragment_my_page
 layout fragment_new_register_request
 layout fragment_register
 layout fragment_register_for_broker
@@ -133,6 +137,7 @@ string add_checklist
 string address_input_hint
 string building_name_input_hint
 string complete_checklist
+string hello_blank_fragment
 string home_detail_dialog_button_text
 string home_recommend_card_image_desc
 string house_type_input_hint

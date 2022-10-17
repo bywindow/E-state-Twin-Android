@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="building_type_list">
-    <item>건물의 유형을 선택해주세요.</item>
-    <item>아파트</item>
-    <item>오피스텔</item>
-  </string-array>
+        <item>건물의 유형을 선택해주세요.</item>
+        <item>아파트</item>
+        <item>오피스텔</item>
+    </string-array>
     <string-array name="heat_type_list">
-    <item>난방의 종류를 선택해주세요.</item>
-    <item>개별난방</item>
-    <item>중앙난방</item>
-  </string-array>
+        <item>난방의 종류를 선택해주세요.</item>
+        <item>개별난방</item>
+        <item>중앙난방</item>
+    </string-array>
     <string-array name="room_type_list">
-    <item>방 구조의 형태를 선택해주세요.</item>
-    <item>1.5층</item>
-    <item>주방분리형</item>
-  </string-array>
+        <item>방 구조의 형태를 선택해주세요.</item>
+        <item>1.5층</item>
+        <item>주방분리형</item>
+    </string-array>
     <color name="add_picture_border">#c5c8d4</color>
     <color name="register_address_border">#e5e5e5</color>
     <color name="register_info_edit_text_hint">#73738b</color>
@@ -23,6 +23,7 @@
     <string name="address_input_hint">주소를 입력해주세요.</string>
     <string name="building_name_input_hint">건물의 이름을 입력하세요.</string>
     <string name="complete_checklist">저장하고 돌아가기</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_detail_dialog_button_text">건물정보 입력</string>
     <string name="home_recommend_card_image_desc">Picture of recommended house</string>
     <string name="house_type_input_hint">건물의 유형을 선택해주세요.</string>
