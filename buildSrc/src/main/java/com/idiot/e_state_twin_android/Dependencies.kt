@@ -2,7 +2,7 @@ package com.idiot.e_state_twin_android
 
 object Versions {
   const val kotlin = "1.7.10"
-  const val agp = "7.2.1"
+  const val agp = "7.3.0"
   const val ksp = "1.7.10-1.0.6"
   const val hilt = "2.42"
   const val javaRelease = "8"

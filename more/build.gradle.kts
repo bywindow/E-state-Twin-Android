@@ -60,6 +60,7 @@ dependencies {
 
   implementation(Libraries.androidx_core)
   implementation(Libraries.androidx_appcompat)
+  implementation(Libraries.androidx_constraintLayout)
   implementation(Libraries.material)
   implementation(Libraries.navigation_fragment)
   implementation(Libraries.navigation_ui)

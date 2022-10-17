@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -46,7 +47,7 @@ class RegisterInfoFragment : Fragment() {
     RegisterOptionListViewModel.OptionListFactory(Application())
   }
 
-  private lateinit var toolbar: MaterialToolbar
+  private lateinit var toolbar: Toolbar
 
   private val requestPermissionLauncher =
     registerForActivityResult(
@@ -74,7 +75,6 @@ class RegisterInfoFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View? {
     binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_info, container, false)
-    toolbar = binding.toolbarRegisterInfo.toolbar
 
     initNavigation()
     initAdapter()
@@ -84,10 +84,10 @@ class RegisterInfoFragment : Fragment() {
   }
 
   private fun initNavigation() {
-    toolbar.setNavigationIcon(R.drawable.ic_navigate_up)
-    toolbar.setNavigationOnClickListener {
-      it.findNavController().navigateUp()
-    }
+//    toolbar.setNavigationIcon(R.drawable.ic_navigate_up)
+//    toolbar.setNavigationOnClickListener {
+//      it.findNavController().navigateUp()
+//    }
 
     binding.homeInfoDialogButton.setOnClickListener {
       openBottomSheetDialog(it)

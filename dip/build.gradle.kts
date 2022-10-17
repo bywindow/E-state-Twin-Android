@@ -51,4 +51,9 @@ dependencies {
   implementation(Libraries.navigation_fragment)
   implementation(Libraries.navigation_ui)
   implementation(Libraries.recyclerview)
+
+  testImplementation(Libraries.junit)
+
+  androidTestImplementation(Libraries.androidx_junit)
+  androidTestImplementation(Libraries.androidx_espresso)
 }

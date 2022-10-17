@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="title"
-            type="String" />
-    </data>
+  <data>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:background="@color/white">
+    <variable
+      name="title"
+      type="String" />
+  </data>
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            style="@style/Base.Theme.Toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            app:contentInsetStart="0dp"
-            app:title="@{title}"
-            app:titleTextAppearance="@style/TextAppearance.idiot.ActionBar.Title"
-            app:titleCentered="true">
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/app_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
-        </com.google.android.material.appbar.MaterialToolbar>
-    </com.google.android.material.appbar.AppBarLayout>
+    <TextView
+      android:id="@+id/toolbar"
+      style="@style/TextAppearance.AppCompat.Title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:maxEms="15"
+      android:text="@{title}"
+      android:textColor="@color/black"
+      android:textSize="17sp"
+      tools:text="더보기" />
+
+  </androidx.appcompat.widget.Toolbar>
 
 </layout>
