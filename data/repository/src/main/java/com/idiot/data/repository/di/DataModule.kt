@@ -31,4 +31,5 @@ interface DataModule {
   fun bindsRecommendedEstateRepository(
     recommendedEstateRepositoryImpl: RecommendedEstateRepositoryImpl
   ): RecommendedEstateRepository
+
 }

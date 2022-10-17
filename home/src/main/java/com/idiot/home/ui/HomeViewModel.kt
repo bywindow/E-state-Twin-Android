@@ -29,7 +29,6 @@ class HomeViewModel @Inject constructor(
   }
 
   fun fetchRecommendedEstate() = flow {
-    Timber.d("FETCH***************")
     val tokenResult = userPreferenceRepository.getAccessToken()
     val accessToken = tokenResult.getOrNull().orEmpty()
     _accessToken.value = accessToken

@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.google.android.material.appbar.MaterialToolbar
@@ -32,13 +33,14 @@ import com.idiot.more.ui.adapter.RegisterInfoPictureHeaderAdapter
 import com.idiot.more.ui.viewModel.RegisterOptionListViewModel
 import com.idiot.more.ui.viewModel.RegisterPictureListViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RegisterInfoFragment : Fragment() {
 
   private lateinit var binding: FragmentRegisterInfoBinding
   private val pictureListViewModel by viewModels<RegisterPictureListViewModel> {
-    RegisterPictureListViewModel.PictureListFactory()
+    RegisterPictureListViewModel.PictureListFactory(activity!!)
   }
   private val optionListViewModel by viewModels<RegisterOptionListViewModel> {
     RegisterOptionListViewModel.OptionListFactory(Application())
@@ -193,6 +195,14 @@ class RegisterInfoFragment : Fragment() {
         Log.d("register", "price info")
       }
       else -> return
+    }
+  }
+
+  private fun registerCompleteButtonClicked() {
+    binding.registerCompleteButton.setOnClickListener {
+      lifecycleScope.launch {
+
+      }
     }
   }
 }

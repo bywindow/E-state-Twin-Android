@@ -88,7 +88,7 @@ class SignUpViewModel @Inject constructor(
     Timber.d("accessToken: $accessToken")
     val data = UserSignUp(
       birthday = "2022-01-01",
-      phone = "01000000000",
+      phone = "01011111111",
       transactionType = transactionTypeList[preferenceTrans.value],
       estateType = estateTypeList[preferenceEstate.value],
       borough = subList.value[preferenceSubCity.value].name

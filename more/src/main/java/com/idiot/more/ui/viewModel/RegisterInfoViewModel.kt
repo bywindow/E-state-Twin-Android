@@ -1,12 +1,18 @@
 package com.idiot.more.ui.viewModel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.idiot.data.repository.EstateImageS3UploadRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
+import kotlinx.coroutines.launch
 
-@HiltViewModel
-class RegisterInfoViewModel @Inject constructor(
+class RegisterInfoViewModel(private val s3UploadRepository: EstateImageS3UploadRepository) : ViewModel() {
 
-) : ViewModel() {
 
+
+//  fun requestImageS3Uri() {
+//    viewModelScope.launch {
+//      val response = s3UploadRepository.requestImageUri()
+//    }
+//  }
 }
