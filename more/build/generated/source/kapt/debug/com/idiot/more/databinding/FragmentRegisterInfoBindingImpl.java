@@ -12,15 +12,11 @@ public class FragmentRegisterInfoBindingImpl extends FragmentRegisterInfoBinding
     @Nullable
     private static final android.util.SparseIntArray sViewsWithIds;
     static {
-        sIncludes = new androidx.databinding.ViewDataBinding.IncludedLayouts(25);
-        sIncludes.setIncludes(0, 
-            new String[] {"toolbar_layout"},
-            new int[] {8},
-            new int[] {com.idiot.utils.R.layout.toolbar_layout});
+        sIncludes = new androidx.databinding.ViewDataBinding.IncludedLayouts(26);
         sIncludes.setIncludes(1, 
-            new String[] {"tv_register_title"},
+            new String[] {"toolbar_layout"},
             new int[] {9},
-            new int[] {com.idiot.more.R.layout.tv_register_title});
+            new int[] {com.idiot.utils.R.layout.toolbar_layout});
         sIncludes.setIncludes(2, 
             new String[] {"tv_register_title"},
             new int[] {10},
@@ -45,22 +41,26 @@ public class FragmentRegisterInfoBindingImpl extends FragmentRegisterInfoBinding
             new String[] {"tv_register_title"},
             new int[] {15},
             new int[] {com.idiot.more.R.layout.tv_register_title});
+        sIncludes.setIncludes(8, 
+            new String[] {"tv_register_title"},
+            new int[] {16},
+            new int[] {com.idiot.more.R.layout.tv_register_title});
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.picture_count_textView, 16);
-        sViewsWithIds.put(R.id.estate_picture_recyclerview, 17);
-        sViewsWithIds.put(R.id.address_search_edit_text, 18);
-        sViewsWithIds.put(R.id.home_info_dialog_button, 19);
-        sViewsWithIds.put(R.id.price_info_dialog_button, 20);
-        sViewsWithIds.put(R.id.register_option_recycler_view, 21);
-        sViewsWithIds.put(R.id.register_house_video_button, 22);
-        sViewsWithIds.put(R.id.register_ar_checklist_button, 23);
-        sViewsWithIds.put(R.id.register_complete_button, 24);
+        sViewsWithIds.put(R.id.picture_count_textView, 17);
+        sViewsWithIds.put(R.id.estate_picture_recyclerview, 18);
+        sViewsWithIds.put(R.id.address_search_edit_text, 19);
+        sViewsWithIds.put(R.id.home_info_dialog_button, 20);
+        sViewsWithIds.put(R.id.price_info_dialog_button, 21);
+        sViewsWithIds.put(R.id.register_option_recycler_view, 22);
+        sViewsWithIds.put(R.id.register_house_video_button, 23);
+        sViewsWithIds.put(R.id.register_ar_checklist_button, 24);
+        sViewsWithIds.put(R.id.register_complete_button, 25);
     }
     // views
     @NonNull
-    private final androidx.coordinatorlayout.widget.CoordinatorLayout mboundView0;
+    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView1;
+    private final androidx.appcompat.widget.LinearLayoutCompat mboundView1;
     @NonNull
     private final androidx.constraintlayout.widget.ConstraintLayout mboundView2;
     @NonNull
@@ -73,41 +73,43 @@ public class FragmentRegisterInfoBindingImpl extends FragmentRegisterInfoBinding
     private final androidx.constraintlayout.widget.ConstraintLayout mboundView6;
     @NonNull
     private final androidx.constraintlayout.widget.ConstraintLayout mboundView7;
+    @NonNull
+    private final androidx.constraintlayout.widget.ConstraintLayout mboundView8;
     // variables
     // values
     // listeners
     // Inverse Binding Event Handlers
 
     public FragmentRegisterInfoBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 25, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 26, sIncludes, sViewsWithIds));
     }
     private FragmentRegisterInfoBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 8
-            , (android.widget.EditText) bindings[18]
-            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[10]
-            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[15]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[17]
-            , (androidx.appcompat.widget.AppCompatButton) bindings[19]
+            , (android.widget.EditText) bindings[19]
             , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[11]
-            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[14]
-            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[13]
-            , (android.widget.TextView) bindings[16]
-            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[9]
-            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[12]
+            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[16]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[18]
             , (androidx.appcompat.widget.AppCompatButton) bindings[20]
-            , (androidx.appcompat.widget.AppCompatButton) bindings[23]
+            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[12]
+            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[15]
+            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[14]
+            , (android.widget.TextView) bindings[17]
+            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[10]
+            , (com.idiot.more.databinding.TvRegisterTitleBinding) bindings[13]
+            , (androidx.appcompat.widget.AppCompatButton) bindings[21]
             , (androidx.appcompat.widget.AppCompatButton) bindings[24]
-            , (androidx.appcompat.widget.AppCompatButton) bindings[22]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[21]
-            , (com.idiot.utils.databinding.ToolbarLayoutBinding) bindings[8]
+            , (androidx.appcompat.widget.AppCompatButton) bindings[25]
+            , (androidx.appcompat.widget.AppCompatButton) bindings[23]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[22]
+            , (com.idiot.utils.databinding.ToolbarLayoutBinding) bindings[9]
             );
         setContainedBinding(this.addressTitle);
         setContainedBinding(this.arChecklistTitle);
         setContainedBinding(this.houseDetailTitle);
         setContainedBinding(this.houseVideoTitle);
-        this.mboundView0 = (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0];
+        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
-        this.mboundView1 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[1];
+        this.mboundView1 = (androidx.appcompat.widget.LinearLayoutCompat) bindings[1];
         this.mboundView1.setTag(null);
         this.mboundView2 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[2];
         this.mboundView2.setTag(null);
@@ -121,6 +123,8 @@ public class FragmentRegisterInfoBindingImpl extends FragmentRegisterInfoBinding
         this.mboundView6.setTag(null);
         this.mboundView7 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[7];
         this.mboundView7.setTag(null);
+        this.mboundView8 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[8];
+        this.mboundView8.setTag(null);
         setContainedBinding(this.optionTitle);
         setContainedBinding(this.pictureTitle);
         setContainedBinding(this.priceDetailTitle);

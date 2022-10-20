@@ -18,12 +18,12 @@ public class FragmentMyHouseBindingImpl extends FragmentMyHouseBinding  {
             new int[] {1},
             new int[] {com.idiot.utils.R.layout.toolbar_layout});
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.view_pager, 2);
-        sViewsWithIds.put(R.id.tab_menu, 3);
+        sViewsWithIds.put(R.id.tab_menu, 2);
+        sViewsWithIds.put(R.id.view_pager, 3);
     }
     // views
     @NonNull
-    private final androidx.coordinatorlayout.widget.CoordinatorLayout mboundView0;
+    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     // variables
     // values
     // listeners
@@ -34,11 +34,11 @@ public class FragmentMyHouseBindingImpl extends FragmentMyHouseBinding  {
     }
     private FragmentMyHouseBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
-            , (com.google.android.material.tabs.TabLayout) bindings[3]
+            , (com.google.android.material.tabs.TabLayout) bindings[2]
             , (com.idiot.utils.databinding.ToolbarLayoutBinding) bindings[1]
-            , (androidx.viewpager2.widget.ViewPager2) bindings[2]
+            , (androidx.viewpager2.widget.ViewPager2) bindings[3]
             );
-        this.mboundView0 = (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0];
+        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
         setContainedBinding(this.toolbarMyhouse);
         setRootTag(root);

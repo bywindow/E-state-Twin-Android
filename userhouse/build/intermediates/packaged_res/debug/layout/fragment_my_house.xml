@@ -3,15 +3,10 @@
                                                      
                                                  
 
-  <androidx.coordinatorlayout.widget.CoordinatorLayout
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent" android:tag="layout/fragment_my_house_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
-
-    <androidx.viewpager2.widget.ViewPager2
-      android:id="@+id/view_pager"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true" android:tag="layout/fragment_my_house_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
 
     <include
       android:id="@+id/toolbar_myhouse"
@@ -33,5 +28,15 @@
       app:tabSelectedTextColor="@color/purple_700"
       app:tabTextAppearance="@style/TextAppearance.idiot.tab.Text"
       app:tabTextColor="@color/tab_inactivated" />
-  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+      android:id="@+id/view_pager"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:isScrollContainer="false"
+      app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+      app:layout_constraintTop_toBottomOf="@id/tab_menu"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
          

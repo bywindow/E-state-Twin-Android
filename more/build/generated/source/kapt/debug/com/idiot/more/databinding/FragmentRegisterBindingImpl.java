@@ -12,38 +12,34 @@ public class FragmentRegisterBindingImpl extends FragmentRegisterBinding  {
     @Nullable
     private static final android.util.SparseIntArray sViewsWithIds;
     static {
-        sIncludes = new androidx.databinding.ViewDataBinding.IncludedLayouts(5);
-        sIncludes.setIncludes(1, 
+        sIncludes = new androidx.databinding.ViewDataBinding.IncludedLayouts(4);
+        sIncludes.setIncludes(0, 
             new String[] {"toolbar_layout"},
-            new int[] {2},
+            new int[] {1},
             new int[] {com.idiot.utils.R.layout.toolbar_layout});
         sViewsWithIds = new android.util.SparseIntArray();
+        sViewsWithIds.put(R.id.tab_menu, 2);
         sViewsWithIds.put(R.id.view_pager, 3);
-        sViewsWithIds.put(R.id.tab_menu, 4);
     }
     // views
     @NonNull
-    private final androidx.coordinatorlayout.widget.CoordinatorLayout mboundView0;
-    @NonNull
-    private final com.google.android.material.appbar.AppBarLayout mboundView1;
+    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     // variables
     // values
     // listeners
     // Inverse Binding Event Handlers
 
     public FragmentRegisterBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
     }
     private FragmentRegisterBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
-            , (com.google.android.material.tabs.TabLayout) bindings[4]
-            , (com.idiot.utils.databinding.ToolbarLayoutBinding) bindings[2]
+            , (com.google.android.material.tabs.TabLayout) bindings[2]
+            , (com.idiot.utils.databinding.ToolbarLayoutBinding) bindings[1]
             , (androidx.viewpager2.widget.ViewPager2) bindings[3]
             );
-        this.mboundView0 = (androidx.coordinatorlayout.widget.CoordinatorLayout) bindings[0];
+        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
-        this.mboundView1 = (com.google.android.material.appbar.AppBarLayout) bindings[1];
-        this.mboundView1.setTag(null);
         setContainedBinding(this.toolbarRegister);
         setRootTag(root);
         // listeners

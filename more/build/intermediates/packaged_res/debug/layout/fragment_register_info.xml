@@ -3,15 +3,10 @@
                                                      
                                                  
 
-  <androidx.coordinatorlayout.widget.CoordinatorLayout
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true" android:tag="layout/fragment_register_info_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
-
-    <include
-      android:id="@+id/toolbar_register_info"
-      layout="@layout/toolbar_layout"
-                               />
 
     <androidx.core.widget.NestedScrollView
       android:layout_width="match_parent"
@@ -20,13 +15,17 @@
       <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="?android:attr/actionBarSize">
+        android:orientation="vertical" android:tag="binding_1">
+
+        <include
+          android:id="@+id/toolbar_register_info"
+          layout="@layout/toolbar_layout"
+                                   />
 
         <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="33dp" android:tag="binding_1">
+          android:layout_marginTop="33dp" android:tag="binding_2">
 
           <include
             android:id="@+id/picture_title"
@@ -62,7 +61,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="22dp" android:tag="binding_2">
+          android:layout_marginTop="22dp" android:tag="binding_3">
 
           <include
             android:id="@+id/address_title"
@@ -92,7 +91,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="30dp" android:tag="binding_3">
+          android:layout_marginTop="30dp" android:tag="binding_4">
 
           <include
             android:id="@+id/house_detail_title"
@@ -125,7 +124,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="30dp" android:tag="binding_4">
+          android:layout_marginTop="30dp" android:tag="binding_5">
 
           <include
             android:id="@+id/price_detail_title"
@@ -157,7 +156,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="30dp" android:tag="binding_5">
+          android:layout_marginTop="30dp" android:tag="binding_6">
 
           <include
             android:id="@+id/option_title"
@@ -183,7 +182,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="30dp" android:tag="binding_6">
+          android:layout_marginTop="30dp" android:tag="binding_7">
 
           <include
             android:id="@+id/house_video_title"
@@ -212,7 +211,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="30dp" android:tag="binding_7">
+          android:layout_marginTop="30dp" android:tag="binding_8">
 
           <include
             android:id="@+id/ar_checklist_title"
@@ -251,5 +250,5 @@
           android:textSize="16sp" />
       </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.core.widget.NestedScrollView>
-  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
          

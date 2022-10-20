@@ -38,7 +38,7 @@ class RegisterPictureListViewModel(
       }
       _pictureList.postValue(updatedList)
       Timber.d("s3 new list: $updatedList")
-      val response = repository.requestImageUri(imageFormList.toList())
+      val response = repository.requestImageUri(imageFormList[0])
       Timber.d("s3 image: $response")
     }
   }

@@ -32,6 +32,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/user_profile_rounded"
         android:clipToOutline="true"
+        android:contentDescription="profile"
         android:src="@drawable/ic_profile_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
