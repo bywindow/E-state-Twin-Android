@@ -8,7 +8,7 @@ internal class HttpRequestInterceptor : Interceptor {
   override fun intercept(chain: Interceptor.Chain): Response {
     val originalRequest = chain.request()
     val request = originalRequest.newBuilder().url(originalRequest.url).build()
-    Timber.d(request.toString())
+    Timber.d("interceptor : ${request.toString()}")
     return chain.proceed(request)
   }
 }

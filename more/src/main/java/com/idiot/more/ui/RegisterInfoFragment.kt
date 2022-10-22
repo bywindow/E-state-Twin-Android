@@ -3,9 +3,12 @@ package com.idiot.more.ui
 import android.Manifest
 import android.app.Activity
 import android.app.Application
+import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -21,9 +24,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.snackbar.Snackbar
-import com.idiot.utils.NetworkStatus
 import com.idiot.model.HouseOption
 import com.idiot.model.RegisterEstatePicture
 import com.idiot.more.R
@@ -33,6 +34,7 @@ import com.idiot.more.ui.adapter.RegisterInfoPictureAdapter
 import com.idiot.more.ui.adapter.RegisterInfoPictureHeaderAdapter
 import com.idiot.more.ui.viewModel.RegisterOptionListViewModel
 import com.idiot.more.ui.viewModel.RegisterPictureListViewModel
+import com.idiot.utils.NetworkStatus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -64,9 +66,13 @@ class RegisterInfoFragment : Fragment() {
   private val selectImageResultLauncher: ActivityResultLauncher<Intent> =
     registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
       if (it.resultCode == Activity.RESULT_OK && it.data != null) {
-        it.data?.clipData?.let { cd ->
-          pictureListViewModel.insertPicture(cd, cd.itemCount)
+        val mClipData: ClipData = it.data!!.clipData!!
+        val images = mutableListOf<Uri>() // image uri, file path
+        for (i in 0 until mClipData.itemCount) {
+          val imageUri = mClipData.getItemAt(i).uri
+          images.add(imageUri)
         }
+        pictureListViewModel.insertPicture(images)
       }
     }
 
@@ -159,10 +165,10 @@ class RegisterInfoFragment : Fragment() {
   }
 
   private fun navigateToPhoto() {
-    val intent = Intent()
+    val intent = Intent(Intent.ACTION_PICK)
+    intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
     intent.type = "image/*"
     intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-    intent.action = Intent.ACTION_PICK
     selectImageResultLauncher.launch(intent)
   }
 

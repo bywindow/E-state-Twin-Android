@@ -1,44 +1,45 @@
 package com.idiot.more.ui.viewModel
 
-import android.content.ClipData
+import android.app.Activity
+import android.net.Uri
 import android.util.Log
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.*
 import com.idiot.data.repository.EstateImageS3UploadRepository
 import com.idiot.model.RegisterEstatePicture
 import com.idiot.more.util.FileUtil
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import java.util.*
+import java.io.File
 import kotlin.random.Random
 
 class RegisterPictureListViewModel(
-  private val activity: FragmentActivity,
+  activity: Activity,
   private val repository: EstateImageS3UploadRepository
   ) : AndroidViewModel(activity.application) {
   private val _pictureList = MutableLiveData<List<RegisterEstatePicture>>()
   val pictureList: LiveData<List<RegisterEstatePicture>>
     get() = _pictureList
 
-  fun insertPicture(clipData: ClipData, size: Int) {
+  fun insertPicture(images: List<Uri>) {
     viewModelScope.launch {
       val currentList = _pictureList.value
-      val updatedList = currentList?.toMutableList() ?: mutableListOf<RegisterEstatePicture>()
-      val imageFormList = mutableListOf<String>()
-      (0 until size).forEach {
+      val updatedList = currentList?.toMutableList() ?: mutableListOf()
+      val imageFormList = mutableListOf<File>()
+      images.forEach {
         val newItem = RegisterEstatePicture(
           Random.nextLong(),
-          UUID.randomUUID().toString(),
-          clipData.getItemAt(it).uri
+          it.toString().split("/").last(),
+          it
         )
         updatedList.add(newItem)
-        Timber.d("${clipData.getItemAt(it).uri}")
-        FileUtil.getImageFilePath(context = activity, uri = clipData.getItemAt(it).uri)
-          ?.let { it1 -> imageFormList.add(it1) }
+        Timber.d("image uri : $it")
+        val file: File = FileUtil.convertUriToFile(context = getApplication(), it)
+        Timber.d("File Path VM: $file")
+        imageFormList.add(file)
       }
       _pictureList.postValue(updatedList)
       Timber.d("s3 new list: $updatedList")
-      val response = repository.requestImageUri(imageFormList[0])
+      val response = repository.requestImageUri(imageFormList)
       Timber.d("s3 image: $response")
     }
   }
@@ -48,7 +49,7 @@ class RegisterPictureListViewModel(
     Log.d("register", "delete! $item")
   }
 
-  class PictureListFactory(private val activity: FragmentActivity) : ViewModelProvider.Factory {
+  class PictureListFactory(private val activity: Activity) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
       if (modelClass.isAssignableFrom(RegisterPictureListViewModel::class.java)) {
         @Suppress("UNCHECKED_CAST")

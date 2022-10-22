@@ -4,11 +4,16 @@ import com.idiot.data.api.S3UploadService
 import com.idiot.data.api_builder.BuildConfig
 import com.idiot.data.api_builder.interceptor.HttpRequestInterceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 object S3NetworkModule {
+
+  private val interceptor = HttpLoggingInterceptor().apply {
+    level = HttpLoggingInterceptor.Level.BODY
+  }
 
   private val client = OkHttpClient.Builder()
     .addInterceptor(HttpRequestInterceptor())
