@@ -11,9 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentMoreBinding
-import com.idiot.more.ui.viewModel.MoreViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint

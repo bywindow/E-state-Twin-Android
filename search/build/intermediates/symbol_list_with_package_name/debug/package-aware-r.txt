@@ -1,5 +1,0 @@
-com.idiot.search
-id graph_search
-id searchFragment
-layout fragment_search
-navigation graph_search

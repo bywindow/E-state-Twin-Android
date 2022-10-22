@@ -2,7 +2,6 @@ package com.idiot.more.ui
 
 import android.Manifest
 import android.app.Activity
-import android.app.Application
 import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -16,7 +15,6 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -32,8 +30,6 @@ import com.idiot.more.databinding.FragmentRegisterInfoBinding
 import com.idiot.more.ui.adapter.RegisterInfoOptionAdapter
 import com.idiot.more.ui.adapter.RegisterInfoPictureAdapter
 import com.idiot.more.ui.adapter.RegisterInfoPictureHeaderAdapter
-import com.idiot.more.ui.viewModel.RegisterOptionListViewModel
-import com.idiot.more.ui.viewModel.RegisterPictureListViewModel
 import com.idiot.utils.NetworkStatus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -42,14 +38,7 @@ import kotlinx.coroutines.launch
 class RegisterInfoFragment : Fragment() {
 
   private lateinit var binding: FragmentRegisterInfoBinding
-  private val pictureListViewModel by viewModels<RegisterPictureListViewModel> {
-    RegisterPictureListViewModel.PictureListFactory(activity!!)
-  }
-  private val optionListViewModel by viewModels<RegisterOptionListViewModel> {
-    RegisterOptionListViewModel.OptionListFactory(Application())
-  }
-
-  private lateinit var toolbar: Toolbar
+  private val viewModel by viewModels<RegisterInfoViewModel>()
 
   private val requestPermissionLauncher =
     registerForActivityResult(
@@ -72,7 +61,7 @@ class RegisterInfoFragment : Fragment() {
           val imageUri = mClipData.getItemAt(i).uri
           images.add(imageUri)
         }
-        pictureListViewModel.insertPicture(images)
+        viewModel.insertPicture(images)
       }
     }
 
@@ -109,23 +98,22 @@ class RegisterInfoFragment : Fragment() {
   private fun initAdapter() {
     val headerAdapter = RegisterInfoPictureHeaderAdapter { addPicture() }
     val pictureAdapter = RegisterInfoPictureAdapter { registerPicture ->
-      pictureListViewModel.deletePicture(registerPicture)
+      viewModel.deletePicture(registerPicture)
     }
     val concatAdapter = ConcatAdapter(headerAdapter, pictureAdapter)
     binding.estatePictureRecyclerview.adapter = concatAdapter
 
-    pictureListViewModel.pictureList.observe(viewLifecycleOwner) {
+    viewModel.pictureList.observe(viewLifecycleOwner) {
       it?.let {
         pictureAdapter.submitList(it as MutableList<RegisterEstatePicture>)
         updatePictureCount(it)
       }
     }
 
-    val optionAdapter =
-      RegisterInfoOptionAdapter { houseOption -> optionListViewModel.changeOptionStatus(houseOption) }
+    val optionAdapter = RegisterInfoOptionAdapter { houseOption -> viewModel.changeOptionStatus(houseOption) }
     binding.registerOptionRecyclerView.adapter = optionAdapter
 
-    optionListViewModel.optionList.observe(viewLifecycleOwner) {
+    viewModel.optionList.observe(viewLifecycleOwner) {
       it?.let {
         optionAdapter.submitList(it.values.toList() as MutableList<HouseOption>)
         optionAdapter.notifyDataSetChanged()

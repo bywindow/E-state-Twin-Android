@@ -5,6 +5,7 @@ import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import android.provider.OpenableColumns
+import androidx.annotation.WorkerThread
 import com.idiot.data.api_builder.di.S3NetworkModule
 import com.idiot.model.S3UploadResponse
 import okhttp3.MediaType
@@ -18,9 +19,12 @@ import okio.source
 import retrofit2.Response
 import timber.log.Timber
 import java.io.File
+import javax.inject.Inject
 
-class EstateImageS3UploadRepository() {
 
+class EstateImageS3UploadRepository @Inject constructor() {
+
+  @WorkerThread
   suspend fun requestImageUri(
     imageList: List<File>
   ): String {

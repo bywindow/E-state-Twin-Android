@@ -1,18 +1,15 @@
 package com.idiot.home.ui
 
-import android.content.Intent
+//import com.idiot.threeviewer.ViewerActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.idiot.home.R
-import com.idiot.home.databinding.FragmentHouseDetailBinding
-import com.idiot.data.repository.samples.optionSample
+import com.idiot.home.assets.optionSample
 import com.idiot.e_state_twin_android.core.data.assets.imageUrlSample
-//import com.idiot.threeviewer.ViewerActivity
-import java.lang.Exception
+import com.idiot.home.databinding.FragmentHouseDetailBinding
 
 class HouseDetailFragment : Fragment() {
 
