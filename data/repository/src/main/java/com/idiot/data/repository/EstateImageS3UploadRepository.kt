@@ -32,7 +32,7 @@ class EstateImageS3UploadRepository @Inject constructor() {
   @WorkerThread
   suspend fun requestImageUri(
     imageList: List<File>
-  ): String {
+  ): List<S3UploadResponse> {
     Timber.d("s3 image list: $imageList")
     val imagePartList = mutableListOf<MultipartBody.Part>()
 //    imageList.forEach {
@@ -68,8 +68,9 @@ class EstateImageS3UploadRepository @Inject constructor() {
     } catch (e: java.lang.IllegalStateException) {
       e.printStackTrace()
     } finally {
-      Timber.d("s3 response: $response, ${response?.body()!!::class.java.typeName}")
+      Timber.d("s3 response: $response")
+      Timber.d("lambda response body ${response?.body()?.last().toString().split("file_url=").last()}")
     }
-    return response.body().toString()
+    return response?.body() as List<S3UploadResponse>
   }
 }
