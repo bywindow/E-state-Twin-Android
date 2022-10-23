@@ -36,8 +36,7 @@ class EstateImageS3UploadRepository @Inject constructor() {
     } catch (e: java.lang.IllegalStateException) {
       e.printStackTrace()
     } finally {
-      Timber.d("s3 response: $response")
-      Timber.d("lambda response body ${response?.body()?.last().toString().split("file_url=").last()}")
+      Timber.d("s3 response: ${response?.body()}")
     }
     return response?.body() as List<S3UploadResponse>
   }

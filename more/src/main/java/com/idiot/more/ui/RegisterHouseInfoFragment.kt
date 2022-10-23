@@ -4,15 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentRegisterHouseInfoBinding
 import com.idiot.more.ui.adapter.BuildingTypeSpinnerAdapter
+import timber.log.Timber
 
 class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
 
   private lateinit var binding: FragmentRegisterHouseInfoBinding
+  private val viewModel: RegisterInfoViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -41,6 +45,14 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       resources.getStringArray(R.array.building_type_list)
     )
     binding.buildingTypeSelector.adapter = buildingTypeAdapter
+    binding.buildingTypeSelector.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+      override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        Timber.d("CHANGE**************  $position")
+      }
+      override fun onNothingSelected(parent: AdapterView<*>?) {
+        return
+      }
+    }
 
     val heatTypeAdapter = BuildingTypeSpinnerAdapter(
       requireContext(),

@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.idiot.more.R
 import com.idiot.more.databinding.ListItemBuildingTypeSpinnerBinding
+import timber.log.Timber
 import java.lang.Exception
 
 class BuildingTypeSpinnerAdapter(
@@ -53,8 +54,9 @@ class BuildingTypeSpinnerAdapter(
     val model = types[position]
     try {
       binding.type = model
-//      if (position == 0) binding.buildingTypeItem.visibility = View.GONE
-      if (position != 0) binding.buildingTypeItem.setTextColor(Color.BLACK)
+      if (position != 0) {
+        binding.buildingTypeItem.setTextColor(Color.BLACK)
+      }
     } catch (e: Exception) {
       e.printStackTrace()
     }

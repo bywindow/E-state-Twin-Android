@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+  xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+  <data>
+    <variable
+      name="type"
+      type="String" />
+  </data>
 
-        <variable
-            name="type"
-            type="String" />
-    </data>
-
-    <TextView
-        android:id="@+id/building_type_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:includeFontPadding="false"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="13dp"
-        android:text="@{type}"
-        android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
-        tools:text="오피스텔" />
+  <TextView
+    android:id="@+id/building_type_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:includeFontPadding="false"
+    android:paddingHorizontal="15dp"
+    android:paddingVertical="13dp"
+    android:text="@{type}"
+    android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+    tools:text="오피스텔" />
 </layout>

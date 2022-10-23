@@ -71,4 +71,8 @@ class RegisterInfoViewModel @Inject constructor(
     _optionList.value = updatedStatus
   }
 
+  fun changEstateType() {
+    Timber.d("CHANGE ESTATE TYPE")
+  }
+
 }
