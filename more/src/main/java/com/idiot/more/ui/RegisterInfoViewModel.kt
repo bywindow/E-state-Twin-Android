@@ -31,6 +31,9 @@ class RegisterInfoViewModel @Inject constructor(
   private val _optionList = MutableLiveData<Map<Int, HouseOption>>(mapOf())
   val optionList: LiveData<Map<Int,HouseOption>> = _optionList
 
+  private val _estateType = MutableStateFlow(0)
+  val estatetype: StateFlow<Int> = _estateType
+
   init {
       _optionList.value = optionSample().associateBy { it.id }
   }
@@ -71,8 +74,9 @@ class RegisterInfoViewModel @Inject constructor(
     _optionList.value = updatedStatus
   }
 
-  fun changEstateType() {
-    Timber.d("CHANGE ESTATE TYPE")
+  fun changEstateType(position: Int) {
+    if (position == estatetype.value) return
+    _estateType.value = position
   }
 
 }

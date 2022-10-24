@@ -11,8 +11,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentRegisterHouseInfoBinding
 import com.idiot.more.ui.adapter.BuildingTypeSpinnerAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
 
   private lateinit var binding: FragmentRegisterHouseInfoBinding
@@ -47,7 +49,7 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
     binding.buildingTypeSelector.adapter = buildingTypeAdapter
     binding.buildingTypeSelector.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
       override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        Timber.d("CHANGE**************  $position")
+        viewModel.changEstateType(position)
       }
       override fun onNothingSelected(parent: AdapterView<*>?) {
         return
