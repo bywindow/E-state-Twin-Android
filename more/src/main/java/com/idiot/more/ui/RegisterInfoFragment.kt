@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
@@ -33,12 +34,13 @@ import com.idiot.more.ui.adapter.RegisterInfoPictureHeaderAdapter
 import com.idiot.utils.NetworkStatus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class RegisterInfoFragment : Fragment() {
 
   private lateinit var binding: FragmentRegisterInfoBinding
-  private val viewModel by viewModels<RegisterInfoViewModel>()
+  private lateinit var viewModel: RegisterInfoViewModel
 
   private val requestPermissionLauncher =
     registerForActivityResult(
@@ -69,20 +71,18 @@ class RegisterInfoFragment : Fragment() {
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
+    viewModel = ViewModelProvider(this)[RegisterInfoViewModel::class.java]
     binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_info, container, false)
 
     initNavigation()
     initAdapter()
     initAddressSearchDialogListener(binding)
+    registerCompleteButtonClicked()
 
     return binding.root
   }
 
   private fun initNavigation() {
-//    toolbar.setNavigationIcon(R.drawable.ic_navigate_up)
-//    toolbar.setNavigationOnClickListener {
-//      it.findNavController().navigateUp()
-//    }
 
     binding.homeInfoDialogButton.setOnClickListener {
       openBottomSheetDialog(it)
@@ -194,9 +194,7 @@ class RegisterInfoFragment : Fragment() {
 
   private fun registerCompleteButtonClicked() {
     binding.registerCompleteButton.setOnClickListener {
-      lifecycleScope.launch {
-
-      }
+      Timber.d("${viewModel.ableShort.value}, ${viewModel.heatType.value}")
     }
   }
 }
