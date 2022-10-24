@@ -407,6 +407,7 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                   android:id="@+id/has_duplex_button"
+                  selectedType="@{vm.hasDuplex}"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:layout_marginTop="6dp"
@@ -414,6 +415,7 @@
                   android:background="@drawable/register_dialog_button_rounded"
                   android:gravity="center"
                   android:includeFontPadding="false"
+                  android:onClick="@{() -> vm.duplexButtonClicked(true)}"
                   android:paddingHorizontal="15dp"
                   android:paddingVertical="13dp"
                   android:stateListAnimator="@null"
@@ -425,12 +427,14 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                   android:id="@+id/has_not_duplex_button"
+                  selectedType="@{vm.hasDuplex}"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:layout_marginStart="4dp"
                   android:background="@drawable/register_dialog_button_rounded"
                   android:gravity="center"
                   android:includeFontPadding="false"
+                  android:onClick="@{() -> vm.duplexButtonClicked(false)}"
                   android:paddingHorizontal="15dp"
                   android:paddingVertical="13dp"
                   android:stateListAnimator="@null"

@@ -11,7 +11,6 @@ object ViewBinding {
   @JvmStatic
   @BindingAdapter("selectedType")
   fun bindSelectType(view: AppCompatButton, selectedType: Int) {
-    Timber.d("select: $selectedType")
     when (view.id) {
       R.id.has_elevator_button -> {
         if (selectedType == 1) {
@@ -21,6 +20,20 @@ object ViewBinding {
         }
       }
       R.id.has_not_elevator_button -> {
+        if (selectedType == 2) {
+          SelectedTypeUtil.getActiveBackground(view)
+        } else {
+          SelectedTypeUtil.getInactiveBackground(view)
+        }
+      }
+      R.id.has_duplex_button -> {
+        if (selectedType == 1) {
+          SelectedTypeUtil.getActiveBackground(view)
+        } else {
+          SelectedTypeUtil.getInactiveBackground(view)
+        }
+      }
+      R.id.has_not_duplex_button -> {
         if (selectedType == 2) {
           SelectedTypeUtil.getActiveBackground(view)
         } else {

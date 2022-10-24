@@ -40,6 +40,9 @@ class RegisterInfoViewModel @Inject constructor(
   private val _hasElevator = MutableStateFlow(0)
   val hasElevator: StateFlow<Int> = _hasElevator
 
+  private val _hasDuplex = MutableStateFlow(0)
+  val hasDuplex: StateFlow<Int> = _hasDuplex
+
   init {
       _optionList.value = optionSample().associateBy { it.id }
   }
@@ -96,7 +99,14 @@ class RegisterInfoViewModel @Inject constructor(
     } else {
       _hasElevator.value = 2
     }
-    Timber.d("${hasElevator.value}")
+  }
+
+  fun duplexButtonClicked(position: Boolean) {
+    if (position) {
+      _hasDuplex.value = 1
+    } else {
+      _hasDuplex.value = 2
+    }
   }
 
 }
