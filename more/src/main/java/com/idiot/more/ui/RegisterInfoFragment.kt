@@ -110,7 +110,8 @@ class RegisterInfoFragment : Fragment() {
       }
     }
 
-    val optionAdapter = RegisterInfoOptionAdapter { houseOption -> viewModel.changeOptionStatus(houseOption) }
+    val optionAdapter =
+      RegisterInfoOptionAdapter { houseOption -> viewModel.changeOptionStatus(houseOption) }
     binding.registerOptionRecyclerView.adapter = optionAdapter
 
     viewModel.optionList.observe(viewLifecycleOwner) {
@@ -186,7 +187,9 @@ class RegisterInfoFragment : Fragment() {
       }
       R.id.price_info_dialog_button -> {
         //TODO : Add input price page
-        Log.d("register", "price info")
+        val direction = RegisterInfoFragmentDirections
+          .actionRegisterInfoFragmentToRegisterPriceInfoFragment()
+        view.findNavController().navigate(direction)
       }
       else -> return
     }
