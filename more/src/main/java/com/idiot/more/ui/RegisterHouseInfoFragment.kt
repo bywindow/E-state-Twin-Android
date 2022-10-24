@@ -32,6 +32,8 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
     binding = DataBindingUtil.inflate(
       inflater, R.layout.fragment_register_house_info, container, false
     )
+    binding.lifecycleOwner = this
+    binding.vm = viewModel
     binding.closeButton.setOnClickListener {
       dismiss()
     }
@@ -49,7 +51,7 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
     binding.buildingTypeSelector.adapter = buildingTypeAdapter
     binding.buildingTypeSelector.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
       override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        viewModel.changEstateType(position)
+        viewModel.changeEstateType(position)
       }
       override fun onNothingSelected(parent: AdapterView<*>?) {
         return
@@ -62,6 +64,15 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       resources.getStringArray(R.array.heat_type_list)
     )
     binding.heatTypeSelector.adapter = heatTypeAdapter
+    binding.heatTypeSelector.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+      override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        viewModel.changeHeatType(position)
+      }
+
+      override fun onNothingSelected(parent: AdapterView<*>?) {
+        return
+      }
+    }
 
     val roomTypeAdapter = BuildingTypeSpinnerAdapter(
       requireContext(),

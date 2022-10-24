@@ -34,6 +34,12 @@ class RegisterInfoViewModel @Inject constructor(
   private val _estateType = MutableStateFlow(0)
   val estatetype: StateFlow<Int> = _estateType
 
+  private val _heatType = MutableStateFlow(0)
+  val heatType: StateFlow<Int> = _heatType
+
+  private val _hasElevator = MutableStateFlow(0)
+  val hasElevator: StateFlow<Int> = _hasElevator
+
   init {
       _optionList.value = optionSample().associateBy { it.id }
   }
@@ -74,9 +80,23 @@ class RegisterInfoViewModel @Inject constructor(
     _optionList.value = updatedStatus
   }
 
-  fun changEstateType(position: Int) {
+  fun changeEstateType(position: Int) {
     if (position == estatetype.value) return
     _estateType.value = position
+  }
+
+  fun changeHeatType(position: Int) {
+    if (position == heatType.value) return
+    _heatType.value = position
+  }
+
+  fun elevatorButtonClicked(position: Boolean) {
+    if (position) {
+      _hasElevator.value = 1
+    } else {
+      _hasElevator.value = 2
+    }
+    Timber.d("${hasElevator.value}")
   }
 
 }

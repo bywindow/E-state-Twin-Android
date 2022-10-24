@@ -3,6 +3,12 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
+  <data>
+    <variable
+      name="vm"
+      type="com.idiot.more.ui.RegisterInfoViewModel" />
+  </data>
+
   <FrameLayout
     android:id="@+id/house_info_layout"
     android:layout_width="match_parent"
@@ -338,6 +344,7 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                   android:id="@+id/has_elevator_button"
+                  selectedType="@{vm.hasElevator}"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:layout_marginTop="6dp"
@@ -345,6 +352,7 @@
                   android:background="@drawable/register_dialog_button_rounded"
                   android:gravity="center"
                   android:includeFontPadding="false"
+                  android:onClick="@{() -> vm.elevatorButtonClicked(true)}"
                   android:paddingHorizontal="15dp"
                   android:paddingVertical="13dp"
                   android:stateListAnimator="@null"
@@ -356,12 +364,14 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                   android:id="@+id/has_not_elevator_button"
+                  selectedType="@{vm.hasElevator}"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content"
                   android:layout_marginStart="4dp"
                   android:background="@drawable/register_dialog_button_rounded"
                   android:gravity="center"
                   android:includeFontPadding="false"
+                  android:onClick="@{() -> vm.elevatorButtonClicked(false)}"
                   android:paddingHorizontal="15dp"
                   android:paddingVertical="13dp"
                   android:stateListAnimator="@null"
@@ -588,12 +598,12 @@
             android:id="@+id/complete_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="확인"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:layout_marginTop="40dp"
             android:background="@color/purple_700"
-            android:layout_marginTop="40dp"/>
+            android:gravity="center"
+            android:text="확인"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
         </LinearLayout>
       </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
