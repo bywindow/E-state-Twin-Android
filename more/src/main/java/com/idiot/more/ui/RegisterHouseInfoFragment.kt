@@ -2,10 +2,13 @@ package com.idiot.more.ui
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -39,11 +42,9 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
     binding = DataBindingUtil.inflate(
       inflater, R.layout.fragment_register_house_info, container, false
     )
-    binding.lifecycleOwner = this
+    binding.lifecycleOwner = viewLifecycleOwner
     binding.vm = viewModel
-    binding.closeButton.setOnClickListener {
-      dismiss()
-    }
+    binding.closeButton.setOnClickListener { dismiss() }
     initSpinners(binding)
     initDatePicker()
     completeButtonClicked()
@@ -58,14 +59,16 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
     )
     binding.buildingTypeSelector.adapter = buildingTypeAdapter
     binding.buildingTypeSelector.setSelection(viewModel.estatetype.value)
-    binding.buildingTypeSelector.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-      override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        viewModel.changeEstateType(position)
+    binding.buildingTypeSelector.onItemSelectedListener =
+      object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+          viewModel.changeEstateType(position)
+        }
+
+        override fun onNothingSelected(parent: AdapterView<*>?) {
+          return
+        }
       }
-      override fun onNothingSelected(parent: AdapterView<*>?) {
-        return
-      }
-    }
 
     val heatTypeAdapter = BuildingTypeSpinnerAdapter(
       requireContext(),
@@ -78,6 +81,7 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         viewModel.changeHeatType(position)
       }
+
       override fun onNothingSelected(parent: AdapterView<*>?) {
         return
       }
@@ -94,6 +98,7 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         viewModel.changeRoomType(position)
       }
+
       override fun onNothingSelected(parent: AdapterView<*>?) {
         return
       }
@@ -113,7 +118,16 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
 
   private fun completeButtonClicked() {
     binding.completeButton.setOnClickListener {
+      saveTextInputField()
       findNavController().navigateUp()
     }
+  }
+
+  private fun saveTextInputField() {
+    viewModel.changeBuildingName(binding.buildingNameInput.text.toString())
+    viewModel.changeTotalBuildingFloor(binding.buildingTotalFloorInput.text.toString().toInt())
+    viewModel.changeCurBuildingFloor(binding.buildingCurrentFloorInput.text.toString().toInt())
+    viewModel.changeNetArea(binding.netAreaInput.text.toString().toFloat())
+    viewModel.changeArea(binding.areaInput.text.toString().toFloat())
   }
 }

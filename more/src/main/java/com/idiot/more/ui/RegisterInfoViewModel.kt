@@ -55,6 +55,21 @@ class RegisterInfoViewModel @Inject constructor(
   private val _availableDate = MutableStateFlow(emptyList<Int>())
   val availableDate: StateFlow<List<Int>> = _availableDate
 
+  private val _buildingName = MutableStateFlow("")
+  val buildingName: StateFlow<String> = _buildingName
+
+  private val _totalBuildingFloor = MutableStateFlow(0)
+  val totalBuildingFloor: StateFlow<Int> = _totalBuildingFloor
+
+  private val _curBuildingFloor = MutableStateFlow(0)
+  val curBuildingFloor: StateFlow<Int> = _curBuildingFloor
+
+  private val _netArea = MutableStateFlow(0.0f)
+  val netArea: StateFlow<Float> = _netArea
+
+  private val _area = MutableStateFlow(0.0f)
+  val area: StateFlow<Float> = _area
+
   init {
       _optionList.value = optionSample().associateBy { it.id }
   }
@@ -145,6 +160,26 @@ class RegisterInfoViewModel @Inject constructor(
   fun changeAvailableDate(year: Int, month: Int, day: Int) {
     val temp = listOf(year, month, day)
     _availableDate.value = temp
+  }
+
+  fun changeBuildingName(name: String) {
+    _buildingName.value = name
+  }
+
+  fun changeTotalBuildingFloor(floor: Int) {
+    _totalBuildingFloor.value = floor
+  }
+
+  fun changeCurBuildingFloor(floor: Int) {
+    _curBuildingFloor.value = floor
+  }
+
+  fun changeNetArea(size: Float) {
+    _netArea.value = size
+  }
+
+  fun changeArea(size: Float) {
+    _area.value = size
   }
 
 }
