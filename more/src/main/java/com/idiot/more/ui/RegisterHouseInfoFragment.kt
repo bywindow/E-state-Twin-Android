@@ -68,7 +68,6 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         viewModel.changeHeatType(position)
       }
-
       override fun onNothingSelected(parent: AdapterView<*>?) {
         return
       }
@@ -80,5 +79,13 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       resources.getStringArray(R.array.room_type_list)
     )
     binding.roomTypeSelector.adapter = roomTypeAdapter
+    binding.roomTypeSelector.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+      override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        viewModel.changeRoomType(position)
+      }
+      override fun onNothingSelected(parent: AdapterView<*>?) {
+        return
+      }
+    }
   }
 }

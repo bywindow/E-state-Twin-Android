@@ -37,6 +37,9 @@ class RegisterInfoViewModel @Inject constructor(
   private val _heatType = MutableStateFlow(0)
   val heatType: StateFlow<Int> = _heatType
 
+  private val _roomType = MutableStateFlow(0)
+  val roomType: StateFlow<Int> = _roomType
+
   private val _hasElevator = MutableStateFlow(0)
   val hasElevator: StateFlow<Int> = _hasElevator
 
@@ -107,6 +110,11 @@ class RegisterInfoViewModel @Inject constructor(
     } else {
       _hasDuplex.value = 2
     }
+  }
+
+  fun changeRoomType(position: Int) {
+    if (position == roomType.value) return
+    _roomType.value = position
   }
 
 }
