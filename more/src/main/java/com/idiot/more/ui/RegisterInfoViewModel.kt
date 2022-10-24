@@ -49,6 +49,12 @@ class RegisterInfoViewModel @Inject constructor(
   private val _hasVeranda = MutableStateFlow(0)
   val hasVeranda: StateFlow<Int> = _hasVeranda
 
+  private val _ableShort = MutableStateFlow(0)
+  val ableShort: StateFlow<Int> = _ableShort
+
+  private val _availableDate = MutableStateFlow(emptyList<Int>())
+  val availableDate: StateFlow<List<Int>> = _availableDate
+
   init {
       _optionList.value = optionSample().associateBy { it.id }
   }
@@ -126,6 +132,19 @@ class RegisterInfoViewModel @Inject constructor(
     } else {
       _hasVeranda.value = 2
     }
+  }
+
+  fun shortAbleButtonClicked(position: Boolean) {
+    if (position) {
+      _ableShort.value = 1
+    } else {
+      _ableShort.value = 2
+    }
+  }
+
+  fun changeAvailableDate(year: Int, month: Int, day: Int) {
+    val temp = listOf(year, month, day)
+    _availableDate.value = temp
   }
 
 }

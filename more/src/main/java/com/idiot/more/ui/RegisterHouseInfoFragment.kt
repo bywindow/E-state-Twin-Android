@@ -1,5 +1,6 @@
 package com.idiot.more.ui
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,7 @@ import com.idiot.more.R
 import com.idiot.more.databinding.FragmentRegisterHouseInfoBinding
 import com.idiot.more.ui.adapter.BuildingTypeSpinnerAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
+import java.util.*
 
 @AndroidEntryPoint
 class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
@@ -38,10 +39,10 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       dismiss()
     }
     initSpinners(binding)
+    initDatePicker()
     return binding.root
   }
-
-  //TODO : save data function
+  
   private fun initSpinners(binding: FragmentRegisterHouseInfoBinding) {
     val buildingTypeAdapter = BuildingTypeSpinnerAdapter(
       requireContext(),
@@ -86,6 +87,17 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       override fun onNothingSelected(parent: AdapterView<*>?) {
         return
       }
+    }
+  }
+  
+  private fun initDatePicker() {
+    binding.datePicker.setOnClickListener {
+      val calendar = Calendar.getInstance()
+      val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+        binding.datePicker.text = "${year}년 ${month+1}월 ${dayOfMonth}일"
+        viewModel.changeAvailableDate(year, month, dayOfMonth)
+      }
+      DatePickerDialog(context!!, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show()
     }
   }
 }

@@ -54,6 +54,20 @@ object ViewBinding {
           SelectedTypeUtil.getInactiveBackground(view)
         }
       }
+      R.id.short_able_button -> {
+        if (selectedType == 1) {
+          SelectedTypeUtil.getActiveBackground(view)
+        } else {
+          SelectedTypeUtil.getInactiveBackground(view)
+        }
+      }
+      R.id.short_disable_button -> {
+        if (selectedType == 2) {
+          SelectedTypeUtil.getActiveBackground(view)
+        } else {
+          SelectedTypeUtil.getInactiveBackground(view)
+        }
+      }
       else -> return
     }
   }

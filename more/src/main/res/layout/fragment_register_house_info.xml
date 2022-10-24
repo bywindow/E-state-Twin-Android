@@ -536,6 +536,7 @@
 
               <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/short_able_button"
+                selectedType="@{vm.ableShort}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
@@ -543,6 +544,7 @@
                 android:background="@drawable/register_dialog_button_rounded"
                 android:gravity="center"
                 android:includeFontPadding="false"
+                android:onClick="@{() -> vm.shortAbleButtonClicked(true)}"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="13dp"
                 android:stateListAnimator="@null"
@@ -554,12 +556,14 @@
 
               <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/short_disable_button"
+                selectedType="@{vm.ableShort}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:background="@drawable/register_dialog_button_rounded"
                 android:gravity="center"
                 android:includeFontPadding="false"
+                android:onClick="@{() -> vm.shortAbleButtonClicked(false)}"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="13dp"
                 android:stateListAnimator="@null"
