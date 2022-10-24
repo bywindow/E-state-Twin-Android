@@ -46,6 +46,9 @@ class RegisterInfoViewModel @Inject constructor(
   private val _hasDuplex = MutableStateFlow(0)
   val hasDuplex: StateFlow<Int> = _hasDuplex
 
+  private val _hasVeranda = MutableStateFlow(0)
+  val hasVeranda: StateFlow<Int> = _hasVeranda
+
   init {
       _optionList.value = optionSample().associateBy { it.id }
   }
@@ -115,6 +118,14 @@ class RegisterInfoViewModel @Inject constructor(
   fun changeRoomType(position: Int) {
     if (position == roomType.value) return
     _roomType.value = position
+  }
+
+  fun verandaButtonClicked(position: Boolean) {
+    if (position) {
+      _hasVeranda.value = 1
+    } else {
+      _hasVeranda.value = 2
+    }
   }
 
 }
