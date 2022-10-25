@@ -70,6 +70,25 @@ class RegisterInfoViewModel @Inject constructor(
   private val _area = MutableStateFlow(0.0f)
   val area: StateFlow<Float> = _area
 
+  // 가격 정보
+  private val _deposit = MutableStateFlow(0)
+  val deposit: StateFlow<Int> = _deposit
+
+  private val _monthly = MutableStateFlow(0)
+  val monthly: StateFlow<Int> = _monthly
+
+  private val _managementFee = MutableStateFlow(0)
+  val managementFee: StateFlow<Int> = _managementFee
+
+  private val _managementFeeIncluding = MutableStateFlow(mapOf(Pair(0, false), Pair(1, false), Pair(2, false), Pair(3, false)))
+  val managementFeeIncluding: StateFlow<Map<Int, Boolean>> = _managementFeeIncluding
+
+  private val _enableParking = MutableStateFlow(false)
+  val enableParking: StateFlow<Boolean> = _enableParking
+
+  private val _parkingFee = MutableStateFlow(0)
+  val parkingFee: StateFlow<Int> = _parkingFee
+
   init {
       _optionList.value = optionSample().associateBy { it.id }
   }
@@ -180,6 +199,28 @@ class RegisterInfoViewModel @Inject constructor(
 
   fun changeArea(size: Float) {
     _area.value = size
+  }
+
+  fun changeDeposit(price: Int) {
+    _deposit.value = price
+  }
+
+  fun changeMonthly(price: Int) {
+    _monthly.value = price
+  }
+
+  fun changeManagementFee(price: Int) {
+    _managementFee.value = price
+  }
+
+  fun changeParkingFee(price: Int) {
+    _parkingFee.value = price
+  }
+
+  fun changeManagementIncluding(key: Int) {
+    val temp: MutableMap<Int, Boolean> = _managementFeeIncluding.value.toMutableMap()
+    temp[key] = !temp[key]!!
+    _managementFeeIncluding.value = temp
   }
 
 }

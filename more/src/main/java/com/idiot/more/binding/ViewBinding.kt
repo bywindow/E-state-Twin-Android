@@ -71,4 +71,39 @@ object ViewBinding {
       else -> return
     }
   }
+
+  @JvmStatic
+  @BindingAdapter("includeType")
+  fun bindIncludeType(view: AppCompatButton, includeType: Map<Int, Boolean>) {
+    when(view.id) {
+      R.id.water_fee -> {
+        if (includeType[0] == true) {
+          SelectedTypeUtil.getActiveBackground(view)
+        } else {
+          SelectedTypeUtil.getInactiveBackground(view)
+        }
+      }
+      R.id.internet_fee -> {
+        if (includeType[1] == true) {
+          SelectedTypeUtil.getActiveBackground(view)
+        } else {
+          SelectedTypeUtil.getInactiveBackground(view)
+        }
+      }
+      R.id.electronic_fee -> {
+        if (includeType[2] == true) {
+          SelectedTypeUtil.getActiveBackground(view)
+        } else {
+          SelectedTypeUtil.getInactiveBackground(view)
+        }
+      }
+      R.id.gas_fee -> {
+        if (includeType[3] == true) {
+          SelectedTypeUtil.getActiveBackground(view)
+        } else {
+          SelectedTypeUtil.getInactiveBackground(view)
+        }
+      }
+    }
+  }
 }

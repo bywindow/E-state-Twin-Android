@@ -4,6 +4,13 @@
   xmlns:tools="http://schemas.android.com/tools"
   tools:context=".ui.RegisterPriceInfoFragment">
 
+  <data>
+
+    <variable
+      name="vm"
+      type="com.idiot.more.ui.RegisterInfoViewModel" />
+  </data>
+
   <FrameLayout
     android:id="@+id/price_info_layout"
     android:layout_width="match_parent"
@@ -54,9 +61,9 @@
       <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
         android:fillViewport="true"
         android:fitsSystemWindows="true"
-        android:layout_marginTop="56dp"
         app:layout_constraintTop_toBottomOf="@id/price_info_title">
 
         <LinearLayout
@@ -159,12 +166,14 @@
 
             <androidx.appcompat.widget.AppCompatButton
               android:id="@+id/water_fee"
+              includeType="@{vm.managementFeeIncluding}"
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_marginTop="6dp"
               android:layout_marginEnd="4dp"
               android:background="@drawable/register_dialog_button_rounded"
               android:gravity="center"
+              android:onClick="@{() -> vm.changeManagementIncluding(0)}"
               android:paddingVertical="13dp"
               android:stateListAnimator="@null"
               android:text="수도료"
@@ -176,11 +185,13 @@
 
             <androidx.appcompat.widget.AppCompatButton
               android:id="@+id/internet_fee"
+              includeType="@{vm.managementFeeIncluding}"
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_marginStart="4dp"
               android:background="@drawable/register_dialog_button_rounded"
               android:gravity="center"
+              android:onClick="@{() -> vm.changeManagementIncluding(1)}"
               android:paddingVertical="13dp"
               android:stateListAnimator="@null"
               android:text="인터넷"
@@ -191,12 +202,14 @@
 
             <androidx.appcompat.widget.AppCompatButton
               android:id="@+id/electronic_fee"
+              includeType="@{vm.managementFeeIncluding}"
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_marginTop="8dp"
               android:layout_marginEnd="4dp"
               android:background="@drawable/register_dialog_button_rounded"
               android:gravity="center"
+              android:onClick="@{() -> vm.changeManagementIncluding(2)}"
               android:paddingVertical="13dp"
               android:stateListAnimator="@null"
               android:text="전기료"
@@ -207,12 +220,14 @@
 
             <androidx.appcompat.widget.AppCompatButton
               android:id="@+id/gas_fee"
+              includeType="@{vm.managementFeeIncluding}"
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_marginStart="4dp"
               android:layout_marginTop="8dp"
               android:background="@drawable/register_dialog_button_rounded"
               android:gravity="center"
+              android:onClick="@{() -> vm.changeManagementIncluding(3)}"
               android:paddingVertical="13dp"
               android:stateListAnimator="@null"
               android:text="난방비"
@@ -294,10 +309,10 @@
             android:id="@+id/complete_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:background="@color/purple_700"
             android:gravity="center"
             android:paddingVertical="16dp"
-            android:layout_marginTop="30dp"
             android:text="확인"
             android:textColor="@color/white"
             android:textSize="16sp" />
