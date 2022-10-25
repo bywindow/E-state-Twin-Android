@@ -7,6 +7,12 @@
     <item name="android:textStyle">bold</item>
   </style>
 
+  <style name="TextAppearance.idiot.rounded.button.text" parent="TextAppearance.AppCompat.Widget.Button">
+    <item name="android:fontFamily">@font/pretendard_regular</item>
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/register_info_edit_text_hint</item>
+  </style>
+
   <style name="Theme.idiot.BottomSheet.Rounded" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
     <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
   </style>

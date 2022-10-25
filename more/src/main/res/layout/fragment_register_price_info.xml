@@ -21,11 +21,10 @@
       <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/price_info_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:background="@drawable/bottom_navigation_rounded"
         android:elevation="2dp"
         android:paddingHorizontal="@dimen/app_horizontal_padding"
-        android:paddingVertical="14dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -54,9 +53,10 @@
 
       <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:fitsSystemWindows="true"
+        android:layout_marginTop="56dp"
         app:layout_constraintTop_toBottomOf="@id/price_info_title">
 
         <LinearLayout
@@ -90,12 +90,217 @@
               android:background="@drawable/register_dialog_button_rounded"
               android:hint="@string/deposit_input_hint"
               android:includeFontPadding="false"
-              android:inputType="text"
+              android:inputType="numberDecimal"
               android:paddingHorizontal="15dp"
               android:paddingVertical="13dp"
               android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
               app:layout_constraintTop_toBottomOf="@id/deposit_title" />
+
+            <TextView
+              android:id="@+id/monthly_title"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:includeFontPadding="false"
+              android:text="월세"
+              android:textAppearance="@style/TextAppearance.idiot.tab.title.Text"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/deposit_input" />
+
+            <EditText
+              android:id="@+id/monthly_input"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="6dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:hint="@string/monthly_input_hint"
+              android:includeFontPadding="false"
+              android:inputType="numberDecimal"
+              android:paddingHorizontal="15dp"
+              android:paddingVertical="13dp"
+              android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+              app:layout_constraintTop_toBottomOf="@id/monthly_title" />
+
+            <TextView
+              android:id="@+id/management_fee_title"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:includeFontPadding="false"
+              android:text="관리비"
+              android:textAppearance="@style/TextAppearance.idiot.tab.title.Text"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/monthly_input" />
+
+            <EditText
+              android:id="@+id/management_fee_input"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="6dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:hint="@string/management_fee_input_hint"
+              android:includeFontPadding="false"
+              android:inputType="numberDecimal"
+              android:paddingHorizontal="15dp"
+              android:paddingVertical="13dp"
+              android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+              app:layout_constraintTop_toBottomOf="@id/management_fee_title" />
+
+            <TextView
+              android:id="@+id/management_fee_including_title"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:includeFontPadding="false"
+              android:text="관리비 포함 항목"
+              android:textAppearance="@style/TextAppearance.idiot.tab.title.Text"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/management_fee_input" />
+
+            <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/water_fee"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="6dp"
+              android:layout_marginEnd="4dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:gravity="center"
+              android:paddingVertical="13dp"
+              android:stateListAnimator="@null"
+              android:text="수도료"
+              android:textAppearance="@style/TextAppearance.idiot.rounded.button.text"
+              app:layout_constraintEnd_toStartOf="@id/internet_fee"
+              app:layout_constraintHorizontal_chainStyle="spread_inside"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/management_fee_including_title" />
+
+            <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/internet_fee"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="4dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:gravity="center"
+              android:paddingVertical="13dp"
+              android:stateListAnimator="@null"
+              android:text="인터넷"
+              android:textAppearance="@style/TextAppearance.idiot.rounded.button.text"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@id/water_fee"
+              app:layout_constraintTop_toTopOf="@id/water_fee" />
+
+            <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/electronic_fee"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="4dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:gravity="center"
+              android:paddingVertical="13dp"
+              android:stateListAnimator="@null"
+              android:text="전기료"
+              android:textAppearance="@style/TextAppearance.idiot.rounded.button.text"
+              app:layout_constraintEnd_toStartOf="@id/gas_fee"
+              app:layout_constraintStart_toStartOf="@id/water_fee"
+              app:layout_constraintTop_toBottomOf="@id/water_fee" />
+
+            <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/gas_fee"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="4dp"
+              android:layout_marginTop="8dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:gravity="center"
+              android:paddingVertical="13dp"
+              android:stateListAnimator="@null"
+              android:text="난방비"
+              android:textAppearance="@style/TextAppearance.idiot.rounded.button.text"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@id/electronic_fee"
+              app:layout_constraintTop_toBottomOf="@id/internet_fee" />
+
+            <TextView
+              android:id="@+id/parking_title"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:includeFontPadding="false"
+              android:text="주차 여부"
+              android:textAppearance="@style/TextAppearance.idiot.tab.title.Text"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/electronic_fee" />
+
+            <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/enable_parking_button"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:layout_marginEnd="4dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:gravity="center"
+              android:paddingVertical="13dp"
+              android:stateListAnimator="@null"
+              android:text="가능"
+              android:textAppearance="@style/TextAppearance.idiot.rounded.button.text"
+              app:layout_constraintEnd_toStartOf="@id/dis_enable_parking_button"
+              app:layout_constraintHorizontal_chainStyle="spread_inside"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/parking_title" />
+
+            <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/dis_enable_parking_button"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="4dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:gravity="center"
+              android:paddingVertical="13dp"
+              android:stateListAnimator="@null"
+              android:text="불가능"
+              android:textAppearance="@style/TextAppearance.idiot.rounded.button.text"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@id/enable_parking_button"
+              app:layout_constraintTop_toTopOf="@id/enable_parking_button" />
+
+            <TextView
+              android:id="@+id/parking_fee_title"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="30dp"
+              android:includeFontPadding="false"
+              android:text="주차비"
+              android:textAppearance="@style/TextAppearance.idiot.tab.title.Text"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/enable_parking_button" />
+
+            <EditText
+              android:id="@+id/parking_fee_input"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="6dp"
+              android:background="@drawable/register_dialog_button_rounded"
+              android:hint="@string/parking_fee_input_hint"
+              android:includeFontPadding="false"
+              android:inputType="numberDecimal"
+              android:paddingHorizontal="15dp"
+              android:paddingVertical="13dp"
+              android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+              app:layout_constraintTop_toBottomOf="@id/parking_fee_title" />
           </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/complete_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_700"
+            android:gravity="center"
+            android:paddingVertical="16dp"
+            android:layout_marginTop="30dp"
+            android:text="확인"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
         </LinearLayout>
       </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
