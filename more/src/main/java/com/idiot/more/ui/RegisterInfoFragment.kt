@@ -12,6 +12,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.JavascriptInterface
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -41,31 +45,6 @@ class RegisterInfoFragment : Fragment() {
 
   private lateinit var binding: FragmentRegisterInfoBinding
   private lateinit var viewModel: RegisterInfoViewModel
-
-  private val requestPermissionLauncher =
-    registerForActivityResult(
-      ActivityResultContracts.RequestPermission()
-    ) { isGranted: Boolean ->
-      if (isGranted) {
-        // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
-        navigateToPhoto()
-      } else {
-        Log.d("register", "Denied :(")
-      }
-    }
-
-  private val selectImageResultLauncher: ActivityResultLauncher<Intent> =
-    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-      if (it.resultCode == Activity.RESULT_OK && it.data != null) {
-        val mClipData: ClipData = it.data!!.clipData!!
-        val images = mutableListOf<Uri>() // image uri, file path
-        for (i in 0 until mClipData.itemCount) {
-          val imageUri = mClipData.getItemAt(i).uri
-          images.add(imageUri)
-        }
-        viewModel.insertPicture(images)
-      }
-    }
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -153,6 +132,18 @@ class RegisterInfoFragment : Fragment() {
       .show()
   }
 
+  private val requestPermissionLauncher =
+    registerForActivityResult(
+      ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+      if (isGranted) {
+        // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
+        navigateToPhoto()
+      } else {
+        Log.d("register", "Denied :(")
+      }
+    }
+
   private fun navigateToPhoto() {
     val intent = Intent(Intent.ACTION_PICK)
     intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
@@ -160,6 +151,19 @@ class RegisterInfoFragment : Fragment() {
     intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
     selectImageResultLauncher.launch(intent)
   }
+
+  private val selectImageResultLauncher: ActivityResultLauncher<Intent> =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+      if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+        val mClipData: ClipData = it.data!!.clipData!!
+        val images = mutableListOf<Uri>() // image uri, file path
+        for (i in 0 until mClipData.itemCount) {
+          val imageUri = mClipData.getItemAt(i).uri
+          images.add(imageUri)
+        }
+        viewModel.insertPicture(images)
+      }
+    }
 
   private fun updatePictureCount(list: List<RegisterEstatePicture>) {
     binding.pictureCountTextView.text = "${list.size}/${getString(R.string.picture_max_count)}"
@@ -169,11 +173,20 @@ class RegisterInfoFragment : Fragment() {
     binding.addressSearchEditText.setOnClickListener {
       val networkStatus = NetworkStatus()
       if (networkStatus.isNetworkAvailable(requireContext())) {
-        val direction =
-          RegisterInfoFragmentDirections.actionRegisterInfoFragmentToAddressSearchDialogFragment()
-        it.findNavController().navigate(direction)
+        val intent = Intent(context, SearchAddressActivity::class.java)
+        getSearchAddressResult.launch(intent)
       } else {
         Snackbar.make(binding.root, "인터넷 연결을 확인해주세요.", Snackbar.LENGTH_SHORT).show()
+      }
+    }
+  }
+
+  private val getSearchAddressResult: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+      val data = it.data!!.getStringExtra("data")
+      if (data != null){
+        viewModel.changeAddress(data)
+        binding.addressSearchEditText.setText("$data")
       }
     }
   }
@@ -186,7 +199,6 @@ class RegisterInfoFragment : Fragment() {
         view.findNavController().navigate(direction)
       }
       R.id.price_info_dialog_button -> {
-        //TODO : Add input price page
         val direction = RegisterInfoFragmentDirections
           .actionRegisterInfoFragmentToRegisterPriceInfoFragment()
         view.findNavController().navigate(direction)

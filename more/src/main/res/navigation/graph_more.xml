@@ -37,9 +37,6 @@
       android:id="@+id/action_registerInfoFragment_to_registerHouseInfoFragment"
       app:destination="@id/registerHouseInfoFragment" />
     <action
-      android:id="@+id/action_registerInfoFragment_to_addressSearchDialogFragment"
-      app:destination="@id/addressSearchDialogFragment" />
-    <action
       android:id="@+id/action_registerInfoFragment_to_registerPriceInfoFragment"
       app:destination="@id/registerPriceInfoFragment" />
   </fragment>
@@ -47,10 +44,7 @@
     android:id="@+id/registerHouseInfoFragment"
     android:name="com.idiot.more.ui.RegisterHouseInfoFragment"
     android:label="RegisterHouseInfoFragment" />
-  <dialog
-    android:id="@+id/addressSearchDialogFragment"
-    android:name="com.idiot.more.ui.AddressSearchDialogFragment"
-    android:label="AddressSearchDialogFragment" />
+
   <fragment
     android:id="@+id/myPageFragment"
     android:name="com.idiot.more.ui.MyPageFragment"

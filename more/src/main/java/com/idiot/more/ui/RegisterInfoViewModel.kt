@@ -32,7 +32,7 @@ class RegisterInfoViewModel @Inject constructor(
   val optionList: LiveData<Map<Int,HouseOption>> = _optionList
 
   private val _estateType = MutableStateFlow(0)
-  val estatetype: StateFlow<Int> = _estateType
+  val estateType: StateFlow<Int> = _estateType
 
   private val _heatType = MutableStateFlow(0)
   val heatType: StateFlow<Int> = _heatType
@@ -89,6 +89,9 @@ class RegisterInfoViewModel @Inject constructor(
   private val _parkingFee = MutableStateFlow(0)
   val parkingFee: StateFlow<Int> = _parkingFee
 
+  private val _address = MutableStateFlow("")
+  val address: StateFlow<String> = _address
+
   init {
       _optionList.value = optionSample().associateBy { it.id }
   }
@@ -130,7 +133,7 @@ class RegisterInfoViewModel @Inject constructor(
   }
 
   fun changeEstateType(position: Int) {
-    if (position == estatetype.value) return
+    if (position == estateType.value) return
     _estateType.value = position
   }
 
@@ -221,6 +224,10 @@ class RegisterInfoViewModel @Inject constructor(
     val temp: MutableMap<Int, Boolean> = _managementFeeIncluding.value.toMutableMap()
     temp[key] = !temp[key]!!
     _managementFeeIncluding.value = temp
+  }
+
+  fun changeAddress(data: String) {
+    _address.value = data
   }
 
 }

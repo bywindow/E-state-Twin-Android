@@ -58,7 +58,7 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       resources.getStringArray(R.array.building_type_list)
     )
     binding.buildingTypeSelector.adapter = buildingTypeAdapter
-    binding.buildingTypeSelector.setSelection(viewModel.estatetype.value)
+    binding.buildingTypeSelector.setSelection(viewModel.estateType.value)
     binding.buildingTypeSelector.onItemSelectedListener =
       object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
