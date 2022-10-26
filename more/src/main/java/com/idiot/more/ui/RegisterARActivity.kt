@@ -3,13 +3,18 @@ package com.idiot.more.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
 import com.google.ar.core.exceptions.SessionPausedException
+import com.idiot.model.HouseOption
 import com.idiot.more.R
 import com.idiot.more.databinding.ActivityRegisterAractivityBinding
+import com.idiot.more.ui.adapter.AssetCloudAnchorAdapter
 import com.idiot.more.util.HostCloudAnchor
+import dagger.hilt.android.AndroidEntryPoint
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
@@ -18,6 +23,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
+@AndroidEntryPoint
 class RegisterARActivity : AppCompatActivity() {
 
   private lateinit var sceneView: ArSceneView
@@ -26,6 +32,7 @@ class RegisterARActivity : AppCompatActivity() {
   private lateinit var cloudAnchorNode: ArModelNode
 
   private lateinit var binding: ActivityRegisterAractivityBinding
+  private val viewModel: RegisterARViewModel by viewModels()
 
   private var isLoading = false
 
@@ -38,6 +45,9 @@ class RegisterARActivity : AppCompatActivity() {
       hideSystemBars = false,
       fitsSystemWindows = false
     )
+    binding.lifecycleOwner = this
+    binding.vm = viewModel
+    initAdapter()
     sceneView = binding.sceneView.apply {
       cloudAnchorEnabled = true
       instructions.searchPlaneInfoNode.position.y = -0.5f
@@ -50,6 +60,14 @@ class RegisterARActivity : AppCompatActivity() {
     }
     sessionCloseButtonClicked()
     isLoading = false
+  }
+
+  private fun initAdapter() {
+    binding.adapter = AssetCloudAnchorAdapter(onClick = { pos -> Timber.d("$pos") }).apply {
+      stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+    }
+    val items = intent.getSerializableExtra("data") as ArrayList<HouseOption>
+    viewModel.initAssetList(items)
   }
 
   private fun addChecklistButtonClicked() {

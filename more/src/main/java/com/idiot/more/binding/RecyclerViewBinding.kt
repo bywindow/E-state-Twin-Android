@@ -8,8 +8,8 @@ import com.idiot.model.HouseOption
 object RecyclerViewBinding {
   @JvmStatic
   @BindingAdapter("adapter", "submitList")
-  fun bindAdapter(view: RecyclerView, adapter: ListAdapter<Pair<Int, HouseOption>, *>, itemList: Map<Int, HouseOption>) {
+  fun bindAdapter(view: RecyclerView, adapter: ListAdapter<HouseOption, *>, itemList: List<HouseOption>) {
     view.adapter = adapter
-    adapter.submitList(itemList.toList().toMutableList())
+    adapter.submitList(itemList.toMutableList())
   }
 }

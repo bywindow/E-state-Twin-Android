@@ -63,7 +63,22 @@ class RegisterInfoFragment : Fragment() {
       openBottomSheetDialog(it)
     }
     binding.registerArChecklistButton.setOnClickListener {
-      startActivity(Intent(context, RegisterARActivity::class.java))
+      val intent = Intent(context, RegisterARActivity::class.java).apply {
+        val data = viewModel.optionList.value!!.values.filter {
+          it.hasOption
+        }
+        putExtra("data", ArrayList(data))
+      }
+      getAssetAnchorResult.launch(intent)
+    }
+  }
+
+  private val getAssetAnchorResult: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+      val data = it.data!!.getStringExtra("data")
+      if (data != null){
+        Timber.d("ASSET : $data")
+      }
     }
   }
 

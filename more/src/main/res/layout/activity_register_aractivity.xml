@@ -4,6 +4,15 @@
   xmlns:tools="http://schemas.android.com/tools"
   tools:context=".ui.RegisterARActivity">
 
+  <data>
+    <variable
+      name="adapter"
+      type="com.idiot.more.ui.adapter.AssetCloudAnchorAdapter" />
+    <variable
+      name="vm"
+      type="com.idiot.more.ui.RegisterARViewModel" />
+  </data>
+
   <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/ar_root_view"
     android:layout_width="match_parent"
@@ -17,6 +26,22 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/asset_recycler_view"
+      adapter="@{adapter}"
+      submitList="@{vm.assetList}"
+      android:layout_width="match_parent"
+      android:layout_height="56dp"
+      android:clipToPadding="false"
+      android:fadeScrollbars="true"
+      android:orientation="horizontal"
+      android:stateListAnimator="@null"
+      app:itemAnimator="@{null}"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      tools:listitem="@layout/list_item_asset_ar"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_marginTop="28dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/add_checklist_button"
