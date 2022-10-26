@@ -19,6 +19,8 @@
   <string name="home_recommend_card_image_desc">Picture of recommended house</string>
   <string name="add_checklist">체크리스트 생성</string>
   <string name="complete_checklist">저장하고 돌아가기</string>
+  <string name="anchoring_loading_title">등록중입니다…</string>
+  <string name="anchoring_loading_content">작업이 완료될 때까지 충분히\n옵션 주변의 바닥을 촬영해주세요.</string>
 
   <string-array name="building_type_list">
     <item>건물의 유형을 선택해주세요.</item>

@@ -23,7 +23,7 @@ class EstateImageS3UploadRepository @Inject constructor() {
   ): List<S3UploadResponse> {
     val multipartBody = MultipartBody.Builder().setType(MultipartBody.FORM)
     imageList.forEach { file ->
-      multipartBody.addFormDataPart("files", file.name, file.asRequestBody("image/*".toMediaTypeOrNull()))
+      multipartBody.addFormDataPart("files", file.name, file.asRequestBody())
     }
     val build = multipartBody.build()
     val contentType = "multipart/form-data; boundary=${build.boundary}"

@@ -9,35 +9,35 @@ import com.idiot.home.R
 import com.idiot.home.databinding.SlideImageHouseDetailBinding
 
 class HouseImageSliderAdapter(private var houseImage: List<String>) :
-    RecyclerView.Adapter<HouseImageSliderAdapter.ViewHolder>() {
+  RecyclerView.Adapter<HouseImageSliderAdapter.ViewHolder>() {
 
-    class ViewHolder(
-        private val binding: SlideImageHouseDetailBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+  class ViewHolder(
+    private val binding: SlideImageHouseDetailBinding
+  ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(holder: ViewHolder, imageUrl: String) {
-            Glide.with(holder.itemView)
-                .load(imageUrl)
-                .into(holder.itemView.findViewById(R.id.imageContainer))
-        }
+    fun bind(holder: ViewHolder, imageUrl: String) {
+      Glide.with(holder.itemView)
+        .load(imageUrl)
+        .into(holder.itemView.findViewById(R.id.imageContainer))
     }
+  }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            DataBindingUtil.inflate(
-                LayoutInflater.from(parent.context),
-                R.layout.slide_image_house_detail,
-                parent,
-                false
-            )
-        )
-    }
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    return ViewHolder(
+      DataBindingUtil.inflate(
+        LayoutInflater.from(parent.context),
+        R.layout.slide_image_house_detail,
+        parent,
+        false
+      )
+    )
+  }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(holder, houseImage[position])
-    }
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    holder.bind(holder, houseImage[position])
+  }
 
-    override fun getItemCount(): Int {
-        return houseImage.size
-    }
+  override fun getItemCount(): Int {
+    return houseImage.size
+  }
 }

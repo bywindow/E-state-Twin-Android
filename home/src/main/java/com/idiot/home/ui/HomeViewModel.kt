@@ -39,6 +39,10 @@ class HomeViewModel @Inject constructor(
     Timber.d("추천매물 response: $result")
     emit(HomeEvent.EstateFetchSuccess)
   }
+
+  fun estateItemButtonClicked() {
+
+  }
 }
 
 sealed class HomeEvent {

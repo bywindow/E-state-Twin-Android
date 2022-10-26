@@ -35,7 +35,6 @@ class HomeFragment : Fragment() {
     initRecommendedEstate()
     initRegisterButtonClicked()
     binding.vm = viewModel
-    binding.homeRecommendList.adapter = UserRecommendAdapter(emptyList())
     binding.homeRecommendList.itemAnimator = null
     return binding.root
   }
@@ -44,6 +43,7 @@ class HomeFragment : Fragment() {
     viewLifecycleOwner.lifecycleScope.launch {
       viewModel.fetchRecommendedEstate().collect() {
         Timber.d("${viewModel.recommendedEstates.value}")
+        binding.homeRecommendList.adapter = UserRecommendAdapter(viewModel.recommendedEstates.value)
       }
     }
   }

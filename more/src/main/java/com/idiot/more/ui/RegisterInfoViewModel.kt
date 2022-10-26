@@ -3,6 +3,7 @@ package com.idiot.more.ui
 import android.app.Application
 import android.net.Uri
 import android.util.Log
+import androidx.core.net.toFile
 import androidx.lifecycle.*
 import com.idiot.data.repository.EstateImageS3UploadRepository
 import com.idiot.data.repository.samples.optionSample
@@ -97,6 +98,7 @@ class RegisterInfoViewModel @Inject constructor(
   }
 
   fun insertPicture(images: List<Uri>) {
+    val context = getApplication<Application>().applicationContext
     viewModelScope.launch {
       val currentList = _pictureList.value
       val updatedList = currentList?.toMutableList() ?: mutableListOf()
@@ -109,7 +111,8 @@ class RegisterInfoViewModel @Inject constructor(
         )
         updatedList.add(newItem)
         Timber.d("image uri : $it")
-        val file: File = FileUtil.convertUriToFile(context = getApplication(), it)
+        val file: File = FileUtil.convertUriToFile(context, it)
+//        val file = Uri.fromFile(File(context.cacheDir, context.contentResolver.getType(it)!!.split("/").last())).toFile()
         Timber.d("File Path VM: $file")
         imageFormList.add(file)
       }

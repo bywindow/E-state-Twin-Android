@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.idiot.data.repository.samples.imageUrlSample
 import com.idiot.home.assets.optionSample
-import com.idiot.e_state_twin_android.core.data.assets.imageUrlSample
 import com.idiot.home.databinding.FragmentHouseDetailBinding
 
 class HouseDetailFragment : Fragment() {

@@ -14,8 +14,15 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
   private val _assetList = MutableStateFlow(emptyList<HouseOption>())
   val assetList: StateFlow<List<HouseOption>> = _assetList
 
+  private val _assetCursor = MutableStateFlow(0)
+  val assetCursor: StateFlow<Int> = _assetCursor
+
   fun initAssetList(items: List<HouseOption>) {
     _assetList.value = items
     Timber.d("ASSET : ${assetList.value}")
+  }
+
+  fun changeAssetCursor(position: Int) {
+    _assetCursor.value = position
   }
 }

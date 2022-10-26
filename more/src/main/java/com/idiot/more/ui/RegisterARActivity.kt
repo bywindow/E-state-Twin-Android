@@ -63,7 +63,7 @@ class RegisterARActivity : AppCompatActivity() {
   }
 
   private fun initAdapter() {
-    binding.adapter = AssetCloudAnchorAdapter(onClick = { pos -> Timber.d("$pos") }).apply {
+    binding.adapter = AssetCloudAnchorAdapter(onClick = { pos -> viewModel.changeAssetCursor(pos) }).apply {
       stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
     }
     val items = intent.getSerializableExtra("data") as ArrayList<HouseOption>

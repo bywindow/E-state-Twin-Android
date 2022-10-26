@@ -34,7 +34,7 @@ class UserRecommendAdapter(private var recommendedList: List<RecommendedEstate>)
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener { view ->
-
+              navigateToDetail(0, view)
             }
             binding.setChangeThumbnail {
 
@@ -50,7 +50,6 @@ class UserRecommendAdapter(private var recommendedList: List<RecommendedEstate>)
 
         fun bind(recommend: RecommendedEstate) {
             with(binding) {
-
                 executePendingBindings()
             }
         }
