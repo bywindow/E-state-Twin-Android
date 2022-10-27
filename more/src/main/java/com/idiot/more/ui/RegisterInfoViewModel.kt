@@ -9,6 +9,7 @@ import com.idiot.data.repository.EstateImageS3UploadRepository
 import com.idiot.data.repository.samples.optionSample
 import com.idiot.model.HouseOption
 import com.idiot.model.RegisterEstatePicture
+import com.idiot.model.S3UploadResponse
 import com.idiot.more.util.FileUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,6 +29,8 @@ class RegisterInfoViewModel @Inject constructor(
   private val _pictureList = MutableLiveData<List<RegisterEstatePicture>>()
   val pictureList: LiveData<List<RegisterEstatePicture>>
     get() = _pictureList
+  private val _estatePictureUri = MutableStateFlow(emptyList<S3UploadResponse>())
+  val estatePictureUri: StateFlow<List<S3UploadResponse>> = _estatePictureUri
 
   private val _optionList = MutableLiveData<Map<Int, HouseOption>>(mapOf())
   val optionList: LiveData<Map<Int,HouseOption>> = _optionList
@@ -112,7 +115,6 @@ class RegisterInfoViewModel @Inject constructor(
         updatedList.add(newItem)
         Timber.d("image uri : $it")
         val file: File = FileUtil.convertUriToFile(context, it)
-//        val file = Uri.fromFile(File(context.cacheDir, context.contentResolver.getType(it)!!.split("/").last())).toFile()
         Timber.d("File Path VM: $file")
         imageFormList.add(file)
       }
@@ -120,6 +122,7 @@ class RegisterInfoViewModel @Inject constructor(
       Timber.d("s3 new list: $updatedList")
       val response = estateImageS3UploadRepository.requestImageUri(imageFormList)
       Timber.d("s3 image: $response")
+      _estatePictureUri.value = listOf(_estatePictureUri.value, response).flatten()
     }
   }
 

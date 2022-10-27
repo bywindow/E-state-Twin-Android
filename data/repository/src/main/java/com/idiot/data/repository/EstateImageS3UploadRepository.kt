@@ -1,11 +1,8 @@
 package com.idiot.data.repository
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.annotation.WorkerThread
 import com.idiot.data.api_builder.di.S3NetworkModule
 import com.idiot.model.S3UploadResponse
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.Response
@@ -16,7 +13,6 @@ import javax.inject.Inject
 
 class EstateImageS3UploadRepository @Inject constructor() {
 
-  @RequiresApi(Build.VERSION_CODES.O)
   @WorkerThread
   suspend fun requestImageUri(
     imageList: List<File>
@@ -36,8 +32,8 @@ class EstateImageS3UploadRepository @Inject constructor() {
     } catch (e: java.lang.IllegalStateException) {
       e.printStackTrace()
     } finally {
-      Timber.d("s3 response: ${response?.body()}")
+      Timber.d("s3 response: ${response}")
     }
-    return response?.body() as List<S3UploadResponse>
+    return if (response?.body() != null) response.body() as List<S3UploadResponse> else emptyList()
   }
 }
