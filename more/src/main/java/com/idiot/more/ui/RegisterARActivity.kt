@@ -68,6 +68,7 @@ class RegisterARActivity : AppCompatActivity() {
     }
     val items = intent.getSerializableExtra("data") as ArrayList<HouseOption>
     viewModel.initAssetList(items)
+    Timber.d("ITEMS : $items")
   }
 
   private fun addChecklistButtonClicked() {

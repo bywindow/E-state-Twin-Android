@@ -33,8 +33,8 @@ class AssetCloudAnchorAdapter(private val onClick: (Int) -> Unit) :
     }
 
     fun bind(item: HouseOption) {
-      binding.model = item
       binding.assetImageView.setImageResource(item.icon)
+      binding.assetTextView.text = item.desc
       if (selectedAsset == absoluteAdapterPosition) {
         binding.setCheck()
       } else {
@@ -64,11 +64,13 @@ class AssetCloudAnchorAdapter(private val onClick: (Int) -> Unit) :
   }
 
   private fun ListItemAssetArBinding.setCheck() {
-    assetItemLayout.context.getDrawable(R.drawable.bg_ar_asset_rounded_active)
+    assetItemLayout.setBackgroundResource(R.drawable.bg_ar_asset_rounded_active)
+//    assetItemLayout.context.getDrawable(R.drawable.bg_ar_asset_rounded_active)
   }
 
   private fun ListItemAssetArBinding.setUnchecked() {
-    assetItemLayout.context.getDrawable(R.drawable.bg_ar_asset_rounded_inactive)
+    assetItemLayout.setBackgroundResource(R.drawable.bg_ar_asset_rounded_inactive)
+//    assetItemLayout.context.getDrawable(R.drawable.bg_ar_asset_rounded_inactive)
   }
 
   companion object {

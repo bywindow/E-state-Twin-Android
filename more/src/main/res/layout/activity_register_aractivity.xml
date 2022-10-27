@@ -34,7 +34,7 @@
       adapter="@{adapter}"
       submitList="@{vm.assetList}"
       android:layout_width="match_parent"
-      android:layout_height="56dp"
+      android:layout_height="wrap_content"
       android:layout_marginTop="28dp"
       android:clipToPadding="false"
       android:fadeScrollbars="true"
