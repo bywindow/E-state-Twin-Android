@@ -1,5 +1,6 @@
 package com.idiot.more.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.google.ar.core.exceptions.SessionPausedException
 import com.idiot.model.HouseOption
@@ -28,7 +30,7 @@ class RegisterARActivity : AppCompatActivity() {
 
   private lateinit var sceneView: ArSceneView
   private lateinit var checklistButton: AppCompatButton
-  private lateinit var cloudAnchorNode: ArModelNode
+  private lateinit var cloudAnchorNodes: MutableList<ArModelNode>
 
   private lateinit var binding: ActivityRegisterAractivityBinding
   private val viewModel: RegisterARViewModel by viewModels()
@@ -38,7 +40,8 @@ class RegisterARActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_register_aractivity)
-    setFullScreen(binding.arRootView,
+    setFullScreen(
+      binding.arRootView,
       fullScreen = true,
       hideSystemBars = false,
       fitsSystemWindows = false
@@ -56,57 +59,67 @@ class RegisterARActivity : AppCompatActivity() {
         addChecklistButtonClicked()
       }
     }
+    initCloudAnchor()
     sessionCloseButtonClicked()
   }
 
   private fun initAdapter() {
-    binding.adapter = AssetCloudAnchorAdapter(onClick = { pos -> viewModel.changeAssetCursor(pos) }).apply {
-      stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-    }
+    binding.adapter =
+      AssetCloudAnchorAdapter(onClick = { pos -> viewModel.changeAssetCursor(pos) }).apply {
+        stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+      }
     val items = intent.getSerializableExtra("data") as ArrayList<HouseOption>
     viewModel.initAssetList(items)
     Timber.d("ITEMS : $items")
   }
 
+  private fun initCloudAnchor() {
+    cloudAnchorNodes = emptyList<ArModelNode>().toMutableList()
+    (0..viewModel.assetList.value.size).forEach { _ ->
+      val cloudAnchorNode =
+        ArModelNode(placementMode = PlacementMode.PLANE_HORIZONTAL_AND_VERTICAL).apply {
+          parent = sceneView
+          isVisible = false
+          loadModelAsync(
+            context = sceneView.context,
+            lifecycle = lifecycle,
+            glbFileLocation = "models/ic_anchor.glb"
+          ) { }
+        }
+      cloudAnchorNodes.add(cloudAnchorNode)
+    }
+  }
+
   private fun addChecklistButtonClicked() {
+    val cursor = viewModel.assetCursor.value
     binding.loadingView.visibility = View.VISIBLE
     var mapQualityStatus = false
     binding.addChecklistButton.isClickable = false
-    cloudAnchorNode = ArModelNode(placementMode = PlacementMode.BEST_AVAILABLE).apply {
-      parent = sceneView
+    cloudAnchorNodes[cursor].apply {
+      anchor()
       isVisible = true
-      loadModelAsync(
-        context = applicationContext,
-        lifecycle = lifecycle,
-        glbFileLocation = "models/ic_anchor.glb"
-      ) {
-//        isLoading = false
-      }
     }
-    cloudAnchorNode.anchor()
-
     Thread(Runnable {
       while (!mapQualityStatus) {
         Thread.sleep(500)
         runOnUiThread {
           try {
             mapQualityStatus = HostCloudAnchor.updateFeatureMapQualityUi(sceneView)
+            if (mapQualityStatus) {
+              cloudAnchorNodes[cursor].hostCloudAnchor { anchor, success ->
+                Timber.d("mapQuality: hosting...")
+                if (success) {
+                  Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
+                  binding.addChecklistButton.isClickable = true
+                  mapQualityStatus = false
+                  binding.loadingView.visibility = View.GONE
+                } else {
+                  Timber.d("mapQuality: Unable to host the Cloud Anchor. The Cloud Anchor state is ${anchor.cloudAnchorState}")
+                }
+              }
+            }
           } catch (e: Exception) {
             e.printStackTrace()
-          }
-        }
-      }
-      if (mapQualityStatus) {
-        cloudAnchorNode.hostCloudAnchor{ anchor, success ->
-          Timber.d("mapQuality: hosting...")
-          if (success) {
-            Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
-            binding.addChecklistButton.isClickable = true
-            mapQualityStatus = false
-            binding.loadingView.visibility = View.GONE
-          } else {
-            Timber.d("mapQuality: Unable to host the Cloud Anchor. The Cloud Anchor state is ${anchor.cloudAnchorState}"
-            )
           }
         }
       }
@@ -117,7 +130,7 @@ class RegisterARActivity : AppCompatActivity() {
     binding.checklistCompleteButton.setOnClickListener {
       Timber.d("ARfragment: closing...")
       try {
-          finish()
+        finish()
       } catch (e: Exception) {
         e.printStackTrace()
       }
@@ -126,22 +139,29 @@ class RegisterARActivity : AppCompatActivity() {
 
   override fun onStop() {
     try {
-      if (cloudAnchorNode.isAnchored) {
-        cloudAnchorNode.apply {
-          detachAnchor()
-          destroy()
-        }
+      cloudAnchorNodes.forEach {
+        it.onDestroy(owner = this)
+        Timber.d("CLOUD ANCHOR DETACH")
       }
-    } catch (e: java.lang.RuntimeException) {
+    } catch (e: Exception) {
       e.printStackTrace()
     }
+    sceneView.arSession?.close()
     Timber.d("STOP : CLOUD ANCHOR")
-    sceneView.arSession?.pause()
     super.onStop()
+    Timber.d("GO TO DESTROY")
   }
 
   override fun onDestroy() {
-    sceneView.arSession?.close()
+    try {
+      cloudAnchorNodes.forEach {
+        it.destroy()
+      }
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
     super.onDestroy()
+    Timber.d("GO TO DESTROY")
   }
+
 }

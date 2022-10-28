@@ -74,6 +74,7 @@ class RegisterInfoFragment : Fragment() {
   }
 
   private val getAssetAnchorResult: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    Timber.d("COME BACK MAIN ACTIVITY")
     if (it.resultCode == Activity.RESULT_OK && it.data != null) {
       val data = it.data!!.getStringExtra("data")
       if (data != null){

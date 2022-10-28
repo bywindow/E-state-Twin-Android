@@ -27,6 +27,7 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
 
   fun changeAssetCursor(position: Int) {
     _assetCursor.value = position
+    Timber.d("ASSET CURSOR : ${assetCursor.value}")
   }
 
   fun mappingAnchorToAsset(assetId: Int, anchorId: String) {

@@ -23,7 +23,7 @@
       android:name=".ui.RegisterARActivity"
       android:configChanges="orientation|screenSize"
       android:exported="false"
-      android:screenOrientation="locked" />
+      android:screenOrientation="locked"/>
 
     <provider
       android:name="androidx.core.content.FileProvider"
