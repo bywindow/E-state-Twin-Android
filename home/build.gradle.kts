@@ -46,7 +46,6 @@ dependencies {
   implementation(project(":data:api"))
 
   implementation(project(":data:repository"))
-//  implementation(project(":feature:threeviewer"))
   implementation(project(":utils"))
 
   implementation(Libraries.androidx_core)
@@ -57,6 +56,7 @@ dependencies {
   implementation(Libraries.navigation_ui)
   implementation(Libraries.circleiamgeview)
   implementation(Libraries.recyclerview)
+  implementation(Libraries.sceneview)
 
   implementation(Libraries.hilt_android)
   kapt(Libraries.hilt_compiler)

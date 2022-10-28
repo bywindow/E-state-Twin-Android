@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/graph_home"
   app:startDestination="@id/homeFragment">
 
@@ -19,5 +20,13 @@
     <argument
       android:name="houseId"
       app:argType="long"/>
+    <action
+      android:id="@+id/action_houseDetailFragment_to_floorPlanFragment"
+      app:destination="@id/floorPlanFragment" />
   </fragment>
+  <fragment
+    android:id="@+id/floorPlanFragment"
+    android:name="com.idiot.home.ui.FloorPlanFragment"
+    android:label="fragment_floor_plan"
+    tools:layout="@layout/fragment_floor_plan" />
 </navigation>

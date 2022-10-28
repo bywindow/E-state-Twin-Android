@@ -110,6 +110,7 @@ class RegisterARActivity : AppCompatActivity() {
                 Timber.d("mapQuality: hosting...")
                 if (success) {
                   Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
+                  viewModel.mappingAnchorToAsset(cursor, anchor.cloudAnchorId)
                   binding.addChecklistButton.isClickable = true
                   mapQualityStatus = false
                   binding.loadingView.visibility = View.GONE
@@ -137,29 +138,38 @@ class RegisterARActivity : AppCompatActivity() {
     }
   }
 
-  override fun onStop() {
-    try {
-      cloudAnchorNodes.forEach {
-        it.onDestroy(owner = this)
-        Timber.d("CLOUD ANCHOR DETACH")
-      }
-    } catch (e: Exception) {
-      e.printStackTrace()
-    }
-    sceneView.arSession?.close()
-    Timber.d("STOP : CLOUD ANCHOR")
-    super.onStop()
-    Timber.d("GO TO DESTROY")
-  }
+//  override fun onStop() {
+//    try {
+//      cloudAnchorNodes.forEach {
+//        Timber.d("${it.cloudAnchorState}")
+//        it.onDestroy(owner = this)
+//        Timber.d("CLOUD ANCHOR DETACH")
+//      }
+//    } catch (e: Exception) {
+//      e.printStackTrace()
+//    }
+//    Timber.d("STOP : CLOUD ANCHOR")
+//    super.onStop()
+//    Timber.d("GO TO DESTROY")
+//    try {
+//      cloudAnchorNodes.forEach {
+//        Timber.d("${it.cloudAnchorState}")
+////        it.destroy()
+//      }
+//      cloudAnchorNodes = emptyList<ArModelNode>().toMutableList()
+//    } catch (e: Exception) {
+//      e.printStackTrace()
+//    }
+//  }
 
   override fun onDestroy() {
-    try {
-      cloudAnchorNodes.forEach {
-        it.destroy()
-      }
-    } catch (e: Exception) {
-      e.printStackTrace()
-    }
+//    try {
+//      cloudAnchorNodes.forEach {
+//        it.destroy()
+//      }
+//    } catch (e: Exception) {
+//      e.printStackTrace()
+//    }
     super.onDestroy()
     Timber.d("GO TO DESTROY")
   }
