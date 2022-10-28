@@ -53,4 +53,14 @@ class MainActivity : AppCompatActivity() {
   private fun hideBottomNav() {
     binding.bottomNavigation.visibility = View.GONE
   }
+
+  override fun onStop() {
+    super.onStop()
+    Timber.d("STOPSTOPSOTPTOSPTOSPTOSPTOS")
+  }
+
+  override fun onDestroy() {
+    super.onDestroy()
+    Timber.d("DESGWATSEDSERAWETSDSAET")
+  }
 }

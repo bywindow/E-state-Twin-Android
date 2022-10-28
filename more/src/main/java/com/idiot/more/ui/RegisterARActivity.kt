@@ -27,18 +27,16 @@ import timber.log.Timber
 class RegisterARActivity : AppCompatActivity() {
 
   private lateinit var sceneView: ArSceneView
-  private lateinit var loadingView: View
   private lateinit var checklistButton: AppCompatButton
   private lateinit var cloudAnchorNode: ArModelNode
 
   private lateinit var binding: ActivityRegisterAractivityBinding
   private val viewModel: RegisterARViewModel by viewModels()
 
-  private var isLoading = false
+  private var isAnchoring = true
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    isLoading = true
     binding = DataBindingUtil.setContentView(this, R.layout.activity_register_aractivity)
     setFullScreen(binding.arRootView,
       fullScreen = true,
@@ -47,19 +45,18 @@ class RegisterARActivity : AppCompatActivity() {
     )
     binding.lifecycleOwner = this
     binding.vm = viewModel
+    binding.isLoading = isAnchoring
     initAdapter()
     sceneView = binding.sceneView.apply {
       cloudAnchorEnabled = true
       instructions.searchPlaneInfoNode.position.y = -0.5f
     }
-    loadingView = binding.loadingView
     checklistButton = binding.addChecklistButton.apply {
       setOnClickListener {
         addChecklistButtonClicked()
       }
     }
     sessionCloseButtonClicked()
-    isLoading = false
   }
 
   private fun initAdapter() {
@@ -72,18 +69,18 @@ class RegisterARActivity : AppCompatActivity() {
   }
 
   private fun addChecklistButtonClicked() {
-    isLoading = true
+    binding.loadingView.visibility = View.VISIBLE
     var mapQualityStatus = false
     binding.addChecklistButton.isClickable = false
     cloudAnchorNode = ArModelNode(placementMode = PlacementMode.BEST_AVAILABLE).apply {
       parent = sceneView
       isVisible = true
       loadModelAsync(
-        context = this@RegisterARActivity,
+        context = applicationContext,
         lifecycle = lifecycle,
         glbFileLocation = "models/ic_anchor.glb"
       ) {
-        isLoading = false
+//        isLoading = false
       }
     }
     cloudAnchorNode.anchor()
@@ -94,7 +91,7 @@ class RegisterARActivity : AppCompatActivity() {
         runOnUiThread {
           try {
             mapQualityStatus = HostCloudAnchor.updateFeatureMapQualityUi(sceneView)
-          } catch (e: SessionPausedException) {
+          } catch (e: Exception) {
             e.printStackTrace()
           }
         }
@@ -106,6 +103,7 @@ class RegisterARActivity : AppCompatActivity() {
             Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
             binding.addChecklistButton.isClickable = true
             mapQualityStatus = false
+            binding.loadingView.visibility = View.GONE
           } else {
             Timber.d("mapQuality: Unable to host the Cloud Anchor. The Cloud Anchor state is ${anchor.cloudAnchorState}"
             )
@@ -117,9 +115,33 @@ class RegisterARActivity : AppCompatActivity() {
 
   private fun sessionCloseButtonClicked() {
     binding.checklistCompleteButton.setOnClickListener {
-      sceneView.arSession?.close()
       Timber.d("ARfragment: closing...")
-      finish()
+      try {
+          finish()
+      } catch (e: Exception) {
+        e.printStackTrace()
+      }
     }
+  }
+
+  override fun onStop() {
+    try {
+      if (cloudAnchorNode.isAnchored) {
+        cloudAnchorNode.apply {
+          detachAnchor()
+          destroy()
+        }
+      }
+    } catch (e: java.lang.RuntimeException) {
+      e.printStackTrace()
+    }
+    Timber.d("STOP : CLOUD ANCHOR")
+    sceneView.arSession?.pause()
+    super.onStop()
+  }
+
+  override fun onDestroy() {
+    sceneView.arSession?.close()
+    super.onDestroy()
   }
 }

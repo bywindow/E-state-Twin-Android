@@ -1,5 +1,6 @@
 package com.idiot.more.binding
 
+import android.view.View
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.BindingAdapter
 import com.idiot.more.R
@@ -104,6 +105,16 @@ object ViewBinding {
           SelectedTypeUtil.getInactiveBackground(view)
         }
       }
+    }
+  }
+
+  @JvmStatic
+  @BindingAdapter("isGone")
+  fun bindIsGone(view: View, isGone: Boolean) {
+    view.visibility = if (isGone) {
+      View.GONE
+    } else {
+      View.VISIBLE
     }
   }
 }
