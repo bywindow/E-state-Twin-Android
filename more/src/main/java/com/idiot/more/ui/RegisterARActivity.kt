@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.ar.core.exceptions.SessionPausedException
 import com.idiot.model.HouseOption
@@ -21,9 +22,9 @@ import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
 import io.github.sceneview.utils.setFullScreen
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import timber.log.Timber
+import java.lang.Runnable
 
 @AndroidEntryPoint
 class RegisterARActivity : AppCompatActivity() {
@@ -138,38 +139,21 @@ class RegisterARActivity : AppCompatActivity() {
     }
   }
 
-//  override fun onStop() {
-//    try {
-//      cloudAnchorNodes.forEach {
-//        Timber.d("${it.cloudAnchorState}")
-//        it.onDestroy(owner = this)
-//        Timber.d("CLOUD ANCHOR DETACH")
-//      }
-//    } catch (e: Exception) {
-//      e.printStackTrace()
-//    }
-//    Timber.d("STOP : CLOUD ANCHOR")
-//    super.onStop()
-//    Timber.d("GO TO DESTROY")
-//    try {
-//      cloudAnchorNodes.forEach {
-//        Timber.d("${it.cloudAnchorState}")
-////        it.destroy()
-//      }
-//      cloudAnchorNodes = emptyList<ArModelNode>().toMutableList()
-//    } catch (e: Exception) {
-//      e.printStackTrace()
-//    }
-//  }
+  override fun onStop() {
+    // sceneView에서 Node들을 제거해주지 않으면 에러가 난다.
+    try {
+      sceneView.allChildren.forEach {
+        it.detachFromScene(sceneView)
+      }
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+    Timber.d("STOP : CLOUD ANCHOR")
+    super.onStop()
+    Timber.d("GO TO DESTROY")
+  }
 
   override fun onDestroy() {
-//    try {
-//      cloudAnchorNodes.forEach {
-//        it.destroy()
-//      }
-//    } catch (e: Exception) {
-//      e.printStackTrace()
-//    }
     super.onDestroy()
     Timber.d("GO TO DESTROY")
   }

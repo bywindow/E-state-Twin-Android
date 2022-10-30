@@ -82,10 +82,12 @@ class RegisterInfoFragment : Fragment() {
       }
     }
     binding.registerArChecklistButton.setOnClickListener {
+      val data = viewModel.optionList.value!!.values.filter { it.hasOption }
+      if (data.isEmpty()) {
+        Toast.makeText(requireContext(), "옵션 선택 후 등록 가능합니다.", Toast.LENGTH_SHORT).show()
+        return@setOnClickListener
+      }
       val intent = Intent(context, RegisterARActivity::class.java).apply {
-        val data = viewModel.optionList.value!!.values.filter {
-          it.hasOption
-        }
         putExtra("data", ArrayList(data))
       }
       getAssetAnchorResult.launch(intent)
@@ -178,7 +180,8 @@ class RegisterInfoFragment : Fragment() {
       if (it.resultCode == Activity.RESULT_OK && it.data != null) {
         val image = it.data!!.data
         if (image != null) {
-          viewModel.insertFloorPlan(estateId = 0, image = image)
+          Timber.d("Floor plan : $image")
+          viewModel.insertFloorPlan(estateId = 1, image = image)
         } else {
           Toast.makeText(requireContext(), "도면을 다시 등록해주세요.", Toast.LENGTH_SHORT).show()
         }
