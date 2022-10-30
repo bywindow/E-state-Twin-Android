@@ -9,7 +9,7 @@ import retrofit2.http.POST
 
 interface S3UploadService {
 
-  @POST("upload/image/")
+  @POST("default/upload/image/")
   suspend fun requestEstateImageUri(
     @Header("Content-Type") contentType: String,
     @Body files: RequestBody

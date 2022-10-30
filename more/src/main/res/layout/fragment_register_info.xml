@@ -195,6 +195,35 @@
           android:layout_marginTop="30dp">
 
           <include
+            android:id="@+id/floor_plan_title"
+            layout="@layout/tv_register_title"
+            app:inputTitle="@{`매물 도면`}" />
+
+          <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_floor_plan_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="@dimen/app_horizontal_padding"
+            android:background="@drawable/register_dialog_button_rounded"
+            android:fontFamily="@font/ff_notosanskr_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingVertical="13dp"
+            android:text="@string/register_floor_plan_button_text"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/floor_plan_title"
+            app:layout_constraintTop_toBottomOf="@id/floor_plan_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp">
+
+          <include
             android:id="@+id/house_video_title"
             layout="@layout/tv_register_title"
             app:inputTitle="@{`매물영상`}" />

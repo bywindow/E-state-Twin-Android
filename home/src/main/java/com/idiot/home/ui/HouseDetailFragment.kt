@@ -32,12 +32,12 @@ class HouseDetailFragment : Fragment() {
       findNavController().navigate(directions)
     }
 
-    test(binding)
+    test()
 
     return binding.root
   }
 
-  private fun test(binding: FragmentHouseDetailBinding) {
+  private fun test() {
     Glide.with(this)
       .load("https://cdn.pixabay.com/photo/2016/11/23/00/44/arches-1851520_960_720.jpg")
       .into(binding.brokerProfileImageView)
