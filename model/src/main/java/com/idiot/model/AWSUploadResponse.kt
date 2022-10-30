@@ -1,5 +1,5 @@
 package com.idiot.model
 
-data class S3UploadResponse(
+data class AWSUploadResponse(
   val file_url: String
 )

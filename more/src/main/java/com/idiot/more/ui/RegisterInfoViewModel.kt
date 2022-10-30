@@ -3,13 +3,12 @@ package com.idiot.more.ui
 import android.app.Application
 import android.net.Uri
 import android.util.Log
-import androidx.core.net.toFile
 import androidx.lifecycle.*
 import com.idiot.data.repository.EstateImageS3UploadRepository
 import com.idiot.data.repository.samples.optionSample
 import com.idiot.model.HouseOption
 import com.idiot.model.RegisterEstatePicture
-import com.idiot.model.S3UploadResponse
+import com.idiot.model.AWSUploadResponse
 import com.idiot.more.util.FileUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,8 +28,8 @@ class RegisterInfoViewModel @Inject constructor(
   private val _pictureList = MutableLiveData<List<RegisterEstatePicture>>()
   val pictureList: LiveData<List<RegisterEstatePicture>>
     get() = _pictureList
-  private val _estatePictureUri = MutableStateFlow(emptyList<S3UploadResponse>())
-  val estatePictureUri: StateFlow<List<S3UploadResponse>> = _estatePictureUri
+  private val _estatePictureUri = MutableStateFlow(emptyList<AWSUploadResponse>())
+  val estatePictureUri: StateFlow<List<AWSUploadResponse>> = _estatePictureUri
 
   private val _optionList = MutableLiveData<Map<Int, HouseOption>>(mapOf())
   val optionList: LiveData<Map<Int,HouseOption>> = _optionList
