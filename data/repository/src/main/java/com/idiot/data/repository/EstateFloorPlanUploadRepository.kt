@@ -21,11 +21,11 @@ class EstateFloorPlanUploadRepository @Inject constructor() {
     val contentType = "multipart/form-data; boundary=${build.boundary}"
     var response : Response<AWSUploadResponse>? = null
     try {
-        response = AWSNetworkModule.AWSUploadService.requestEstateFloorPlan(contentType, estateId, build)
+        response = AWSNetworkModule.awsUploadService.requestEstateFloorPlan(contentType, estateId, build)
     } catch (e: Exception) {
       e.printStackTrace()
     } finally {
-        Timber.d("aws response: $response")
+        Timber.d("aws response: ${response?.body()}")
     }
     return if (response?.body() != null) response.body() as AWSUploadResponse else null
   }

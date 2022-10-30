@@ -1,6 +1,6 @@
 package com.idiot.data.api_builder.di
 
-import com.idiot.data.api.AWSUploadService
+import com.idiot.data.api.AWSService
 import com.idiot.data.api_builder.BuildConfig
 import com.idiot.data.api_builder.interceptor.HttpRequestInterceptor
 import okhttp3.OkHttpClient
@@ -21,8 +21,8 @@ object AWSNetworkModule {
       .build()
   }
 
-  val AWSUploadService : AWSUploadService by lazy {
-    retrofit.create(AWSUploadService::class.java)
+  val awsUploadService : AWSService by lazy {
+    retrofit.create(AWSService::class.java)
   }
 
 }

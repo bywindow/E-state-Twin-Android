@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -61,6 +62,24 @@ class RegisterInfoFragment : Fragment() {
     }
     binding.priceInfoDialogButton.setOnClickListener {
       openBottomSheetDialog(it)
+    }
+    binding.registerFloorPlanButton.setOnClickListener {
+      when {
+        ContextCompat.checkSelfPermission(
+          requireContext(),
+          Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED -> {
+          // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
+          navigateToPhoto(isFloorPlan = true)
+        }
+        shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
+          // Educated 화면을 보여준 후 권한 요청
+          showPermissionContextPopup()
+        }
+        else -> {
+          requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
+      }
     }
     binding.registerArChecklistButton.setOnClickListener {
       val intent = Intent(context, RegisterARActivity::class.java).apply {
@@ -117,7 +136,7 @@ class RegisterInfoFragment : Fragment() {
         Manifest.permission.READ_EXTERNAL_STORAGE
       ) == PackageManager.PERMISSION_GRANTED -> {
         // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
-        navigateToPhoto()
+        navigateToPhoto(isFloorPlan = false)
       }
       shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
         // Educated 화면을 보여준 후 권한 요청
@@ -129,6 +148,42 @@ class RegisterInfoFragment : Fragment() {
     }
   }
 
+  private fun navigateToPhoto(isFloorPlan: Boolean) {
+    val intent = Intent(Intent.ACTION_PICK)
+    intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+    intent.type = "image/*"
+    if (!isFloorPlan) {
+      intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+      selectImageResultLauncher.launch(intent)
+    } else {
+      selectFloorPlanResultLauncher.launch(intent)
+    }
+  }
+
+  private val selectImageResultLauncher: ActivityResultLauncher<Intent> =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+      if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+        val mClipData: ClipData = it.data!!.clipData!!
+        val images = mutableListOf<Uri>() // image uri, file path
+        for (i in 0 until mClipData.itemCount) {
+          val imageUri = mClipData.getItemAt(i).uri
+          images.add(imageUri)
+        }
+        viewModel.insertPicture(images)
+      }
+    }
+
+  private val selectFloorPlanResultLauncher: ActivityResultLauncher<Intent> =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+      if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+        val image = it.data!!.data
+        if (image != null) {
+          viewModel.insertFloorPlan(estateId = 0, image = image)
+        } else {
+          Toast.makeText(requireContext(), "도면을 다시 등록해주세요.", Toast.LENGTH_SHORT).show()
+        }
+      }
+    }
   private fun showPermissionContextPopup() {
     AlertDialog.Builder(requireContext())
       .setTitle("권한 요청")
@@ -147,30 +202,9 @@ class RegisterInfoFragment : Fragment() {
     ) { isGranted: Boolean ->
       if (isGranted) {
         // 권한이 승인되어 있는 경우 : 갤러리에서 사진 선택
-        navigateToPhoto()
+        navigateToPhoto(isFloorPlan = false)
       } else {
         Log.d("register", "Denied :(")
-      }
-    }
-
-  private fun navigateToPhoto() {
-    val intent = Intent(Intent.ACTION_PICK)
-    intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-    intent.type = "image/*"
-    intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-    selectImageResultLauncher.launch(intent)
-  }
-
-  private val selectImageResultLauncher: ActivityResultLauncher<Intent> =
-    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-      if (it.resultCode == Activity.RESULT_OK && it.data != null) {
-        val mClipData: ClipData = it.data!!.clipData!!
-        val images = mutableListOf<Uri>() // image uri, file path
-        for (i in 0 until mClipData.itemCount) {
-          val imageUri = mClipData.getItemAt(i).uri
-          images.add(imageUri)
-        }
-        viewModel.insertPicture(images)
       }
     }
 

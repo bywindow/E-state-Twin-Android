@@ -25,7 +25,7 @@ class EstateImageS3UploadRepository @Inject constructor() {
     val contentType = "multipart/form-data; boundary=${build.boundary}"
     var response: Response<List<AWSUploadResponse>>? = null
     try {
-      response = AWSNetworkModule.AWSUploadService.requestEstateImageUri(
+      response = AWSNetworkModule.awsUploadService.requestEstateImageUri(
         contentType = contentType,
         files = build
       )

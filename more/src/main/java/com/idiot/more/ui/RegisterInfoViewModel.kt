@@ -3,12 +3,16 @@ package com.idiot.more.ui
 import android.app.Application
 import android.net.Uri
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.idiot.data.repository.EstateFloorPlanUploadRepository
 import com.idiot.data.repository.EstateImageS3UploadRepository
 import com.idiot.data.repository.samples.optionSample
+import com.idiot.model.AWSUploadResponse
 import com.idiot.model.HouseOption
 import com.idiot.model.RegisterEstatePicture
-import com.idiot.model.AWSUploadResponse
 import com.idiot.more.util.FileUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,12 +21,27 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
+import kotlin.collections.List
+import kotlin.collections.Map
+import kotlin.collections.MutableMap
+import kotlin.collections.associateBy
+import kotlin.collections.emptyList
+import kotlin.collections.flatten
+import kotlin.collections.forEach
+import kotlin.collections.last
+import kotlin.collections.listOf
+import kotlin.collections.mapOf
+import kotlin.collections.mutableListOf
+import kotlin.collections.set
+import kotlin.collections.toMutableList
+import kotlin.collections.toMutableMap
 import kotlin.random.Random
 
 @HiltViewModel
 class RegisterInfoViewModel @Inject constructor(
   application: Application,
-  private val estateImageS3UploadRepository: EstateImageS3UploadRepository
+  private val estateImageS3UploadRepository: EstateImageS3UploadRepository,
+  private val estateFloorPlanUploadRepository: EstateFloorPlanUploadRepository
 ) : AndroidViewModel(application) {
 
   private val _pictureList = MutableLiveData<List<RegisterEstatePicture>>()
@@ -30,6 +49,9 @@ class RegisterInfoViewModel @Inject constructor(
     get() = _pictureList
   private val _estatePictureUri = MutableStateFlow(emptyList<AWSUploadResponse>())
   val estatePictureUri: StateFlow<List<AWSUploadResponse>> = _estatePictureUri
+
+  private val _estateFloorPlan = MutableStateFlow<AWSUploadResponse?>(null)
+  val estateFloorPlan: StateFlow<AWSUploadResponse?> = _estateFloorPlan
 
   private val _optionList = MutableLiveData<Map<Int, HouseOption>>(mapOf())
   val optionList: LiveData<Map<Int,HouseOption>> = _optionList
@@ -128,6 +150,16 @@ class RegisterInfoViewModel @Inject constructor(
   fun deletePicture(item: RegisterEstatePicture) {
     //TODO : delete selected photo
     Log.d("register", "delete! $item")
+  }
+
+  fun insertFloorPlan(estateId: Int, image: Uri) {
+    val context = getApplication<Application>().applicationContext
+    viewModelScope.launch {
+      val file: File = FileUtil.convertUriToFile(context, image)
+      val response = estateFloorPlanUploadRepository.requestEstateFloorPlan(estateId, file)
+      Timber.d("aws floor plan response: $response")
+      _estateFloorPlan.value = response
+    }
   }
 
   fun changeOptionStatus(item: HouseOption) {
