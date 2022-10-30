@@ -97,10 +97,9 @@ class RegisterInfoFragment : Fragment() {
   private val getAssetAnchorResult: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
     Timber.d("COME BACK MAIN ACTIVITY")
     if (it.resultCode == Activity.RESULT_OK && it.data != null) {
-      val data = it.data!!.getStringExtra("data")
-      if (data != null){
-        Timber.d("ASSET : $data")
-      }
+      val data = it.data!!.getSerializableExtra("data") as List<Pair<Int, String>>
+      Timber.d("ASSET INFO FRAGMENT : $data")
+      viewModel.changeArChecklist(data)
     }
   }
 

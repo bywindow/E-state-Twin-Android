@@ -267,4 +267,12 @@ class RegisterInfoViewModel @Inject constructor(
     _address.value = data
   }
 
+  fun changeArChecklist(data: List<Pair<Int, String>>) {
+    val temp = _optionList.value!!.toMutableMap()
+    data.forEach {
+      temp[it.first]?.anchorId = it.second
+    }
+    _optionList.postValue(temp)
+    Timber.d("ASSET OPTION LIST: ${optionList.value}")
+  }
 }

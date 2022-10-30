@@ -34,5 +34,6 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
     val temp = _mappedAssetAnchor.value.toMutableMap()
     temp[assetId] = anchorId
     _mappedAssetAnchor.value = temp
+    Timber.d("ASSET MAP : ${mappedAssetAnchor.value}")
   }
 }

@@ -3,15 +3,11 @@ package com.idiot.more.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
-import com.google.ar.core.exceptions.SessionPausedException
 import com.idiot.model.HouseOption
 import com.idiot.more.R
 import com.idiot.more.databinding.ActivityRegisterAractivityBinding
@@ -22,9 +18,7 @@ import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
 import io.github.sceneview.utils.setFullScreen
-import kotlinx.coroutines.*
 import timber.log.Timber
-import java.lang.Runnable
 
 @AndroidEntryPoint
 class RegisterARActivity : AppCompatActivity() {
@@ -71,7 +65,7 @@ class RegisterARActivity : AppCompatActivity() {
       }
     val items = intent.getSerializableExtra("data") as ArrayList<HouseOption>
     viewModel.initAssetList(items)
-    Timber.d("ITEMS : $items")
+    Timber.d("ASSET : $items")
   }
 
   private fun initCloudAnchor() {
@@ -111,7 +105,7 @@ class RegisterARActivity : AppCompatActivity() {
                 Timber.d("mapQuality: hosting...")
                 if (success) {
                   Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
-                  viewModel.mappingAnchorToAsset(cursor, anchor.cloudAnchorId)
+                  viewModel.mappingAnchorToAsset(viewModel.assetList.value[cursor].id, anchor.cloudAnchorId)
                   binding.addChecklistButton.isClickable = true
                   mapQualityStatus = false
                   binding.loadingView.visibility = View.GONE
@@ -131,16 +125,13 @@ class RegisterARActivity : AppCompatActivity() {
   private fun sessionCloseButtonClicked() {
     binding.checklistCompleteButton.setOnClickListener {
       Timber.d("ARfragment: closing...")
-      try {
-        finish()
-      } catch (e: Exception) {
-        e.printStackTrace()
-      }
+      val intent = Intent().apply { putExtra("data", ArrayList(viewModel.mappedAssetAnchor.value.toList())) }
+      setResult(RESULT_OK, intent)
+      finish()
     }
   }
 
   override fun onStop() {
-    // sceneView에서 Node들을 제거해주지 않으면 에러가 난다.
     try {
       sceneView.allChildren.forEach {
         it.detachFromScene(sceneView)
