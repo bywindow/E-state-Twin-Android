@@ -1,7 +1,7 @@
 package com.idiot.data.repository
 
 import androidx.annotation.WorkerThread
-import com.idiot.data.api_builder.di.S3NetworkModule
+import com.idiot.data.api_builder.di.AWSNetworkModule
 import com.idiot.model.S3UploadResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -25,7 +25,7 @@ class EstateImageS3UploadRepository @Inject constructor() {
     val contentType = "multipart/form-data; boundary=${build.boundary}"
     var response: Response<List<S3UploadResponse>>? = null
     try {
-      response = S3NetworkModule.s3UploadService.requestEstateImageUri(
+      response = AWSNetworkModule.s3UploadService.requestEstateImageUri(
         contentType = contentType,
         files = build
       )

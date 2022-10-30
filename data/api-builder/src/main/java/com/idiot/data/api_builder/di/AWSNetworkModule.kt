@@ -7,13 +7,8 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Inject
 
-object S3NetworkModule {
-
-  private val interceptor = HttpLoggingInterceptor().apply {
-    level = HttpLoggingInterceptor.Level.BODY
-  }
+object AWSNetworkModule {
 
   private val client = OkHttpClient.Builder()
     .addInterceptor(HttpRequestInterceptor())
@@ -22,7 +17,7 @@ object S3NetworkModule {
   private val retrofit by lazy {
     Retrofit.Builder()
       .client(client)
-      .baseUrl(BuildConfig.S3_API_URI)
+      .baseUrl(BuildConfig.AWS_API_URI)
       .addConverterFactory(GsonConverterFactory.create())
       .build()
   }
