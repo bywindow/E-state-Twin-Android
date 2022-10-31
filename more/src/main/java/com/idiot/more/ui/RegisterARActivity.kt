@@ -65,7 +65,6 @@ class RegisterARActivity : AppCompatActivity() {
       }
     val items = intent.getSerializableExtra("data") as ArrayList<HouseOption>
     viewModel.initAssetList(items)
-    Timber.d("ASSET : $items")
   }
 
   private fun initCloudAnchor() {

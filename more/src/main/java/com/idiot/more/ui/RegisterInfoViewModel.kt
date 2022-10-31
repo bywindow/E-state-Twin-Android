@@ -13,6 +13,7 @@ import com.idiot.model.AWSUploadResponse
 import com.idiot.model.HouseOption
 import com.idiot.model.RegisterEstatePicture
 import com.idiot.data.repository.samples.optionSample
+import com.idiot.model.DetailAsset
 import com.idiot.more.util.FileUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -55,6 +56,9 @@ class RegisterInfoViewModel @Inject constructor(
 
   private val _optionList = MutableLiveData<Map<Int, HouseOption>>(mapOf())
   val optionList: LiveData<Map<Int,HouseOption>> = _optionList
+
+  private val _assetList = MutableStateFlow<List<DetailAsset>>(emptyList())
+  val assetList: StateFlow<List<DetailAsset>> = _assetList
 
   private val _estateType = MutableStateFlow(0)
   val estateType: StateFlow<Int> = _estateType
