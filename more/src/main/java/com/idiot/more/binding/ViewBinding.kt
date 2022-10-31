@@ -1,6 +1,7 @@
 package com.idiot.more.binding
 
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.BindingAdapter
 import com.idiot.more.R
@@ -117,4 +118,17 @@ object ViewBinding {
       View.VISIBLE
     }
   }
+
+  @JvmStatic
+  @BindingAdapter("categoryToText")
+  fun bindCategoryToText(view: TextView, categoryToText: String) {
+    when (categoryToText) {
+      "HOMEAPPLIANCES" -> view.setText(R.string.category_home_appliance)
+      "FURNITURE" -> view.setText(R.string.category_furniture)
+      "BATHROOM" -> view.setText(R.string.category_bathroom)
+      "INTERIOR" -> view.setText(R.string.category_interior)
+      else -> return
+    }
+  }
+
 }

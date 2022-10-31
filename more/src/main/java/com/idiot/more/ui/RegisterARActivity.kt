@@ -8,9 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.idiot.model.HouseOption
 import com.idiot.more.R
 import com.idiot.more.databinding.ActivityRegisterAractivityBinding
+import com.idiot.more.databinding.AssetBottomSheetDialogBinding
 import com.idiot.more.ui.adapter.AssetCloudAnchorAdapter
 import com.idiot.more.util.HostCloudAnchor
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +30,9 @@ class RegisterARActivity : AppCompatActivity() {
   private lateinit var cloudAnchorNodes: MutableList<ArModelNode>
 
   private lateinit var binding: ActivityRegisterAractivityBinding
+
+  private lateinit var bottomSheet: BottomSheetDialog
+  private lateinit var bottomSheetBinding: AssetBottomSheetDialogBinding
   private val viewModel: RegisterARViewModel by viewModels()
 
   private var isAnchoring = true
@@ -44,6 +49,7 @@ class RegisterARActivity : AppCompatActivity() {
     binding.lifecycleOwner = this
     binding.vm = viewModel
     binding.isLoading = isAnchoring
+    bottomSheet = BottomSheetDialog(this)
     initAdapter()
     sceneView = binding.sceneView.apply {
       cloudAnchorEnabled = true
@@ -60,7 +66,12 @@ class RegisterARActivity : AppCompatActivity() {
 
   private fun initAdapter() {
     binding.adapter =
-      AssetCloudAnchorAdapter(onClick = { pos -> viewModel.changeAssetCursor(pos) }).apply {
+      AssetCloudAnchorAdapter(onClick = { pos ->
+        run {
+          viewModel.changeAssetCursor(pos)
+          initBottomDialog()
+        }
+      }).apply {
         stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
       }
     val items = intent.getSerializableExtra("data") as ArrayList<HouseOption>
@@ -119,6 +130,15 @@ class RegisterARActivity : AppCompatActivity() {
         }
       }
     }).start()
+  }
+
+  private fun initBottomDialog() {
+    bottomSheetBinding = DataBindingUtil.inflate(layoutInflater, R.layout.asset_bottom_sheet_dialog, null, false)
+    bottomSheetBinding.asset = viewModel.optionList.value[viewModel.assetCursor.value]
+    bottomSheet.apply {
+      setContentView(bottomSheetBinding.root)
+      show()
+    }
   }
 
   private fun sessionCloseButtonClicked() {
