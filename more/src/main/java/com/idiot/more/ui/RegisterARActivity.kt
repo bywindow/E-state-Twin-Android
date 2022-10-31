@@ -1,8 +1,17 @@
 package com.idiot.more.ui
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
+import android.widget.ImageView
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -20,6 +29,7 @@ import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
 import io.github.sceneview.utils.setFullScreen
+import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -66,12 +76,7 @@ class RegisterARActivity : AppCompatActivity() {
 
   private fun initAdapter() {
     binding.adapter =
-      AssetCloudAnchorAdapter(onClick = { pos ->
-        run {
-          viewModel.changeAssetCursor(pos)
-          initBottomDialog()
-        }
-      }).apply {
+      AssetCloudAnchorAdapter(onClick = { pos -> viewModel.changeAssetCursor(pos) }).apply {
         stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
       }
     val items = intent.getSerializableExtra("data") as ArrayList<HouseOption>
@@ -105,27 +110,34 @@ class RegisterARActivity : AppCompatActivity() {
       isVisible = true
     }
     Thread(Runnable {
-      while (!mapQualityStatus) {
+      while (true) {
         Thread.sleep(500)
+        if (mapQualityStatus) break
         runOnUiThread {
           try {
             mapQualityStatus = HostCloudAnchor.updateFeatureMapQualityUi(sceneView)
-            if (mapQualityStatus) {
-              cloudAnchorNodes[cursor].hostCloudAnchor { anchor, success ->
-                Timber.d("mapQuality: hosting...")
-                if (success) {
-                  Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
-                  viewModel.mappingAnchorToAsset(viewModel.assetList.value[cursor].id, anchor.cloudAnchorId)
-                  binding.addChecklistButton.isClickable = true
-                  mapQualityStatus = false
-                  binding.loadingView.visibility = View.GONE
-                } else {
-                  Timber.d("mapQuality: Unable to host the Cloud Anchor. The Cloud Anchor state is ${anchor.cloudAnchorState}")
-                }
-              }
-            }
           } catch (e: Exception) {
             e.printStackTrace()
+          }
+        }
+      }
+      if (mapQualityStatus) {
+        runOnUiThread {
+          binding.addChecklistButton.isClickable = true
+          mapQualityStatus = false
+          binding.loadingView.visibility = View.GONE
+          initBottomDialog()
+        }
+        cloudAnchorNodes[cursor].hostCloudAnchor { anchor, success ->
+          Timber.d("mapQuality: hosting...")
+          if (success) {
+            Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
+            viewModel.mappingAnchorToAsset(
+              viewModel.assetList.value[cursor].id,
+              anchor.cloudAnchorId
+            )
+          } else {
+            Timber.d("mapQuality: Unable to host the Cloud Anchor. The Cloud Anchor state is ${anchor.cloudAnchorState}")
           }
         }
       }
@@ -133,18 +145,45 @@ class RegisterARActivity : AppCompatActivity() {
   }
 
   private fun initBottomDialog() {
-    bottomSheetBinding = DataBindingUtil.inflate(layoutInflater, R.layout.asset_bottom_sheet_dialog, null, false)
+    bottomSheetBinding =
+      DataBindingUtil.inflate(layoutInflater, R.layout.asset_bottom_sheet_dialog, null, false)
     bottomSheetBinding.asset = viewModel.optionList.value[viewModel.assetCursor.value]
+    bottomSheetBinding.assetImageView.scaleType = ImageView.ScaleType.CENTER
+    bottomSheetBinding.setClickListener {
+      val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+      getAssetPhotoResult.launch(intent)
+    }
     bottomSheet.apply {
       setContentView(bottomSheetBinding.root)
       show()
     }
+    bottomSheetBinding.completeButton.setOnClickListener {
+      bottomSheet.dismiss()
+      sceneView.arSession?.update()
+    }
   }
+
+  private val getAssetPhotoResult =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+      if (it.resultCode == Activity.RESULT_OK && it.data != null) {
+        Timber.d("CAMERA : ${it.data}")
+        Timber.d("CAMERA : ${it.data!!.extras}")
+        val extras: Bundle? = it.data!!.extras
+        if (extras != null) {
+          val bitmap = extras.get("data") as Bitmap
+          bottomSheetBinding.assetImageView.apply {
+            setImageBitmap(bitmap)
+            scaleType = ImageView.ScaleType.FIT_XY
+          }
+        }
+      }
+    }
 
   private fun sessionCloseButtonClicked() {
     binding.checklistCompleteButton.setOnClickListener {
       Timber.d("ARfragment: closing...")
-      val intent = Intent().apply { putExtra("data", ArrayList(viewModel.mappedAssetAnchor.value.toList())) }
+      val intent =
+        Intent().apply { putExtra("data", ArrayList(viewModel.mappedAssetAnchor.value.toList())) }
       setResult(RESULT_OK, intent)
       finish()
     }
