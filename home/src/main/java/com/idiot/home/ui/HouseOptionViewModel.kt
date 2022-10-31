@@ -2,11 +2,16 @@ package com.idiot.home.ui
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.idiot.home.assets.optionSample
+import com.idiot.data.repository.samples.optionSample
 import com.idiot.model.HouseOption
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HouseOptionViewModel() : ViewModel() {
+@HiltViewModel
+class HouseOptionViewModel @Inject constructor(
+
+) : ViewModel() {
     private val _optionList = MutableLiveData<List<HouseOption>>()
     val optionList : LiveData<List<HouseOption>>
         get() = _optionList

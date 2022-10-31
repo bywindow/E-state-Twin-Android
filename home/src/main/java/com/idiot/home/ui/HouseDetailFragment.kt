@@ -5,15 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.idiot.data.repository.samples.imageUrlSample
-import com.idiot.home.assets.optionSample
 import com.idiot.home.databinding.FragmentHouseDetailBinding
 
 class HouseDetailFragment : Fragment() {
 
   private lateinit var binding: FragmentHouseDetailBinding
+  private val viewModel: HouseOptionViewModel by viewModels()
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +26,7 @@ class HouseDetailFragment : Fragment() {
     val images = imageUrlSample()
     imageSliderBinding.adapter = HouseImageSliderAdapter(images)
 
-    binding.detailOptionList.adapter = HouseOptionListAdapter(optionSample())
+    binding.detailOptionList.adapter = viewModel.optionList.value?.let { HouseOptionListAdapter(it) }
 
     binding.threeDimenButton.setOnClickListener {
       val directions = HouseDetailFragmentDirections.actionHouseDetailFragmentToFloorPlanFragment()
