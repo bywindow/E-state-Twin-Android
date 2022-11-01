@@ -5,10 +5,6 @@
 
   <data>
     <variable
-      name="clickListener"
-      type="android.view.View.OnClickListener" />
-
-    <variable
       name="asset"
       type="com.idiot.model.HouseOption" />
   </data>
@@ -27,9 +23,6 @@
       android:layout_marginStart="@dimen/app_horizontal_padding"
       android:layout_marginTop="20dp"
       android:background="@drawable/register_add_picture_rounded"
-      android:clickable="true"
-      android:focusable="true"
-      android:onClick="@{clickListener}"
       android:gravity="center"
       android:orientation="horizontal"
       app:layout_constraintStart_toStartOf="parent"

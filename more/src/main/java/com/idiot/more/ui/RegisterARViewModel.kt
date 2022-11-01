@@ -1,5 +1,6 @@
 package com.idiot.more.ui
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import com.idiot.model.DetailAsset
 import com.idiot.model.HouseOption
@@ -45,5 +46,11 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
     temp[assetId] = anchorId
     _mappedAssetAnchor.value = temp
     Timber.d("ASSET MAP : ${mappedAssetAnchor.value}")
+  }
+
+  fun addAssetPhotoUri(uri: String) {
+    val temp = _assetList.value.toMutableList()
+    temp[assetCursor.value].assetPhoto = uri
+    _assetList.value = temp.toList()
   }
 }

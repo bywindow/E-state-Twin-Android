@@ -10,11 +10,13 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import timber.log.Timber
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
-import java.util.UUID
+import java.text.SimpleDateFormat
+import java.util.*
 
 object FileUtil {
 
@@ -31,15 +33,15 @@ object FileUtil {
     return "$name.$ext"
   }
 
-  private fun createTempFile(context: Context, fileName: String) : File {
-    val storageDir : File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+  private fun createTempFile(context: Context, fileName: String): File {
+    val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
     return File(storageDir, fileName)
   }
 
   private fun copyToFile(context: Context, uri: Uri, file: File) {
     val inputStream = context.contentResolver.openInputStream(uri)
     val outputStream = FileOutputStream(file)
-    val buffer = ByteArray(4*1024)
+    val buffer = ByteArray(4 * 1024)
     while (true) {
       val byteCount = inputStream!!.read(buffer)
       if (byteCount < 0) break
@@ -48,33 +50,28 @@ object FileUtil {
     outputStream.flush()
   }
 
-  fun getImageRealPath(context: Context, uri: Uri): String? {
-    val contentResolver: ContentResolver = context.contentResolver ?: return null
-    val filePath: String =
-      (context.applicationInfo.dataDir + File.separator + System.currentTimeMillis())
-    Timber.d("File Path: $filePath")
-    val file = File(filePath)
-    try {
-      val inputStream = contentResolver.openInputStream(uri) ?: return null
-      Timber.d("INPUTSTREAM: $inputStream")
-      val outputStream: OutputStream = FileOutputStream(file)
-      val buf = ByteArray(1024)
-      var len: Int
-      while (inputStream.read(buf).also { len = it } > 0) outputStream.write(buf, 0, len)
-      outputStream.close()
-      inputStream.close()
-    } catch (ignore: IOException) {
-      return null
-    }
-    return file.absolutePath
+  fun generateFileName(): String {
+    val date = SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.KOREA).format(Date())
+    return "${
+      Environment.getExternalStoragePublicDirectory(
+        Environment.DIRECTORY_PICTURES
+      )
+    }${File.separator}checklist/$date/screenshot.jpg"
   }
 
-  fun generateBitmap(context: Context, uri: Uri): Bitmap = uri.let {
-    if (Build.VERSION.SDK_INT < 28) {
-      MediaStore.Images.Media.getBitmap(context.contentResolver, it)
-    } else {
-      val source = ImageDecoder.createSource(context.contentResolver, it)
-      ImageDecoder.decodeBitmap(source)
+  fun saveBitmapToDisk(bitmap: Bitmap, filename: String) {
+    val out = File(filename)
+    if (!out.parentFile.exists()) {
+      out.parentFile.mkdirs()
     }
+    val outputStream = FileOutputStream(filename)
+    val outputData = ByteArrayOutputStream()
+    try {
+      bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputData)
+      outputData.writeTo(outputStream)
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+    outputStream.flush()
   }
 }

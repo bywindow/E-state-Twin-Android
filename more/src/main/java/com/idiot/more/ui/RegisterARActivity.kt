@@ -5,7 +5,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
 import android.provider.MediaStore
+import android.view.PixelCopy
 import android.view.View
 import android.widget.ImageView
 import androidx.activity.result.ActivityResult
@@ -15,7 +18,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.idiot.model.HouseOption
@@ -23,14 +28,18 @@ import com.idiot.more.R
 import com.idiot.more.databinding.ActivityRegisterAractivityBinding
 import com.idiot.more.databinding.AssetBottomSheetDialogBinding
 import com.idiot.more.ui.adapter.AssetCloudAnchorAdapter
+import com.idiot.more.util.FileUtil
 import com.idiot.more.util.HostCloudAnchor
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.sceneview.ar.ArFragment
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
 import io.github.sceneview.utils.setFullScreen
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber
+import java.io.File
 
 @AndroidEntryPoint
 class RegisterARActivity : AppCompatActivity() {
@@ -102,6 +111,7 @@ class RegisterARActivity : AppCompatActivity() {
 
   private fun addChecklistButtonClicked() {
     val cursor = viewModel.assetCursor.value
+    takePhotoAsset()
     binding.loadingView.visibility = View.VISIBLE
     var mapQualityStatus = false
     binding.addChecklistButton.isClickable = false
@@ -144,14 +154,36 @@ class RegisterARActivity : AppCompatActivity() {
     }).start()
   }
 
+  private fun takePhotoAsset() {
+    val filename = FileUtil.generateFileName()
+    val bitmap = Bitmap.createBitmap(sceneView.width, sceneView.height, Bitmap.Config.ARGB_8888)
+    val handlerThread = HandlerThread("PixelCopier")
+    handlerThread.start()
+    PixelCopy.request(sceneView, bitmap, { result: Int ->
+      run {
+        if (result == PixelCopy.SUCCESS) {
+          try {
+            FileUtil.saveBitmapToDisk(bitmap, filename)
+          } catch (e: Exception) {
+            e.printStackTrace()
+          }
+        }
+      }
+      handlerThread.quitSafely()
+    }, Handler(handlerThread.looper))
+    val file = File(filename)
+    val uri = file.absolutePath
+    Timber.d("ASSET PHOTO URI : $uri")
+    viewModel.addAssetPhotoUri(uri)
+  }
+
   private fun initBottomDialog() {
     bottomSheetBinding =
       DataBindingUtil.inflate(layoutInflater, R.layout.asset_bottom_sheet_dialog, null, false)
     bottomSheetBinding.asset = viewModel.optionList.value[viewModel.assetCursor.value]
-    bottomSheetBinding.assetImageView.scaleType = ImageView.ScaleType.CENTER
-    bottomSheetBinding.setClickListener {
-      val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-      getAssetPhotoResult.launch(intent)
+    bottomSheetBinding.assetImageView.apply {
+      scaleType = ImageView.ScaleType.CENTER
+      setImageURI(Uri.parse(viewModel.assetList.value[viewModel.assetCursor.value].assetPhoto))
     }
     bottomSheet.apply {
       setContentView(bottomSheetBinding.root)
@@ -159,7 +191,6 @@ class RegisterARActivity : AppCompatActivity() {
     }
     bottomSheetBinding.completeButton.setOnClickListener {
       bottomSheet.dismiss()
-      sceneView.arSession?.update()
     }
   }
 
