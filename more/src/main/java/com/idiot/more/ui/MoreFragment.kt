@@ -36,8 +36,6 @@ class MoreFragment : Fragment() {
   }
 
   private fun subscribeUi(binding: FragmentMoreBinding) {
-//    binding.userNameTextView.text = "홍길동"
-//    binding.userRoleTextView.text = "기업회원"
     viewLifecycleOwner.lifecycleScope.launch {
       viewModel.fetchUserInfo().collect() {
         val value = viewModel.userInfo.value

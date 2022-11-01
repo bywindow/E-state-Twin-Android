@@ -32,4 +32,9 @@ interface EstateService {
   suspend fun requestMyPage(
     @Header("X-AUTH-TOKEN") accessToken: String
   ): Response<MyPageResponse>
+
+  @DELETE("/user")
+  suspend fun requestDeleteUser(
+    @Header("X-AUTH-TOKEN") accessToken: String
+  ): Response<Int>
 }

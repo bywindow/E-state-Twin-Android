@@ -40,4 +40,10 @@ class EstateClient @Inject constructor(
     accessToken = accessToken
   )
 
+  suspend fun requestDeleteUser(
+    accessToken: String
+  ): Response<Int> = estateService.requestDeleteUser(
+    accessToken = accessToken
+  )
+
 }

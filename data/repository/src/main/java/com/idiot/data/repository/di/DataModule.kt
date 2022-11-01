@@ -37,4 +37,9 @@ interface DataModule {
     myPageRepositoryImpl: MyPageRepositoryImpl
   ): MyPageRepository
 
+  @Binds
+  fun bindsUserDeleteRepository(
+    userDeleteRepositoryImpl: UserDeleteRepositoryImpl
+  ): UserDeleteRepository
+
 }
