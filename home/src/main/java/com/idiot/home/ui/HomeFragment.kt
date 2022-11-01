@@ -32,10 +32,13 @@ class HomeFragment : Fragment() {
     binding = DataBindingUtil.inflate(
       inflater, R.layout.fragment_home, container, false
     )
-    initRecommendedEstate()
-    initRegisterButtonClicked()
     binding.vm = viewModel
     binding.homeRecommendList.itemAnimator = null
+
+    initRecommendedEstate()
+    initRegisterButtonClicked()
+    initSearchButtonClicked()
+
     return binding.root
   }
 
@@ -51,6 +54,13 @@ class HomeFragment : Fragment() {
       binding.userRecommendButton.visibility = View.GONE
     } else {
       binding.homeUserRecommendTitle.text = viewModel.recommendedEstates.value.last().userBorough
+    }
+  }
+
+  private fun initSearchButtonClicked() {
+    binding.appbarSearchButton.setOnClickListener {
+      val uri = Uri.parse("estate://search_fragment")
+      findNavController().navigate(uri)
     }
   }
 

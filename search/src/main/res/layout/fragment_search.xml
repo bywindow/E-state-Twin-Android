@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context="com.idiot.search.ui.SearchFragment">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.idiot.search.ui.SearchFragment">
+    android:fitsSystemWindows="true"
+    android:paddingVertical="8dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="SEARCH" />
-
-</FrameLayout>
+    <EditText
+      android:id="@+id/search_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+      android:background="@drawable/bg_search_button"
+      android:gravity="start|center_vertical"
+      android:minHeight="0dp"
+      android:textSize="17sp"
+      android:paddingVertical="10dp"
+      android:inputType="text"
+      android:imeOptions="actionSearch"
+      android:paddingHorizontal="10dp"
+      android:hint="지역명을 입력해주세요."
+      android:layout_marginTop="20dp"
+      android:outlineAmbientShadowColor="@color/purple_700"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
