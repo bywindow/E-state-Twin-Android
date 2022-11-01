@@ -46,6 +46,12 @@ class HomeFragment : Fragment() {
         binding.homeRecommendList.adapter = UserRecommendAdapter(viewModel.recommendedEstates.value)
       }
     }
+    if (viewModel.recommendedEstates.value.isEmpty()) {
+      binding.homeUserRecommendTitle.text = ""
+      binding.userRecommendButton.visibility = View.GONE
+    } else {
+      binding.homeUserRecommendTitle.text = viewModel.recommendedEstates.value.last().userBorough
+    }
   }
 
   private fun initRegisterButtonClicked() {
