@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
       binding.homeUserRecommendTitle.text = ""
       binding.userRecommendButton.visibility = View.GONE
     } else {
-      binding.homeUserRecommendTitle.text = viewModel.recommendedEstates.value.last().userBorough
+      binding.homeUserRecommendTitle.text = "${viewModel.recommendedEstates.value.last().userBorough} 추천매물"
     }
   }
 

@@ -45,6 +45,7 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
     binding.lifecycleOwner = viewLifecycleOwner
     binding.vm = viewModel
     binding.closeButton.setOnClickListener { dismiss() }
+    initInputBox()
     initSpinners(binding)
     initDatePicker()
     completeButtonClicked()
@@ -104,8 +105,31 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
       }
     }
   }
+
+  private fun initInputBox() {
+    if (viewModel.buildingName.value != "") {
+      binding.buildingNameInput.setText(viewModel.buildingName.value)
+    }
+    if (viewModel.totalBuildingFloor.value != 0) {
+      binding.buildingTotalFloorInput.setText(viewModel.totalBuildingFloor.value.toString())
+    }
+    if (viewModel.curBuildingFloor.value != 0) {
+      binding.buildingCurrentFloorInput.setText(viewModel.curBuildingFloor.value.toString())
+    }
+    if (viewModel.netArea.value != 0.0f) {
+      binding.netAreaInput.setText(viewModel.netArea.value.toString())
+    }
+    if (viewModel.area.value != 0.0f) {
+      binding.areaInput.setText(viewModel.area.value.toString())
+    }
+
+  }
   
   private fun initDatePicker() {
+    if (viewModel.availableDate.value.isNotEmpty()) {
+      val date = viewModel.availableDate.value
+      binding.datePicker.text = "${date[0]}년 ${date[1]}월 ${date[2]}일"
+    }
     binding.datePicker.setOnClickListener {
       val calendar = Calendar.getInstance()
       val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->

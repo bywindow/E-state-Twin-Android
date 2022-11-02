@@ -9,6 +9,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.idiot.data.repository.EstateFloorPlanUploadRepository
 import com.idiot.data.repository.EstateImageS3UploadRepository
+import com.idiot.data.repository.RegisterEstateBrokerRepository
+import com.idiot.data.repository.UserPreferenceRepository
 import com.idiot.model.AWSUploadResponse
 import com.idiot.model.HouseOption
 import com.idiot.model.RegisterEstatePicture
@@ -41,8 +43,10 @@ import kotlin.random.Random
 @HiltViewModel
 class RegisterInfoViewModel @Inject constructor(
   application: Application,
+  private val userPreferenceRepository: UserPreferenceRepository,
   private val estateImageS3UploadRepository: EstateImageS3UploadRepository,
-  private val estateFloorPlanUploadRepository: EstateFloorPlanUploadRepository
+  private val estateFloorPlanUploadRepository: EstateFloorPlanUploadRepository,
+  private val registerEstateBrokerRepository: RegisterEstateBrokerRepository,
 ) : AndroidViewModel(application) {
 
   private val _pictureList = MutableLiveData<List<RegisterEstatePicture>>()
@@ -227,22 +231,27 @@ class RegisterInfoViewModel @Inject constructor(
 
   fun changeBuildingName(name: String) {
     _buildingName.value = name
+    Timber.d(buildingName.value)
   }
 
   fun changeTotalBuildingFloor(floor: Int) {
     _totalBuildingFloor.value = floor
+    Timber.d(totalBuildingFloor.value.toString())
   }
 
   fun changeCurBuildingFloor(floor: Int) {
     _curBuildingFloor.value = floor
+    Timber.d(curBuildingFloor.value.toString())
   }
 
   fun changeNetArea(size: Float) {
     _netArea.value = size
+    Timber.d(netArea.value.toString())
   }
 
   fun changeArea(size: Float) {
     _area.value = size
+    Timber.d(area.value.toString())
   }
 
   fun changeDeposit(price: Int) {
@@ -280,5 +289,7 @@ class RegisterInfoViewModel @Inject constructor(
     Timber.d("ASSET OPTION LIST: ${optionList.value}")
   }
 
+  fun requestPostEstate() {
 
+  }
 }
