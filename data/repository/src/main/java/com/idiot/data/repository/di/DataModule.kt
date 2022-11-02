@@ -42,4 +42,8 @@ interface DataModule {
     userDeleteRepositoryImpl: UserDeleteRepositoryImpl
   ): UserDeleteRepository
 
+  @Binds
+  fun bindsRegisterEstateBrokerRepository(
+    registerEstateBrokerRepositoryImpl: RegisterEstateBrokerRepositoryImpl
+  ): RegisterEstateBrokerRepository
 }

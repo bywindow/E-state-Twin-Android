@@ -13,7 +13,7 @@ class MyPageRepositoryImpl @Inject constructor(
 
   @WorkerThread
   override suspend fun requestMyPage(accessToken: String): MyPageResponse? {
-    val response = estateClient.requestMyPage(accessToken)
+    val response = estateClient.requestMyPage("Bearer $accessToken")
     Timber.d("main response: $response")
     return if (response.isSuccessful) response.body() as MyPageResponse else null
   }

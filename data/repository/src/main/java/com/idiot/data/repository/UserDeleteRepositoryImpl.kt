@@ -11,7 +11,7 @@ class UserDeleteRepositoryImpl @Inject constructor(
 
   @WorkerThread
   override suspend fun requestDeleteUser(accessToken: String): Int {
-    val response = estateClient.requestDeleteUser(accessToken)
+    val response = estateClient.requestDeleteUser("Bearer $accessToken")
     Timber.d("user delete response : $response")
     return if (response.body() != null) response.body() as Int else -1
   }

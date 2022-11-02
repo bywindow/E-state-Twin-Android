@@ -18,7 +18,7 @@ class UserSignUpRepositoryImpl @Inject constructor(
     val gson = Gson()
     val json = gson.toJson(data)
     Timber.d("data: $json")
-    val response = estateClient.requestSignUp(accessToken = accessToken, body = json.toRequestBody())
+    val response = estateClient.requestSignUp(accessToken = "Bearer $accessToken", body = json.toRequestBody())
     Timber.d("signup response: $response")
     return if (response.isSuccessful) response.body() as UserSignUpResponse else null
   }

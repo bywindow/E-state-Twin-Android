@@ -279,4 +279,6 @@ class RegisterInfoViewModel @Inject constructor(
     _optionList.postValue(temp)
     Timber.d("ASSET OPTION LIST: ${optionList.value}")
   }
+
+
 }

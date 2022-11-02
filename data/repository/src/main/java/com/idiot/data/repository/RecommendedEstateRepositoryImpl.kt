@@ -12,7 +12,7 @@ class RecommendedEstateRepositoryImpl @Inject constructor(
 
   @WorkerThread
   override suspend fun requestRecommendedEstate(accessToken: String): List<RecommendedEstate>? {
-    val response = estateClient.requestRecommendedEstate(accessToken = accessToken)
+    val response = estateClient.requestRecommendedEstate(accessToken = "Bearer $accessToken")
     Timber.d("main response: $response")
     return if (response.isSuccessful) response.body() as List<RecommendedEstate> else null
   }

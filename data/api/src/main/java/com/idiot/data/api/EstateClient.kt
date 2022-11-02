@@ -46,4 +46,11 @@ class EstateClient @Inject constructor(
     accessToken = accessToken
   )
 
+  suspend fun requestPostEstateBroker(
+    accessToken: String,
+    body: RequestBody
+  ): Response<JSONObject> = estateService.requestPostEstateBroker(
+    accessToken = accessToken,
+    body = body
+  )
 }
