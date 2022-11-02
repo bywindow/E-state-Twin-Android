@@ -51,4 +51,9 @@ interface DataModule {
   fun bindsRegisterEstateOwnerRepository(
     registerEstateOwnerRepositoryImpl: RegisterEstateOwnerRepositoryImpl
   ): RegisterEstateOwnerRepository
+
+  @Binds
+  fun bindsBrokerEstateListRepository(
+    brokerEstateListRepositoryImpl: BrokerEstateListRepositoryImpl
+  ): BrokerEstateListRepository
 }

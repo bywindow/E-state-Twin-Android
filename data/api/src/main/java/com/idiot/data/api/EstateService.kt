@@ -1,5 +1,6 @@
 package com.idiot.data.api
 
+import com.idiot.model.EstateListBrokerResponse
 import com.idiot.model.RecommendedEstate
 import com.idiot.model.TokenResponse
 import com.idiot.model.users.MyPageResponse
@@ -46,6 +47,13 @@ interface EstateService {
     @Query("brokerId") brokerId: Int = 1,
     @Body body: RequestBody
   ): Response<String>
+
+  @GET("broker/estate")
+  suspend fun requestGetEstateListBroker(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Query("state") state: String
+  ): Response<List<EstateListBrokerResponse>>
 
   @POST("estate/detail/broker")
   suspend fun requestPostEstateBroker(

@@ -1,5 +1,6 @@
 package com.idiot.data.api
 
+import com.idiot.model.EstateListBrokerResponse
 import com.idiot.model.RecommendedEstate
 import com.idiot.model.TokenResponse
 import com.idiot.model.users.MyPageResponse
@@ -52,6 +53,14 @@ class EstateClient @Inject constructor(
   ): Response<String> = estateService.requestPostEstateOwner(
     accessToken = accessToken,
     body = body
+  )
+
+  suspend fun requestGetEstateListBroker(
+    accessToken: String,
+    state: String
+  ): Response<List<EstateListBrokerResponse>> = estateService.requestGetEstateListBroker(
+    accessToken = accessToken,
+    state = state
   )
 
   suspend fun requestPostEstateBroker(
