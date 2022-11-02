@@ -23,6 +23,9 @@
   <string name="anchoring_loading_title">등록중입니다…</string>
   <string name="anchoring_loading_content">작업이 완료될 때까지 충분히\n옵션 주변의 바닥을 촬영해주세요.</string>
 
+  <string name="register_owner_help_text">주변 공인중개사에 요청하거나 직접 등록도 가능합니다.\n작성내용을 임시저장할 수 있습니다.</string>
+  <string name="register_owner_address_help_text">등록 서비스를 위해 매물의 주소를 입력해주세요.</string>
+
   <string-array name="building_type_list">
     <item>건물의 유형을 선택해주세요.</item>
     <item>아파트</item>
@@ -45,5 +48,7 @@
   <string name="category_interior">인테리어</string>
 
   <string name="user_delete_dialog_title">회원정보를 삭제하시겠습니까?</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

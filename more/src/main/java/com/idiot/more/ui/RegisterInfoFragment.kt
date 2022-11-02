@@ -180,7 +180,7 @@ class RegisterInfoFragment : Fragment() {
         val image = it.data!!.data
         if (image != null) {
           Timber.d("Floor plan : $image")
-          viewModel.insertFloorPlan(estateId = 1, image = image)
+          viewModel.insertFloorPlan(estateId = 12, image = image)
         } else {
           Toast.makeText(requireContext(), "도면을 다시 등록해주세요.", Toast.LENGTH_SHORT).show()
         }

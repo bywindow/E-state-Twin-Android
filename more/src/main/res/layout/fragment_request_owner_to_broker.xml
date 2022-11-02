@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context=".ui.RequestOwnerToBrokerFragment">
+
+  <data>
+    <variable
+      name="vm"
+      type="com.idiot.more.ui.RequestOwnerToBrokerViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+      android:id="@+id/register_owner_toolbar"
+      layout="@layout/toolbar_layout"
+      app:layout_constraintTop_toTopOf="parent"
+      app:title="@{`새 매물 등록`}" />
+
+    <TextView
+      android:id="@+id/help_text_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="#f9f9f9"
+      android:paddingHorizontal="@dimen/app_horizontal_padding"
+      android:paddingVertical="15dp"
+      android:text="@string/register_owner_help_text"
+      android:textColor="@color/detail_info_content"
+      android:textSize="13sp"
+      app:layout_constraintTop_toBottomOf="@id/register_owner_toolbar" />
+
+    <TextView
+      android:id="@+id/address_title"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/app_horizontal_padding"
+      android:layout_marginTop="25dp"
+      android:text="매물주소"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/help_text_view" />
+
+    <TextView
+      android:id="@+id/address_help_text_view"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:text="@string/register_owner_address_help_text"
+      app:layout_constraintStart_toStartOf="@id/address_title"
+      app:layout_constraintTop_toBottomOf="@id/address_title" />
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/search_address_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+      android:layout_marginTop="30dp"
+      android:background="@drawable/bg_ar_asset_rounded_active"
+      android:gravity="center"
+      android:paddingVertical="12dp"
+      android:text="주소 찾기"
+      android:textColor="@color/purple_700"
+      android:textSize="14sp"
+      app:layout_constraintTop_toBottomOf="@id/address_help_text_view" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/search_result_view"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:background="#f9f9f9"
+      android:padding="@dimen/app_horizontal_padding"
+      android:visibility="gone"
+      android:layout_marginTop="30dp"
+      app:layout_constraintBottom_toTopOf="@id/complete_button"
+      app:layout_constraintTop_toBottomOf="@id/search_address_button"
+      tools:visibility="visible">
+
+      <TextView
+        android:id="@+id/road_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp"
+        android:text="도로명"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/road_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/road_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/road_title"
+        app:layout_constraintTop_toTopOf="@id/road_title" />
+
+      <TextView
+        android:id="@+id/building_name_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp"
+        android:text="건물명"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/road_title"
+        app:layout_constraintTop_toBottomOf="@id/road_title" />
+
+      <EditText
+        android:id="@+id/building_name_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:hint="건물명을 입력해주세요."
+        app:layout_constraintTop_toTopOf="@id/building_name_title"
+        app:layout_constraintStart_toEndOf="@id/building_name_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onTextChanged="@{vm.changeBuildingName}"
+        android:textSize="14sp"
+        android:padding="16dp"
+        android:inputType="text"/>
+
+      <EditText
+        android:id="@+id/main_number_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:hint="동을 입력하세요."
+        app:layout_constraintTop_toBottomOf="@id/building_name_title"
+        app:layout_constraintStart_toStartOf="@id/building_name_title"
+        app:layout_constraintEnd_toStartOf="@id/sub_number_edit_text"
+        android:onTextChanged="@{vm.changeMainNumber}"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:padding="16dp"
+        android:inputType="numberDecimal"/>
+
+      <EditText
+        android:id="@+id/sub_number_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:hint="호를 입력하세요."
+        app:layout_constraintTop_toTopOf="@id/main_number_edit_text"
+        app:layout_constraintStart_toEndOf="@id/main_number_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onTextChanged="@{vm.changeSubNumber}"
+        android:layout_marginStart="4dp"
+        android:textSize="14sp"
+        android:padding="16dp"
+        android:inputType="numberDecimal"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/complete_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="40dp"
+      android:background="@color/purple_700"
+      android:gravity="center"
+      android:paddingVertical="16dp"
+      android:text="공인중개사에게 요청하기"
+      android:textColor="@color/white"
+      android:textSize="16sp"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

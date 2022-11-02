@@ -39,10 +39,18 @@ interface EstateService {
     @Header("Authorization") accessToken: String
   ): Response<Int>
 
+  @POST("estate/detail/owner")
+  suspend fun requestPostEstateOwner(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Query("brokerId") brokerId: Int = 1,
+    @Body body: RequestBody
+  ): Response<String>
+
   @POST("estate/detail/broker")
   suspend fun requestPostEstateBroker(
     @Header("Content-Type") contentType: String = "application/json",
     @Header("Authorization") accessToken: String,
     @Body body: RequestBody
-  ): Response<JSONObject>
+  ): Response<String>
 }

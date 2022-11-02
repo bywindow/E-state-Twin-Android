@@ -1,10 +1,8 @@
 package com.idiot.model
 
-data class DetailAddress(
+data class RoadAddressByOwner(
   val city: String,
   val borough: String,
-  val town: String,
-  val complexName: String,
   val block: String,
   val unit: String,
   val roadName: String,

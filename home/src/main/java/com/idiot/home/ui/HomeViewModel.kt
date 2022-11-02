@@ -36,7 +36,7 @@ class HomeViewModel @Inject constructor(
     if (result != null) {
       _recommendedEstates.value = result
     }
-    Timber.d("추천매물 response: $result")
+    Timber.d("추천매물 response: ${recommendedEstates.value}")
     emit(HomeEvent.EstateFetchSuccess)
   }
 

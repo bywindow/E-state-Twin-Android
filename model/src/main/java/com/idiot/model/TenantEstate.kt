@@ -16,7 +16,7 @@ data class TenantEstate(
   val transactionType: String,
   val state: String,
   val grade: String,
-  val address: DetailAddress,
+  val address: RoadAddressByOwner,
   val estateHit: EstateHit,
   val house: DetailHouse,
   val broker: Broker,

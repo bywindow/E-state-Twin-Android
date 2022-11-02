@@ -48,12 +48,12 @@ class HomeFragment : Fragment() {
         Timber.d("${viewModel.recommendedEstates.value}")
         binding.homeRecommendList.adapter = UserRecommendAdapter(viewModel.recommendedEstates.value)
       }
-    }
-    if (viewModel.recommendedEstates.value.isEmpty()) {
-      binding.homeUserRecommendTitle.text = ""
-      binding.userRecommendButton.visibility = View.GONE
-    } else {
-      binding.homeUserRecommendTitle.text = "${viewModel.recommendedEstates.value.last().userBorough} 추천매물"
+      if (viewModel.recommendedEstates.value.isEmpty()) {
+        binding.homeUserRecommendTitle.text = ""
+        binding.userRecommendButton.visibility = View.GONE
+      } else {
+        binding.homeUserRecommendTitle.text = "${viewModel.recommendedEstates.value.last().userBorough} 추천매물"
+      }
     }
   }
 

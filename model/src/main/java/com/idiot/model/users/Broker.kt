@@ -1,6 +1,6 @@
 package com.idiot.model.users
 
-import com.idiot.model.DetailAddress
+import com.idiot.model.RoadAddressByOwner
 
 data class Broker(
   val businessName: String,
@@ -11,5 +11,5 @@ data class Broker(
   val brokerageRegistrationLicense: String,
   val countOfTransactionCompletion: Int,
   val content: String,
-  val address: DetailAddress
+  val address: RoadAddressByOwner
 )

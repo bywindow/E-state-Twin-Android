@@ -16,7 +16,7 @@ data class DetailHouse(
   val moveInAvailableDate: String,
   val size: Int,
   val heatType: String,
-  val estateType: String,
+  val estateType: String?,
   val household: Int,
   val usageAvailableDate: String,
   val roomCount: Int,

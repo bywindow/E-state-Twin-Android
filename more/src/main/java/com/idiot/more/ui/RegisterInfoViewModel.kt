@@ -11,12 +11,10 @@ import com.idiot.data.repository.EstateFloorPlanUploadRepository
 import com.idiot.data.repository.EstateImageS3UploadRepository
 import com.idiot.data.repository.RegisterEstateBrokerRepository
 import com.idiot.data.repository.UserPreferenceRepository
-import com.idiot.model.AWSUploadResponse
-import com.idiot.model.HouseOption
-import com.idiot.model.RegisterEstatePicture
 import com.idiot.data.repository.samples.optionSample
-import com.idiot.model.DetailAsset
+import com.idiot.model.*
 import com.idiot.more.util.FileUtil
+import com.idiot.more.util.MappingToEnumUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -266,6 +264,10 @@ class RegisterInfoViewModel @Inject constructor(
     _managementFee.value = price
   }
 
+  fun changeEnableParking(status: Boolean) {
+    _enableParking.value = status
+  }
+
   fun changeParkingFee(price: Int) {
     _parkingFee.value = price
   }
@@ -290,6 +292,31 @@ class RegisterInfoViewModel @Inject constructor(
   }
 
   fun requestPostEstate() {
-
+    var manageItem = ""
+    managementFeeIncluding.value.entries.forEach {
+      if (it.value) {
+        manageItem += "${MappingToEnumUtil.maintenanceItemMapping(it.key)},"
+      }
+    }
+    if (manageItem.isNotEmpty()) {
+      manageItem = manageItem.substring(0, manageItem.length-1)
+    }
+//    val house = DetailHouse(
+//      deposit = deposit.value,
+//      monthlyRent = monthly.value,
+//      sellingFee = 0,
+//      currentFloors = curBuildingFloor.value,
+//      totalFloors = totalBuildingFloor.value,
+//      shortTermRent = ableShort.value == 1,
+//      maintenanceFee = managementFee.value,
+//      itemsIncludedMaintenanceFee = manageItem,
+//      netRentableArea = netArea.value.toInt(),
+//      rentableArea = area.value.toInt(),
+//      parking = enableParking.value,
+//      parkingFee = parkingFee.value,
+//      moveInAvailableDate = "${availableDate.value[0]}-${availableDate.value[1]}-${availableDate.value[2]}",
+//      heatType = MappingToEnumUtil.heatTypeMapping(heatType.value),
+//      estateType = MappingToEnumUtil.estateTypeMapping(estateType.value)
+//    )
   }
 }

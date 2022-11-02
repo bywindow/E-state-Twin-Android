@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context="com.idiot.more.ui.NewRegisterRequestFragment">
 
-    <data>
-        <variable
-            name="hasRequest"
-            type="boolean" />
-    </data>
+  <data>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/gray_100">
+    <variable
+      name="hasRequest"
+      type="boolean" />
+  </data>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/register_request_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingHorizontal="@dimen/card_side_margin"
-            android:paddingTop="@dimen/card_side_margin"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_item_new_register"/>
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_100">
 
-    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/register_request_list"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:clipToPadding="false"
+      android:paddingHorizontal="@dimen/card_side_margin"
+      android:paddingTop="@dimen/card_side_margin"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      tools:listitem="@layout/list_item_new_register" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fab_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="end|bottom"
+      android:layout_margin="16dp"
+      android:src="@drawable/ic_plus"
+      app:backgroundTint="@color/purple_700"
+      app:borderWidth="0dp"
+      app:tint="@color/white" />
+
+  </FrameLayout>
 
 </layout>
