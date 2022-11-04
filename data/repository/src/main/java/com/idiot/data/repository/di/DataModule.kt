@@ -56,4 +56,9 @@ interface DataModule {
   fun bindsBrokerEstateListRepository(
     brokerEstateListRepositoryImpl: BrokerEstateListRepositoryImpl
   ): BrokerEstateListRepository
+
+  @Binds
+  fun bindsGetEstateDetailRepository(
+    getEstateDetailRepositoryImpl: GetEstateDetailRepositoryImpl
+  ): GetEstateDetailRepository
 }
