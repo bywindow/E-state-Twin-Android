@@ -1,5 +1,6 @@
 package com.idiot.data.api
 
+import com.idiot.model.DetailEstate
 import com.idiot.model.EstateListBrokerResponse
 import com.idiot.model.RecommendedEstate
 import com.idiot.model.TokenResponse
@@ -69,5 +70,13 @@ class EstateClient @Inject constructor(
   ): Response<String> = estateService.requestPostEstateBroker(
     accessToken = accessToken,
     body = body
+  )
+
+  suspend fun requestGetDetailEstate(
+    accessToken: String,
+    estateId: Int
+  ): Response<DetailEstate> = estateService.requestGetDetailEstate(
+    accessToken = accessToken,
+    estateId = estateId
   )
 }
