@@ -194,27 +194,11 @@ class RegisterARActivity : AppCompatActivity() {
     }
   }
 
-  private val getAssetPhotoResult =
-    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-      if (it.resultCode == Activity.RESULT_OK && it.data != null) {
-        Timber.d("CAMERA : ${it.data}")
-        Timber.d("CAMERA : ${it.data!!.extras}")
-        val extras: Bundle? = it.data!!.extras
-        if (extras != null) {
-          val bitmap = extras.get("data") as Bitmap
-          bottomSheetBinding.assetImageView.apply {
-            setImageBitmap(bitmap)
-            scaleType = ImageView.ScaleType.FIT_XY
-          }
-        }
-      }
-    }
-
   private fun sessionCloseButtonClicked() {
     binding.checklistCompleteButton.setOnClickListener {
       Timber.d("ARfragment: closing...")
       val intent =
-        Intent().apply { putExtra("data", ArrayList(viewModel.mappedAssetAnchor.value.toList())) }
+        Intent().apply { putExtra("data", ArrayList(viewModel.mappedAssetAnchor.value.entries)) }
       setResult(RESULT_OK, intent)
       finish()
     }

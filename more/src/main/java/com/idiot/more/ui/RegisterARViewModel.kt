@@ -22,8 +22,8 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
   private val _assetCursor = MutableStateFlow(0)
   val assetCursor: StateFlow<Int> = _assetCursor
 
-  private val _mappedAssetAnchor = MutableStateFlow(emptyMap<Int, String>())
-  val mappedAssetAnchor: StateFlow<Map<Int, String>> = _mappedAssetAnchor
+  private val _mappedAssetAnchor = MutableStateFlow(emptyMap<Int, DetailAsset>())
+  val mappedAssetAnchor: StateFlow<Map<Int, DetailAsset>> = _mappedAssetAnchor
 
   fun initAssetList(items: List<HouseOption>) {
     _optionList.value = items
@@ -43,7 +43,7 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
 
   fun mappingAnchorToAsset(assetId: Int, anchorId: String) {
     val temp = _mappedAssetAnchor.value.toMutableMap()
-    temp[assetId] = anchorId
+    temp[assetId]?.anchorId = anchorId
     _mappedAssetAnchor.value = temp
     Timber.d("ASSET MAP : ${mappedAssetAnchor.value}")
   }
@@ -51,6 +51,18 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
   fun addAssetPhotoUri(uri: String) {
     val temp = _assetList.value.toMutableList()
     temp[assetCursor.value].assetPhoto = uri
+    _assetList.value = temp.toList()
+  }
+
+  fun addAssetManufacture(s : CharSequence, start: Int, before: Int, count: Int) {
+    val temp = _assetList.value.toMutableList()
+    temp[assetCursor.value].manufacturer = s.toString()
+    _assetList.value = temp.toList()
+  }
+
+  fun addAssetProduct(s : CharSequence, start: Int, before: Int, count: Int) {
+    val temp = _assetList.value.toMutableList()
+    temp[assetCursor.value].productName = s.toString()
     _assetList.value = temp.toList()
   }
 }

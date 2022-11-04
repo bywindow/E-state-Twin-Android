@@ -20,9 +20,12 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ConcatAdapter
 import com.google.android.material.snackbar.Snackbar
+import com.idiot.model.DetailAsset
 import com.idiot.model.HouseOption
 import com.idiot.model.RegisterEstatePicture
 import com.idiot.more.R
@@ -32,6 +35,7 @@ import com.idiot.more.ui.adapter.RegisterInfoPictureAdapter
 import com.idiot.more.ui.adapter.RegisterInfoPictureHeaderAdapter
 import com.idiot.utils.NetworkStatus
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -39,6 +43,7 @@ class RegisterInfoFragment : Fragment() {
 
   private lateinit var binding: FragmentRegisterInfoBinding
   private lateinit var viewModel: RegisterInfoViewModel
+  private val args: RegisterInfoFragmentArgs by navArgs()
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -97,7 +102,7 @@ class RegisterInfoFragment : Fragment() {
   private val getAssetAnchorResult: ActivityResultLauncher<Intent> = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
     Timber.d("COME BACK MAIN ACTIVITY")
     if (it.resultCode == Activity.RESULT_OK && it.data != null) {
-      val data = it.data!!.getSerializableExtra("data") as List<Pair<Int, String>>
+      val data = it.data!!.getSerializableExtra("data") as ArrayList<DetailAsset>
       Timber.d("ASSET INFO FRAGMENT : $data")
       viewModel.changeArChecklist(data)
     }
@@ -254,7 +259,9 @@ class RegisterInfoFragment : Fragment() {
 
   private fun registerCompleteButtonClicked() {
     binding.registerCompleteButton.setOnClickListener {
-      Timber.d("${viewModel.ableShort.value}, ${viewModel.heatType.value}")
+      viewLifecycleOwner.lifecycleScope.launch {
+        viewModel.requestPostEstate(args.estateId)
+      }
     }
   }
 }

@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.idiot.data.repository.samples.imageUrlSample
 import com.idiot.home.databinding.FragmentHouseDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HouseDetailFragment : Fragment() {
 
   private lateinit var binding: FragmentHouseDetailBinding

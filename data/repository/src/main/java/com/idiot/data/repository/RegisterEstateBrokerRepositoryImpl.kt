@@ -15,14 +15,14 @@ class RegisterEstateBrokerRepositoryImpl @Inject constructor(
   override suspend fun requestPostEstateBroker(
     accessToken: String,
     data: RegisterEstateBroker
-  ): JSONObject {
+  ): String {
     val gson = Gson()
     val json = gson.toJson(data)
     val response = estateClient.requestPostEstateBroker(
       accessToken = "Bearer $accessToken",
       body = json.toRequestBody()
     )
-    return if (response.isSuccessful) response.body() as JSONObject else JSONObject("")
+    return if (response.isSuccessful) "OK" else "NO"
   }
 
 }

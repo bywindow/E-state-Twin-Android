@@ -282,16 +282,11 @@ class RegisterInfoViewModel @Inject constructor(
     _address.value = data
   }
 
-  fun changeArChecklist(data: List<Pair<Int, String>>) {
-    val temp = _optionList.value!!.toMutableMap()
-    data.forEach {
-      temp[it.first]?.anchorId = it.second
-    }
-    _optionList.postValue(temp)
-    Timber.d("ASSET OPTION LIST: ${optionList.value}")
+  fun changeArChecklist(data: List<DetailAsset>) {
+    _assetList.value = data
   }
 
-  fun requestPostEstate() {
+  fun requestPostEstate(id : Int) {
     var manageItem = ""
     managementFeeIncluding.value.entries.forEach {
       if (it.value) {
@@ -301,22 +296,40 @@ class RegisterInfoViewModel @Inject constructor(
     if (manageItem.isNotEmpty()) {
       manageItem = manageItem.substring(0, manageItem.length-1)
     }
-//    val house = DetailHouse(
-//      deposit = deposit.value,
-//      monthlyRent = monthly.value,
-//      sellingFee = 0,
-//      currentFloors = curBuildingFloor.value,
-//      totalFloors = totalBuildingFloor.value,
-//      shortTermRent = ableShort.value == 1,
-//      maintenanceFee = managementFee.value,
-//      itemsIncludedMaintenanceFee = manageItem,
-//      netRentableArea = netArea.value.toInt(),
-//      rentableArea = area.value.toInt(),
-//      parking = enableParking.value,
-//      parkingFee = parkingFee.value,
-//      moveInAvailableDate = "${availableDate.value[0]}-${availableDate.value[1]}-${availableDate.value[2]}",
-//      heatType = MappingToEnumUtil.heatTypeMapping(heatType.value),
-//      estateType = MappingToEnumUtil.estateTypeMapping(estateType.value)
-//    )
+    val house = DetailHouse(
+      deposit = deposit.value,
+      monthlyRent = monthly.value,
+      sellingFee = 0,
+      currentFloors = curBuildingFloor.value,
+      totalFloors = totalBuildingFloor.value,
+      shortTermRent = ableShort.value == 1,
+      maintenanceFee = managementFee.value,
+      itemsIncludedMaintenanceFee = manageItem,
+      netRentableArea = netArea.value.toInt(),
+      rentableArea = area.value.toInt(),
+      parking = enableParking.value,
+      parkingFee = parkingFee.value,
+      moveInAvailableDate = "${availableDate.value[0]}-${availableDate.value[1]}-${availableDate.value[2]}",
+      heatType = MappingToEnumUtil.heatTypeMapping(heatType.value),
+      estateType = MappingToEnumUtil.estateTypeMapping(estateType.value)
+    )
+    val photoList : MutableList<String> = mutableListOf()
+    estatePictureUri.value.forEach {
+      photoList.add(it.file_url)
+    }
+    val data = RegisterEstateBroker(
+      id = id,
+      floorplan = estateFloorPlan.value!!.file_url,
+      transactionType = if (monthly.value == 0) "LEASE" else "MONTHLYRENT",
+      arCam = "",
+      house = house,
+      estatePhotos = photoList,
+      assets = assetList.value
+    )
+    viewModelScope.launch {
+      val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
+      val response = registerEstateBrokerRepository.requestPostEstateBroker(token, data)
+      Timber.d(response)
+    }
   }
 }

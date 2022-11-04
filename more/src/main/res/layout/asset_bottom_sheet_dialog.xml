@@ -4,9 +4,14 @@
   xmlns:tools="http://schemas.android.com/tools">
 
   <data>
+
     <variable
       name="asset"
       type="com.idiot.model.HouseOption" />
+
+    <variable
+      name="vm"
+      type="com.idiot.more.ui.RegisterARViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,6 +73,7 @@
       android:importantForAutofill="no"
       android:includeFontPadding="false"
       android:inputType="text"
+      android:onTextChanged="@{vm.addAssetManufacture}"
       android:textSize="14sp"
       app:layout_constraintStart_toStartOf="@id/category_text_view"
       app:layout_constraintTop_toBottomOf="@id/option_text_view" />
@@ -81,6 +87,7 @@
       android:importantForAutofill="no"
       android:includeFontPadding="false"
       android:inputType="text"
+      android:onTextChanged="@{vm.addAssetProduct}"
       android:textSize="14sp"
       app:layout_constraintStart_toStartOf="@id/category_text_view"
       app:layout_constraintTop_toBottomOf="@id/manufacturer_edit_text" />
@@ -89,6 +96,7 @@
       android:id="@+id/complete_button"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginTop="18dp"
       android:background="@color/purple_700"
       android:gravity="center"
       android:paddingVertical="12dp"
@@ -96,7 +104,6 @@
       android:textColor="@color/white"
       android:textSize="16sp"
       android:textStyle="bold"
-      android:layout_marginTop="18dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintTop_toBottomOf="@id/product_name_edit_text" />
 

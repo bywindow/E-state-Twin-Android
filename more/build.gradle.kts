@@ -20,13 +20,6 @@ android {
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
-
-    resValue(
-      "string",
-      "GOOGLE_API_KEY",
-      gradleLocalProperties(rootDir).getProperty("google.api.key")
-    )
-
   }
 
   buildTypes {
@@ -35,6 +28,19 @@ android {
       proguardFiles(
         getDefaultProguardFile("proguard-android-optimize.txt"),
         "proguard-rules.pro"
+      )
+      resValue(
+        "string",
+        "GOOGLE_API_KEY",
+        gradleLocalProperties(rootDir).getProperty("google.api.key")
+      )
+    }
+
+    debug {
+      resValue(
+        "string",
+        "GOOGLE_API_KEY",
+        gradleLocalProperties(rootDir).getProperty("google.api.key")
       )
     }
   }

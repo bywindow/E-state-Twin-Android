@@ -52,7 +52,6 @@ class NewRegisterRequestFragment : Fragment() {
       viewModel.getEstateList().collect() {
         binding.registerRequestList.adapter = RegisterNewInquiryAdapter(viewModel.estateList.value)
       }
-      Timber.d("FRGEMANE : ${viewModel.estateList.value}")
     }
   }
 }
