@@ -1,74 +1,52 @@
 package com.idiot.home.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.idiot.home.R
-import com.idiot.model.HouseOption
+import com.idiot.home.databinding.ListItemDetailOptionBinding
+import com.idiot.model.AssetIncludingChecklist
 
-class HouseOptionListAdapter(private val optionList: List<HouseOption>) :
-    RecyclerView.Adapter<HouseOptionListAdapter.ViewHolder>() {
+class HouseOptionListAdapter() :
+  ListAdapter<AssetIncludingChecklist, HouseOptionListAdapter.ViewHolder>(diffUtil) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.list_item_detail_option,
-                parent,
-                false
-            )
-        )
+  inner class ViewHolder(
+    private val binding: ListItemDetailOptionBinding
+  ): RecyclerView.ViewHolder(binding.root) {
+
+    fun bind(item: AssetIncludingChecklist) {
+      binding.model = item
+      binding.executePendingBindings()
     }
+  }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.optionImage.setImageResource(optionList[position].icon)
-        holder.optionText.text = optionList[position].desc
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    return ViewHolder(
+      DataBindingUtil.inflate(
+        LayoutInflater.from(parent.context),
+        R.layout.list_item_detail_option,
+        parent,
+        false
+      )
+    )
+  }
+
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    holder.bind(getItem(position))
+  }
+
+  companion object {
+    private val diffUtil = object : DiffUtil.ItemCallback<AssetIncludingChecklist>() {
+      override fun areItemsTheSame(oldItem: AssetIncludingChecklist, newItem: AssetIncludingChecklist): Boolean {
+        return oldItem.id == newItem.id
+      }
+
+      override fun areContentsTheSame(oldItem: AssetIncludingChecklist, newItem: AssetIncludingChecklist): Boolean {
+        return oldItem == newItem
+      }
     }
-
-    override fun getItemCount(): Int {
-        return optionList.size
-    }
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val optionImage: ImageView = itemView.findViewById(R.id.option_imageView)
-        val optionText: TextView = itemView.findViewById(R.id.option_textView)
-        // TODO INIT
-
-    }
+  }
 }
-
-
-//
-//override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//    return ViewHolder(
-//        DataBindingUtil.inflate(
-//            LayoutInflater.from(parent.context),
-//            R.layout.list_item_detail_option,
-//            parent,
-//            false
-//        )
-//    )
-//}
-//
-//override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//    holder.bind(optionList[position])
-//}
-//
-//override fun getItemCount(): Int {
-//    return optionList.size
-//}
-//
-//class ViewHolder(
-//    private val binding: ListItemDetailOptionBinding
-//) : RecyclerView.ViewHolder(binding.root) {
-//    // TODO INIT
-//
-//    fun bind(optionItem: OptionItem){
-//        with(binding) {
-//            viewmodel = HouseOptionViewModel(optionItem)
-//            executePendingBindings()
-//        }
-//    }
-//}

@@ -19,7 +19,7 @@
     android:label="HouseDetailFragment">
     <argument
       android:name="houseId"
-      app:argType="long"/>
+      app:argType="integer"/>
     <action
       android:id="@+id/action_houseDetailFragment_to_floorPlanFragment"
       app:destination="@id/floorPlanFragment" />

@@ -42,7 +42,7 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
       }
     }
 
-    private fun navigateToDetail(houseId: Long, view: View) {
+    private fun navigateToDetail(houseId: Int, view: View) {
       val direction = HomeFragmentDirections
         .actionHomeFragmentToHouseDetailFragment(houseId)
       view.findNavController().navigate(direction)
