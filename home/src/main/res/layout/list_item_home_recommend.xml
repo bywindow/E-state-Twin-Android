@@ -1,112 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
+  <data>
 
-        <variable
-            name="changeThumbnail"
-            type="android.view.View.OnClickListener" />
-        <!--        Add viewmodel -->
-    </data>
+    <variable
+      name="clickListener"
+      type="android.view.View.OnClickListener" />
 
-    <com.google.android.material.card.MaterialCardView
+    <variable
+      name="changeThumbnail"
+      type="android.view.View.OnClickListener" />
+  </data>
+
+  <com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/card_bottom_margin"
+    android:onClick="@{clickListener}"
+    app:cardElevation="0dp"
+    app:cardPreventCornerOverlap="false"
+    app:shapeAppearanceOverlay="@style/ShapeAppearance.Estate.Card">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingHorizontal="10dp">
+
+      <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/card_bottom_margin"
-        android:onClick="@{clickListener}"
-        app:cardElevation="0dp"
-        app:cardPreventCornerOverlap="false"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Estate.Card">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp">
+        <ImageView
+          android:id="@+id/imageView"
+          android:layout_width="match_parent"
+          android:layout_height="150dp"
+          android:background="@drawable/card_image_rounded"
+          android:clipToOutline="true"
+          android:contentDescription="@string/home_recommend_card_image_desc"
+          android:scaleType="centerCrop" />
 
-            <RelativeLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/thumbnail_button"
+          android:layout_width="32dp"
+          android:layout_height="32dp"
+          android:layout_alignEnd="@+id/imageView"
+          android:layout_marginTop="6dp"
+          android:layout_marginEnd="6dp"
+          android:background="@drawable/ic_btn_change_thumbnail"
+          android:onClick="@{changeThumbnail}" />
+      </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/card_image_rounded"
-                    android:clipToOutline="true"
-                    android:contentDescription="@string/home_recommend_card_image_desc"
-                    android:scaleType="centerCrop" />
+      <TextView
+        android:id="@+id/estate_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="start"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        tools:text="전세" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/thumbnail_button"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_alignEnd="@+id/imageView"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="6dp"
-                    android:background="@drawable/ic_btn_change_thumbnail"
-                    android:onClick="@{changeThumbnail}"/>
-            </RelativeLayout>
+      <TextView
+        android:id="@+id/house_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:gravity="start"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/estate_type"
+        app:layout_constraintTop_toTopOf="@+id/estate_type"
+        tools:text="25억" />
 
-            <TextView
-                android:id="@+id/house_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="start"
-                android:text="가격"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-                tools:text="전세 25억" />
+      <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_sub_text"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/house_price">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/card_margin_sub_text"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/house_price">
+        <TextView
+          android:id="@+id/house_type"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="유형"
+          android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+          android:textColor="@color/gray_500"
+          tools:text="아파트" />
 
-                <TextView
-                    android:id="@+id/house_type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="유형"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-                    android:textColor="@color/gray_500"
-                    tools:text="아파트" />
+        <View
+          android:layout_width="2dp"
+          android:layout_height="2dp"
+          android:layout_gravity="center"
+          android:layout_marginHorizontal="3dp"
+          android:background="@color/gray_500" />
 
-                <View
-                    android:layout_width="2dp"
-                    android:layout_height="2dp"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="3dp"
-                    android:background="@color/gray_500" />
+        <TextView
+          android:id="@+id/house_address"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="지역"
+          android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+          android:textColor="@color/gray_500"
+          tools:text="반포동" />
 
-                <TextView
-                    android:id="@+id/house_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="지역"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-                    android:textColor="@color/gray_500"
-                    tools:text="반포동" />
+      </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+  </com.google.android.material.card.MaterialCardView>
 </layout>

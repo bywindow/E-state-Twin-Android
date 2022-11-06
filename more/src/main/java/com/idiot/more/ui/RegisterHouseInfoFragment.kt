@@ -133,8 +133,10 @@ class RegisterHouseInfoFragment : BottomSheetDialogFragment() {
     binding.datePicker.setOnClickListener {
       val calendar = Calendar.getInstance()
       val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-        binding.datePicker.text = "${year}년 ${month+1}월 ${dayOfMonth}일"
-        viewModel.changeAvailableDate(year, month, dayOfMonth)
+        val monthString = if (month < 9) "0${month+1}" else "${month+1}"
+        val dayOfMonthString = if (dayOfMonth < 10) "0$dayOfMonth" else dayOfMonth.toString()
+        binding.datePicker.text = "${year}년 ${monthString}월 ${dayOfMonthString}일"
+        viewModel.changeAvailableDate("$year", monthString, dayOfMonthString)
       }
       DatePickerDialog(context!!, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show()
     }

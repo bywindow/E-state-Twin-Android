@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentRegisterPriceInfoBinding
@@ -32,7 +33,17 @@ class RegisterPriceInfoFragment : BottomSheetDialogFragment() {
     viewModel = ViewModelProvider(requireParentFragment().childFragmentManager.fragments[0])[RegisterInfoViewModel::class.java]
     binding.lifecycleOwner = viewLifecycleOwner
     binding.vm = viewModel
+
+    completeButtonClicked()
+
     return binding.root
+  }
+
+  private fun completeButtonClicked() {
+    binding.completeButton.setOnClickListener {
+      saveInputField()
+      findNavController().navigateUp()
+    }
   }
 
   private fun saveInputField() {

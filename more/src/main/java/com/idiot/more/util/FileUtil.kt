@@ -1,20 +1,12 @@
 package com.idiot.more.util
 
-import android.content.ContentResolver
 import android.content.Context
-import android.database.Cursor
 import android.graphics.Bitmap
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.os.Environment
-import android.provider.MediaStore
-import timber.log.Timber
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
-import java.io.IOException
-import java.io.OutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -51,7 +43,7 @@ object FileUtil {
   }
 
   fun generateFileName(): String {
-    val date = SimpleDateFormat("yyyyMMddHHmmss", java.util.Locale.KOREA).format(Date())
+    val date = SimpleDateFormat("yyyyMMddHHmmss", Locale.KOREA).format(Date())
     return "${
       Environment.getExternalStoragePublicDirectory(
         Environment.DIRECTORY_PICTURES

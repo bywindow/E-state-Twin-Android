@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
+import java.time.LocalDateTime
 import javax.inject.Inject
 import kotlin.collections.List
 import kotlin.collections.Map
@@ -83,8 +84,8 @@ class RegisterInfoViewModel @Inject constructor(
   private val _ableShort = MutableStateFlow(0)
   val ableShort: StateFlow<Int> = _ableShort
 
-  private val _availableDate = MutableStateFlow(emptyList<Int>())
-  val availableDate: StateFlow<List<Int>> = _availableDate
+  private val _availableDate = MutableStateFlow(emptyList<String>())
+  val availableDate: StateFlow<List<String>> = _availableDate
 
   private val _buildingName = MutableStateFlow("")
   val buildingName: StateFlow<String> = _buildingName
@@ -162,7 +163,7 @@ class RegisterInfoViewModel @Inject constructor(
     val context = getApplication<Application>().applicationContext
     viewModelScope.launch {
       val file: File = FileUtil.convertUriToFile(context, image)
-      val response = estateFloorPlanUploadRepository.requestEstateFloorPlan(estateId, file)
+      val response = estateFloorPlanUploadRepository.requestEstateFloorPlan(11, file)
       Timber.d("aws floor plan response: $response")
       _estateFloorPlan.value = response
     }
@@ -222,7 +223,7 @@ class RegisterInfoViewModel @Inject constructor(
     }
   }
 
-  fun changeAvailableDate(year: Int, month: Int, day: Int) {
+  fun changeAvailableDate(year: String, month: String, day: String) {
     val temp = listOf(year, month, day)
     _availableDate.value = temp
   }

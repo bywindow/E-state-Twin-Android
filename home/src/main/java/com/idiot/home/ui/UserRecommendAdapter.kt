@@ -8,29 +8,16 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.idiot.home.R
 import com.idiot.home.databinding.ListItemHomeRecommendBinding
+import com.idiot.home.util.EnumToText
 import com.idiot.model.RecommendedEstate
 
 class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>) :
   RecyclerView.Adapter<UserRecommendAdapter.ViewHolder>() {
 
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-    return ViewHolder(
-      DataBindingUtil.inflate(
-        LayoutInflater.from(parent.context),
-        R.layout.list_item_home_recommend,
-        parent,
-        false
-      )
-    )
-  }
-
-  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.bind(recommendedList[position])
-  }
-
   inner class ViewHolder(
     private val binding: ListItemHomeRecommendBinding
   ) : RecyclerView.ViewHolder(binding.root) {
+
     init {
       binding.setClickListener { view ->
         val position = bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }
@@ -48,11 +35,27 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
       view.findNavController().navigate(direction)
     }
 
-    fun bind(recommend: RecommendedEstate) {
-      with(binding) {
-        executePendingBindings()
-      }
+    fun bind(item: RecommendedEstate) {
+      binding.estateType.text = EnumToText.changeTransactionType(item.transactionType)
+      binding.housePrice.text = item.sellingFee.toString()
+      binding.houseType.text = EnumToText.changeEstateType(item.estateType)
+      binding.houseAddress.text = item.town
     }
+  }
+
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    return ViewHolder(
+      DataBindingUtil.inflate(
+        LayoutInflater.from(parent.context),
+        R.layout.list_item_home_recommend,
+        parent,
+        false
+      )
+    )
+  }
+
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    holder.bind(recommendedList[position])
   }
 
   override fun getItemCount(): Int {

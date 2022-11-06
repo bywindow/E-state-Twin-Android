@@ -131,4 +131,14 @@ object ViewBinding {
     }
   }
 
+  @JvmStatic
+  @BindingAdapter("isParking")
+  fun bindIsParking(view: AppCompatButton, isParking: Boolean) {
+    if (isParking) {
+      SelectedTypeUtil.getActiveBackground(view)
+    } else {
+      SelectedTypeUtil.getInactiveBackground(view)
+    }
+  }
+
 }

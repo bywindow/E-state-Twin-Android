@@ -29,7 +29,7 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
     _optionList.value = items
     val nList: MutableList<DetailAsset> = emptyList<DetailAsset>().toMutableList()
     items.forEach {
-      val temp = DetailAsset(id = it.id, category = it.category, option = it.key, productName = null, manufacturer = null, anchorId = null, assetPhoto = null, repairDate = null)
+      val temp = DetailAsset(id = it.id, category = it.category, option = it.key, productName = null, manufacturer = null, anchorId = null, assetPhoto = null)
       nList.add(temp)
     }
     _assetList.value = nList
