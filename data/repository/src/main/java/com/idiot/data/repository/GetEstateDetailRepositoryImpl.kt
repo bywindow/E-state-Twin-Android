@@ -1,5 +1,6 @@
 package com.idiot.data.repository
 
+import androidx.annotation.WorkerThread
 import com.idiot.data.api.EstateClient
 import com.idiot.model.DetailEstate
 import kotlinx.coroutines.flow.flow
@@ -11,8 +12,9 @@ class GetEstateDetailRepositoryImpl @Inject constructor(
   private val userPreferenceRepository: UserPreferenceRepository,
 ): GetEstateDetailRepository {
 
+  @WorkerThread
   override suspend fun requestGetDetailEstate(
-    estateId: Int
+    estateId: Long
   ): DetailEstate? {
     val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
     val response = estateClient.requestGetDetailEstate(

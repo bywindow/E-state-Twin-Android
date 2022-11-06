@@ -24,7 +24,7 @@ class HouseDetailViewModel @Inject constructor(
   private val _assetList = MutableStateFlow<List<AssetIncludingChecklist>>(emptyList())
   val assetList = _assetList.asStateFlow()
 
-  fun fetchEstateDetail(estateId: Int) = flow {
+  fun fetchEstateDetail(estateId: Long) = flow {
     val response = getEstateDetailRepository.requestGetDetailEstate(estateId)
     Timber.d("Detail VM : $response")
     if (response != null) {

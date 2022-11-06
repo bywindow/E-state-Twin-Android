@@ -23,7 +23,7 @@
       android:name=".ui.RegisterARActivity"
       android:configChanges="orientation|screenSize"
       android:exported="false"
-      android:screenOrientation="locked"/>
+      android:screenOrientation="locked" />
 
     <provider
       android:name="androidx.core.content.FileProvider"
@@ -37,7 +37,7 @@
 
     <meta-data
       android:name="com.google.ar.core"
-      android:value="@string/GOOGLE_API_KEY"
+      android:value="required"
       tools:replace="android:value" />
   </application>
 

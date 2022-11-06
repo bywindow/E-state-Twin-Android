@@ -8,6 +8,6 @@ interface GetEstateDetailRepository {
 
   @WorkerThread
   suspend fun requestGetDetailEstate(
-    estateId: Int
+    estateId: Long
   ) : DetailEstate?
 }

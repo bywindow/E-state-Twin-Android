@@ -62,10 +62,10 @@ interface EstateService {
     @Body body: RequestBody
   ): Response<String>
 
-  @GET("estate/detail")
+  @GET("estate/detail/{estateId}")
   suspend fun requestGetDetailEstate(
     @Header("Content-Type") contentType: String = "application/json",
     @Header("Authorization") accessToken: String,
-    @Query("estateId") estateId: Int
+    @Path("estateId") estateId: Long
   ): Response<DetailEstate>
 }

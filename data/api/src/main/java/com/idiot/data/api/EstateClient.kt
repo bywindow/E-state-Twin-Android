@@ -74,7 +74,7 @@ class EstateClient @Inject constructor(
 
   suspend fun requestGetDetailEstate(
     accessToken: String,
-    estateId: Int
+    estateId: Long
   ): Response<DetailEstate> = estateService.requestGetDetailEstate(
     accessToken = accessToken,
     estateId = estateId
