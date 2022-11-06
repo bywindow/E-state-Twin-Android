@@ -324,11 +324,12 @@ class RegisterInfoViewModel @Inject constructor(
     }
     val data = RegisterEstateBroker(
       id = id,
-      floorplan = estateFloorPlan.value!!.file_url,
+      floorplan = "",
       transactionType = if (monthly.value == 0) "LEASE" else "MONTHLYRENT",
       arCam = "",
       house = house,
       estatePhotos = photoList,
+      estateVideos = listOf(""),
       assets = assetList.value
     )
     viewModelScope.launch {
