@@ -31,6 +31,7 @@
       android:autoSizeMinTextSize="8sp"
       android:autoSizeTextType="uniform"
       android:maxLines="1"
+
       android:textAppearance="@style/TextAppearance.idiot.icon.Text"
       android:textSize="10sp" />
   </androidx.appcompat.widget.LinearLayoutCompat>

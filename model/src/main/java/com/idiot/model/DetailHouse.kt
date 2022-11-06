@@ -19,5 +19,5 @@ data class DetailHouse(
   val elevator: Boolean,
   val duplex: Boolean,
   val structure: String,
-  val veranda: String
+  val veranda: Boolean
 )

@@ -311,7 +311,11 @@ class RegisterInfoViewModel @Inject constructor(
       parkingFee = parkingFee.value,
       moveInAvailableDate = "${availableDate.value[0]}-${availableDate.value[1]}-${availableDate.value[2]}",
       heatType = MappingToEnumUtil.heatTypeMapping(heatType.value),
-      estateType = MappingToEnumUtil.estateTypeMapping(estateType.value)
+      estateType = MappingToEnumUtil.estateTypeMapping(estateType.value),
+      elevator = hasElevator.value == 1,
+      duplex = hasDuplex.value == 1,
+      structure = if (roomType.value == 1) "LOFT" else "SEPARATE_KITCHEN",
+      veranda = hasVeranda.value == 1
     )
     val photoList : MutableList<String> = mutableListOf()
     estatePictureUri.value.forEach {

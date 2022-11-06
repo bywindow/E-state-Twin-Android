@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.idiot.data.repository.samples.imageUrlSample
 import com.idiot.home.databinding.FragmentHouseDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HouseDetailFragment : Fragment() {
@@ -26,14 +28,17 @@ class HouseDetailFragment : Fragment() {
   ): View? {
     binding = FragmentHouseDetailBinding.inflate(inflater, container, false)
     binding.vm = viewModel
-    viewModel.fetchEstateDetail(args.houseId)
 
     return binding.root
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     fetchBrokerProfile()
-    binding.glideSlideViewPager.adapter = HouseImageSliderAdapter(viewModel.detailEstate.value!!.estatePhotos)
+    viewLifecycleOwner.lifecycleScope.launch {
+      viewModel.fetchEstateDetail(args.houseId).collect {
+        binding.glideSlideViewPager.adapter = HouseImageSliderAdapter(viewModel.estateImageList.value)
+      }
+    }
     binding.optionAdapter = HouseOptionListAdapter()
     navigateButtonClicked()
   }

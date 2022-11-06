@@ -13,17 +13,13 @@ class GetEstateDetailRepositoryImpl @Inject constructor(
 
   override suspend fun requestGetDetailEstate(
     estateId: Int
-  ) = flow {
+  ): DetailEstate? {
     val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
     val response = estateClient.requestGetDetailEstate(
       accessToken = "Bearer $token",
       estateId = estateId
     )
     Timber.d("DETAIL REPO : $response")
-    if (response.isSuccessful) {
-      val data = response.body() as DetailEstate
-      emit(data)
-    }
+    return if (response.isSuccessful) response.body() as DetailEstate else null
   }
-
 }

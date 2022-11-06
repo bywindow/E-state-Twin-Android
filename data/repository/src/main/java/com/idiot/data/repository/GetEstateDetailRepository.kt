@@ -9,5 +9,5 @@ interface GetEstateDetailRepository {
   @WorkerThread
   suspend fun requestGetDetailEstate(
     estateId: Int
-  ) : Flow<DetailEstate>
+  ) : DetailEstate?
 }
