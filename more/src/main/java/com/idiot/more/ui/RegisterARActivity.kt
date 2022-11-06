@@ -187,7 +187,7 @@ class RegisterARActivity : AppCompatActivity() {
     }
     bottomSheet.apply {
       setContentView(bottomSheetBinding.root)
-      show()
+      if (!this@RegisterARActivity.isFinishing) show()
     }
     bottomSheetBinding.completeButton.setOnClickListener {
       bottomSheet.dismiss()

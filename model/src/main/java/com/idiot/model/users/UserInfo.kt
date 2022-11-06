@@ -1,7 +1,5 @@
 package com.idiot.model.users
 
-import com.idiot.model.TenantEstate
-
 data class UserInfo(
   val id: Int,
   val birthday: String,
