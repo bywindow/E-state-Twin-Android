@@ -19,7 +19,7 @@ class MoreViewModel @Inject constructor(
 
   private val _accessToken: MutableStateFlow<String> = MutableStateFlow("")
 
-  private val _userInfo = MutableStateFlow(MyPageResponse(0, "", emptyList(), "", false))
+  private val _userInfo = MutableStateFlow(MyPageResponse(0, "", "", "", false))
   val userInfo: StateFlow<MyPageResponse> = _userInfo
 
   fun fetchUserInfo() = flow {
