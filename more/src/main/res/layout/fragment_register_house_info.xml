@@ -4,6 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools">
 
   <data>
+
     <variable
       name="vm"
       type="com.idiot.more.ui.RegisterInfoViewModel" />
@@ -100,7 +101,8 @@
               android:layout_marginTop="30dp"
               android:includeFontPadding="false"
               android:text="건물이름"
-              android:textAppearance="@style/TextAppearance.idiot.tab.title.Text" />
+              android:textAppearance="@style/TextAppearance.idiot.tab.title.Text"
+              android:visibility="gone" />
 
             <EditText
               android:id="@+id/building_name_input"
@@ -113,7 +115,8 @@
               android:inputType="text"
               android:paddingHorizontal="15dp"
               android:paddingVertical="13dp"
-              android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+              android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+              android:visibility="gone" />
 
             <LinearLayout
               android:layout_width="match_parent"
