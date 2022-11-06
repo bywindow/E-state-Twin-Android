@@ -9,7 +9,7 @@ fun optionSample(): List<HouseOption> {
       id = 10,
       key = "AIRCONDITIONER",
       category = "HOMEAPPLIANCES",
-      icon = R . drawable . ic_option_ac,
+      icon = R.drawable.ic_option_ac,
       desc = "에어컨",
       hasOption = false
     ),

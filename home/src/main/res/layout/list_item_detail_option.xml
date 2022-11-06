@@ -21,17 +21,18 @@
 
     <ImageView
       android:id="@+id/option_imageView"
+      assetImage="@{model.option}"
       android:layout_width="42dp"
       android:layout_height="42dp" />
 
     <TextView
       android:id="@+id/option_textView"
+      assetName="@{model.option}"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:autoSizeMinTextSize="8sp"
       android:autoSizeTextType="uniform"
       android:maxLines="1"
-
       android:textAppearance="@style/TextAppearance.idiot.icon.Text"
       android:textSize="10sp" />
   </androidx.appcompat.widget.LinearLayoutCompat>
