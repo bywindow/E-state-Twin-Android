@@ -335,7 +335,7 @@ class RegisterInfoViewModel @Inject constructor(
     viewModelScope.launch {
       val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
       val response = registerEstateBrokerRepository.requestPostEstateBroker(token, data)
-      Timber.d(response)
+      Timber.d("$response")
     }
   }
 }

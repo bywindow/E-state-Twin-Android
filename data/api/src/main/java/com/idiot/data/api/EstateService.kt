@@ -1,9 +1,6 @@
 package com.idiot.data.api
 
-import com.idiot.model.DetailEstate
-import com.idiot.model.EstateListBrokerResponse
-import com.idiot.model.RecommendedEstate
-import com.idiot.model.TokenResponse
+import com.idiot.model.*
 import com.idiot.model.users.MyPageResponse
 import com.idiot.model.users.UserSignUpResponse
 import okhttp3.RequestBody
@@ -60,7 +57,7 @@ interface EstateService {
     @Header("Content-Type") contentType: String = "application/json",
     @Header("Authorization") accessToken: String,
     @Body body: RequestBody
-  ): Response<String>
+  ): Response<RegisterEstateBrokerResponse>
 
   @GET("estate/detail/{estateId}")
   suspend fun requestGetDetailEstate(

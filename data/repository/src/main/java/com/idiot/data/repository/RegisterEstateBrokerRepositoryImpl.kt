@@ -1,11 +1,10 @@
 package com.idiot.data.repository
 
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import com.idiot.data.api.EstateClient
 import com.idiot.model.RegisterEstateBroker
+import com.idiot.model.RegisterEstateBrokerResponse
 import okhttp3.RequestBody.Companion.toRequestBody
-import org.json.JSONObject
 import javax.inject.Inject
 
 class RegisterEstateBrokerRepositoryImpl @Inject constructor(
@@ -14,15 +13,15 @@ class RegisterEstateBrokerRepositoryImpl @Inject constructor(
 
   override suspend fun requestPostEstateBroker(
     accessToken: String,
-    data: RegisterEstateBroker
-  ): String {
+    body: RegisterEstateBroker
+  ): RegisterEstateBrokerResponse? {
     val gson = Gson()
-    val json = gson.toJson(data)
+    val json = gson.toJson(body)
     val response = estateClient.requestPostEstateBroker(
       accessToken = "Bearer $accessToken",
       body = json.toRequestBody()
     )
-    return if (response.isSuccessful) "OK" else "NO"
+    return if (response.isSuccessful) response.body() as RegisterEstateBrokerResponse else null
   }
 
 }
