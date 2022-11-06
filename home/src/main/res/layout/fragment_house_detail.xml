@@ -284,7 +284,7 @@
             <androidx.recyclerview.widget.RecyclerView
               android:id="@+id/detail_option_list"
               adapter="@{optionAdapter}"
-              submitList="@{vm.detailEstate.assets}"
+              submitList="@{vm.assetList}"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:clipToPadding="false"

@@ -29,18 +29,21 @@ class HouseDetailFragment : Fragment() {
     binding = FragmentHouseDetailBinding.inflate(inflater, container, false)
     binding.vm = viewModel
 
+    initAdapter()
+
+    fetchBrokerProfile()
+    navigateButtonClicked()
+
     return binding.root
   }
 
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    fetchBrokerProfile()
+  private fun initAdapter() {
     viewLifecycleOwner.lifecycleScope.launch {
       viewModel.fetchEstateDetail(args.houseId).collect {
         binding.glideSlideViewPager.adapter = HouseImageSliderAdapter(viewModel.estateImageList.value)
       }
     }
     binding.optionAdapter = HouseOptionListAdapter()
-    navigateButtonClicked()
   }
 
   private fun fetchBrokerProfile() {
