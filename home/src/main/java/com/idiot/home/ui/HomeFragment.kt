@@ -32,7 +32,9 @@ class HomeFragment : Fragment() {
     binding = DataBindingUtil.inflate(
       inflater, R.layout.fragment_home, container, false
     )
+    binding.lifecycleOwner = viewLifecycleOwner
     binding.vm = viewModel
+    binding.adapter = UserRecommendAdapter(emptyList())
     binding.homeRecommendList.itemAnimator = null
 
     initRecommendedEstate()
@@ -46,7 +48,7 @@ class HomeFragment : Fragment() {
     viewLifecycleOwner.lifecycleScope.launch {
       viewModel.fetchRecommendedEstate().collect() {
         Timber.d("${viewModel.recommendedEstates.value}")
-        binding.homeRecommendList.adapter = UserRecommendAdapter(viewModel.recommendedEstates.value)
+        binding.adapter = UserRecommendAdapter(viewModel.recommendedEstates.value)
       }
       if (viewModel.recommendedEstates.value.isEmpty()) {
         binding.homeUserRecommendTitle.text = ""

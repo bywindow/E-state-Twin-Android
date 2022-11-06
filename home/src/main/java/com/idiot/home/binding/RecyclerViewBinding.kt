@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.idiot.model.AssetIncludingChecklist
 import com.idiot.model.HouseOption
+import com.idiot.model.RecommendedEstate
 
 object RecyclerViewBinding {
 
@@ -14,5 +15,12 @@ object RecyclerViewBinding {
   fun bindAdapter(view: RecyclerView, adapter: ListAdapter<AssetIncludingChecklist, *>, itemList: List<AssetIncludingChecklist>) {
     view.adapter = adapter
     adapter.submitList(itemList)
+  }
+
+  @JvmStatic
+  @BindingAdapter("mainAdapter", "recommendList")
+  fun bindMainAdapter(view: RecyclerView, adapter: ListAdapter<RecommendedEstate, *>, recommendList: List<RecommendedEstate>) {
+    view.adapter = adapter
+    adapter.submitList(recommendList)
   }
 }

@@ -5,14 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.idiot.home.R
 import com.idiot.home.databinding.ListItemHomeRecommendBinding
 import com.idiot.home.util.EnumToText
 import com.idiot.model.RecommendedEstate
+import timber.log.Timber
 
 class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>) :
-  RecyclerView.Adapter<UserRecommendAdapter.ViewHolder>() {
+  ListAdapter<RecommendedEstate, UserRecommendAdapter.ViewHolder>(diffUtil) {
 
   inner class ViewHolder(
     private val binding: ListItemHomeRecommendBinding
@@ -25,7 +28,7 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
         navigateToDetail(recommendedList[position].id, view)
       }
       binding.setChangeThumbnail {
-
+        Timber.d("CHANGE ${recommendedList}")
       }
     }
 
@@ -55,10 +58,19 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
   }
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.bind(recommendedList[position])
+    holder.bind(getItem(position))
   }
 
-  override fun getItemCount(): Int {
-    return recommendedList.size
+  companion object {
+    private val diffUtil = object : DiffUtil.ItemCallback<RecommendedEstate>() {
+      override fun areItemsTheSame(oldItem: RecommendedEstate, newItem: RecommendedEstate): Boolean {
+        return oldItem.id == newItem.id
+      }
+
+      override fun areContentsTheSame(oldItem: RecommendedEstate, newItem: RecommendedEstate): Boolean {
+        return oldItem == newItem
+      }
+
+    }
   }
 }
