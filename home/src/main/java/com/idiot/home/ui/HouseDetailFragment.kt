@@ -27,6 +27,7 @@ class HouseDetailFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View? {
     binding = FragmentHouseDetailBinding.inflate(inflater, container, false)
+    binding.lifecycleOwner = viewLifecycleOwner
     binding.vm = viewModel
 
     initAdapter()

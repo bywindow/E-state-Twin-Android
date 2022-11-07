@@ -163,6 +163,7 @@ class RegisterInfoViewModel @Inject constructor(
     val context = getApplication<Application>().applicationContext
     viewModelScope.launch {
       val file: File = FileUtil.convertUriToFile(context, image)
+      Timber.d(estateId.toString())
       val response = estateFloorPlanUploadRepository.requestEstateFloorPlan(estateId, file)
       Timber.d("aws floor plan response: $response")
       _estateFloorPlan.value = response

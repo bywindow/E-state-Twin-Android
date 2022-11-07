@@ -18,4 +18,13 @@ object EnumToText {
       else -> ""
     }
   }
+
+  fun fetchEstatePrice(type: String, monthly: Int, deposit: Int, sellingFee: Int) : String {
+    return when (type) {
+      "MONTHLYRENT" -> "$deposit / $monthly"
+      "LEASE" -> "$deposit"
+      "TRADING" -> "$sellingFee"
+      else -> ""
+    }
+  }
 }

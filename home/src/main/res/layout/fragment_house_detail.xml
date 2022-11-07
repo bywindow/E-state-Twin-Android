@@ -4,9 +4,11 @@
   xmlns:tools="http://schemas.android.com/tools">
 
   <data>
+
     <variable
       name="vm"
       type="com.idiot.home.ui.HouseDetailViewModel" />
+
     <variable
       name="optionAdapter"
       type="com.idiot.home.ui.HouseOptionListAdapter" />
@@ -125,13 +127,23 @@
           android:layout_marginTop="28dp">
 
           <TextView
-            android:id="@+id/basic_price_info_textView"
-            android:layout_width="0dp"
+            android:id="@+id/basic_trans_type_info_textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="전세 25억"
+            android:text="@{vm.transType}"
             android:textAppearance="@style/TextAppearance.idiot.title.Text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+          <TextView
+            android:id="@+id/basic_price_info_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{vm.estatePrice}"
+            android:textAppearance="@style/TextAppearance.idiot.title.Text"
+            app:layout_constraintStart_toEndOf="@id/basic_trans_type_info_textView"
+            app:layout_constraintTop_toTopOf="@id/basic_trans_type_info_textView" />
 
           <TextView
             android:id="@+id/basic_info_register_date_textView"
@@ -148,113 +160,121 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="아크로리버파크"
+            android:text="@{vm.detailEstate.address.buildingName}"
             android:textAppearance="@style/TextAppearance.idiot.sub.Text"
-            app:layout_constraintStart_toStartOf="@+id/basic_price_info_textView"
+            app:layout_constraintStart_toStartOf="@+id/basic_trans_type_info_textView"
             app:layout_constraintTop_toBottomOf="@+id/basic_price_info_textView" />
 
           <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             app:cardCornerRadius="@dimen/detail_info_card_corner"
             app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/basic_house_name_textView">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.constraintlayout.widget.ConstraintLayout
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:gravity="center"
-              android:orientation="horizontal">
+              android:paddingVertical="20dp">
 
-              <androidx.appcompat.widget.LinearLayoutCompat
+              <ImageView
+                android:id="@+id/basic_room_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_detail_room"
+                app:layout_constraintEnd_toStartOf="@id/basic_floor_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+              <TextView
+                android:id="@+id/basic_room_textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginTop="4dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text="@{vm.estateType}"
+                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
+                app:layout_constraintEnd_toEndOf="@id/basic_room_image"
+                app:layout_constraintStart_toStartOf="@id/basic_room_image"
+                app:layout_constraintTop_toBottomOf="@id/basic_room_image" />
 
-                <ImageView
-                  android:id="@+id/basic_room_image"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="2dp"
-                  android:src="@drawable/ic_detail_room" />
+              <ImageView
+                android:id="@+id/basic_floor_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_detail_floor"
+                app:layout_constraintEnd_toStartOf="@id/basic_size_image"
+                app:layout_constraintStart_toEndOf="@id/basic_room_image"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                  android:id="@+id/basic_room_textView"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="오피스텔"
-                  android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
-              </androidx.appcompat.widget.LinearLayoutCompat>
-
-              <androidx.appcompat.widget.LinearLayoutCompat
+              <TextView
+                android:id="@+id/basic_floor_textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginTop="4dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text='@{vm.detailEstate.house.currentFloors + " 층"}'
+                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
+                app:layout_constraintEnd_toEndOf="@id/basic_floor_image"
+                app:layout_constraintStart_toStartOf="@id/basic_floor_image"
+                app:layout_constraintTop_toBottomOf="@id/basic_floor_image" />
 
-                <ImageView
-                  android:id="@+id/basic_floor_image"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="2dp"
-                  android:src="@drawable/ic_detail_floor" />
+              <ImageView
+                android:id="@+id/basic_size_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_detail_m_2"
+                app:layout_constraintEnd_toStartOf="@id/basic_cost_image"
+                app:layout_constraintStart_toEndOf="@id/basic_floor_image"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                  android:id="@+id/basic_floor_textView"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="12층"
-                  android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
-              </androidx.appcompat.widget.LinearLayoutCompat>
-
-              <androidx.appcompat.widget.LinearLayoutCompat
+              <TextView
+                android:id="@+id/basic_size_textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginTop="4dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text='@{vm.detailEstate.house.rentableArea + ""}'
+                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
+                app:layout_constraintEnd_toStartOf="@id/size_unit_text"
+                app:layout_constraintStart_toStartOf="@id/basic_size_image"
+                app:layout_constraintTop_toBottomOf="@id/basic_size_image" />
 
-                <ImageView
-                  android:id="@+id/basic_size_image"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="2dp"
-                  android:src="@drawable/ic_detail_m_2" />
-
-                <TextView
-                  android:id="@+id/basic_size_textView"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="@string/square_meter"
-                  android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
-              </androidx.appcompat.widget.LinearLayoutCompat>
-
-              <androidx.appcompat.widget.LinearLayoutCompat
+              <TextView
+                android:id="@+id/size_unit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:paddingVertical="1dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text="@string/square_meter"
+                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
+                app:layout_constraintEnd_toEndOf="@id/basic_size_image"
+                app:layout_constraintStart_toEndOf="@id/basic_size_textView"
+                app:layout_constraintTop_toTopOf="@id/basic_size_textView" />
 
-                <ImageView
-                  android:id="@+id/basic_cost_image"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:src="@drawable/ic_detail_cost" />
+              <ImageView
+                android:id="@+id/basic_cost_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_detail_cost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/basic_size_image"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                  android:id="@+id/basic_cost_textView"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="12만원"
-                  android:textAppearance="@style/TextAppearance.idiot.icon.Text" />
-              </androidx.appcompat.widget.LinearLayoutCompat>
-            </androidx.appcompat.widget.LinearLayoutCompat>
+              <TextView
+                android:id="@+id/basic_cost_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text='@{vm.detailEstate.house.maintenanceFee + "만원"}'
+                android:textAppearance="@style/TextAppearance.idiot.icon.Text"
+                app:layout_constraintEnd_toEndOf="@id/basic_cost_image"
+                app:layout_constraintStart_toStartOf="@id/basic_cost_image"
+                app:layout_constraintTop_toBottomOf="@id/basic_cost_image" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
           </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

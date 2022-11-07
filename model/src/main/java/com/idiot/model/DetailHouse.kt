@@ -15,7 +15,7 @@ data class DetailHouse(
   val parkingFee: Int,
   val moveInAvailableDate: String,
   val heatType: String,
-  val estateType: String?,
+  val estateType: String,
   val elevator: Boolean,
   val duplex: Boolean,
   val structure: String,
