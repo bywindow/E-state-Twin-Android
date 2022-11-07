@@ -368,7 +368,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="2000만원 / 20만원"
+                  android:text='@{vm.estatePrice}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -398,14 +398,14 @@
                     android:id="@+id/maintenance_fee_content_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="매월 7만원"
+                    android:text='@{"매월 " + vm.detailEstate.house.maintenanceFee + "만원"}'
                     android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
 
                   <TextView
                     android:id="@+id/maintenance_fee_sub_content_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="(청소비, 경비비, 승강기유지비, 수선유지비, 인터넷)"
+                    android:text='@{"(" + vm.detailEstate.house.itemsIncludedMaintenanceFee + ")"}'
                     android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
                     android:textColor="#9094a8"
                     android:textSize="12sp" />
@@ -432,7 +432,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="1대 / 주차비 5만원"
+                  android:text='@{vm.detailEstate.house.parking ? "가능" + " / " + vm.detailEstate.house.parkingFee + "만원" : "불가능" }'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
