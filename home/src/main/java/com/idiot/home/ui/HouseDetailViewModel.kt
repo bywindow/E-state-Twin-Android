@@ -1,14 +1,12 @@
 package com.idiot.home.ui
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.idiot.data.repository.GetEstateDetailRepository
 import com.idiot.home.util.EnumToText
 import com.idiot.model.AssetIncludingChecklist
 import com.idiot.model.DetailEstate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -22,7 +20,8 @@ class HouseDetailViewModel @Inject constructor(
   val transType = MutableStateFlow("")
   val estatePrice = MutableStateFlow("")
   val estateType = MutableStateFlow("")
-  val postedData = MutableStateFlow(0)
+  val postedDate = MutableStateFlow(0)
+  val createdDate = MutableStateFlow("")
 
   private val _estateImageList = MutableStateFlow<List<String>>(emptyList())
   val estateImageList = _estateImageList.asStateFlow()
@@ -45,7 +44,8 @@ class HouseDetailViewModel @Inject constructor(
         response.house.sellingFee
       )
       estateType.value = EnumToText.changeEstateType(response.house.estateType)
-      postedData.value = EnumToText.calculatePostedDate(response.createdAt)
+      postedDate.value = EnumToText.calculatePostedDate(response.createdAt)
+      createdDate.value = response.createdAt.split(" ")[0]
     }
     emit(EstateDetailEvent.GetEstateDetail)
   }

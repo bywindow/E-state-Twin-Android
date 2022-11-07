@@ -19,11 +19,11 @@ object MappingToEnumUtil {
     }
   }
 
-  fun estateTypeMapping(item: Int): String? {
+  fun estateTypeMapping(item: Int): String {
     return when (item) {
       1 -> "APARTMENT"
       2 -> "OFFICETELS"
-      else -> null
+      else -> ""
     }
   }
 }

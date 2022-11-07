@@ -36,11 +36,9 @@ object EnumToText {
   }
 
   fun calculatePostedDate(input: String) : Int {
-    // createdAt=2022-11-02 01:30:10
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
     val date = LocalDateTime.parse(input, formatter)
     val currentTime = LocalDateTime.now()
-    Timber.d("$date $currentTime")
     return Duration.between(date, currentTime).toDays().toInt()
   }
 }

@@ -149,7 +149,7 @@
             android:id="@+id/basic_info_register_date_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text='@{vm.postedData + "일전"}'
+            android:text='@{vm.postedDate + "일전"}'
             android:textAppearance="@style/TextAppearance.idiot.sub.Text"
             app:layout_constraintBottom_toBottomOf="@+id/basic_price_info_textView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -246,8 +246,8 @@
                 android:id="@+id/size_unit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingVertical="1dp"
                 android:gravity="start"
+                android:paddingVertical="1dp"
                 android:text="@string/square_meter"
                 android:textAppearance="@style/TextAppearance.idiot.icon.Text"
                 app:layout_constraintEnd_toEndOf="@id/basic_size_image"
@@ -491,7 +491,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="오피스텔"
+                  android:text="@{vm.estateType}"
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -516,7 +516,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="아크로리버파크"
+                  android:text="@{vm.detailEstate.address.buildingName}"
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -540,7 +540,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="2022.05.12"
+                  android:text="@{vm.createdDate}"
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -564,7 +564,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="12층 / 15층"
+                  android:text='@{vm.detailEstate.house.currentFloors + "층 / " + vm.detailEstate.house.totalFloors + "층"}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -579,6 +579,7 @@
                   android:id="@+id/area_textView"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
+                  android:layout_marginTop="2dp"
                   android:layout_weight="1"
                   android:text="면적"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
@@ -589,19 +590,50 @@
                   android:layout_weight=".5"
                   android:orientation="vertical">
 
-                  <TextView
-                    android:id="@+id/net_area_content_textView"
+                  <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/square_meter"
-                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                    android:layout_height="wrap_content">
 
-                  <TextView
-                    android:id="@+id/area_content_textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/square_meter"
-                    android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
+                    <TextView
+                      android:id="@+id/net_area_text"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text='@{"전용면적 " + vm.detailEstate.house.netRentableArea}'
+                      android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                      app:layout_constraintEnd_toStartOf="@id/net_area_unit"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                      android:id="@+id/net_area_unit"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@string/square_meter"
+                      android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                      app:layout_constraintStart_toEndOf="@id/net_area_text"
+                      app:layout_constraintTop_toTopOf="@id/net_area_text" />
+
+                    <TextView
+                      android:id="@+id/area_text"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="2dp"
+                      android:text='@{"계약면적 " + vm.detailEstate.house.rentableArea}'
+                      android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                      app:layout_constraintEnd_toStartOf="@id/area_unit"
+                      app:layout_constraintStart_toStartOf="@id/net_area_text"
+                      app:layout_constraintTop_toBottomOf="@id/net_area_text" />
+
+                    <TextView
+                      android:id="@+id/area_unit"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@string/square_meter"
+                      android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
+                      app:layout_constraintStart_toEndOf="@id/area_text"
+                      app:layout_constraintTop_toTopOf="@id/area_text" />
+
+                  </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.appcompat.widget.LinearLayoutCompat>
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -625,7 +657,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="개별난방"
+                  android:text="@{vm.detailEstate.house.heatType}"
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -649,7 +681,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="있음"
+                  android:text='@{vm.detailEstate.house.elevator ? "있음" : "없음"}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -673,7 +705,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="복층"
+                  android:text='@{vm.detailEstate.house.duplex ? "복층" : "단층"}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -697,7 +729,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="1.5룸"
+                  android:text='@{vm.detailEstate.house.structure == "LOFT" ? "1.5층" : "주방분리형"}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -721,7 +753,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="없음"
+                  android:text='@{vm.detailEstate.house.veranda ? "있음" : "없음"}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -745,7 +777,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="가능"
+                  android:text='@{vm.detailEstate.house.shortTermRent ? "가능" : "불가능"}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -769,7 +801,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
-                  android:text="2022.07.13"
+                  android:text="@{vm.detailEstate.house.moveInAvailableDate}"
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text" />
               </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
