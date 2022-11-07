@@ -58,5 +58,8 @@ class HouseDetailFragment : Fragment() {
       val directions = HouseDetailFragmentDirections.actionHouseDetailFragmentToFloorPlanFragment()
       findNavController().navigate(directions)
     }
+    binding.backButton.setOnClickListener {
+      findNavController().navigateUp()
+    }
   }
 }

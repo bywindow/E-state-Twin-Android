@@ -45,7 +45,7 @@ android {
 }
 
 dependencies {
-
+  api(project(":model"))
   implementation(project(":utils"))
 
   implementation(Libraries.androidx_core)

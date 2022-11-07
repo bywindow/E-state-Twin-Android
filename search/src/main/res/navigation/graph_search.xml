@@ -5,7 +5,6 @@
   android:id="@+id/graph_search"
   app:startDestination="@id/searchFragment">
 
-
   <fragment
     android:id="@+id/searchFragment"
     android:name="com.idiot.search.ui.SearchFragment"

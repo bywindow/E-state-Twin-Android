@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavHost
+import androidx.navigation.*
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.idiot.home.R
 import com.idiot.home.databinding.FragmentHomeBinding
@@ -40,7 +43,7 @@ class HomeFragment : Fragment() {
     initRecommendedEstate()
     initRegisterButtonClicked()
     initSearchButtonClicked()
-
+    Timber.d("${findNavController().graph.nodes}")
     return binding.root
   }
 
@@ -61,8 +64,8 @@ class HomeFragment : Fragment() {
 
   private fun initSearchButtonClicked() {
     binding.appbarSearchButton.setOnClickListener {
-      val uri = Uri.parse("estate://search_fragment")
-      findNavController().navigate(uri)
+      findNavController().popBackStack()
+      findNavController().navigate("estate://search_fragment".toUri())
     }
   }
 
