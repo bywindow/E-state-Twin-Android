@@ -22,6 +22,7 @@ class HouseDetailViewModel @Inject constructor(
   val transType = MutableStateFlow("")
   val estatePrice = MutableStateFlow("")
   val estateType = MutableStateFlow("")
+  val postedData = MutableStateFlow(0)
 
   private val _estateImageList = MutableStateFlow<List<String>>(emptyList())
   val estateImageList = _estateImageList.asStateFlow()
@@ -44,6 +45,7 @@ class HouseDetailViewModel @Inject constructor(
         response.house.sellingFee
       )
       estateType.value = EnumToText.changeEstateType(response.house.estateType)
+      postedData.value = EnumToText.calculatePostedDate(response.createdAt)
     }
     emit(EstateDetailEvent.GetEstateDetail)
   }

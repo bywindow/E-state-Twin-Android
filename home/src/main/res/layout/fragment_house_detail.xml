@@ -149,7 +149,7 @@
             android:id="@+id/basic_info_register_date_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="3일전"
+            android:text='@{vm.postedData + "일전"}'
             android:textAppearance="@style/TextAppearance.idiot.sub.Text"
             app:layout_constraintBottom_toBottomOf="@+id/basic_price_info_textView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -235,7 +235,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:gravity="center"
+                android:gravity="end"
                 android:text='@{vm.detailEstate.house.rentableArea + ""}'
                 android:textAppearance="@style/TextAppearance.idiot.icon.Text"
                 app:layout_constraintEnd_toStartOf="@id/size_unit_text"
@@ -247,7 +247,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingVertical="1dp"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="@string/square_meter"
                 android:textAppearance="@style/TextAppearance.idiot.icon.Text"
                 app:layout_constraintEnd_toEndOf="@id/basic_size_image"

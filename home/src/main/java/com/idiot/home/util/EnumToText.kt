@@ -1,5 +1,12 @@
 package com.idiot.home.util
 
+import timber.log.Timber
+import java.text.DateFormat
+import java.time.Duration
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 object EnumToText {
 
   fun changeTransactionType(type: String): String {
@@ -26,5 +33,14 @@ object EnumToText {
       "TRADING" -> "$sellingFee"
       else -> ""
     }
+  }
+
+  fun calculatePostedDate(input: String) : Int {
+    // createdAt=2022-11-02 01:30:10
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+    val date = LocalDateTime.parse(input, formatter)
+    val currentTime = LocalDateTime.now()
+    Timber.d("$date $currentTime")
+    return Duration.between(date, currentTime).toDays().toInt()
   }
 }
