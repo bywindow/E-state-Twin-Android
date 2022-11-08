@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/graph_userhouse"
   app:startDestination="@id/myHouseFragment">
 
   <fragment
     android:id="@+id/myHouseFragment"
     android:name="com.idiot.userhouse.ui.MyHouseFragment"
-    android:label="MyHouseFragment" />
+    android:label="MyHouseFragment" >
+    <action
+      android:id="@+id/action_myHouseFragment_to_manageAssetFragment"
+      app:destination="@id/manageAssetFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/manageAssetFragment"
+    android:name="com.idiot.userhouse.ui.ManageAssetFragment"
+    android:label="fragment_manage_asset"
+    tools:layout="@layout/fragment_manage_asset" />
+  <fragment
+    android:id="@+id/tenantModeFragment"
+    android:name="com.idiot.userhouse.ui.TenantModeFragment"
+    android:label="TenantModeFragment" >
+  </fragment>
 
 </navigation>

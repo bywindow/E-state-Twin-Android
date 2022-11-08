@@ -1,16 +1,13 @@
 package com.idiot.home.ui
 
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.load.model.ModelLoader
-import com.google.ar.sceneform.rendering.ModelRenderable
 import com.idiot.home.R
 import com.idiot.home.databinding.FragmentFloorPlanBinding
 import io.github.sceneview.SceneView

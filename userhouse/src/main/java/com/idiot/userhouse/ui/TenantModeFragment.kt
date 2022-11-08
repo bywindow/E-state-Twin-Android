@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.idiot.userhouse.R
 import com.idiot.userhouse.databinding.FragmentTenantModeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,18 +35,21 @@ class TenantModeFragment : Fragment() {
     assetLinearLayout = binding.assetManageTabListLayout
     contractLinearLayout = binding.contractTabListLayout
 
-    subscribeUi(binding, viewModel)
+    subscribeUi()
     return binding.root
   }
 
-  private fun subscribeUi(binding: FragmentTenantModeBinding, viewModel: TenantModeViewModel) {
+  private fun subscribeUi() {
 
     viewModel.assetManageTabTitles.forEachIndexed { index, title ->
-      val tabView =
-        LayoutInflater.from(requireContext()).inflate(R.layout.layout_myhouse_tab, null, false)
-      tabView.findViewById<TextView>(R.id.tab_title).text = title
-      tabView.findViewById<ImageView>(R.id.tab_icon)
-        .setImageResource(viewModel.assetManageTabIcons[index])
+      val tabView = LayoutInflater.from(requireContext()).inflate(R.layout.layout_myhouse_tab, null, false).apply {
+        findViewById<TextView>(R.id.tab_title).text = title
+        findViewById<ImageView>(R.id.tab_icon).setImageResource(viewModel.assetManageTabIcons[index])
+        findViewById<ConstraintLayout>(R.id.list_tab).setOnClickListener {
+          val direction = MyHouseFragmentDirections.actionMyHouseFragmentToManageAssetFragment()
+          findNavController().navigate(direction)
+        }
+      }
       assetLinearLayout.addView(tabView)
     }
 
