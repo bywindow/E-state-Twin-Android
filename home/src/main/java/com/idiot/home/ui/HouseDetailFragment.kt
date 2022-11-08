@@ -1,5 +1,7 @@
 package com.idiot.home.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -55,8 +57,13 @@ class HouseDetailFragment : Fragment() {
 
   private fun navigateButtonClicked() {
     binding.threeDimenButton.setOnClickListener {
-      val directions = HouseDetailFragmentDirections.actionHouseDetailFragmentToFloorPlanFragment()
-      findNavController().navigate(directions)
+//      val directions = HouseDetailFragmentDirections.actionHouseDetailFragmentToFloorPlanFragment(viewModel.detailEstate.value!!.model)
+//      findNavController().navigate(directions)
+//      val data = "https://arvr.google.com/scene-viewer/1.0?file=${viewModel.detailEstate.value!!.model}"
+      val data = "https://arvr.google.com/scene-viewer/1.0?file=https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Avocado/glTF/Avocado.gltf"
+      val intent = Intent(Intent.ACTION_VIEW)
+      intent.data = Uri.parse(data).buildUpon().appendQueryParameter("mode", "3d_only").build()
+      startActivity(intent)
     }
     binding.backButton.setOnClickListener {
       findNavController().navigateUp()

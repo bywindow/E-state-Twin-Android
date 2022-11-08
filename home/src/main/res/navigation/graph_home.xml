@@ -28,5 +28,9 @@
     android:id="@+id/floorPlanFragment"
     android:name="com.idiot.home.ui.FloorPlanFragment"
     android:label="fragment_floor_plan"
-    tools:layout="@layout/fragment_floor_plan" />
+    tools:layout="@layout/fragment_floor_plan">
+    <argument
+      android:name="model"
+      app:argType="string"/>
+  </fragment>
 </navigation>
