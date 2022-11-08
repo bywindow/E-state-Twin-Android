@@ -859,7 +859,7 @@
                   android:layout_marginStart="14dp"
                   android:fontFamily="@font/notosanskr_medium"
                   android:includeFontPadding="false"
-                  android:text="이소마공인중개사사무소"
+                  android:text="@{vm.detailEstate.broker.businessName}"
                   android:textColor="@color/black"
                   android:textSize="14sp"
                   app:layout_constraintStart_toEndOf="@id/broker_profile_imageView"
@@ -871,7 +871,7 @@
                   android:layout_height="wrap_content"
                   android:layout_marginTop="10dp"
                   android:includeFontPadding="false"
-                  android:text="대표 : 이소마"
+                  android:text='@{"대표 : " + vm.detailEstate.broker.agentName}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
                   android:textSize="11sp"
                   app:layout_constraintStart_toStartOf="@id/broker_name_textView"
@@ -883,7 +883,7 @@
                   android:layout_height="wrap_content"
                   android:layout_marginTop="2dp"
                   android:includeFontPadding="false"
-                  android:text="주소 : 서울특별시 강남구 테헤란로 129-2"
+                  android:text='@{"주소 : " + vm.detailEstate.broker.address.city + " " + vm.detailEstate.broker.address.borough + " " + vm.detailEstate.broker.address.roadName}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
                   android:textSize="11sp"
                   app:layout_constraintStart_toStartOf="@id/broker_name_textView"
@@ -895,7 +895,7 @@
                   android:layout_height="wrap_content"
                   android:layout_marginTop="2dp"
                   android:includeFontPadding="false"
-                  android:text="전화 : 02-1958-9999"
+                  android:text='@{"전화 : " + vm.detailEstate.broker.phone}'
                   android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
                   android:textSize="11sp"
                   app:layout_constraintStart_toStartOf="@id/broker_name_textView"
