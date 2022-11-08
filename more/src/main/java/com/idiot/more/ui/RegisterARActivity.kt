@@ -131,10 +131,11 @@ class RegisterARActivity : AppCompatActivity() {
           Timber.d("mapQuality: hosting...")
           if (success) {
             Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
-            viewModel.mappingAnchorToAsset(
-              viewModel.assetList.value[cursor].id,
-              anchor.cloudAnchorId
-            )
+//            viewModel.mappingAnchorToAsset(
+//              viewModel.assetList.value[cursor].id,
+//              anchor.cloudAnchorId
+//            )
+            viewModel.addAssetAnchorId(anchor.cloudAnchorId)
           } else {
             Timber.d("mapQuality: Unable to host the Cloud Anchor. The Cloud Anchor state is ${anchor.cloudAnchorState}")
           }
@@ -186,8 +187,9 @@ class RegisterARActivity : AppCompatActivity() {
   private fun sessionCloseButtonClicked() {
     binding.checklistCompleteButton.setOnClickListener {
       Timber.d("ARfragment: closing...")
+      Timber.d("ASSET : ${viewModel.assetList.value}")
       val intent =
-        Intent().apply { putExtra("data", ArrayList(viewModel.mappedAssetAnchor.value.entries)) }
+        Intent().apply { putExtra("data", ArrayList(viewModel.assetList.value)) }
       setResult(RESULT_OK, intent)
       finish()
     }

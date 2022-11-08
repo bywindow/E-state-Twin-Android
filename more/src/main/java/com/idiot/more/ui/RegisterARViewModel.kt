@@ -48,21 +48,20 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
     Timber.d("ASSET MAP : ${mappedAssetAnchor.value}")
   }
 
+  fun addAssetAnchorId(anchorId: String) {
+    _assetList.value[assetCursor.value].anchorId = anchorId
+    Timber.d(("${assetList.value}"))
+  }
+
   fun addAssetPhotoUri(uri: String) {
-    val temp = _assetList.value.toMutableList()
-    temp[assetCursor.value].assetPhoto = uri
-    _assetList.value = temp.toList()
+    _assetList.value[assetCursor.value].assetPhoto = uri
   }
 
   fun addAssetManufacture(s : CharSequence, start: Int, before: Int, count: Int) {
-    val temp = _assetList.value.toMutableList()
-    temp[assetCursor.value].manufacturer = s.toString()
-    _assetList.value = temp.toList()
+    _assetList.value[assetCursor.value].manufacturer = s.toString()
   }
 
   fun addAssetProduct(s : CharSequence, start: Int, before: Int, count: Int) {
-    val temp = _assetList.value.toMutableList()
-    temp[assetCursor.value].productName = s.toString()
-    _assetList.value = temp.toList()
+    _assetList.value[assetCursor.value].productName = s.toString()
   }
 }

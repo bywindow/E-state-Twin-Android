@@ -13,7 +13,12 @@ class TenantModeRepositoryImpl @Inject constructor(
   @WorkerThread
   override suspend fun requestGetTenantMode(): TenantModeResponse? {
     val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
-    val response = estateClient.requestGetTenantMode("Bearer $token")
-    return if (response.isSuccessful) response.body() as TenantModeResponse else null
+    try {
+      val response = estateClient.requestGetTenantMode("Bearer $token")
+      return if (response.isSuccessful) response.body() as TenantModeResponse else null
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+    return null
   }
 }

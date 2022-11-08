@@ -57,6 +57,10 @@ class RegisterInfoFragment : Fragment() {
     initAddressSearchDialogListener(binding)
     registerCompleteButtonClicked()
 
+    binding.registerHouseVideoButton.setOnClickListener {
+      Timber.d("${viewModel.assetList.value}")
+    }
+
     return binding.root
   }
 
