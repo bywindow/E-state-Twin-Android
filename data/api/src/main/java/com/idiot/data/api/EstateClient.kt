@@ -76,4 +76,10 @@ class EstateClient @Inject constructor(
     accessToken = accessToken,
     estateId = estateId
   )
+
+  suspend fun requestGetTenantMode(
+    accessToken: String
+  ): Response<TenantModeResponse> = estateService.requestGetTenantMode(
+    accessToken = accessToken
+  )
 }

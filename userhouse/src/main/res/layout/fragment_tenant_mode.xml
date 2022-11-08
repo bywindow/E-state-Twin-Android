@@ -3,6 +3,12 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
+  <data>
+    <variable
+      name="vm"
+      type="com.idiot.userhouse.ui.TenantModeViewModel" />
+  </data>
+
   <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -99,7 +105,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:includeFontPadding="false"
-              android:text="아파트"
+              android:text='@{vm.tenantEstate.estateType == "APPARTMENT" ? "아파트" : "오피스텔"}'
               android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
               android:textSize="12sp" />
 
@@ -109,7 +115,7 @@
               android:layout_height="wrap_content"
               android:layout_marginTop="3dp"
               android:includeFontPadding="false"
-              android:text="아크로리버파크"
+              android:text="@{vm.tenantEstate.address.buildingName}"
               android:textAppearance="@style/TextAppearance.idiot.myhouse.title.Text" />
 
             <TextView
@@ -118,7 +124,7 @@
               android:layout_height="wrap_content"
               android:layout_marginTop="2dp"
               android:includeFontPadding="false"
-              android:text="서울특별시 서초구 신반포로15길 19 101동 1207호"
+              android:text='@{vm.tenantEstate.address.city + " " + vm.tenantEstate.address.borough + " "  + vm.tenantEstate.address.roadName + " " + vm.tenantEstate.address.mainBuildingNumber + "동 " + vm.tenantEstate.address.subBuildingNumber + "호"}'
               android:textAppearance="@style/TextAppearance.idiot.sub.Text" />
 
           </androidx.appcompat.widget.LinearLayoutCompat>

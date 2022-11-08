@@ -1,3 +1,7 @@
+import com.idiot.e_state_twin_android.Libraries
+import com.idiot.e_state_twin_android.Configuration
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
   id("com.android.library")
   id("kotlin-android")
@@ -5,14 +9,15 @@ plugins {
 //  id("com.google.devtools.ksp")
   id("kotlin-kapt")
   id("androidx.navigation.safeargs.kotlin")
+  id("dagger.hilt.android.plugin")
 }
 
 android {
-  compileSdk = com.idiot.e_state_twin_android.Configuration.compileSdk
+  compileSdk = Configuration.compileSdk
 
   defaultConfig {
-    minSdk = com.idiot.e_state_twin_android.Configuration.minSdk
-    targetSdk = com.idiot.e_state_twin_android.Configuration.targetSdk
+    minSdk = Configuration.minSdk
+    targetSdk = Configuration.targetSdk
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles("consumer-rules.pro")
@@ -42,20 +47,22 @@ android {
   }
 }
 dependencies {
-
   implementation(project(":data:repository"))
   implementation(project(":utils"))
 
-  implementation(com.idiot.e_state_twin_android.Libraries.androidx_core)
-  implementation(com.idiot.e_state_twin_android.Libraries.androidx_appcompat)
-  implementation(com.idiot.e_state_twin_android.Libraries.material)
-  implementation(com.idiot.e_state_twin_android.Libraries.navigation_fragment)
-  implementation(com.idiot.e_state_twin_android.Libraries.navigation_ui)
-  implementation(com.idiot.e_state_twin_android.Libraries.recyclerview)
+  implementation(Libraries.androidx_core)
+  implementation(Libraries.androidx_appcompat)
+  implementation(Libraries.material)
+  implementation(Libraries.navigation_fragment)
+  implementation(Libraries.navigation_ui)
+  implementation(Libraries.recyclerview)
 
-  testImplementation(com.idiot.e_state_twin_android.Libraries.junit)
+  implementation(Libraries.hilt_android)
+  kapt(Libraries.hilt_compiler)
 
-  androidTestImplementation(com.idiot.e_state_twin_android.Libraries.androidx_junit)
-  androidTestImplementation(com.idiot.e_state_twin_android.Libraries.androidx_espresso)
+  testImplementation(Libraries.junit)
+
+  androidTestImplementation(Libraries.androidx_junit)
+  androidTestImplementation(Libraries.androidx_espresso)
 
 }

@@ -61,4 +61,9 @@ interface DataModule {
   fun bindsGetEstateDetailRepository(
     getEstateDetailRepositoryImpl: GetEstateDetailRepositoryImpl
   ): GetEstateDetailRepository
+
+  @Binds
+  fun bindsTenantModeRepository(
+    tenantModeRepositoryImpl: TenantModeRepositoryImpl
+  ): TenantModeRepository
 }

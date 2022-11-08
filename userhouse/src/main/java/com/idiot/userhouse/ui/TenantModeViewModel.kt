@@ -1,11 +1,24 @@
 package com.idiot.userhouse.ui
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.idiot.data.repository.R
+import com.idiot.data.repository.TenantModeRepository
+import com.idiot.model.TenantModeResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import timber.log.Timber
+import javax.inject.Inject
 
-class TenantModeViewModel() : ViewModel() {
+@HiltViewModel
+class TenantModeViewModel @Inject constructor(
+  private val tenantModeRepository: TenantModeRepository
+): ViewModel() {
+
+  private val _tenantEstate = MutableStateFlow<TenantModeResponse?>(null)
+  val tenantEstate = _tenantEstate.asStateFlow()
 
   val assetManageTabTitles = arrayListOf<String>("가전", "가구", "욕실/주방", "인테리어")
   val assetManageTabIcons = arrayListOf<Int>(
@@ -19,10 +32,11 @@ class TenantModeViewModel() : ViewModel() {
     R.drawable.ic_document, R.drawable.ic_special
   )
 
-  @Suppress("UNCHECKED_CAST")
-  class Factory(private val application: Application) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-      return TenantModeViewModel() as T
+  init {
+    viewModelScope.launch {
+      _tenantEstate.value = tenantModeRepository.requestGetTenantMode()
+      Timber.d("${tenantEstate.value}")
     }
   }
+
 }
