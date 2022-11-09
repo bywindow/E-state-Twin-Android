@@ -127,14 +127,10 @@ class RegisterARActivity : AppCompatActivity() {
           binding.loadingView.visibility = View.GONE
           initBottomDialog()
         }
-        cloudAnchorNodes[cursor].hostCloudAnchor { anchor, success ->
+        cloudAnchorNodes[cursor].hostCloudAnchor(ttlDays = 365) { anchor, success ->
           Timber.d("mapQuality: hosting...")
           if (success) {
             Timber.d("mapQuality hosted: ${anchor.cloudAnchorId}")
-//            viewModel.mappingAnchorToAsset(
-//              viewModel.assetList.value[cursor].id,
-//              anchor.cloudAnchorId
-//            )
             viewModel.addAssetAnchorId(anchor.cloudAnchorId)
           } else {
             Timber.d("mapQuality: Unable to host the Cloud Anchor. The Cloud Anchor state is ${anchor.cloudAnchorState}")
