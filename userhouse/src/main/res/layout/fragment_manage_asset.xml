@@ -4,6 +4,15 @@
   xmlns:tools="http://schemas.android.com/tools"
   tools:context=".ui.ManageAssetFragment">
 
+  <data>
+    <variable
+      name="vm"
+      type="com.idiot.userhouse.ui.ManageAssetViewModel" />
+    <variable
+      name="adapter"
+      type="com.idiot.userhouse.ui.AssetListAdapter" />
+  </data>
+
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,6 +36,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/asset_list_recycler_view"
+      adapter="@{adapter}"
+      submitList="@{vm.assetList}"
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:layout_marginTop="@dimen/app_horizontal_padding"

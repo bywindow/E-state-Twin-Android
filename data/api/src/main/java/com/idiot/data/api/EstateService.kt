@@ -72,6 +72,13 @@ interface EstateService {
     @Header("Authorization") accessToken: String
   ): Response<TenantModeResponse>
 
+  @GET("user/tenant/detail")
+  suspend fun requestGetTenantAssetList(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Query("category") category: String
+  ): Response<List<AssetIncludingChecklist>>
+
   @PATCH("estate/detail/{estateId}/dip")
   suspend fun requestEstateDip(
     @Header("Content-Type") contentType: String = "application/json",

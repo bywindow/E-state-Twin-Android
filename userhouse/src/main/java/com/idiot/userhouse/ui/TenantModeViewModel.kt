@@ -21,6 +21,7 @@ class TenantModeViewModel @Inject constructor(
   val tenantEstate = _tenantEstate.asStateFlow()
 
   val assetManageTabTitles = arrayListOf<String>("가전", "가구", "욕실/주방", "인테리어")
+  val assetCategoryKeys = arrayListOf<String>("HOMEAPPLIANCES", "FURNITURE", "BATHROOM", "INTERIOR")
   val assetManageTabIcons = arrayListOf<Int>(
     R.drawable.ic_option_laundry,
     R.drawable.ic_option_bed,

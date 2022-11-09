@@ -90,4 +90,12 @@ class EstateClient @Inject constructor(
     accessToken = accessToken,
     estateId = estateId
   )
+
+  suspend fun requestGetTenantAssetList(
+    accessToken: String,
+    category: String
+  ): Response<List<AssetIncludingChecklist>> = estateService.requestGetTenantAssetList(
+    accessToken = accessToken,
+    category = category
+  )
 }

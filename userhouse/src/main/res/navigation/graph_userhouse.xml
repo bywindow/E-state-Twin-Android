@@ -17,7 +17,9 @@
     android:id="@+id/manageAssetFragment"
     android:name="com.idiot.userhouse.ui.ManageAssetFragment"
     android:label="fragment_manage_asset"
-    tools:layout="@layout/fragment_manage_asset" />
+    tools:layout="@layout/fragment_manage_asset">
+    <argument app:argType="string" android:name="category"/>
+  </fragment>
   <fragment
     android:id="@+id/tenantModeFragment"
     android:name="com.idiot.userhouse.ui.TenantModeFragment"

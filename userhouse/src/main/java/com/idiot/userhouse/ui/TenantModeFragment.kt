@@ -46,7 +46,7 @@ class TenantModeFragment : Fragment() {
         findViewById<TextView>(R.id.tab_title).text = title
         findViewById<ImageView>(R.id.tab_icon).setImageResource(viewModel.assetManageTabIcons[index])
         findViewById<ConstraintLayout>(R.id.list_tab).setOnClickListener {
-          val direction = MyHouseFragmentDirections.actionMyHouseFragmentToManageAssetFragment()
+          val direction = MyHouseFragmentDirections.actionMyHouseFragmentToManageAssetFragment(viewModel.assetCategoryKeys[index])
           findNavController().navigate(direction)
         }
       }
