@@ -56,9 +56,11 @@ dependencies {
   implementation(Libraries.navigation_fragment)
   implementation(Libraries.navigation_ui)
   implementation(Libraries.recyclerview)
+  implementation(Libraries.glide)
 
   implementation(Libraries.hilt_android)
   kapt(Libraries.hilt_compiler)
+  kapt(Libraries.glide_compiler)
 
   testImplementation(Libraries.junit)
 

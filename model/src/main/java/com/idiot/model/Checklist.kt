@@ -7,6 +7,6 @@ data class Checklist(
   val repairDate: String,
   val repairType: String,
   val brokerConfirmYN : Boolean,
-  val tenentConfirmYN: Boolean,
+  val tenantConfirmYN: Boolean,
   val ownerConfirmYN: Boolean
 )

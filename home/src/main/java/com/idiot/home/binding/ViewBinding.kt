@@ -2,7 +2,9 @@ package com.idiot.home.binding
 
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.idiot.data.repository.R
 
 object ViewBinding {

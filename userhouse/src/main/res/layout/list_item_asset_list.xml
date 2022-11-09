@@ -3,10 +3,50 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
+  <data>
+
+  </data>
+
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/asset_image"
+      android:layout_width="match_parent"
+      android:layout_height="152dp"
+      android:background="@drawable/bg_asset_image_rounded"
+      android:scaleType="center"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/asset_name"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:text=""
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/asset_image"
+      tools:text="드럼세탁기" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/asset_date"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="2dp"
+      android:text=""
+      android:textColor="@color/detail_info_content"
+      android:textSize="12sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/asset_name"
+      tools:text="2022.00.00" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
