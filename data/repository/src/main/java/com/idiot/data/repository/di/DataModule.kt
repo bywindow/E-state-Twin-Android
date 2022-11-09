@@ -66,4 +66,9 @@ interface DataModule {
   fun bindsTenantModeRepository(
     tenantModeRepositoryImpl: TenantModeRepositoryImpl
   ): TenantModeRepository
+
+  @Binds
+  fun bindsDipEstateRepository(
+    dipEstateRepositoryImpl: DipEstateRepositoryImpl
+  ): DipEstateRepository
 }

@@ -82,4 +82,12 @@ class EstateClient @Inject constructor(
   ): Response<TenantModeResponse> = estateService.requestGetTenantMode(
     accessToken = accessToken
   )
+
+  suspend fun requestEstateDip(
+    accessToken: String,
+    estateId: Long
+  ): Response<RegisterEstateBrokerResponse> = estateService.requestEstateDip(
+    accessToken = accessToken,
+    estateId = estateId
+  )
 }

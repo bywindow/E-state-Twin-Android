@@ -1,6 +1,7 @@
 package com.idiot.home.ui
 
 import androidx.lifecycle.ViewModel
+import com.idiot.data.repository.DipEstateRepository
 import com.idiot.data.repository.GetEstateDetailRepository
 import com.idiot.home.util.EnumToText
 import com.idiot.model.AssetIncludingChecklist
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HouseDetailViewModel @Inject constructor(
-  private val getEstateDetailRepository: GetEstateDetailRepository
+  private val getEstateDetailRepository: GetEstateDetailRepository,
+  private val dipEstateRepository: DipEstateRepository
 ) : ViewModel() {
   private val _detailEstate = MutableStateFlow<DetailEstate?>(null)
   val detailEstate = _detailEstate.asStateFlow()
@@ -50,8 +52,15 @@ class HouseDetailViewModel @Inject constructor(
     emit(EstateDetailEvent.GetEstateDetail)
   }
 
+  fun requestDipEstate(estateId: Long) = flow {
+    val response = dipEstateRepository.requestEstateDip(estateId)
+    Timber.d("Detail VM : $response")
+    emit(EstateDetailEvent.DipEstateResponse)
+  }
+
 }
 
 sealed class EstateDetailEvent {
   object GetEstateDetail : EstateDetailEvent()
+  object DipEstateResponse : EstateDetailEvent()
 }

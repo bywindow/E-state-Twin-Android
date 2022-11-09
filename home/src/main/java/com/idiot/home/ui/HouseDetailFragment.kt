@@ -16,6 +16,7 @@ import com.idiot.data.repository.samples.imageUrlSample
 import com.idiot.home.databinding.FragmentHouseDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class HouseDetailFragment : Fragment() {
@@ -36,6 +37,7 @@ class HouseDetailFragment : Fragment() {
 
     fetchBrokerProfile()
     navigateButtonClicked()
+    dipButtonClicked()
 
     return binding.root
   }
@@ -60,13 +62,23 @@ class HouseDetailFragment : Fragment() {
 //      val directions = HouseDetailFragmentDirections.actionHouseDetailFragmentToFloorPlanFragment(viewModel.detailEstate.value!!.model)
 //      findNavController().navigate(directions)
 //      val data = "https://arvr.google.com/scene-viewer/1.0?file=${viewModel.detailEstate.value!!.model}"
-      val data = "https://arvr.google.com/scene-viewer/1.0?file=https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Avocado/glTF/Avocado.gltf"
+      val data = "https://arvr.google.com/scene-viewer/1.0?file=https://idiot-model-bucket.s3.ap-northeast-2.amazonaws.com/Model/12/anam.glb"
       val intent = Intent(Intent.ACTION_VIEW)
       intent.data = Uri.parse(data).buildUpon().appendQueryParameter("mode", "3d_only").build()
       startActivity(intent)
     }
     binding.backButton.setOnClickListener {
       findNavController().navigateUp()
+    }
+  }
+
+  private fun dipButtonClicked() {
+    binding.houseLikeButton.setOnClickListener {
+      viewLifecycleOwner.lifecycleScope.launch {
+        viewModel.requestDipEstate(args.houseId).collect(){
+          Timber.d("DIP BUTTON")
+        }
+      }
     }
   }
 }

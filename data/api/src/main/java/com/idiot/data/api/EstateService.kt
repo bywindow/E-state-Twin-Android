@@ -71,4 +71,11 @@ interface EstateService {
     @Header("Content-Type") contentType: String = "application/json",
     @Header("Authorization") accessToken: String
   ): Response<TenantModeResponse>
+
+  @PATCH("estate/detail/{estateId}/dip")
+  suspend fun requestEstateDip(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Path("estateId") estateId: Long
+  ): Response<RegisterEstateBrokerResponse>
 }
