@@ -59,12 +59,16 @@ class HouseDetailFragment : Fragment() {
 
   private fun navigateButtonClicked() {
     binding.threeDimenButton.setOnClickListener {
-//      val directions = HouseDetailFragmentDirections.actionHouseDetailFragmentToFloorPlanFragment(viewModel.detailEstate.value!!.model)
-//      findNavController().navigate(directions)
-//      val data = "https://arvr.google.com/scene-viewer/1.0?file=${viewModel.detailEstate.value!!.model}"
       val data = "https://arvr.google.com/scene-viewer/1.0?file=https://idiot-model-bucket.s3.ap-northeast-2.amazonaws.com/Model/12/anam.glb"
       val intent = Intent(Intent.ACTION_VIEW)
       intent.data = Uri.parse(data).buildUpon().appendQueryParameter("mode", "3d_only").build()
+      startActivity(intent)
+    }
+    binding.ARCameraButton.setOnClickListener {
+      val data = viewModel.assetList.value
+      val intent = Intent(context, ResolveAnchorActivity::class.java).apply {
+        putExtra("data", ArrayList(data))
+      }
       startActivity(intent)
     }
     binding.backButton.setOnClickListener {
