@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools">
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:ignore="SmallSp">
 
   <data>
 
@@ -17,7 +18,8 @@
   <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:ignore="RtlSymmetry">
 
     <androidx.core.widget.NestedScrollView
       android:layout_width="match_parent"
@@ -84,7 +86,7 @@
             android:layout_height="@dimen/detail_feat_button_height"
             android:background="@color/white"
             android:drawableTop="@drawable/ic_detail_house_video"
-            android:text="매물영상"
+            android:text="@string/estate_video"
             android:textSize="10sp" />
 
           <androidx.appcompat.widget.AppCompatButton
@@ -104,7 +106,7 @@
             android:layout_height="@dimen/detail_feat_button_height"
             android:background="@color/white"
             android:drawableTop="@drawable/ic_detail_ar_video"
-            android:text="AR 영상"
+            android:text="@string/ar_video"
             android:textSize="10sp" />
 
           <androidx.appcompat.widget.AppCompatButton
@@ -115,7 +117,7 @@
             android:layout_height="@dimen/detail_feat_button_height"
             android:background="@color/white"
             android:clickable="@{vm.detailEstate.inquiry}"
-            android:text="AR 카메라"
+            android:text="@string/ar_camera"
             android:textSize="10sp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -187,7 +189,8 @@
                 android:src="@drawable/ic_detail_room"
                 app:layout_constraintEnd_toStartOf="@id/basic_floor_image"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/room_image_desc"/>
 
               <TextView
                 android:id="@+id/basic_room_textView"
@@ -208,7 +211,8 @@
                 android:src="@drawable/ic_detail_floor"
                 app:layout_constraintEnd_toStartOf="@id/basic_size_image"
                 app:layout_constraintStart_toEndOf="@id/basic_room_image"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/floor_image_desc"/>
 
               <TextView
                 android:id="@+id/basic_floor_textView"
@@ -229,7 +233,8 @@
                 android:src="@drawable/ic_detail_m_2"
                 app:layout_constraintEnd_toStartOf="@id/basic_cost_image"
                 app:layout_constraintStart_toEndOf="@id/basic_floor_image"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/size_image_desc"/>
 
               <TextView
                 android:id="@+id/basic_size_textView"
@@ -262,7 +267,8 @@
                 android:src="@drawable/ic_detail_cost"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/basic_size_image"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/cost_image_desc"/>
 
               <TextView
                 android:id="@+id/basic_cost_textView"
@@ -289,7 +295,7 @@
             android:id="@+id/option_info_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="옵션 정보"
+            android:text="@string/option_info"
             android:textAppearance="@style/TextAppearance.idiot.title.Text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -327,7 +333,7 @@
             android:id="@+id/price_info_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="가격 정보"
+            android:text="@string/price_info"
             android:textAppearance="@style/TextAppearance.idiot.title.Text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -361,7 +367,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="전/월세 가격"
+                  android:text="@string/deposit_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -386,7 +392,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="관리비"
+                  android:text="@string/maintenance_fee_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -425,7 +431,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="주차여부"
+                  android:text="@string/parking_fee_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -450,7 +456,7 @@
             android:id="@+id/detail_info_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="상세 정보"
+            android:text="@string/detail_info_title"
             android:textAppearance="@style/TextAppearance.idiot.title.Text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -484,7 +490,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="건물 유형"
+                  android:text="@string/home_type_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -508,7 +514,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="건물이름"
+                  android:text="@string/home_name_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
 
@@ -533,7 +539,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="매물등록 날짜"
+                  android:text="@string/home_register_date_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -557,7 +563,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="층수 및 현재 층"
+                  android:text="@string/floor_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -582,7 +588,7 @@
                   android:layout_height="wrap_content"
                   android:layout_marginTop="2dp"
                   android:layout_weight="1"
-                  android:text="면적"
+                  android:text="@string/area_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -650,7 +656,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="난방종류"
+                  android:text="@string/heat_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -674,7 +680,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="엘리베이터"
+                  android:text="@string/elevator_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -698,7 +704,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="복층 유무"
+                  android:text="@string/duplex_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -722,7 +728,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="방 구조"
+                  android:text="@string/loft_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -742,15 +748,15 @@
                 android:paddingStart="15dp">
 
                 <TextView
-                  android:id="@+id/verands_textView"
+                  android:id="@+id/veranda_textView"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="베란다/발코니"
+                  android:text="@string/veranda_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
-                  android:id="@+id/verands_content_textView"
+                  android:id="@+id/veranda_content_textView"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight=".5"
@@ -770,7 +776,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="단기임대"
+                  android:text="@string/short_term_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -794,7 +800,7 @@
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
-                  android:text="입주가능일"
+                  android:text="@string/move_in_title"
                   android:textAppearance="@style/TextAppearance.idiot.info.subTitle.Text" />
 
                 <TextView
@@ -819,7 +825,7 @@
             android:id="@+id/broker_info_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="중개사무소 정보"
+            android:text="@string/broker_info_title"
             android:textAppearance="@style/TextAppearance.idiot.title.Text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -912,7 +918,7 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:stateListAnimator="@null"
-                android:text="전화걸기"
+                android:text="@string/broker_call_number"
                 android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
                 android:textColor="@color/purple_700"
                 android:textSize="14sp"
@@ -952,7 +958,7 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:minHeight="0dp"
-        android:text="방문예약"
+        android:text="@string/visit_reservation_text"
         android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
         android:textColor="@color/purple_700"
         android:textSize="14sp"
@@ -970,7 +976,7 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:minHeight="0dp"
-        android:text="계약진행"
+        android:text="@string/run_process_title"
         android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
         android:textColor="@color/white"
         android:textSize="14sp"
