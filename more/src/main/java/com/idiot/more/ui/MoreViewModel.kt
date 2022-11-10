@@ -19,7 +19,7 @@ class MoreViewModel @Inject constructor(
 
   private val _accessToken: MutableStateFlow<String> = MutableStateFlow("")
 
-  private val _userInfo = MutableStateFlow(MyPageResponse(0, "", "", "", false))
+  private val _userInfo = MutableStateFlow(MyPageResponse(0, "", "", "", "", false))
   val userInfo: StateFlow<MyPageResponse> = _userInfo
 
   fun fetchUserInfo() = flow {
@@ -29,6 +29,7 @@ class MoreViewModel @Inject constructor(
     val result = myPageRepository.requestMyPage(_accessToken.value)
     if (result != null) {
       _userInfo.value = result
+      userPreferenceRepository.setUserRole(result.role)
     }
     Timber.d("my page response: $result")
     emit(MoreEvent.UserInfoFetchSuccess)
