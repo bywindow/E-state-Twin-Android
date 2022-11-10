@@ -23,7 +23,6 @@ class NewRegisterRequestViewModel @Inject constructor(
   fun getEstateList() = flow {
     val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
     val response = brokerEstateListRepository.requestGetEstateListBroker(token, "BROKER_BEFORE")
-    Timber.d("$response")
     if (response != null) {
       _estateList.value = response
     }

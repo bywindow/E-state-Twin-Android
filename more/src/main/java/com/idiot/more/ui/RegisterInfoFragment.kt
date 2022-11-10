@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ConcatAdapter
 import com.google.android.material.snackbar.Snackbar
@@ -266,6 +267,7 @@ class RegisterInfoFragment : Fragment() {
       viewLifecycleOwner.lifecycleScope.launch {
         viewModel.requestPostEstate(args.estateId)
       }
+      findNavController().navigateUp()
     }
   }
 }

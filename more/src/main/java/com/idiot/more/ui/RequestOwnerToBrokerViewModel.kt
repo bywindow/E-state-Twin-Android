@@ -33,14 +33,15 @@ class RequestOwnerToBrokerViewModel @Inject constructor(
   fun changeAddress(data: String) {
     Timber.d(data)
     val splitData = data.split(" ").toMutableList()
+    Timber.d("$splitData")
     splitData[0] += "특별시"
-    _address.value = listOf(splitData.take(3), splitData[3].split("-")).flatten()
+    _address.value = splitData.take(4)
     Timber.d(address.value.toString())
   }
 
   fun changeBuildingName(s: CharSequence, start: Int, before: Int, count: Int) {
     _buildingName.value = "$s"
-    Timber.d(buildingName.value.toString())
+    Timber.d(buildingName.value)
   }
 
   fun changeMainNumber(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -56,14 +57,14 @@ class RequestOwnerToBrokerViewModel @Inject constructor(
       val data = RegisterEstateOwner(
         city = address.value[0],
         borough = address.value[1],
-        roadName = address.value[2],
+        roadName = address.value[2] + " " + address.value[3],
         mainBuildingNumber = mainNumber.value,
         subBuildingNumber = subNumber.value,
         buildingName = buildingName.value
       )
       val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
       val response = registerEstateOwnerRepository.requestEstateOwner(token, data)
-      Timber.d("$response")
+      Timber.d(response)
     }
   }
 }
