@@ -43,8 +43,35 @@ class UserPreferenceRepositoryImpl @Inject constructor(
     }
   }
 
+  @WorkerThread
+  override suspend fun setUserRole(role: String) {
+    Result.runCatching {
+      userDataStorePreferences.edit {
+        it[KEY_USER_ROLE] = role
+      }
+    }
+  }
+
+  @WorkerThread
+  override suspend fun getUserRole(): Result<String> {
+    return Result.runCatching {
+      val flow = userDataStorePreferences.data.catch { exception ->
+        if (exception is IOException) {
+          emit(emptyPreferences())
+        } else {
+          throw exception
+        }
+      }.map { preferences ->
+        preferences[KEY_USER_ROLE]
+      }
+      val value = flow.firstOrNull() ?:""
+      value
+    }
+  }
+
   private companion object {
     val KEY_ACCESS_TOKEN = stringPreferencesKey(name = "accessToken")
     val KEY_REFRESH_TOKEN = stringPreferencesKey(name = "refreshToken")
+    val KEY_USER_ROLE = stringPreferencesKey(name = "role")
   }
 }

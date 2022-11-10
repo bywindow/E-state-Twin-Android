@@ -13,4 +13,12 @@ interface UserPreferenceRepository {
   @WorkerThread
   suspend fun getAccessToken(): Result<String>
 
+  @WorkerThread
+  suspend fun setUserRole(
+    role: String,
+  )
+
+  @WorkerThread
+  suspend fun getUserRole(): Result<String>
+
 }
