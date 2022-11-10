@@ -1,5 +1,6 @@
 package com.idiot.home.binding
 
+import android.graphics.Color
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
@@ -59,7 +60,7 @@ object ViewBinding {
   fun bindAccessAble(view: AppCompatButton, inquired: Boolean) {
     if (inquired) {
       view.setCompoundDrawablesWithIntrinsicBounds(null, view.context.resources.getDrawable(com.idiot.home.R.drawable.ic_detail_ar_camera_active, null), null, null)
-      view.setTextColor(com.idiot.home.R.color.black)
+      view.setTextColor(Color.BLACK)
     } else {
       view.setCompoundDrawablesWithIntrinsicBounds(null, view.context.resources.getDrawable(com.idiot.home.R.drawable.ic_detail_ar_camera_inactive, null), null, null)
       view.setTextColor(com.idiot.home.R.color.detail_info_content)

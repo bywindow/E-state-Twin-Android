@@ -9,4 +9,9 @@ interface DipEstateRepository {
   suspend fun requestEstateDip(
     estateId: Long
   ): RegisterEstateBrokerResponse?
+
+  @WorkerThread
+  suspend fun requestEstateInquiry(
+    estateId: Long
+  ):RegisterEstateBrokerResponse?
 }

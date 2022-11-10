@@ -18,8 +18,7 @@
   <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:ignore="RtlSymmetry">
+    android:fitsSystemWindows="true">
 
     <androidx.core.widget.NestedScrollView
       android:layout_width="match_parent"
@@ -186,11 +185,11 @@
                 android:id="@+id/basic_room_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/room_image_desc"
                 android:src="@drawable/ic_detail_room"
                 app:layout_constraintEnd_toStartOf="@id/basic_floor_image"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/room_image_desc"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
               <TextView
                 android:id="@+id/basic_room_textView"
@@ -208,11 +207,11 @@
                 android:id="@+id/basic_floor_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/floor_image_desc"
                 android:src="@drawable/ic_detail_floor"
                 app:layout_constraintEnd_toStartOf="@id/basic_size_image"
                 app:layout_constraintStart_toEndOf="@id/basic_room_image"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/floor_image_desc"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
               <TextView
                 android:id="@+id/basic_floor_textView"
@@ -230,11 +229,11 @@
                 android:id="@+id/basic_size_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/size_image_desc"
                 android:src="@drawable/ic_detail_m_2"
                 app:layout_constraintEnd_toStartOf="@id/basic_cost_image"
                 app:layout_constraintStart_toEndOf="@id/basic_floor_image"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/size_image_desc"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
               <TextView
                 android:id="@+id/basic_size_textView"
@@ -264,11 +263,11 @@
                 android:id="@+id/basic_cost_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/cost_image_desc"
                 android:src="@drawable/ic_detail_cost"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/basic_size_image"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/cost_image_desc"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
               <TextView
                 android:id="@+id/basic_cost_textView"
@@ -955,6 +954,8 @@
         android:layout_height="match_parent"
         android:layout_marginStart="14dp"
         android:background="@drawable/tv_detail_visit_reservation_background"
+        android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
         android:includeFontPadding="false"
         android:minHeight="0dp"

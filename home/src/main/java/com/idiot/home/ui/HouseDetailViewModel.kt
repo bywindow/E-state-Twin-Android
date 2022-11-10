@@ -1,6 +1,7 @@
 package com.idiot.home.ui
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.idiot.data.repository.DipEstateRepository
 import com.idiot.data.repository.GetEstateDetailRepository
 import com.idiot.home.util.EnumToText
@@ -8,6 +9,7 @@ import com.idiot.model.AssetIncludingChecklist
 import com.idiot.model.DetailEstate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -58,9 +60,16 @@ class HouseDetailViewModel @Inject constructor(
     emit(EstateDetailEvent.DipEstateResponse)
   }
 
+  fun requestInquiryEstate(estateId: Long) = flow {
+    val response = dipEstateRepository.requestEstateInquiry(estateId)
+    Timber.d("Detail VM : $response")
+    emit(EstateDetailEvent.InquiryEstateSuccess)
+  }
+
 }
 
 sealed class EstateDetailEvent {
   object GetEstateDetail : EstateDetailEvent()
   object DipEstateResponse : EstateDetailEvent()
+  object InquiryEstateSuccess : EstateDetailEvent()
 }

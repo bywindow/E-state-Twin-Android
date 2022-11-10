@@ -91,6 +91,14 @@ class EstateClient @Inject constructor(
     estateId = estateId
   )
 
+  suspend fun requestEstateInquiry(
+    accessToken: String,
+    estateId: Long
+  ): Response<RegisterEstateBrokerResponse> = estateService.requestEstateInquiry(
+    accessToken = accessToken,
+    estateId = estateId
+  )
+
   suspend fun requestGetTenantAssetList(
     accessToken: String,
     category: String
@@ -98,4 +106,5 @@ class EstateClient @Inject constructor(
     accessToken = accessToken,
     category = category
   )
+
 }

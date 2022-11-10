@@ -85,4 +85,11 @@ interface EstateService {
     @Header("Authorization") accessToken: String,
     @Path("estateId") estateId: Long
   ): Response<RegisterEstateBrokerResponse>
+
+  @PATCH("estate/detail/{estateId}/inquiry")
+  suspend fun requestEstateInquiry(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Path("estateId") estateId: Long
+  ): Response<RegisterEstateBrokerResponse>
 }
