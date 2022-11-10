@@ -1,6 +1,7 @@
 package com.idiot.data.api
 
 import com.idiot.model.*
+import com.idiot.model.serializer.PageAble
 import com.idiot.model.users.MyPageResponse
 import com.idiot.model.users.UserSignUpResponse
 import okhttp3.RequestBody
@@ -92,4 +93,11 @@ interface EstateService {
     @Header("Authorization") accessToken: String,
     @Path("estateId") estateId: Long
   ): Response<RegisterEstateBrokerResponse>
+
+  @GET("preferestate/list/inquiry")
+  suspend fun requestInquiredEstateList(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Query("pageable") pageAble: PageAble
+  ): Response<List<InquiredEstate>>
 }

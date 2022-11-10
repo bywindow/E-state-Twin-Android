@@ -111,11 +111,10 @@
           <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ARCameraButton"
             style="?android:attr/borderlessButtonStyle"
-            inquired="@{vm.detailEstate.inquiry}"
+            inquired="@{vm.inquiryState}"
             android:layout_width="@dimen/detail_feat_button_width"
             android:layout_height="@dimen/detail_feat_button_height"
             android:background="@color/white"
-            android:clickable="@{vm.detailEstate.inquiry}"
             android:text="@string/ar_camera"
             android:textSize="10sp" />
 

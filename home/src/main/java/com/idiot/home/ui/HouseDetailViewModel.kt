@@ -26,6 +26,7 @@ class HouseDetailViewModel @Inject constructor(
   val estateType = MutableStateFlow("")
   val postedDate = MutableStateFlow(0)
   val createdDate = MutableStateFlow("")
+  val inquiryState = MutableStateFlow(false)
 
   private val _estateImageList = MutableStateFlow<List<String>>(emptyList())
   val estateImageList = _estateImageList.asStateFlow()
@@ -50,6 +51,7 @@ class HouseDetailViewModel @Inject constructor(
       estateType.value = EnumToText.changeEstateType(response.house.estateType)
       postedDate.value = EnumToText.calculatePostedDate(response.createdAt)
       createdDate.value = response.createdAt.split(" ")[0]
+      inquiryState.value = response.inquiry
     }
     emit(EstateDetailEvent.GetEstateDetail)
   }
@@ -60,8 +62,9 @@ class HouseDetailViewModel @Inject constructor(
     emit(EstateDetailEvent.DipEstateResponse)
   }
 
-  fun requestInquiryEstate(estateId: Long) = flow {
-    val response = dipEstateRepository.requestEstateInquiry(estateId)
+  fun requestInquiryEstate() = flow {
+    val response = dipEstateRepository.requestEstateInquiry(detailEstate.value!!.id)
+    inquiryState.value = true
     Timber.d("Detail VM : $response")
     emit(EstateDetailEvent.InquiryEstateSuccess)
   }

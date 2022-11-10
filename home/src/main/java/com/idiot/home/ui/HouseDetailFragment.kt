@@ -32,7 +32,7 @@ class HouseDetailFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View? {
     binding = FragmentHouseDetailBinding.inflate(inflater, container, false)
-    binding.lifecycleOwner = viewLifecycleOwner
+    binding.lifecycleOwner = this
     binding.vm = viewModel
 
     initAdapter()
@@ -68,6 +68,10 @@ class HouseDetailFragment : Fragment() {
       startActivity(intent)
     }
     binding.ARCameraButton.setOnClickListener {
+      if (!viewModel.detailEstate.value!!.inquiry) {
+        Toast.makeText(requireContext(), "방문 예약 후 이용하실 수 있습니다.", Toast.LENGTH_SHORT).show()
+        return@setOnClickListener
+      }
       val data = viewModel.assetList.value
       val intent = Intent(context, ResolveAnchorActivity::class.java).apply {
         putExtra("data", ArrayList(data))
@@ -96,7 +100,7 @@ class HouseDetailFragment : Fragment() {
         return@setOnClickListener
       }
       viewLifecycleOwner.lifecycleScope.launch {
-        viewModel.requestInquiryEstate(args.houseId).collect() {
+        viewModel.requestInquiryEstate().collect() {
           Timber.d("INQUIRY BUTTON")
         }
       }
