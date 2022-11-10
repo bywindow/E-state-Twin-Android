@@ -2,9 +2,8 @@ package com.idiot.home.binding
 
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
 import com.idiot.data.repository.R
 
 object ViewBinding {
@@ -52,6 +51,18 @@ object ViewBinding {
       "WALLPAPER" -> view.setImageResource(R.drawable.ic_option_wall)
       "CURTAIN" -> view.setImageResource(R.drawable.ic_option_curtain)
       else -> return
+    }
+  }
+
+  @JvmStatic
+  @BindingAdapter("inquired")
+  fun bindAccessAble(view: AppCompatButton, inquired: Boolean) {
+    if (inquired) {
+      view.setCompoundDrawablesWithIntrinsicBounds(null, view.context.resources.getDrawable(com.idiot.home.R.drawable.ic_detail_ar_camera_active, null), null, null)
+      view.setTextColor(com.idiot.home.R.color.black)
+    } else {
+      view.setCompoundDrawablesWithIntrinsicBounds(null, view.context.resources.getDrawable(com.idiot.home.R.drawable.ic_detail_ar_camera_inactive, null), null, null)
+      view.setTextColor(com.idiot.home.R.color.detail_info_content)
     }
   }
 }

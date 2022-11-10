@@ -12,5 +12,7 @@ data class DetailEstate(
   val address: RoadAddressByOwner,
   val house: DetailHouse,
   val broker: BrokerResponse,
-  val assets: List<AssetIncludingChecklist>
+  val assets: List<AssetIncludingChecklist>,
+  val inquiry: Boolean,
+  val posted: Boolean
 )
