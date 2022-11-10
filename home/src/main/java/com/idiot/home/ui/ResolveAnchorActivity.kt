@@ -14,6 +14,7 @@ import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
 import io.github.sceneview.utils.setFullScreen
+import timber.log.Timber
 
 @AndroidEntryPoint
 class ResolveAnchorActivity : AppCompatActivity() {
@@ -68,4 +69,18 @@ class ResolveAnchorActivity : AppCompatActivity() {
       }
     }
   }
+
+  override fun onStop() {
+    try {
+      sceneView.allChildren.forEach {
+        it.detachFromScene(sceneView)
+      }
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+    Timber.d("STOP : CLOUD ANCHOR")
+    super.onStop()
+    Timber.d("GO TO DESTROY")
+  }
+
 }
