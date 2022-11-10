@@ -5,13 +5,12 @@
   tools:context="com.idiot.more.ui.NewRegisterRequestFragment">
 
   <data>
-
     <variable
       name="hasRequest"
       type="boolean" />
   </data>
 
-  <FrameLayout
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_100">
@@ -35,8 +34,10 @@
       android:src="@drawable/ic_plus"
       app:backgroundTint="@color/purple_700"
       app:borderWidth="0dp"
-      app:tint="@color/white" />
+      app:tint="@color/white"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent" />
 
-  </FrameLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
