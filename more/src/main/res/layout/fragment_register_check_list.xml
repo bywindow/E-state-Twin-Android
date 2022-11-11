@@ -1,11 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   tools:context=".ui.RegisterCheckListFragment">
 
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+      android:id="@+id/toolbar_manage_asset"
+      layout="@layout/toolbar_layout"
+      app:title="@{`AR 체크리스트`}" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+      android:id="@+id/back_button"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:layout_marginStart="@dimen/app_horizontal_padding"
+      android:background="@android:color/transparent"
+      android:src="@drawable/ic_btn_back"
+      app:layout_constraintBottom_toBottomOf="@id/toolbar_manage_asset"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@id/toolbar_manage_asset" />
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/home_appliance_tab"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:gravity="center"
+      android:paddingHorizontal="12dp"
+      android:paddingVertical="10dp"
+      android:text="@string/category_home_appliance"
+      android:textSize="14sp"
+      app:layout_constraintEnd_toStartOf="@id/furniture_tab"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/toolbar_manage_asset" />
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/furniture_tab"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:paddingHorizontal="12dp"
+      android:paddingVertical="10dp"
+      android:text="@string/category_furniture"
+      android:textSize="14sp"
+      app:layout_constraintEnd_toStartOf="@id/bathroom_tab"
+      app:layout_constraintStart_toEndOf="@id/home_appliance_tab"
+      app:layout_constraintTop_toTopOf="@id/home_appliance_tab" />
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/bathroom_tab"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:paddingHorizontal="12dp"
+      android:paddingVertical="10dp"
+      android:text="@string/category_bathroom"
+      android:textSize="14sp"
+      app:layout_constraintEnd_toStartOf="@id/interior_tab"
+      app:layout_constraintStart_toEndOf="@id/furniture_tab"
+      app:layout_constraintTop_toTopOf="@id/home_appliance_tab" />
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/interior_tab"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:paddingHorizontal="12dp"
+      android:paddingVertical="10dp"
+      android:text="@string/category_interior"
+      android:textSize="14sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/bathroom_tab"
+      app:layout_constraintTop_toTopOf="@id/home_appliance_tab" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 
