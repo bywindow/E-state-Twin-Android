@@ -26,4 +26,12 @@ class DipEstateRepositoryImpl @Inject constructor(
     Timber.d("INQUIRY : ${response.body()}")
     return if (response.isSuccessful) response.body() as RegisterEstateBrokerResponse else null
   }
+
+  @WorkerThread
+  override suspend fun requestEstateContract(estateId: Long): RegisterEstateBrokerResponse? {
+    val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
+    val response = estateClient.requestEstateContract(accessToken = "Bearer $token", estateId = estateId)
+    Timber.d("CONTRACT : ${response.body()}")
+    return if (response.isSuccessful) response.body() as RegisterEstateBrokerResponse else null
+  }
 }

@@ -94,6 +94,13 @@ interface EstateService {
     @Path("estateId") estateId: Long
   ): Response<RegisterEstateBrokerResponse>
 
+  @PATCH("estate/detail/{estateId}/contract")
+  suspend fun requestEstateContract(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Path("estateId") estateId: Long
+  ): Response<RegisterEstateBrokerResponse>
+
   @GET("preferestate/list/inquiry")
   suspend fun requestInquiredEstateList(
     @Header("Content-Type") contentType: String = "application/json",
