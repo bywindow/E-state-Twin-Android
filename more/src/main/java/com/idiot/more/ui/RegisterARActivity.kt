@@ -143,7 +143,7 @@ class RegisterARActivity : AppCompatActivity() {
   private fun takePhotoAsset() {
     val filename = FileUtil.generateFileName()
     val bitmap = Bitmap.createBitmap(sceneView.width, sceneView.height, Bitmap.Config.ARGB_8888)
-    val handlerThread = HandlerThread("PixelCopier")
+    val handlerThread = HandlerThread("PixelCopier${viewModel.assetCursor.value}")
     handlerThread.start()
     PixelCopy.request(sceneView, bitmap, { result: Int ->
       run {
@@ -176,6 +176,9 @@ class RegisterARActivity : AppCompatActivity() {
       if (!this@RegisterARActivity.isFinishing) show()
     }
     bottomSheetBinding.completeButton.setOnClickListener {
+      val productName = bottomSheetBinding.productNameEditText.text.toString()
+      val manufacturer = bottomSheetBinding.manufacturerEditText.text.toString()
+      viewModel.saveAssetInfoField(productName, manufacturer)
       bottomSheet.dismiss()
     }
   }

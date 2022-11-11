@@ -59,9 +59,16 @@ class RegisterARViewModel @Inject constructor() : ViewModel() {
 
   fun addAssetManufacture(s : CharSequence, start: Int, before: Int, count: Int) {
     _assetList.value[assetCursor.value].manufacturer = s.toString()
+    Timber.d("${assetList.value[assetCursor.value].manufacturer}")
   }
 
   fun addAssetProduct(s : CharSequence, start: Int, before: Int, count: Int) {
     _assetList.value[assetCursor.value].productName = s.toString()
+    Timber.d("${assetList.value[assetCursor.value].productName}")
+  }
+
+  fun saveAssetInfoField(productName: String, manufacturer: String) {
+    _assetList.value[assetCursor.value].manufacturer = manufacturer
+    _assetList.value[assetCursor.value].productName = productName
   }
 }

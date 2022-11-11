@@ -1,7 +1,7 @@
 package com.idiot.model
 
 data class RegisterEstateBroker(
-  val id: Int,
+  val id: Long,
   val floorplan: String?,
   val transactionType: String,
   val arCam: String,

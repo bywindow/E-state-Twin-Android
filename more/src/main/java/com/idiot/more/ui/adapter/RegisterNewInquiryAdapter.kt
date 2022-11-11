@@ -12,7 +12,10 @@ import com.idiot.data.repository.samples.inquiryInfo
 import com.idiot.model.EstateListBrokerResponse
 import com.idiot.more.ui.RegisterFragmentDirections
 
-class RegisterNewInquiryAdapter(private val inquiry: List<EstateListBrokerResponse>) :
+class RegisterNewInquiryAdapter(
+  private val inquiry: List<EstateListBrokerResponse>,
+  private val isInquired: Boolean
+) :
   RecyclerView.Adapter<RegisterNewInquiryAdapter.ViewHolder>() {
   inner class ViewHolder constructor(
     private val binding: ListItemNewRegisterBinding
@@ -34,9 +37,10 @@ class RegisterNewInquiryAdapter(private val inquiry: List<EstateListBrokerRespon
       binding.executePendingBindings()
     }
 
-    private fun navigateTo(estateId: Int, view: View) {
+    private fun navigateTo(estateId: Long, view: View) {
       val direction =
-        RegisterFragmentDirections.actionRegisterFragmentToRegisterInfoFragment(estateId)
+        if (isInquired) RegisterFragmentDirections.actionRegisterFragmentToRegisterCheckListFragment(estateId)
+        else RegisterFragmentDirections.actionRegisterFragmentToRegisterInfoFragment(estateId)
       view.findNavController().navigate(direction)
     }
   }

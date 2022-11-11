@@ -27,7 +27,7 @@ class RegisterForBrokerFragment : Fragment() {
     super.onCreateView(inflater, container, savedInstanceState)
 
     binding = FragmentRegisterForBrokerBinding.inflate(inflater, container, false)
-    binding.registerPostingList.adapter = RegisterNewInquiryAdapter(viewModel.postingEstate.value)
+    binding.registerPostingList.adapter = RegisterNewInquiryAdapter(viewModel.postingEstate.value, true)
 
     getEstateList()
 
@@ -37,7 +37,7 @@ class RegisterForBrokerFragment : Fragment() {
   private fun getEstateList() {
     viewLifecycleOwner.lifecycleScope.launch {
       viewModel.getPostingEstateList().collect {
-        binding.registerPostingList.adapter = RegisterNewInquiryAdapter(viewModel.postingEstate.value)
+        binding.registerPostingList.adapter = RegisterNewInquiryAdapter(viewModel.postingEstate.value, true)
       }
     }
   }

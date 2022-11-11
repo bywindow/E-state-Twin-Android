@@ -19,7 +19,7 @@ interface AWSService {
   @POST("test/upload/floorplan")
   suspend fun requestEstateFloorPlan(
     @Header("Content-Type") contentType: String,
-    @Query("estateId") estateId: Int,
+    @Query("estateId") estateId: Long,
     @Body files: RequestBody
   ): Response<AWSUploadResponse>
 

@@ -13,7 +13,7 @@ import javax.inject.Inject
 class EstateFloorPlanUploadRepository @Inject constructor() {
 
   @WorkerThread
-  suspend fun requestEstateFloorPlan(estateId: Int, file: File): AWSUploadResponse? {
+  suspend fun requestEstateFloorPlan(estateId: Long, file: File): AWSUploadResponse? {
     val multipartBody = MultipartBody.Builder().setType(MultipartBody.FORM).apply {
       addFormDataPart("files", file.name, file.asRequestBody())
     }

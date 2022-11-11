@@ -28,6 +28,9 @@
     <action
       android:id="@+id/action_registerFragment_to_requestOwnerToBrokerFragment"
       app:destination="@id/requestOwnerToBrokerFragment" />
+    <action
+      android:id="@+id/action_registerFragment_to_registerCheckListFragment"
+      app:destination="@id/registerCheckListFragment" />
   </fragment>
   <fragment
     android:id="@+id/registerInfoFragment"
@@ -35,7 +38,7 @@
     android:label="RegisterInfoFragment" >
     <argument
       android:name="estateId"
-      app:argType="integer"/>
+      app:argType="long"/>
     <action
       android:id="@+id/action_registerInfoFragment_to_registerHouseInfoFragment"
       app:destination="@id/registerHouseInfoFragment" />
@@ -63,5 +66,12 @@
     android:name="com.idiot.more.ui.RequestOwnerToBrokerFragment"
     android:label="fragment_request_owner_to_broker"
     tools:layout="@layout/fragment_request_owner_to_broker" />
+  <fragment
+    android:id="@+id/registerCheckListFragment"
+    android:name="com.idiot.more.ui.RegisterCheckListFragment"
+    android:label="fragment_register_check_list"
+    tools:layout="@layout/fragment_register_check_list" >
+    <argument android:name="estateId" app:argType="long"/>
+  </fragment>
 
 </navigation>

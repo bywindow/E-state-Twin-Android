@@ -31,7 +31,7 @@ class NewRegisterRequestFragment : Fragment() {
   ): View {
 
     binding = FragmentNewRegisterRequestBinding.inflate(inflater, container, false)
-    binding.registerRequestList.adapter = RegisterNewInquiryAdapter(viewModel.estateList.value)
+    binding.registerRequestList.adapter = RegisterNewInquiryAdapter(viewModel.estateList.value, false)
 
     fabButtonClicked()
     getEstateList()
@@ -50,7 +50,7 @@ class NewRegisterRequestFragment : Fragment() {
   private fun getEstateList() {
     viewLifecycleOwner.lifecycleScope.launch {
       viewModel.getEstateList().collect() {
-        binding.registerRequestList.adapter = RegisterNewInquiryAdapter(viewModel.estateList.value)
+        binding.registerRequestList.adapter = RegisterNewInquiryAdapter(viewModel.estateList.value, false)
       }
     }
   }

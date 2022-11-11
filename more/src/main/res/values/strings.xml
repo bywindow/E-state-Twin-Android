@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="more">더보기</string>
-  <string name="new_request_title">새로운 요청</string>
-  <string name="pause_request_title">등록중인 매물</string>
-  <string name="picture_max_count">20</string>
-  <string name="address_input_hint">주소를 입력해주세요.</string>
-  <string name="home_detail_dialog_button_text">건물정보 입력</string>
-  <string name="price_dialog_button_text">가격정보 입력</string>
-  <string name="register_floor_plan_button_text">매물 도면 등록</string>
-  <string name="register_house_video_button_text">매물영상 등록</string>
-  <string name="register_ar_checklist_button_text">AR체크리스트 등록</string>
-  <string name="house_type_input_hint">건물의 유형을 선택해주세요.</string>
-  <string name="building_name_input_hint">건물의 이름을 입력하세요.</string>
-  <string name="deposit_input_hint">보증금(전세금)을 입력해주세요.</string>
-  <string name="monthly_input_hint">월세를 입력해주세요.</string>
-  <string name="management_fee_input_hint">관리비를 입력해주세요.</string>
-  <string name="parking_fee_input_hint">주차비를 입력해주세요.</string>
-  <string name="square_meter">m<sup><small>2</small></sup></string>
-  <string name="home_recommend_card_image_desc">Picture of recommended house</string>
-  <string name="add_checklist">체크리스트 생성</string>
-  <string name="complete_checklist">저장하고 돌아가기</string>
-  <string name="anchoring_loading_title">등록중입니다…</string>
-  <string name="anchoring_loading_content">작업이 완료될 때까지 충분히\n옵션 주변의 바닥을 촬영해주세요.</string>
+    <string name="more">더보기</string>
+    <string name="new_request_title">새로운 요청</string>
+    <string name="pause_request_title">등록중인 매물</string>
+    <string name="picture_max_count">20</string>
+    <string name="address_input_hint">주소를 입력해주세요.</string>
+    <string name="home_detail_dialog_button_text">건물정보 입력</string>
+    <string name="price_dialog_button_text">가격정보 입력</string>
+    <string name="register_floor_plan_button_text">매물 도면 등록</string>
+    <string name="register_house_video_button_text">매물영상 등록</string>
+    <string name="register_ar_checklist_button_text">AR체크리스트 등록</string>
+    <string name="house_type_input_hint">건물의 유형을 선택해주세요.</string>
+    <string name="building_name_input_hint">건물의 이름을 입력하세요.</string>
+    <string name="deposit_input_hint">보증금(전세금)을 입력해주세요.</string>
+    <string name="monthly_input_hint">월세를 입력해주세요.</string>
+    <string name="management_fee_input_hint">관리비를 입력해주세요.</string>
+    <string name="parking_fee_input_hint">주차비를 입력해주세요.</string>
+    <string name="square_meter">m<sup><small>2</small></sup></string>
+    <string name="home_recommend_card_image_desc">Picture of recommended house</string>
+    <string name="add_checklist">체크리스트 생성</string>
+    <string name="complete_checklist">저장하고 돌아가기</string>
+    <string name="anchoring_loading_title">등록중입니다…</string>
+    <string name="anchoring_loading_content">작업이 완료될 때까지 충분히\n옵션 주변의 바닥을 촬영해주세요.</string>
 
-  <string name="register_owner_help_text">주변 공인중개사에 요청하거나 직접 등록도 가능합니다.\n작성내용을 임시저장할 수 있습니다.</string>
-  <string name="register_owner_address_help_text">등록 서비스를 위해 매물의 주소를 입력해주세요.</string>
+    <string name="register_owner_help_text">주변 공인중개사에 요청하거나 직접 등록도 가능합니다.\n작성내용을 임시저장할 수 있습니다.</string>
+    <string name="register_owner_address_help_text">등록 서비스를 위해 매물의 주소를 입력해주세요.</string>
 
-  <string-array name="building_type_list">
-    <item>건물의 유형을 선택해주세요.</item>
-    <item>아파트</item>
-    <item>오피스텔</item>
-  </string-array>
-  <string-array name="heat_type_list">
-    <item>난방의 종류를 선택해주세요.</item>
-    <item>개별난방</item>
-    <item>중앙난방</item>
-  </string-array>
-  <string-array name="room_type_list">
-    <item>방 구조의 형태를 선택해주세요.</item>
-    <item>1.5층</item>
-    <item>주방분리형</item>
-  </string-array>
+    <string-array name="building_type_list">
+        <item>건물의 유형을 선택해주세요.</item>
+        <item>아파트</item>
+        <item>오피스텔</item>
+    </string-array>
+    <string-array name="heat_type_list">
+        <item>난방의 종류를 선택해주세요.</item>
+        <item>개별난방</item>
+        <item>중앙난방</item>
+    </string-array>
+    <string-array name="room_type_list">
+        <item>방 구조의 형태를 선택해주세요.</item>
+        <item>1.5층</item>
+        <item>주방분리형</item>
+    </string-array>
 
-  <string name="category_home_appliance">가전</string>
-  <string name="category_furniture">가구</string>
-  <string name="category_bathroom">욕실/주방</string>
-  <string name="category_interior">인테리어</string>
+    <string name="category_home_appliance">가전</string>
+    <string name="category_furniture">가구</string>
+    <string name="category_bathroom">욕실/주방</string>
+    <string name="category_interior">인테리어</string>
 
-  <string name="user_delete_dialog_title">회원정보를 삭제하시겠습니까?</string>
-  <!-- TODO: Remove or change this placeholder text -->
-  <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_delete_dialog_title">회원정보를 삭제하시겠습니까?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

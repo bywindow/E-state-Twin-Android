@@ -159,7 +159,7 @@ class RegisterInfoViewModel @Inject constructor(
     Log.d("register", "delete! $item")
   }
 
-  fun insertFloorPlan(estateId: Int, image: Uri) {
+  fun insertFloorPlan(estateId: Long, image: Uri) {
     val context = getApplication<Application>().applicationContext
     viewModelScope.launch {
       val file: File = FileUtil.convertUriToFile(context, image)
@@ -288,7 +288,8 @@ class RegisterInfoViewModel @Inject constructor(
     _assetList.value = data
   }
 
-  fun requestPostEstate(id : Int) {
+  fun requestPostEstate(id : Long) {
+    Timber.d("register estate id : $id")
     var manageItem = ""
     managementFeeIncluding.value.entries.forEach {
       if (it.value) {
@@ -336,7 +337,7 @@ class RegisterInfoViewModel @Inject constructor(
     viewModelScope.launch {
       val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
       val response = registerEstateBrokerRepository.requestPostEstateBroker(token, data)
-      Timber.d("$response")
+      Timber.d("뷰모델 리스폰스 : $response")
     }
   }
 }
