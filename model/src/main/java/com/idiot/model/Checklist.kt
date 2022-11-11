@@ -1,11 +1,11 @@
 package com.idiot.model
 
 data class Checklist(
-  val flawPart: String,
-  val checkListContent: String,
-  val checkListPhoto: String,
-  val repairDate: String,
-  val repairType: String,
+  var flawPart: String?,
+  var checkListContent: String?,
+  var checkListPhoto: String?,
+  var repairDate: String?,
+  var repairType: String?,
   val brokerConfirmYN : Boolean,
   val tenantConfirmYN: Boolean,
   val ownerConfirmYN: Boolean
