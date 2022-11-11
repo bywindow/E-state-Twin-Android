@@ -69,10 +69,21 @@ class HouseDetailViewModel @Inject constructor(
     emit(EstateDetailEvent.InquiryEstateSuccess)
   }
 
+  fun requestContractEstate() = flow {
+    val response = dipEstateRepository.requestEstateContract(detailEstate.value!!.id)
+    Timber.d("VM CONTRACT : $response")
+    if (response != null) {
+      emit(EstateDetailEvent.ContractEstateSuccess(response.id))
+    } else {
+      emit(EstateDetailEvent.ContractEstateFailed)
+    }
+  }
 }
 
 sealed class EstateDetailEvent {
   object GetEstateDetail : EstateDetailEvent()
   object DipEstateResponse : EstateDetailEvent()
   object InquiryEstateSuccess : EstateDetailEvent()
+  class ContractEstateSuccess(val estateId: Long) : EstateDetailEvent()
+  object ContractEstateFailed: EstateDetailEvent()
 }

@@ -37,18 +37,25 @@ class HouseDetailFragment : Fragment() {
 
     initAdapter()
 
+    return binding.root
+  }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
     fetchBrokerProfile()
     navigateButtonClicked()
     dipButtonClicked()
     inquiryButtonClicked()
+    runProcessButtonClicked()
 
-    return binding.root
   }
 
   private fun initAdapter() {
     viewLifecycleOwner.lifecycleScope.launch {
       viewModel.fetchEstateDetail(args.houseId).collect {
-        binding.glideSlideViewPager.adapter = HouseImageSliderAdapter(viewModel.estateImageList.value)
+        binding.glideSlideViewPager.adapter =
+          HouseImageSliderAdapter(viewModel.estateImageList.value)
       }
     }
     binding.optionAdapter = HouseOptionListAdapter()
@@ -62,7 +69,8 @@ class HouseDetailFragment : Fragment() {
 
   private fun navigateButtonClicked() {
     binding.threeDimenButton.setOnClickListener {
-      val data = "https://arvr.google.com/scene-viewer/1.0?file=https://idiot-model-bucket.s3.ap-northeast-2.amazonaws.com/Model/12/anam.glb"
+      val data =
+        "https://arvr.google.com/scene-viewer/1.0?file=https://idiot-model-bucket.s3.ap-northeast-2.amazonaws.com/Model/12/anam.glb"
       val intent = Intent(Intent.ACTION_VIEW)
       intent.data = Uri.parse(data).buildUpon().appendQueryParameter("mode", "3d_only").build()
       startActivity(intent)
@@ -86,7 +94,7 @@ class HouseDetailFragment : Fragment() {
   private fun dipButtonClicked() {
     binding.houseLikeButton.setOnClickListener {
       viewLifecycleOwner.lifecycleScope.launch {
-        viewModel.requestDipEstate(args.houseId).collect(){
+        viewModel.requestDipEstate(args.houseId).collect() {
           Timber.d("DIP BUTTON")
         }
       }
@@ -102,6 +110,25 @@ class HouseDetailFragment : Fragment() {
       viewLifecycleOwner.lifecycleScope.launch {
         viewModel.requestInquiryEstate().collect() {
           Timber.d("INQUIRY BUTTON")
+        }
+      }
+    }
+  }
+
+  private fun runProcessButtonClicked() {
+    binding.runProcess.setOnClickListener {
+      viewLifecycleOwner.lifecycleScope.launch {
+        viewModel.requestContractEstate().collect() {
+          when (it) {
+            is EstateDetailEvent.ContractEstateSuccess -> {
+              Timber.d("CONTRACT : ${it.estateId}")
+              Toast.makeText(requireContext(), "계약을 요청했습니다. 진행중인 계약으로 이동합니다.", Toast.LENGTH_SHORT).show()
+            }
+            is EstateDetailEvent.ContractEstateFailed -> {
+              Toast.makeText(requireContext(), "이미 계약 진행중입니다.", Toast.LENGTH_SHORT).show()
+            }
+            else -> { }
+          }
         }
       }
     }
