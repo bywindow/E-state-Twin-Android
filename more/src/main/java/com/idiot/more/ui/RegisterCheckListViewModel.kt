@@ -23,13 +23,17 @@ class RegisterCheckListViewModel @Inject constructor(
 
   val selectedCategory = MutableStateFlow(0)
   private val categories = listOf("HOMEAPPLIANCES", "FURNITURE", "BATHROOM", "INTERIOR")
-  val filteredAssetList = assetList.value.filter { it.category == categories[selectedCategory.value] }
+
+  private val _filteredAssetList = MutableStateFlow<List<AssetIncludingChecklist>>(emptyList())
+  val filteredAssetList = _filteredAssetList.asStateFlow()
 
   fun fetchEstateDetails(estateId: Long) = flow {
     val response = getEstateDetailRepository.requestGetDetailEstate(estateId)
     Timber.d("Detail VM : $response")
     _detailEstate.value = response
     if (response != null) {
+      _assetList.value = response.assets
+      _filteredAssetList.value = response.assets.filter { it.category == categories[selectedCategory.value] }
       emit(RegisterCheckListState.FetchEstateSuccess(response))
     } else {
       emit(RegisterCheckListState.FetchEstateFailed)

@@ -4,15 +4,20 @@
   xmlns:tools="http://schemas.android.com/tools">
 
   <data>
-
     <variable
       name="model"
       type="com.idiot.model.AssetIncludingChecklist" />
+    <variable
+      name="clickListener"
+      type="android.view.View.OnClickListener" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:onClick="@{clickListener}"
     android:paddingTop="18dp"
     android:paddingBottom="16dp">
 
@@ -140,9 +145,9 @@
       android:layout_marginTop="4dp"
       android:layout_marginBottom="4dp"
       android:background="#c5c8d4"
-      app:layout_constraintBottom_toBottomOf="@id/flaw_part_title"
-      app:layout_constraintStart_toEndOf="@id/flaw_part_title"
-      app:layout_constraintTop_toTopOf="@id/flaw_part_title" />
+      app:layout_constraintBottom_toBottomOf="@id/checklist_desc_title"
+      app:layout_constraintStart_toEndOf="@id/checklist_desc_title"
+      app:layout_constraintTop_toTopOf="@id/checklist_desc_title" />
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/checklist_desc_text"

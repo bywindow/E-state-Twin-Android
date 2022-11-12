@@ -65,12 +65,10 @@ class AssetCloudAnchorAdapter(private val onClick: (Int) -> Unit) :
 
   private fun ListItemAssetArBinding.setCheck() {
     assetItemLayout.setBackgroundResource(R.drawable.bg_ar_asset_rounded_active)
-//    assetItemLayout.context.getDrawable(R.drawable.bg_ar_asset_rounded_active)
   }
 
   private fun ListItemAssetArBinding.setUnchecked() {
     assetItemLayout.setBackgroundResource(R.drawable.bg_ar_asset_rounded_inactive)
-//    assetItemLayout.context.getDrawable(R.drawable.bg_ar_asset_rounded_inactive)
   }
 
   companion object {

@@ -25,14 +25,15 @@ object RecyclerViewBinding {
     adapter.submitList(itemList)
   }
 
+  @JvmStatic
   @BindingAdapter(
     value = ["dividerHeight", "dividerPadding", "dividerColor"],
     requireAll = false
   )
   fun RecyclerView.setDivider(dividerHeight: Float?, dividerPadding: Float?, @ColorInt dividerColor: Int?) {
     val decoration = CustomDecoration(
-      height = dividerHeight ?: 0f,
-      padding = dividerPadding ?: 0f,
+      height = dividerHeight ?: 1.0f,
+      padding = dividerPadding ?: 10.0f,
       color = dividerColor ?: Color.TRANSPARENT
     )
     addItemDecoration(decoration)

@@ -39,7 +39,7 @@ fun optionSample(): List<HouseOption> {
     ),
     HouseOption(
       id = 14,
-      key = "WAVE",
+      key = "MICROWAVE",
       category = "HOMEAPPLIANCES",
       icon = R.drawable.ic_option_wave,
       desc = "전자레인지",

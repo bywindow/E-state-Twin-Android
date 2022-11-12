@@ -92,15 +92,14 @@
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/asset_list_recycler_view"
       assetAdapter="@{adapter}"
+      dividerColor="@{@color/divider}"
       submitAssetList="@{vm.filteredAssetList}"
       android:layout_width="match_parent"
       android:layout_height="0dp"
-      dividerHeight="1dp"
-      dividerColor="#f5f5f5"
-      dividerPadding="10dp"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintTop_toBottomOf="@id/interior_tab"
-      tools:listitem="@layout/list_item_check_list_owner"/>
+      tools:listitem="@layout/list_item_check_list_owner" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 
