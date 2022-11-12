@@ -38,10 +38,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/home_appliance_tab"
+      selectedCategory="@{vm.selectedCategory == 0}"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
       android:gravity="center"
+      android:onClick="@{() -> vm.changAssetCategory(0)}"
       android:paddingHorizontal="12dp"
       android:paddingVertical="10dp"
       android:text="@string/category_home_appliance"
@@ -52,9 +54,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/furniture_tab"
+      selectedCategory="@{vm.selectedCategory == 1}"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:gravity="center"
+      android:onClick="@{() -> vm.changAssetCategory(1)}"
       android:paddingHorizontal="12dp"
       android:paddingVertical="10dp"
       android:text="@string/category_furniture"
@@ -65,9 +69,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/bathroom_tab"
+      selectedCategory="@{vm.selectedCategory == 2}"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:gravity="center"
+      android:onClick="@{() -> vm.changAssetCategory(2)}"
       android:paddingHorizontal="12dp"
       android:paddingVertical="10dp"
       android:text="@string/category_bathroom"
@@ -78,9 +84,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/interior_tab"
+      selectedCategory="@{vm.selectedCategory == 3}"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:gravity="center"
+      android:onClick="@{() -> vm.changAssetCategory(3)}"
       android:paddingHorizontal="12dp"
       android:paddingVertical="10dp"
       android:text="@string/category_interior"

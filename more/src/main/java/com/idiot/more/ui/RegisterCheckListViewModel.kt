@@ -39,6 +39,11 @@ class RegisterCheckListViewModel @Inject constructor(
       emit(RegisterCheckListState.FetchEstateFailed)
     }
   }
+
+  fun changAssetCategory(key: Int) {
+    selectedCategory.value = key
+    _filteredAssetList.value = assetList.value.filter { it.category == categories[selectedCategory.value] }
+  }
 }
 
 sealed class RegisterCheckListState {

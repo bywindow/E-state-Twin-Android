@@ -1,12 +1,13 @@
 package com.idiot.more.binding
 
+import android.graphics.Color
+import android.graphics.Typeface
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.BindingAdapter
 import com.idiot.more.R
 import com.idiot.more.util.SelectedTypeUtil
-import timber.log.Timber
 
 object ViewBinding {
 
@@ -138,6 +139,18 @@ object ViewBinding {
       SelectedTypeUtil.getActiveBackground(view)
     } else {
       SelectedTypeUtil.getInactiveBackground(view)
+    }
+  }
+
+  @JvmStatic
+  @BindingAdapter("selectedCategory")
+  fun bindSelectedCategory(view: AppCompatButton, selectedCategory: Boolean) {
+    if (selectedCategory) {
+      view.setTextColor(view.context.resources.getColor(com.idiot.utils.R.color.purple_700, null))
+      view.background = view.context.getDrawable(R.drawable.bg_asset_category_active)
+    } else {
+      view.setTextColor(Color.DKGRAY)
+      view.background = view.context.getDrawable(R.drawable.bg_asset_category_inactive)
     }
   }
 
