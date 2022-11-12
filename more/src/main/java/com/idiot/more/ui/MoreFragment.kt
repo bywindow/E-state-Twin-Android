@@ -1,14 +1,14 @@
 package com.idiot.more.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentMoreBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,11 +48,15 @@ class MoreFragment : Fragment() {
   private fun navigateTo() {
     binding.register.setClickListener {
       val directions = MoreFragmentDirections.actionMoreFragmentToRegisterFragment()
-      it.findNavController().navigate(directions)
+      findNavController().navigate(directions)
     }
     binding.refactorUser.setClickListener {
       val directions = MoreFragmentDirections.actionMoreFragmentToMyPageFragment()
-      it.findNavController().navigate(directions)
+      findNavController().navigate(directions)
+    }
+    binding.runningProcess.setClickListener {
+      val directions = MoreFragmentDirections.actionMoreFragmentToContractingFragment()
+      findNavController().navigate(directions)
     }
   }
 }

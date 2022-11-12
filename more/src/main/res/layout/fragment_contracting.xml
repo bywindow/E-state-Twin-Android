@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context=".ui.ContractingFragment">
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fcfcfc"
+    android:fitsSystemWindows="true">
+
+    <include
+      android:id="@+id/toolbar_contracting"
+      layout="@layout/toolbar_layout"
+      app:title="@{`진행중인 계약`}" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/contract_help_text"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:gravity="center"
+      android:textColor="@color/black"
+      android:textSize="13sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/toolbar_contracting"
+      tools:text="반포동 매물의 특이사항을 확인하세요." />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/waiting_contract_item_view"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="24dp"
+      android:background="@drawable/bg_contract_process_inactive"
+      android:paddingVertical="10dp"
+      app:layout_constraintEnd_toStartOf="@id/writing_contract_item_view"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/contract_help_text">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/waiting_contract_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_process_calendar"
+        app:layout_constraintBottom_toTopOf="@id/waiting_contract_item_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/waiting_contract_item_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/process_calender_text"
+        android:textColor="@color/detail_info_content"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/waiting_contract_item_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+      android:layout_width="0dp"
+      android:layout_height="1.5dp"
+      android:background="@drawable/bg_process_dash"
+      app:layout_constraintStart_toEndOf="@id/waiting_contract_item_view"
+      app:layout_constraintTop_toTopOf="@id/waiting_contract_item_view"
+      app:layout_constraintBottom_toBottomOf="@id/waiting_contract_item_view"
+      app:layout_constraintEnd_toStartOf="@id/writing_contract_item_view"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/writing_contract_item_view"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:background="@drawable/bg_contract_process_inactive"
+      android:paddingVertical="10dp"
+      app:layout_constraintStart_toEndOf="@id/waiting_contract_item_view"
+      app:layout_constraintTop_toTopOf="@id/waiting_contract_item_view"
+      app:layout_constraintEnd_toStartOf="@id/fin_contract_item_view">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/writing_contract_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_process_write"
+        app:layout_constraintBottom_toTopOf="@id/writing_contract_item_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/writing_contract_item_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/process_write_text"
+        android:textColor="@color/detail_info_content"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/writing_contract_item_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+      android:layout_width="0dp"
+      android:layout_height="1.5dp"
+      android:background="@drawable/bg_process_dash"
+      app:layout_constraintStart_toEndOf="@id/writing_contract_item_view"
+      app:layout_constraintTop_toTopOf="@id/writing_contract_item_view"
+      app:layout_constraintBottom_toBottomOf="@id/writing_contract_item_view"
+      app:layout_constraintEnd_toStartOf="@id/fin_contract_item_view"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/fin_contract_item_view"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:background="@drawable/bg_contract_process_inactive"
+      android:paddingVertical="10dp"
+      app:layout_constraintStart_toEndOf="@id/writing_contract_item_view"
+      app:layout_constraintTop_toTopOf="@id/writing_contract_item_view"
+      app:layout_constraintEnd_toEndOf="parent">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/fin_contract_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_process_fin"
+        app:layout_constraintBottom_toTopOf="@id/fin_contract_item_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fin_contract_item_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/process_fin_text"
+        android:textColor="@color/detail_info_content"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fin_contract_item_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -15,6 +15,9 @@
     <action
       android:id="@+id/action_moreFragment_to_myPageFragment"
       app:destination="@id/myPageFragment" />
+    <action
+      android:id="@+id/action_moreFragment_to_contractingFragment"
+      app:destination="@id/contractingFragment" />
   </fragment>
 
   <fragment
@@ -73,5 +76,10 @@
     tools:layout="@layout/fragment_register_check_list" >
     <argument android:name="estateId" app:argType="long"/>
   </fragment>
+  <fragment
+    android:id="@+id/contractingFragment"
+    android:name="com.idiot.more.ui.ContractingFragment"
+    android:label="fragment_contracting"
+    tools:layout="@layout/fragment_contracting" />
 
 </navigation>
