@@ -23,7 +23,9 @@ import com.idiot.more.ui.adapter.AssetCloudAnchorAdapter
 import com.idiot.more.util.FileUtil
 import com.idiot.more.util.HostCloudAnchor
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.sceneview.ar.ArFragment
 import io.github.sceneview.ar.ArSceneView
+import io.github.sceneview.ar.arcore.ArFrame
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
 import io.github.sceneview.utils.setFullScreen
@@ -149,7 +151,9 @@ class RegisterARActivity : AppCompatActivity() {
       run {
         if (result == PixelCopy.SUCCESS) {
           try {
-            FileUtil.saveBitmapToDisk(bitmap, filename)
+            val file = FileUtil.saveBitmapToDisk(this, bitmap, filename)
+            viewModel.addAssetPhotoUri(file.absolutePath)
+            viewModel.uploadAssetPhotoUri(file)
           } catch (e: Exception) {
             e.printStackTrace()
           }
@@ -160,7 +164,6 @@ class RegisterARActivity : AppCompatActivity() {
     val file = File(filename)
     val uri = file.absolutePath
     Timber.d("ASSET PHOTO URI : $uri")
-    viewModel.addAssetPhotoUri(uri)
   }
 
   private fun initBottomDialog() {
@@ -185,6 +188,7 @@ class RegisterARActivity : AppCompatActivity() {
 
   private fun sessionCloseButtonClicked() {
     binding.checklistCompleteButton.setOnClickListener {
+      viewModel.saveS3UriToAssetPhoto()
       Timber.d("ARfragment: closing...")
       Timber.d("ASSET : ${viewModel.assetList.value}")
       val intent =

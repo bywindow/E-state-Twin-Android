@@ -44,26 +44,23 @@ object FileUtil {
 
   fun generateFileName(): String {
     val date = SimpleDateFormat("yyyyMMddHHmmss", Locale.KOREA).format(Date())
-    return "${
-      Environment.getExternalStoragePublicDirectory(
-        Environment.DIRECTORY_PICTURES
-      )
-    }${File.separator}checklist/$date/screenshot.jpg"
+    return "checklist/$date.jpg"
   }
 
-  fun saveBitmapToDisk(bitmap: Bitmap, filename: String) {
-    val out = File(filename)
+  fun saveBitmapToDisk(context: Context, bitmap: Bitmap, filename: String) : File {
+    val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+    val out = File(storageDir, filename)
     if (!out.parentFile.exists()) {
       out.parentFile.mkdirs()
     }
-    val outputStream = FileOutputStream(filename)
-    val outputData = ByteArrayOutputStream()
+    val outputStream = FileOutputStream(out)
     try {
-      bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputData)
-      outputData.writeTo(outputStream)
+      bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
     } catch (e: Exception) {
       e.printStackTrace()
     }
     outputStream.flush()
+    outputStream.close()
+    return out
   }
 }

@@ -24,7 +24,7 @@ class RegisterForBrokerViewModel @Inject constructor(
     val response = brokerEstateListRepository.requestGetEstateListBroker(token, "POST_DOING")
     Timber.d("$response")
     if (response != null) {
-      _postingEstate.value = response
+      _postingEstate.value = response.reversed()
     }
     emit(RegisterEvent.GetBrokerEstateList)
   }
