@@ -26,4 +26,14 @@ object MappingToEnumUtil {
       else -> ""
     }
   }
+
+  fun AssetCategoryToKor(category: String): String {
+    return when (category) {
+      "HOMEAPPLIANCES" -> "가전"
+      "FURNITURE" -> "가구"
+      "BATHROOM" -> "욕실/주방"
+      "INTERIOR" -> "인테리어"
+      else -> ""
+    }
+  }
 }

@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.idiot.more.R
 import com.idiot.more.databinding.FragmentRegisterCheckListBinding
+import com.idiot.more.ui.adapter.RegisterCheckListOwnerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -31,7 +32,11 @@ class RegisterCheckListFragment : Fragment() {
   ): View? {
     // Inflate the layout for this fragment
     binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register_check_list, container, false)
-    binding.lifecycleOwner = this
+    binding.apply {
+      lifecycleOwner = this@RegisterCheckListFragment
+      vm = viewModel
+      adapter = RegisterCheckListOwnerAdapter()
+    }
 
     initEstateDetail()
 
