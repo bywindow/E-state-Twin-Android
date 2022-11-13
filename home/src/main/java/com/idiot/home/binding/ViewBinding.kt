@@ -78,7 +78,7 @@ object ViewBinding {
       .load(loadImageUrl)
       .thumbnail(0.1f)
       .placeholder(ColorDrawable(Color.parseColor("#D1D1D1")))
-      .error(com.idiot.home.R.drawable.ic_image_error_2)
+      .error(com.idiot.utils.R.drawable.ic_image_error_2)
       .into(view)
   }
 }

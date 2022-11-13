@@ -2,10 +2,13 @@ package com.idiot.more.binding
 
 import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.idiot.more.R
 import com.idiot.more.util.SelectedTypeUtil
 
@@ -152,6 +155,18 @@ object ViewBinding {
       view.setTextColor(Color.DKGRAY)
       view.background = view.context.getDrawable(R.drawable.bg_asset_category_inactive)
     }
+  }
+
+  @JvmStatic
+  @BindingAdapter("assetImageUrl")
+  fun bindAssetImageUrl(view: AppCompatImageView, assetImageUrl: String) {
+    val context = view.context
+    Glide.with(context)
+      .load(assetImageUrl)
+      .thumbnail(0.1f)
+      .placeholder(ColorDrawable(Color.parseColor("#D1D1D1")))
+      .error(com.idiot.utils.R.drawable.ic_image_error_2)
+      .into(view)
   }
 
 }

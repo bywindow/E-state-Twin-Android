@@ -73,6 +73,8 @@ dependencies {
   implementation(Libraries.recyclerview)
   implementation(Libraries.sceneview)
 
+  implementation(Libraries.glide)
+  kapt(Libraries.glide_compiler)
   implementation(Libraries.hilt_android)
   kapt(Libraries.hilt_compiler)
 
