@@ -21,6 +21,8 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
     private val binding: ListItemHomeRecommendBinding
   ) : RecyclerView.ViewHolder(binding.root) {
 
+    val isShowingModel = mutableListOf(false, false, false, false, false, false)
+
     init {
       binding.setClickListener { view ->
         val position = bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }
@@ -28,7 +30,15 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
         navigateToDetail(recommendedList[position].id, view)
       }
       binding.setChangeThumbnail {
-        Timber.d("CHANGE ${recommendedList}")
+        val position = bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+          ?: return@setChangeThumbnail
+        if (isShowingModel[position]) {
+          isShowingModel[position] = false
+          binding.imageUrl = recommendedList[position].estateThumbNail
+        } else {
+          isShowingModel[position] = true
+          binding.imageUrl = recommendedList[position].thumbnail3D ?: "string"
+        }
       }
     }
 
@@ -39,7 +49,7 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
     }
 
     fun bind(item: RecommendedEstate) {
-      binding.model = item
+      binding.imageUrl = item.estateThumbNail
       binding.estateType.text = EnumToText.changeTransactionType(item.transactionType)
       binding.housePrice.text = item.sellingFee.toString()
       binding.houseType.text = EnumToText.changeEstateType(item.estateType)

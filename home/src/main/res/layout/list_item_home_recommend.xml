@@ -14,8 +14,8 @@
       type="android.view.View.OnClickListener" />
 
     <variable
-      name="model"
-      type="com.idiot.model.RecommendedEstate" />
+      name="imageUrl"
+      type="String" />
   </data>
 
   <com.google.android.material.card.MaterialCardView
@@ -42,7 +42,7 @@
 
         <androidx.appcompat.widget.AppCompatImageView
           android:id="@+id/imageView"
-          loadImageUrl="@{model.estateThumbNail}"
+          loadImageUrl="@{imageUrl}"
           android:layout_width="match_parent"
           android:layout_height="150dp"
           android:background="@drawable/card_image_rounded"
