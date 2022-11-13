@@ -21,7 +21,7 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
     private val binding: ListItemHomeRecommendBinding
   ) : RecyclerView.ViewHolder(binding.root) {
 
-    val isShowingModel = mutableListOf(false, false, false, false, false, false)
+    private val isShowingModel = mutableListOf(false, false, false, false, false, false)
 
     init {
       binding.setClickListener { view ->
