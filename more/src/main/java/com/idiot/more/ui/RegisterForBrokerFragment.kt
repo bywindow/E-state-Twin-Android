@@ -27,6 +27,7 @@ class RegisterForBrokerFragment : Fragment() {
     super.onCreateView(inflater, container, savedInstanceState)
 
     binding = FragmentRegisterForBrokerBinding.inflate(inflater, container, false)
+    binding.registerPostingList.setHasFixedSize(true)
     binding.registerPostingList.adapter = RegisterNewInquiryAdapter(viewModel.postingEstate.value, true)
 
     getEstateList()

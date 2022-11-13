@@ -56,69 +56,69 @@ class LoginActivity : AppCompatActivity() {
   }
 
   private fun saveKakaoUser(token: OAuthToken) {
-    var userBirthday: String? = null
-    UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
-      if (error != null) {
-        Log.e("TAG", "failed")
-      } else if (tokenInfo != null) {
-        Log.d("token", "$tokenInfo")
-      }
-    }
-    UserApiClient.instance.me { user, error ->
-      if (error != null) {
-        Log.e("token", "faild: $error")
-      } else if (user != null) {
-        val scopes = mutableListOf<String>()
-        if (user.kakaoAccount?.emailNeedsAgreement == true) {
-          scopes.add("account_email")
-        }
-        if (user.kakaoAccount?.birthdayNeedsAgreement == true) {
-          scopes.add("birthday")
-        }
-        if (user.kakaoAccount?.birthyearNeedsAgreement == true) {
-          scopes.add("birthyear")
-        }
-        if (user.kakaoAccount?.genderNeedsAgreement == true) {
-          scopes.add("gender")
-        }
-        if (user.kakaoAccount?.phoneNumberNeedsAgreement == true) {
-          scopes.add("phone_number")
-        }
-        if (user.kakaoAccount?.profileNeedsAgreement == true) {
-          scopes.add("profile")
-        }
-        if (user.kakaoAccount?.ageRangeNeedsAgreement == true) {
-          scopes.add("age_range")
-        }
-        if (user.kakaoAccount?.ciNeedsAgreement == true) {
-          scopes.add("account_ci")
-        }
-        if (token.scopes?.isNotEmpty() == true) {
-          UserApiClient.instance.loginWithNewScopes(this, scopes) { token, errorScope ->
-            if (errorScope != null) {
-              Log.e("TAG", "additional agree failed", errorScope)
-            } else {
-              Log.d("TAG", "allowed scopes: ${token!!.scopes}")
-              UserApiClient.instance.me { user, error ->
-                if (error != null) {
-                  Log.e("TAG", "user request failed", error)
-                } else if (user != null) {
-                  Log.i("TAG", "user request success: $user")
-                  userBirthday = user.kakaoAccount?.birthday.toString()
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+//    var userBirthday: String? = null
+//    UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
+//      if (error != null) {
+//        Log.e("TAG", "failed")
+//      } else if (tokenInfo != null) {
+//        Log.d("token", "$tokenInfo")
+//      }
+//    }
+//    UserApiClient.instance.me { user, error ->
+//      if (error != null) {
+//        Log.e("token", "faild: $error")
+//      } else if (user != null) {
+//        val scopes = mutableListOf<String>()
+//        if (user.kakaoAccount?.emailNeedsAgreement == true) {
+//          scopes.add("account_email")
+//        }
+//        if (user.kakaoAccount?.birthdayNeedsAgreement == true) {
+//          scopes.add("birthday")
+//        }
+//        if (user.kakaoAccount?.birthyearNeedsAgreement == true) {
+//          scopes.add("birthyear")
+//        }
+//        if (user.kakaoAccount?.genderNeedsAgreement == true) {
+//          scopes.add("gender")
+//        }
+//        if (user.kakaoAccount?.phoneNumberNeedsAgreement == true) {
+//          scopes.add("phone_number")
+//        }
+//        if (user.kakaoAccount?.profileNeedsAgreement == true) {
+//          scopes.add("profile")
+//        }
+//        if (user.kakaoAccount?.ageRangeNeedsAgreement == true) {
+//          scopes.add("age_range")
+//        }
+//        if (user.kakaoAccount?.ciNeedsAgreement == true) {
+//          scopes.add("account_ci")
+//        }
+//        if (token.scopes?.isNotEmpty() == true) {
+//          UserApiClient.instance.loginWithNewScopes(this, scopes) { token, errorScope ->
+//            if (errorScope != null) {
+//              Log.e("TAG", "additional agree failed", errorScope)
+//            } else {
+//              Log.d("TAG", "allowed scopes: ${token!!.scopes}")
+//              UserApiClient.instance.me { user, error ->
+//                if (error != null) {
+//                  Log.e("TAG", "user request failed", error)
+//                } else if (user != null) {
+//                  Log.i("TAG", "user request success: $user")
+//                  userBirthday = user.kakaoAccount?.birthday.toString()
+//                }
+//              }
+//            }
+//          }
+//        }
+//      }
+//    }
     lifecycleScope.launch {
       viewModel.requestToken(provider = "kakao", code = token.accessToken)
       Timber.d("token : ${viewModel.token.value}")
       val accessToken = viewModel.token.value?.accessToken.toString()
       val refreshToken = viewModel.token.value?.refreshToken.toString()
       val isMember = viewModel.token.value?.isMember ?: false
-      val birthday = userBirthday ?: "0101"
+//      val birthday = userBirthday ?: "0101"
       //TODO: 생일 저장
       viewModel.cacheToken(
         accessToken = accessToken,
