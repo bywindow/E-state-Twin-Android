@@ -11,11 +11,11 @@
     android:paddingVertical="8dp">
 
     <EditText
+      android:background="@drawable/bg_search_bar_selector"
       android:id="@+id/search_button"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginHorizontal="@dimen/app_horizontal_padding"
-      android:background="@drawable/bg_search_button"
       android:gravity="start|center_vertical"
       android:minHeight="0dp"
       android:textSize="17sp"

@@ -54,6 +54,10 @@
   <string name="process_write_text">계약서 작성</string>
   <string name="process_fin_text">완료</string>
 
+  <string name="require_contract_text">계약 요청</string>
+  <string name="confirm_contract_text">계약 요청 확인</string>
+  <string name="edit_checklist_text">특이사항 작성</string>
+
   <string name="user_delete_dialog_title">회원정보를 삭제하시겠습니까?</string>
   <!-- TODO: Remove or change this placeholder text -->
   <string name="hello_blank_fragment">Hello blank fragment</string>
