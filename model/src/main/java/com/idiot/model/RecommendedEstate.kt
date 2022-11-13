@@ -1,7 +1,9 @@
 package com.idiot.model
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class RecommendedEstate(
     @field:Json(name = "id") val id: Long,
     @field:Json(name = "estateThumbNail") val estateThumbNail: String,
