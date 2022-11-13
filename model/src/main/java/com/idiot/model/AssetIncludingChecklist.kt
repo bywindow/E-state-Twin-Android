@@ -3,7 +3,7 @@ package com.idiot.model
 import java.io.Serializable
 
 data class AssetIncludingChecklist(
-  val id: Int,
+  val id: Long,
   var productName: String?,
   var manufacturer: String?,
   var anchorId: String?,

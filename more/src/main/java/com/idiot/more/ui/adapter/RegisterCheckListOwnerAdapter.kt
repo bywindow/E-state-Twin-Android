@@ -1,8 +1,10 @@
 package com.idiot.more.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView.NO_POSITION
 import com.idiot.model.AssetIncludingChecklist
 import com.idiot.more.R
 import com.idiot.more.databinding.ListItemCheckListOwnerBinding
+import com.idiot.more.ui.RegisterCheckListFragmentDirections
 import com.idiot.more.util.MappingToEnumUtil
 import timber.log.Timber
 
@@ -19,18 +22,18 @@ class RegisterCheckListOwnerAdapter() :
   inner class ViewHolder(private val binding: ListItemCheckListOwnerBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    init {
-      binding.setClickListener {
-        val position =
-          bindingAdapterPosition.takeIf { it != NO_POSITION } ?: return@setClickListener
-        Timber.d("checklist : $position")
+    fun bind(item: AssetIncludingChecklist) {
+      binding.apply {
+        model = item
+        categoryText.text = MappingToEnumUtil.assetCategoryToKor(item.category)
+        optionText.text = MappingToEnumUtil.assetOptionToKor(item.option)
+        setClickListener { navigateTo(item.id, it) }
       }
     }
 
-    fun bind(item: AssetIncludingChecklist) {
-      binding.model = item
-      binding.categoryText.text = MappingToEnumUtil.assetCategoryToKor(item.category)
-      binding.optionText.text = MappingToEnumUtil.assetOptionToKor(item.option)
+    private fun navigateTo(assetId: Long, view: View) {
+      val direction = RegisterCheckListFragmentDirections.actionRegisterCheckListFragmentToEditChecklistFragment(assetId)
+      view.findNavController().navigate(direction)
     }
   }
 

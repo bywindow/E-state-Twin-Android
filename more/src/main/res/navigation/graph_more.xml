@@ -87,6 +87,8 @@
   <fragment
     android:id="@+id/editChecklistFragment"
     android:name="com.idiot.more.ui.EditChecklistFragment"
-    android:label="EditChecklistFragment" />
+    android:label="EditChecklistFragment">
+    <argument app:argType="long" android:name="assetId"/>
+  </fragment>
 
 </navigation>
