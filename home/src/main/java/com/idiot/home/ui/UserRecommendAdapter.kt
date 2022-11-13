@@ -39,6 +39,7 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
     }
 
     fun bind(item: RecommendedEstate) {
+      binding.model = item
       binding.estateType.text = EnumToText.changeTransactionType(item.transactionType)
       binding.housePrice.text = item.sellingFee.toString()
       binding.houseType.text = EnumToText.changeEstateType(item.estateType)

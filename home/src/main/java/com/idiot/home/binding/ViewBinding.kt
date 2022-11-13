@@ -1,10 +1,13 @@
 package com.idiot.home.binding
 
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.idiot.data.repository.R
 
 object ViewBinding {
@@ -65,5 +68,17 @@ object ViewBinding {
       view.setCompoundDrawablesWithIntrinsicBounds(null, view.context.resources.getDrawable(com.idiot.home.R.drawable.ic_detail_ar_camera_inactive, null), null, null)
       view.setTextColor(com.idiot.home.R.color.detail_info_content)
     }
+  }
+
+  @JvmStatic
+  @BindingAdapter("loadImageUrl")
+  fun bindLoadImageUrl(view: AppCompatImageView, loadImageUrl: String) {
+    val context = view.context
+    Glide.with(context)
+      .load(loadImageUrl)
+      .thumbnail(0.1f)
+      .placeholder(ColorDrawable(Color.parseColor("#D1D1D1")))
+      .error(ColorDrawable(Color.parseColor("#D1D1D1")))
+      .into(view)
   }
 }

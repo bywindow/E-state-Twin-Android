@@ -12,6 +12,10 @@
     <variable
       name="changeThumbnail"
       type="android.view.View.OnClickListener" />
+
+    <variable
+      name="model"
+      type="com.idiot.model.RecommendedEstate" />
   </data>
 
   <com.google.android.material.card.MaterialCardView
@@ -36,8 +40,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
           android:id="@+id/imageView"
+          loadImageUrl="@{model.estateThumbNail}"
           android:layout_width="match_parent"
           android:layout_height="150dp"
           android:background="@drawable/card_image_rounded"
