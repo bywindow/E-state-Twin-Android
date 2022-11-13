@@ -56,6 +56,20 @@ class LoginActivity : AppCompatActivity() {
   }
 
   private fun saveKakaoUser(token: OAuthToken) {
+    lifecycleScope.launch {
+      viewModel.requestToken(provider = "kakao", code = token.accessToken)
+      Timber.d("token : ${viewModel.token.value}")
+      val accessToken = viewModel.token.value?.accessToken.toString()
+      val refreshToken = viewModel.token.value?.refreshToken.toString()
+      val isMember = viewModel.token.value?.isMember ?: false
+      viewModel.cacheToken(
+        accessToken = accessToken,
+        refreshToken = refreshToken
+      ).collect {
+        updateViewOnEvent(it, this@LoginActivity, isMember)
+        finish()
+      }
+    }
 //    var userBirthday: String? = null
 //    UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
 //      if (error != null) {
@@ -112,22 +126,6 @@ class LoginActivity : AppCompatActivity() {
 //        }
 //      }
 //    }
-    lifecycleScope.launch {
-      viewModel.requestToken(provider = "kakao", code = token.accessToken)
-      Timber.d("token : ${viewModel.token.value}")
-      val accessToken = viewModel.token.value?.accessToken.toString()
-      val refreshToken = viewModel.token.value?.refreshToken.toString()
-      val isMember = viewModel.token.value?.isMember ?: false
-//      val birthday = userBirthday ?: "0101"
-      //TODO: 생일 저장
-      viewModel.cacheToken(
-        accessToken = accessToken,
-        refreshToken = refreshToken
-      ).collect {
-        updateViewOnEvent(it, this@LoginActivity, isMember)
-        finish()
-      }
-    }
   }
 
   private fun subscribeUi(binding: ActivityLoginBinding) {
