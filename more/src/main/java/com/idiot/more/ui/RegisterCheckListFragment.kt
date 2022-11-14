@@ -35,7 +35,7 @@ class RegisterCheckListFragment : Fragment() {
     binding.apply {
       lifecycleOwner = this@RegisterCheckListFragment
       vm = viewModel
-      adapter = RegisterCheckListOwnerAdapter()
+      adapter = RegisterCheckListOwnerAdapter(args.estateId)
     }
 
     initEstateDetail()

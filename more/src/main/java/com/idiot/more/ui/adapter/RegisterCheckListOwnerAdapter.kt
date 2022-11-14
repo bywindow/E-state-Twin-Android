@@ -16,7 +16,7 @@ import com.idiot.more.ui.RegisterCheckListFragmentDirections
 import com.idiot.more.util.MappingToEnumUtil
 import timber.log.Timber
 
-class RegisterCheckListOwnerAdapter() :
+class RegisterCheckListOwnerAdapter(private val estateId: Long) :
   ListAdapter<AssetIncludingChecklist, RegisterCheckListOwnerAdapter.ViewHolder>(diffUtil) {
 
   inner class ViewHolder(private val binding: ListItemCheckListOwnerBinding) :
@@ -27,12 +27,12 @@ class RegisterCheckListOwnerAdapter() :
         model = item
         categoryText.text = MappingToEnumUtil.assetCategoryToKor(item.category)
         optionText.text = MappingToEnumUtil.assetOptionToKor(item.option)
-        setClickListener { navigateTo(item.id, it) }
+        setClickListener { navigateTo(item, it) }
       }
     }
 
-    private fun navigateTo(assetId: Long, view: View) {
-      val direction = RegisterCheckListFragmentDirections.actionRegisterCheckListFragmentToEditChecklistFragment(assetId)
+    private fun navigateTo(item: AssetIncludingChecklist, view: View) {
+      val direction = RegisterCheckListFragmentDirections.actionRegisterCheckListFragmentToEditChecklistFragment(estateId, item)
       view.findNavController().navigate(direction)
     }
   }

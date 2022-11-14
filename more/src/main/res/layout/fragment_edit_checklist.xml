@@ -4,6 +4,13 @@
   xmlns:tools="http://schemas.android.com/tools"
   tools:context=".ui.EditChecklistFragment">
 
+  <data>
+
+    <variable
+      name="vm"
+      type="com.idiot.more.ui.EditChecklistViewModel" />
+  </data>
+
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -55,12 +62,14 @@
 
         <androidx.appcompat.widget.AppCompatButton
           android:id="@+id/purchase_button"
+          repairType="@{vm.repairType == 1}"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginTop="6dp"
           android:layout_marginEnd="6dp"
           android:background="@drawable/bg_ar_asset_rounded_inactive"
           android:gravity="center"
+          android:onClick="@{() -> vm.changeRepairType(1)}"
           android:paddingVertical="10dp"
           android:stateListAnimator="@null"
           android:text="@string/purchase"
@@ -72,12 +81,14 @@
 
         <androidx.appcompat.widget.AppCompatButton
           android:id="@+id/repair_button"
+          repairType="@{vm.repairType == 2}"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="6dp"
           android:layout_marginEnd="@dimen/app_horizontal_padding"
           android:background="@drawable/bg_ar_asset_rounded_inactive"
           android:gravity="center"
+          android:onClick="@{() -> vm.changeRepairType(2)}"
           android:paddingVertical="10dp"
           android:stateListAnimator="@null"
           android:text="@string/repair"
@@ -105,17 +116,20 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
           android:id="@+id/add_asset_photo_button"
+          checkListImageUrl="@{vm.checklistImageUrl}"
           android:layout_width="match_parent"
           android:layout_height="116dp"
           android:layout_marginHorizontal="@dimen/app_horizontal_padding"
           android:layout_marginTop="6dp"
           android:background="@drawable/register_add_picture_rounded"
+          android:clipToOutline="true"
           android:stateListAnimator="@null"
           app:layout_constraintTop_toBottomOf="@id/asset_photo_type_title" />
 
         <ImageView
           android:layout_width="32dp"
           android:layout_height="32dp"
+          isGone='@{vm.checklistImageUrl != ""}'
           android:src="@drawable/ic_add_picture"
           app:layout_constraintBottom_toBottomOf="@id/add_asset_photo_button"
           app:layout_constraintEnd_toEndOf="parent"
@@ -146,6 +160,7 @@
           android:inputType="text"
           android:paddingHorizontal="15dp"
           android:paddingVertical="13dp"
+          android:text="@{vm.assetInit.manufacturer}"
           android:textColor="@color/detail_info_content"
           android:textSize="14sp"
           app:layout_constraintEnd_toEndOf="@id/add_asset_photo_button"
@@ -177,6 +192,7 @@
           android:inputType="text"
           android:paddingHorizontal="15dp"
           android:paddingVertical="13dp"
+          android:text="@{vm.assetInit.productName}"
           android:textColor="@color/detail_info_content"
           android:textSize="14sp"
           app:layout_constraintEnd_toEndOf="@id/manufacturer_edit_text"

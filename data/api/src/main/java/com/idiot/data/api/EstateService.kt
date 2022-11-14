@@ -107,4 +107,13 @@ interface EstateService {
     @Header("Authorization") accessToken: String,
     @Query("pageable") pageAble: PageAble
   ): Response<List<InquiredEstate>>
+
+  @POST("checklist/estate/{estateId}/asset/{assetId}")
+  suspend fun requestPostingCheckList(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Path("estateId") estateId: Long,
+    @Path("assetId") assetId: Long,
+    @Body body: RequestBody
+  ): Response<Checklist>
 }

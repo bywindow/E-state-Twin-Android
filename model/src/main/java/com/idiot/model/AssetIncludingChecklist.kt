@@ -10,5 +10,5 @@ data class AssetIncludingChecklist(
   var assetPhoto: String?,
   val option: String, // AIRCONDITIONER, WASHER, BED, DESK, CLOSET, TV, REFRIGERATOR, SHOERACK, GASSTOVE, DOORLOCK, BIDET, WALLPAPER, CURTAIN
   val category: String, // HOMEAPPLIANCES, FURNITURE, BATHROOM, INTERIOR
-  val checkLists: List<Checklist>
+  var checkLists: List<Checklist>?
 ): Serializable

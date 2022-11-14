@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -81,7 +82,7 @@ object ViewBinding {
   @JvmStatic
   @BindingAdapter("includeType")
   fun bindIncludeType(view: AppCompatButton, includeType: Map<Int, Boolean>) {
-    when(view.id) {
+    when (view.id) {
       R.id.water_fee -> {
         if (includeType[0] == true) {
           SelectedTypeUtil.getActiveBackground(view)
@@ -166,6 +167,28 @@ object ViewBinding {
       .thumbnail(0.1f)
       .placeholder(ColorDrawable(Color.parseColor("#D1D1D1")))
       .error(com.idiot.utils.R.drawable.ic_image_error_2)
+      .into(view)
+  }
+
+  @JvmStatic
+  @BindingAdapter("repairType")
+  fun bindRepairType(view: AppCompatButton, repairType: Boolean) {
+    if (repairType) {
+      view.setTextColor(view.context.resources.getColor(com.idiot.utils.R.color.purple_700, null))
+      view.background = view.context.getDrawable(R.drawable.bg_ar_asset_rounded_active)
+    } else {
+      view.setTextColor(Color.DKGRAY)
+      view.background = view.context.getDrawable(R.drawable.bg_ar_asset_rounded_inactive)
+    }
+  }
+
+  @JvmStatic
+  @BindingAdapter("checkListImageUrl")
+  fun bindCheckListImageUrl(view: AppCompatImageButton, checkListImageUrl: String) {
+    val context = view.context
+    Glide.with(context)
+      .load(checkListImageUrl)
+      .placeholder(ColorDrawable(Color.parseColor("#f8f8f8")))
       .into(view)
   }
 

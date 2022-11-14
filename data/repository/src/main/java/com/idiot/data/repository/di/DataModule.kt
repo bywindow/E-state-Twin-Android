@@ -71,4 +71,9 @@ interface DataModule {
   fun bindsDipEstateRepository(
     dipEstateRepositoryImpl: DipEstateRepositoryImpl
   ): DipEstateRepository
+
+  @Binds
+  fun bindsRegisterCheckListRepository(
+    registerCheckListRepositoryImpl: RegisterCheckListRepositoryImpl
+  ): RegisterCheckListRepository
 }

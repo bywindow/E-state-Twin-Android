@@ -115,4 +115,16 @@ class EstateClient @Inject constructor(
     category = category
   )
 
+  suspend fun requestPostingCheckList(
+    accessToken: String,
+    estateId: Long,
+    assetId: Long,
+    body: RequestBody
+  ): Response<Checklist> = estateService.requestPostingCheckList(
+    accessToken = accessToken,
+    estateId = estateId,
+    assetId = assetId,
+    body = body
+  )
+
 }

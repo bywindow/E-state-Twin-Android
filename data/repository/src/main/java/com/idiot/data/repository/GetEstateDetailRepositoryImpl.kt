@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class GetEstateDetailRepositoryImpl @Inject constructor(
   private val estateClient: EstateClient,
-  private val userPreferenceRepository: UserPreferenceRepository,
+  private val userPreferenceRepository: UserPreferenceRepository
 ): GetEstateDetailRepository {
 
   @WorkerThread

@@ -1,6 +1,7 @@
 package com.idiot.model
 
 data class Checklist(
+  val id: Long,
   var flawPart: String?,
   var checkListContent: String?,
   var checkListPhoto: String?,

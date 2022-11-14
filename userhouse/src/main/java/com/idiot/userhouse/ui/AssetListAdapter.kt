@@ -33,7 +33,7 @@ class AssetListAdapter(private val assetList: List<AssetIncludingChecklist>) :
     fun bind(item: AssetIncludingChecklist) {
       binding.url = item.assetPhoto
       binding.assetName.text = EnumToText.bindAssetName(item.productName)
-      binding.assetDate.text = if (item.checkLists.isNotEmpty()) item.checkLists.last().repairDate else ""
+      binding.assetDate.text = if (item.checkLists != null && item.checkLists!!.isNotEmpty()) item.checkLists!!.last().repairDate else ""
     }
   }
 
