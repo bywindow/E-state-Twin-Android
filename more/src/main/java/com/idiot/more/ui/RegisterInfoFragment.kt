@@ -36,6 +36,7 @@ import com.idiot.more.ui.adapter.RegisterInfoPictureAdapter
 import com.idiot.more.ui.adapter.RegisterInfoPictureHeaderAdapter
 import com.idiot.utils.NetworkStatus
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -265,9 +266,16 @@ class RegisterInfoFragment : Fragment() {
   private fun registerCompleteButtonClicked() {
     binding.registerCompleteButton.setOnClickListener {
       viewLifecycleOwner.lifecycleScope.launch {
-        viewModel.requestPostEstate(args.estateId)
+        viewModel.requestPostEstate(args.estateId).collect() {
+          when (it) {
+            is RegisterEstateStatus.RegisterSuccess -> {
+              Timber.d("${it.estateId}")
+              findNavController().navigateUp()
+            }
+            else -> { Timber.d("register error") }
+          }
+        }
       }
-      findNavController().navigateUp()
     }
   }
 }

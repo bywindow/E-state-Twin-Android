@@ -18,6 +18,7 @@ import com.idiot.more.util.MappingToEnumUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
@@ -58,7 +59,7 @@ class RegisterInfoViewModel @Inject constructor(
   val estateFloorPlan: StateFlow<AWSUploadResponse?> = _estateFloorPlan
 
   private val _optionList = MutableLiveData<Map<Int, HouseOption>>(mapOf())
-  val optionList: LiveData<Map<Int,HouseOption>> = _optionList
+  val optionList: LiveData<Map<Int, HouseOption>> = _optionList
 
   private val _assetList = MutableStateFlow<List<DetailAsset>>(emptyList())
   val assetList: StateFlow<List<DetailAsset>> = _assetList
@@ -112,7 +113,8 @@ class RegisterInfoViewModel @Inject constructor(
   private val _managementFee = MutableStateFlow(0)
   val managementFee: StateFlow<Int> = _managementFee
 
-  private val _managementFeeIncluding = MutableStateFlow(mapOf(Pair(0, false), Pair(1, false), Pair(2, false), Pair(3, false)))
+  private val _managementFeeIncluding =
+    MutableStateFlow(mapOf(Pair(0, false), Pair(1, false), Pair(2, false), Pair(3, false)))
   val managementFeeIncluding: StateFlow<Map<Int, Boolean>> = _managementFeeIncluding
 
   private val _enableParking = MutableStateFlow(false)
@@ -125,7 +127,7 @@ class RegisterInfoViewModel @Inject constructor(
   val address: StateFlow<String> = _address
 
   init {
-      _optionList.value = optionSample().associateBy { it.id }
+    _optionList.value = optionSample().associateBy { it.id }
   }
 
   fun insertPicture(images: List<Uri>) {
@@ -288,7 +290,7 @@ class RegisterInfoViewModel @Inject constructor(
     _assetList.value = data
   }
 
-  fun requestPostEstate(id : Long) {
+  fun requestPostEstate(id: Long) = flow {
     Timber.d("register estate id : $id")
     var manageItem = ""
     managementFeeIncluding.value.entries.forEach {
@@ -297,7 +299,7 @@ class RegisterInfoViewModel @Inject constructor(
       }
     }
     if (manageItem.isNotEmpty()) {
-      manageItem = manageItem.substring(0, manageItem.length-1)
+      manageItem = manageItem.substring(0, manageItem.length - 1)
     }
     val house = DetailHouse(
       deposit = deposit.value,
@@ -320,7 +322,7 @@ class RegisterInfoViewModel @Inject constructor(
       structure = if (roomType.value == 1) "LOFT" else "SEPARATE_KITCHEN",
       veranda = hasVeranda.value == 1
     )
-    val photoList : MutableList<String> = mutableListOf()
+    val photoList: MutableList<String> = mutableListOf()
     estatePictureUri.value.forEach {
       photoList.add(it.file_url)
     }
@@ -334,10 +336,19 @@ class RegisterInfoViewModel @Inject constructor(
       estateVideos = listOf(""),
       assets = assetList.value
     )
-    viewModelScope.launch {
-      val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
-      val response = registerEstateBrokerRepository.requestPostEstateBroker(token, data)
-      Timber.d("뷰모델 리스폰스 : $response")
+    Timber.d("data : $data")
+    val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
+    val response = registerEstateBrokerRepository.requestPostEstateBroker(token, data)
+    Timber.d("뷰모델 리스폰스 : $response")
+    if (response != null) {
+      emit(RegisterEstateStatus.RegisterSuccess(response.id))
+    } else {
+      emit(RegisterEstateStatus.RegisterFailed)
     }
   }
+}
+
+sealed class RegisterEstateStatus {
+  class RegisterSuccess(val estateId: Long): RegisterEstateStatus()
+  object RegisterFailed: RegisterEstateStatus()
 }
