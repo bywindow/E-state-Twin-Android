@@ -63,5 +63,9 @@
   <string name="purchase">구매</string>
   <string name="repair">수리</string>
   <string name="asset_photo_text">제품 사진</string>
+  <string name="asset_manufacturer_text">제조사</string>
+  <string name="asset_product_name_text">모델명</string>
+  <string name="flaw_part_hint">수리한 부분을 입력해주세요.</string>
+  <string name="description_hint">수리한 내용에 대해 입력해주세요.</string>
 
 </resources>
