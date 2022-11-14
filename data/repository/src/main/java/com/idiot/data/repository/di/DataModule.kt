@@ -76,4 +76,9 @@ interface DataModule {
   fun bindsRegisterCheckListRepository(
     registerCheckListRepositoryImpl: RegisterCheckListRepositoryImpl
   ): RegisterCheckListRepository
+
+  @Binds
+  fun bindsRegisterEstateConfirmRepository(
+    registerEstateConfirmRepositoryImpl: RegisterEstateConfirmRepositoryImpl
+  ): RegisterEstateConfirmRepository
 }

@@ -2,8 +2,10 @@ package com.idiot.more.ui
 
 import androidx.lifecycle.ViewModel
 import com.idiot.data.repository.GetEstateDetailRepository
+import com.idiot.data.repository.RegisterEstateConfirmRepository
 import com.idiot.model.AssetIncludingChecklist
 import com.idiot.model.DetailEstate
+import com.idiot.model.RegisterEstateBrokerResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterCheckListViewModel @Inject constructor(
-  private val getEstateDetailRepository: GetEstateDetailRepository
+  private val getEstateDetailRepository: GetEstateDetailRepository,
+  private val registerEstateConfirmRepository: RegisterEstateConfirmRepository
 ) : ViewModel() {
   private val _detailEstate = MutableStateFlow<DetailEstate?>(null)
   val detailEstate = _detailEstate.asStateFlow()
@@ -44,9 +47,20 @@ class RegisterCheckListViewModel @Inject constructor(
     selectedCategory.value = key
     _filteredAssetList.value = assetList.value.filter { it.category == categories[selectedCategory.value] }
   }
+
+  fun requestConfirm(estateId: Long) = flow {
+    val response = registerEstateConfirmRepository.requestEstateConfirm(estateId)
+    if (response != null) {
+      emit(RegisterCheckListState.ConfirmSuccess(response))
+    } else {
+      emit(RegisterCheckListState.ConfirmFailed)
+    }
+  }
 }
 
 sealed class RegisterCheckListState {
   class FetchEstateSuccess(val estate: DetailEstate) : RegisterCheckListState()
   object FetchEstateFailed : RegisterCheckListState()
+  class ConfirmSuccess(val response: RegisterEstateBrokerResponse) : RegisterCheckListState()
+  object ConfirmFailed : RegisterCheckListState()
 }

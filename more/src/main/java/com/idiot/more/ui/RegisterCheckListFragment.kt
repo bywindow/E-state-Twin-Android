@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -39,6 +41,7 @@ class RegisterCheckListFragment : Fragment() {
     }
 
     initEstateDetail()
+    subscribeUI()
 
     return binding.root
   }
@@ -51,6 +54,24 @@ class RegisterCheckListFragment : Fragment() {
             Timber.d("SUCCESS : ${it.estate}")
           }
           else -> {}
+        }
+      }
+    }
+  }
+
+  private fun subscribeUI() {
+    binding.completeButton.setOnClickListener {
+      viewLifecycleOwner.lifecycleScope.launch {
+        viewModel.requestConfirm(args.estateId).collect(){
+          when (it) {
+            is RegisterCheckListState.ConfirmSuccess -> {
+              Timber.d("success : ${it.response}")
+              findNavController().navigateUp()
+            }
+            else -> {
+              Toast.makeText(requireContext(), "다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+            }
+          }
         }
       }
     }

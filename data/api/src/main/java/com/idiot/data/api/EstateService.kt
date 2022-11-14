@@ -116,4 +116,11 @@ interface EstateService {
     @Path("assetId") assetId: Long,
     @Body body: RequestBody
   ): Response<Checklist>
+
+  @PATCH("estate/detail/{estateId}/allowPost")
+  suspend fun requestEstateConfirm(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Path("estateId") estateId: Long
+  ): Response<RegisterEstateBrokerResponse>
 }

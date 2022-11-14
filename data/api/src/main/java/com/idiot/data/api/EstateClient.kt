@@ -127,4 +127,12 @@ class EstateClient @Inject constructor(
     body = body
   )
 
+  suspend fun requestEstateConfirm(
+    accessToken: String,
+    estateId: Long
+  ): Response<RegisterEstateBrokerResponse> = estateService.requestEstateConfirm(
+    accessToken = accessToken,
+    estateId = estateId
+  )
+
 }
