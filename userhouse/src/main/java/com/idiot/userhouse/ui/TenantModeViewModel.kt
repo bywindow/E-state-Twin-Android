@@ -35,8 +35,9 @@ class TenantModeViewModel @Inject constructor(
 
   init {
     viewModelScope.launch {
+      Timber.d("TENANT MODE")
       _tenantEstate.value = tenantModeRepository.requestGetTenantMode()
-      Timber.d("${tenantEstate.value}")
+      Timber.d("TENANT MODE : ${tenantEstate.value}")
     }
   }
 

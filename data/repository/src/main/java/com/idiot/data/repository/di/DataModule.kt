@@ -68,6 +68,11 @@ interface DataModule {
   ): TenantModeRepository
 
   @Binds
+  fun bindsOwnerModeRepository(
+    ownerModeRepositoryImpl: OwnerModeRepositoryImpl
+  ): OwnerModeRepository
+
+  @Binds
   fun bindsDipEstateRepository(
     dipEstateRepositoryImpl: DipEstateRepositoryImpl
   ): DipEstateRepository

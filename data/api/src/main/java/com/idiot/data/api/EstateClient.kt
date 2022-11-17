@@ -83,6 +83,12 @@ class EstateClient @Inject constructor(
     accessToken = accessToken
   )
 
+  suspend fun requestGetOwnerMode(
+    accessToken: String
+  ):Response<List<OwnerModeResponse>> = estateService.requestGetOwnerMode(
+    accessToken = accessToken
+  )
+
   suspend fun requestEstateDip(
     accessToken: String,
     estateId: Long

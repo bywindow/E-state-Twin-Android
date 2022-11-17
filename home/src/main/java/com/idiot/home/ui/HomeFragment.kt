@@ -43,7 +43,6 @@ class HomeFragment : Fragment() {
     initRecommendedEstate()
     initRegisterButtonClicked()
     initSearchButtonClicked()
-    Timber.d("${findNavController().graph.nodes}")
     return binding.root
   }
 

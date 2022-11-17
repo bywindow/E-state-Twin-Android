@@ -17,6 +17,7 @@ class TenantModeRepositoryImpl @Inject constructor(
     val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
     try {
       val response = estateClient.requestGetTenantMode("Bearer $token")
+      Timber.d("$response")
       return if (response.isSuccessful) response.body() as TenantModeResponse else null
     } catch (e: Exception) {
       e.printStackTrace()
