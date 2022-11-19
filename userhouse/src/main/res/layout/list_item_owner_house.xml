@@ -59,7 +59,7 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="2dp"
           android:includeFontPadding="false"
-          android:text='@{model.address.city + " " + model.address.borough + " " + model.address.roadName}'
+          android:text='@{model.address.city + " " + model.address.borough + " " + model.address.roadName + " " + model.address.mainBuildingNumber + "동 " + model.address.subBuildingNumber + "호"}'
           android:textAppearance="@style/TextAppearance.idiot.sub.Text" />
       </androidx.appcompat.widget.LinearLayoutCompat>
 
