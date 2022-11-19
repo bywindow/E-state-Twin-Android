@@ -11,10 +11,12 @@ import androidx.lifecycle.lifecycleScope
 import com.idiot.userhouse.R
 import com.idiot.userhouse.databinding.FragmentOwnerModeBinding
 import com.idiot.data.repository.samples.OwnerHouseSample
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
+@AndroidEntryPoint
 class OwnerModeFragment : Fragment() {
 
   private lateinit var binding: FragmentOwnerModeBinding

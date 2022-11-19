@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
-  <!--    TODO: viewBinding-->
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
   <data>
     <variable
       name="clickListener"
       type="android.view.View.OnClickListener" />
+    <variable
+      name="model"
+      type="com.idiot.model.OwnerModeResponse" />
   </data>
 
   <com.google.android.material.card.MaterialCardView
@@ -32,10 +36,11 @@
 
         <TextView
           android:id="@+id/my_house_type_textView"
+          estateType="@{model.estateType}"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:includeFontPadding="false"
-          android:text="집유형"
+          tools:text="집유형"
           android:textAppearance="@style/TextAppearance.idiot.info.content.Text"
           android:textSize="12sp" />
 
@@ -45,7 +50,7 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="3dp"
           android:includeFontPadding="false"
-          android:text="집이름"
+          android:text="@{model.address.buildingName}"
           android:textAppearance="@style/TextAppearance.idiot.myhouse.title.Text" />
 
         <TextView
@@ -54,7 +59,7 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="2dp"
           android:includeFontPadding="false"
-          android:text="집주소가 들어갈 텍스트뷰입니다."
+          android:text='@{model.address.city + " " + model.address.borough + " " + model.address.roadName}'
           android:textAppearance="@style/TextAppearance.idiot.sub.Text" />
       </androidx.appcompat.widget.LinearLayoutCompat>
 
