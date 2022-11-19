@@ -1,17 +1,22 @@
 package com.idiot.userhouse.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.idiot.userhouse.R
 import com.idiot.userhouse.databinding.FragmentOwnerChecklistPagerBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import timber.log.Timber
 
 @AndroidEntryPoint
 class OwnerChecklistPagerFragment : Fragment() {
@@ -19,11 +24,8 @@ class OwnerChecklistPagerFragment : Fragment() {
   private lateinit var binding: FragmentOwnerChecklistPagerBinding
   private lateinit var viewPager: ViewPager2
   private lateinit var tabLayout: TabLayout
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-
-  }
+  private val viewModel: OwnerChecklistViewModel by viewModels()
+  private val args: OwnerChecklistPagerFragmentArgs by navArgs()
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +39,17 @@ class OwnerChecklistPagerFragment : Fragment() {
       tab.text = getTabTitle(position)
     }.attach()
 
+    getAssetList()
+
     return binding.root
+  }
+
+  private fun getAssetList(){
+    viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+      viewModel.fetchAssetList(args.estateId).collect(){
+        Timber.d("OWNER CHECK LIST")
+      }
+    }
   }
 
   private fun getTabTitle(position: Int): String? {
