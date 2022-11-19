@@ -2,6 +2,7 @@ package com.idiot.data.repository
 
 import androidx.annotation.WorkerThread
 import com.idiot.data.api.EstateClient
+import com.idiot.model.AssetIncludingChecklist
 import com.idiot.model.OwnerModeResponse
 import javax.inject.Inject
 
@@ -21,6 +22,17 @@ class OwnerModeRepositoryImpl @Inject constructor(
       e.printStackTrace()
       emptyList()
     }
+
+  }
+
+  @WorkerThread
+  override suspend fun requestOwnerAssetList(estateId: Long): List<AssetIncludingChecklist> {
+    val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
+    val response = estateClient.requestGetOwnerAssetList(
+      accessToken = "Bearer $token",
+      estateId = estateId
+    )
+    return if (response.isSuccessful) response.body() as List<AssetIncludingChecklist> else emptyList()
   }
 
 }

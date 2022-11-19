@@ -86,6 +86,13 @@ interface EstateService {
     @Query("category") category: String
   ): Response<List<AssetIncludingChecklist>>
 
+  @GET("user/owner/detail")
+  suspend fun requestGetOwnerAssetList(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Query("estateId") estateId: Long
+  ) : Response<List<AssetIncludingChecklist>>
+
   @PATCH("estate/detail/{estateId}/dip")
   suspend fun requestEstateDip(
     @Header("Content-Type") contentType: String = "application/json",

@@ -89,6 +89,14 @@ class EstateClient @Inject constructor(
     accessToken = accessToken
   )
 
+  suspend fun requestGetOwnerAssetList(
+    accessToken: String,
+    estateId: Long
+  ): Response<List<AssetIncludingChecklist>> = estateService.requestGetOwnerAssetList(
+    accessToken = accessToken,
+    estateId = estateId
+  )
+
   suspend fun requestEstateDip(
     accessToken: String,
     estateId: Long
