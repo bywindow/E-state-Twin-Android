@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+      name="clickListener"
+      type="android.view.View.OnClickListener" />
+
+    <variable
+      name="model"
+      type="com.idiot.model.AssetIncludingChecklist" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:onClick="@{clickListener}"
+    android:paddingTop="18dp"
+    android:paddingBottom="16dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/asset_image"
+      assetImageUrl="@{model.assetPhoto}"
+      android:layout_width="86dp"
+      android:layout_height="86dp"
+      android:layout_marginStart="10dp"
+      android:background="@drawable/bg_asset_image_rounded"
+      android:clipToOutline="true"
+      android:scaleType="centerCrop"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/category_text"
+      categoryToText="@{model.category}"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="14dp"
+      android:layout_marginTop="1dp"
+      android:textColor="@color/detail_info_content"
+      android:textSize="11sp"
+      app:layout_constraintStart_toEndOf="@id/asset_image"
+      app:layout_constraintTop_toTopOf="@id/asset_image"
+      tools:text="가전" />
+
+    <View
+      android:id="@+id/decor_view"
+      android:layout_width="1dp"
+      android:layout_height="0dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="4dp"
+      android:background="#c5c8d4"
+      app:layout_constraintBottom_toBottomOf="@id/category_text"
+      app:layout_constraintStart_toEndOf="@id/category_text"
+      app:layout_constraintTop_toTopOf="@id/category_text" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/manufacturer_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@{model.manufacturer}"
+      android:textColor="@color/detail_info_content"
+      android:textSize="11sp"
+      android:layout_marginStart="8dp"
+      app:layout_constraintStart_toEndOf="@id/decor_view"
+      app:layout_constraintTop_toTopOf="@id/category_text"
+      tools:text="LG" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/product_name_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="4dp"
+      android:text="@{model.productName}"
+      android:textColor="@color/detail_info_content"
+      android:textSize="11sp"
+      app:layout_constraintStart_toEndOf="@id/manufacturer_text"
+      app:layout_constraintTop_toTopOf="@id/manufacturer_text"
+      tools:text="AAAAAAAAAAAĀ" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/option_text"
+      optionToText="@{model.option}"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="@id/category_text"
+      app:layout_constraintTop_toBottomOf="@id/product_name_text"
+      tools:text="세탁기" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/flaw_part_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/flaw_part"
+      android:textColor="#545767"
+      android:textSize="11sp"
+      app:layout_constraintStart_toStartOf="@id/option_text"
+      app:layout_constraintTop_toBottomOf="@id/option_text" />
+
+    <View
+      android:id="@+id/flaw_part_decor_view"
+      android:layout_width="1dp"
+      android:layout_height="0dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="4dp"
+      android:background="#c5c8d4"
+      app:layout_constraintBottom_toBottomOf="@id/flaw_part_title"
+      app:layout_constraintStart_toEndOf="@id/flaw_part_title"
+      app:layout_constraintTop_toTopOf="@id/flaw_part_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/flaw_part_text"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="10dp"
+      android:textColor="@color/detail_info_content"
+      android:textSize="11sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/flaw_part_decor_view"
+      app:layout_constraintTop_toTopOf="@id/flaw_part_title"
+      tools:text="다이얼 버튼" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/checklist_desc_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="1dp"
+      android:text="@string/checklist_description"
+      android:textColor="#545767"
+      android:textSize="11sp"
+      app:layout_constraintBottom_toBottomOf="@id/asset_image"
+      app:layout_constraintStart_toStartOf="@id/flaw_part_title" />
+
+    <View
+      android:id="@+id/checklist_desc_decor_view"
+      android:layout_width="1dp"
+      android:layout_height="0dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="4dp"
+      android:background="#c5c8d4"
+      app:layout_constraintBottom_toBottomOf="@id/checklist_desc_title"
+      app:layout_constraintStart_toEndOf="@id/checklist_desc_title"
+      app:layout_constraintTop_toTopOf="@id/checklist_desc_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/checklist_desc_text"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="10dp"
+      android:ellipsize="end"
+      android:maxLines="1"
+      android:textColor="@color/detail_info_content"
+      android:textSize="11sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/checklist_desc_decor_view"
+      app:layout_constraintTop_toTopOf="@id/checklist_desc_title"
+      tools:text="다이얼 회전이 뻑뻑하여 안 돌아감. 안돌아감. adfaldfjakldfjasdf" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

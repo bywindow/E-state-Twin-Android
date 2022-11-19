@@ -9,4 +9,12 @@
   <string name="furniture">가구</string>
   <string name="bathroom">욕실/주방</string>
   <string name="interior">인테리어</string>
+
+  <string name="flaw_part">하자부위</string>
+  <string name="checklist_description">상세설명</string>
+
+  <string name="category_home_appliance">가전</string>
+  <string name="category_furniture">가구</string>
+  <string name="category_bathroom">욕실/주방</string>
+  <string name="category_interior">인테리어</string>
 </resources>

@@ -17,11 +17,6 @@ class HomeApplianceFragment : Fragment() {
   private lateinit var binding: FragmentHomeApplianceBinding
   private val viewModel: OwnerChecklistViewModel by viewModels ({requireParentFragment()})
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-
-  }
-
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
@@ -31,7 +26,12 @@ class HomeApplianceFragment : Fragment() {
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
+    binding.apply {
+      lifecycleOwner = this@HomeApplianceFragment
+      adapter = OwnerAssetListAdapter()
+      vm = viewModel
+    }
+
   }
 
 }
