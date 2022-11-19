@@ -12,6 +12,9 @@
     <action
       android:id="@+id/action_myHouseFragment_to_manageAssetFragment"
       app:destination="@id/manageAssetFragment" />
+    <action
+      android:id="@+id/action_myHouseFragment_to_ownerChecklistPagerFragment"
+      app:destination="@id/ownerChecklistPagerFragment" />
   </fragment>
   <fragment
     android:id="@+id/manageAssetFragment"
@@ -24,6 +27,13 @@
     android:id="@+id/tenantModeFragment"
     android:name="com.idiot.userhouse.ui.TenantModeFragment"
     android:label="TenantModeFragment" >
+  </fragment>
+  <fragment
+    android:id="@+id/ownerChecklistPagerFragment"
+    android:name="com.idiot.userhouse.ui.OwnerChecklistPagerFragment"
+    android:label="fragment_owner_checklist_pager"
+    tools:layout="@layout/fragment_owner_checklist_pager">
+    <argument app:argType="long" android:name="estateId"/>
   </fragment>
 
 </navigation>

@@ -1,8 +1,10 @@
 package com.idiot.userhouse.ui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -15,15 +17,17 @@ class OwnerHouseAdapter() : ListAdapter<OwnerModeResponse, OwnerHouseAdapter.Vie
   inner class ViewHolder constructor(
     private val binding: ListItemOwnerHouseBinding
   ) : RecyclerView.ViewHolder(binding.root) {
-    init {
-      binding.setClickListener { view ->
-        val position = bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION } ?: return@setClickListener
-
-      }
-    }
 
     fun bind(item: OwnerModeResponse) {
       binding.model = item
+      binding.setClickListener {
+        navigateTo(item.estateId, it)
+      }
+    }
+
+    private fun navigateTo(estateId: Long, view: View) {
+      val direction = MyHouseFragmentDirections.actionMyHouseFragmentToOwnerChecklistPagerFragment(estateId)
+      view.findNavController().navigate(direction)
     }
 
   }
