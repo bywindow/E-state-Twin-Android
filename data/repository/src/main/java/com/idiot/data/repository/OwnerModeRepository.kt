@@ -6,7 +6,6 @@ import com.idiot.model.OwnerModeResponse
 interface OwnerModeRepository {
 
   @WorkerThread
-  suspend fun requestOwnerMode(
-    accessToken: String
-  ) : List<OwnerModeResponse>
+  suspend fun requestOwnerMode() : List<OwnerModeResponse>
+
 }

@@ -3,6 +3,15 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
+  <data>
+    <variable
+      name="adapter"
+      type="com.idiot.userhouse.ui.OwnerHouseAdapter" />
+    <variable
+      name="vm"
+      type="com.idiot.userhouse.ui.OwnerModeViewModel" />
+  </data>
+
   <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,6 +20,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/owner_house_list"
+      ownerAdapter="@{adapter}"
+      submitList="@{vm.ownerEstateList}"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:clipToPadding="false"

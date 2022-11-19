@@ -11,7 +11,7 @@ class OwnerModeRepositoryImpl @Inject constructor(
 ) : OwnerModeRepository {
 
   @WorkerThread
-  override suspend fun requestOwnerMode(accessToken: String): List<OwnerModeResponse> {
+  override suspend fun requestOwnerMode(): List<OwnerModeResponse> {
 
     return try {
       val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
