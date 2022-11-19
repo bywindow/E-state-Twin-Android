@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.idiot.userhouse.R
 import com.idiot.userhouse.databinding.FragmentOwnerChecklistPagerBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +31,23 @@ class OwnerChecklistPagerFragment : Fragment() {
   ): View? {
     binding = DataBindingUtil.inflate(inflater, R.layout.fragment_owner_checklist_pager, container, false)
     viewPager = binding.viewPager
+    viewPager.adapter = OwnerChecklistPagerAdapter(this)
+    tabLayout = binding.tabMenu
+    TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+      tab.text = getTabTitle(position)
+    }.attach()
+
     return binding.root
+  }
+
+  private fun getTabTitle(position: Int): String? {
+    return when (position) {
+      HOME_APPLIANCE_PAGE_INDEX -> getString(R.string.home_appliance)
+      FURNITURE_PAGE_INDEX -> getString(R.string.furniture)
+      BATHROOM_PAGE_INDEX -> getString(R.string.bathroom)
+      INTERIOR_PAGE_INDEX -> getString(R.string.interior)
+      else -> null
+    }
   }
 
 
