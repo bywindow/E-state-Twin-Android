@@ -3,29 +3,31 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
 
+  <data>
+
+    <variable
+      name="adapter"
+      type="com.idiot.userhouse.ui.OwnerAssetListAdapter" />
+
+    <variable
+      name="vm"
+      type="com.idiot.userhouse.ui.OwnerChecklistViewModel" />
+  </data>
+
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/interior_list_recycler_view"
+      adapter="@{adapter}"
+      submitList="@{vm.interiorFiltered}"
       android:layout_width="match_parent"
       android:layout_height="0dp"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toTopOf="@id/complete_button"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-      android:id="@+id/complete_button"
-      android:layout_width="0dp"
-      android:layout_height="40dp"
-      android:background="@color/purple_700"
-      android:gravity="center"
-      android:text="완료"
-      android:textColor="@color/white"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      tools:listitem="@layout/list_item_owner_asset_list" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

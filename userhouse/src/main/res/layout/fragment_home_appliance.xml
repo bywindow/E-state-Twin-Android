@@ -24,20 +24,9 @@
       android:layout_width="match_parent"
       android:layout_height="0dp"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      app:layout_constraintBottom_toTopOf="@id/complete_button"
-      app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-      android:id="@+id/complete_button"
-      android:layout_width="0dp"
-      android:layout_height="40dp"
-      android:background="@color/purple_700"
-      android:gravity="center"
-      android:text="완료"
-      android:textColor="@color/white"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      tools:listitem="@layout/list_item_owner_asset_list"/>
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 
