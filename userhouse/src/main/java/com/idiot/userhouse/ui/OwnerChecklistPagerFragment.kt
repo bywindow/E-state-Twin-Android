@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -16,6 +17,7 @@ import com.idiot.userhouse.R
 import com.idiot.userhouse.databinding.FragmentOwnerChecklistPagerBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -40,6 +42,7 @@ class OwnerChecklistPagerFragment : Fragment() {
     }.attach()
 
     getAssetList()
+    completeButtonClicked()
 
     return binding.root
   }
@@ -62,5 +65,14 @@ class OwnerChecklistPagerFragment : Fragment() {
     }
   }
 
-
+  private fun completeButtonClicked() {
+    binding.completeButton.setOnClickListener {
+      viewLifecycleOwner.lifecycleScope.launch {
+        viewModel.requestConfirm(args.estateId).collect() {
+          Timber.d("$it")
+          findNavController().navigateUp()
+        }
+      }
+    }
+  }
 }

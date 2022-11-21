@@ -2,6 +2,7 @@ package com.idiot.userhouse.ui
 
 import androidx.lifecycle.ViewModel
 import com.idiot.data.repository.OwnerModeRepository
+import com.idiot.data.repository.RegisterEstateConfirmRepository
 import com.idiot.model.AssetIncludingChecklist
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OwnerChecklistViewModel @Inject constructor(
-  private val ownerModeRepository: OwnerModeRepository
+  private val ownerModeRepository: OwnerModeRepository,
+  private val registerEstateConfirmRepository: RegisterEstateConfirmRepository
 ) : ViewModel() {
 
   private val _assetList = MutableStateFlow(emptyList<AssetIncludingChecklist>())
@@ -34,8 +36,15 @@ class OwnerChecklistViewModel @Inject constructor(
     emit(OwnerCheckListStatus.FetchSuccess)
   }
 
+  fun requestConfirm(estateId: Long) = flow {
+    val response = registerEstateConfirmRepository.requestEstateConfirm(estateId)
+    Timber.d("$response")
+    emit(OwnerCheckListStatus.ConfirmSuccess)
+  }
+
 }
 
 sealed class OwnerCheckListStatus {
   object FetchSuccess : OwnerCheckListStatus()
+  object ConfirmSuccess : OwnerCheckListStatus()
 }
