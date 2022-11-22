@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.idiot.data.repository.samples.imageUrlSample
+import com.idiot.home.R
 import com.idiot.home.databinding.FragmentHouseDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -76,7 +77,7 @@ class HouseDetailFragment : Fragment() {
       startActivity(intent)
     }
     binding.ARCameraButton.setOnClickListener {
-      if (!viewModel.detailEstate.value!!.inquiry) {
+      if (!viewModel.inquiryState.value) {
         Toast.makeText(requireContext(), "방문 예약 후 이용하실 수 있습니다.", Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }

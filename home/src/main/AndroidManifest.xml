@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
   package="com.idiot.home">
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.CAMERA" />
 
   <application>
     <activity
@@ -10,6 +14,12 @@
         android:name="android.app.lib_name"
         android:value="" />
     </activity>
+
+    <meta-data
+      android:name="com.google.ar.core"
+      android:value="required"
+      tools:replace="android:value" />
+
   </application>
 
 </manifest>

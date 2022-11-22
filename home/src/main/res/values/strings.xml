@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">E-State Twin</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home">홈</string>
-    <string name="main_appbar_help">내가 찾고있는 집을\n빠르게 검색해보세요!</string>
-    <string name="appbar_search">매물 검색하기</string>
-    <string name="home_recommend_card_image_desc">Picture of recommended house</string>
-    <string name="viewer_3d_button_text">현장 미리보기</string>
-    <string name="estate_video">매물영상</string>
-    <string name="ar_video">AR 영상</string>
-    <string name="ar_camera">AR 카메라</string>
-    <string name="option_info">옵션 정보</string>
-    <string name="price_info">가격 정보</string>
-    <string name="deposit_title">전/월세 가격</string>
-    <string name="maintenance_fee_title">관리비</string>
-    <string name="parking_fee_title">주차여부</string>
-    <string name="detail_info_title">상세정보</string>
-    <string name="home_type_title">건물 유형</string>
-    <string name="home_name_title">건물 이름</string>
-    <string name="home_register_date_title">매물등록 날짜</string>
-    <string name="floor_title">층수 및 현재 층</string>
-    <string name="area_title">면적</string>
-    <string name="heat_title">난방종류</string>
-    <string name="elevator_title">엘리베이터</string>
-    <string name="duplex_title">복층 유무</string>
-    <string name="loft_title">방 구조</string>
-    <string name="veranda_title">베란다/발코니</string>
-    <string name="short_term_title">단기임대</string>
-    <string name="move_in_title">입주가능일</string>
+  <string name="app_name">E-State Twin</string>
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="home">홈</string>
+  <string name="main_appbar_help">내가 찾고있는 집을\n빠르게 검색해보세요!</string>
+  <string name="appbar_search">매물 검색하기</string>
+  <string name="home_recommend_card_image_desc">Picture of recommended house</string>
+  <string name="viewer_3d_button_text">현장 미리보기</string>
+  <string name="estate_video">매물영상</string>
+  <string name="ar_video">AR 영상</string>
+  <string name="ar_camera">AR 카메라</string>
+  <string name="option_info">옵션 정보</string>
+  <string name="price_info">가격 정보</string>
+  <string name="deposit_title">전/월세 가격</string>
+  <string name="maintenance_fee_title">관리비</string>
+  <string name="parking_fee_title">주차여부</string>
+  <string name="detail_info_title">상세정보</string>
+  <string name="home_type_title">건물 유형</string>
+  <string name="home_name_title">건물 이름</string>
+  <string name="home_register_date_title">매물등록 날짜</string>
+  <string name="floor_title">층수 및 현재 층</string>
+  <string name="area_title">면적</string>
+  <string name="heat_title">난방종류</string>
+  <string name="elevator_title">엘리베이터</string>
+  <string name="duplex_title">복층 유무</string>
+  <string name="loft_title">방 구조</string>
+  <string name="veranda_title">베란다/발코니</string>
+  <string name="short_term_title">단기임대</string>
+  <string name="move_in_title">입주가능일</string>
 
-    <string name="broker_info_title">중개사무소 정보</string>
-    <string name="broker_call_number">전화걸기</string>
-    <string name="visit_reservation_text">방문예약</string>
-    <string name="run_process_title">계약진행</string>
+  <string name="broker_info_title">중개사무소 정보</string>
+  <string name="broker_call_number">전화걸기</string>
+  <string name="visit_reservation_text">방문예약</string>
+  <string name="run_process_title">계약진행</string>
 
-    <string name="search">매물검색</string>
+  <string name="search">매물검색</string>
 
-    <string name="square_meter">m<sup><small>2</small></sup></string>
+  <string name="square_meter">m<sup><small>2</small></sup></string>
 
-    <string name="room_image_desc">room icon image</string>
-    <string name="floor_image_desc">floor icon image</string>
-    <string name="size_image_desc">size icon image</string>
-    <string name="cost_image_desc">cost icon image</string>
+  <string name="room_image_desc">room icon image</string>
+  <string name="floor_image_desc">floor icon image</string>
+  <string name="size_image_desc">size icon image</string>
+  <string name="cost_image_desc">cost icon image</string>
+
+  <string name="resolve_anchor">에셋 불러오기</string>
+
 </resources>
