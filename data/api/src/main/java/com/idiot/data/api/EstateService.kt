@@ -136,4 +136,14 @@ interface EstateService {
     @Header("Authorization") accessToken: String,
     @Path("estateId") estateId: Long
   ): Response<RegisterEstateBrokerResponse>
+
+  @POST("estate/search/list")
+  suspend fun requestEstateSearchList(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Query("page") page: Int = 0,
+    @Query("size") size: Int? = null,
+    @Query("sort") sort: List<String>? = null,
+    @Body body: RequestBody
+  ): Response<List<EstateSearchResponse>>
 }

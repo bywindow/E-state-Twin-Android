@@ -5,6 +5,7 @@ import com.idiot.model.AssetIncludingChecklist
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -14,5 +15,6 @@ class ResolveAnchorViewModel @Inject constructor() : ViewModel() {
 
   fun fetchAnchorList(list: List<AssetIncludingChecklist>) {
     _anchorList.value = list
+    Timber.d("AR ANCHOR: $list")
   }
 }

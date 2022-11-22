@@ -86,4 +86,9 @@ interface DataModule {
   fun bindsRegisterEstateConfirmRepository(
     registerEstateConfirmRepositoryImpl: RegisterEstateConfirmRepositoryImpl
   ): RegisterEstateConfirmRepository
+
+  @Binds
+  fun bindsEstateSearchRepository(
+    estateSearchRepositoryImpl: EstateSearchRepositoryImpl
+  ): EstateSearchRepository
 }

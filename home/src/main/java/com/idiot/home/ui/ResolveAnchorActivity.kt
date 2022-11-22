@@ -1,6 +1,7 @@
 package com.idiot.home.ui
 
 import android.os.Bundle
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
+import io.github.sceneview.renderable.Renderable
 import io.github.sceneview.utils.setFullScreen
 import timber.log.Timber
 
@@ -51,6 +53,7 @@ class ResolveAnchorActivity : AppCompatActivity() {
         val cloudAnchorNode = ArModelNode(placementMode = PlacementMode.PLANE_HORIZONTAL_AND_VERTICAL).apply {
           parent = sceneView
           isVisible = false
+          onTap = { motionEvent: MotionEvent, renderable: Renderable? -> Timber.d("${this.anchor}")}
           loadModelAsync(
             context = sceneView.context,
             lifecycle = lifecycle,

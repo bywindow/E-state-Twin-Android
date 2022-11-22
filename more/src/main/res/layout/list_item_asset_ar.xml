@@ -28,7 +28,7 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:gravity="center"
-      android:background="@color/white"
+      android:background="@android:color/transparent"
       android:textAppearance="@style/TextAppearance.idiot.icon.Text"
       android:layout_marginHorizontal="2dp"
       android:layout_marginBottom="3dp"

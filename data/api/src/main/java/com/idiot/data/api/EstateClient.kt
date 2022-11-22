@@ -149,4 +149,12 @@ class EstateClient @Inject constructor(
     estateId = estateId
   )
 
+  suspend fun requestEstateSearchList(
+    accessToken: String,
+    body: RequestBody
+  ): Response<List<EstateSearchResponse>> = estateService.requestEstateSearchList(
+    accessToken = accessToken,
+    body = body
+  )
+
 }
