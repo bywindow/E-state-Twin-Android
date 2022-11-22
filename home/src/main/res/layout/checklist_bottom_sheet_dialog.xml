@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="model"
+      type="com.idiot.model.AssetIncludingChecklist" />
+
+    <variable
+      name="checklist"
+      type="com.idiot.model.Checklist" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/bottom_sheet_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_rounded"
+    android:paddingBottom="54dp"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/asset_image"
+      loadImageUrl="@{model.assetPhoto}"
+      android:scaleType="fitXY"
+      android:layout_width="140dp"
+      android:layout_height="110dp"
+      android:layout_marginStart="@dimen/app_horizontal_padding"
+      android:layout_marginTop="20dp"
+      android:background="@drawable/register_add_picture_rounded"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/category_text_view"
+      categoryToText="@{model.category}"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="14dp"
+      android:layout_marginTop="10dp"
+      android:textColor="@color/detail_info_content"
+      android:textSize="12sp"
+      app:layout_constraintStart_toEndOf="@id/asset_image"
+      app:layout_constraintTop_toTopOf="@id/asset_image"
+      tools:text="가전" />
+
+    <TextView
+      android:id="@+id/option_text_view"
+      assetName="@{model.option}"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:textColor="@color/black"
+      android:textSize="17sp"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="@id/category_text_view"
+      app:layout_constraintTop_toBottomOf="@id/category_text_view"
+      tools:text="세탁기" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/manufacturer_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="2dp"
+      android:includeFontPadding="false"
+      android:text="@{model.manufacturer}"
+      android:textColor="@color/detail_info_content"
+      android:textSize="12sp"
+      app:layout_constraintStart_toStartOf="@id/category_text_view"
+      app:layout_constraintTop_toBottomOf="@id/option_text_view"
+      tools:text="LG" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/product_name_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="3dp"
+      android:text="@{model.productName}"
+      android:textColor="@color/detail_info_content"
+      android:textSize="12sp"
+      app:layout_constraintBottom_toBottomOf="@id/manufacturer_text"
+      app:layout_constraintStart_toEndOf="@id/manufacturer_text"
+      app:layout_constraintTop_toTopOf="@id/manufacturer_text"
+      tools:text="AKASDKFSDF" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/change_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="22dp"
+      android:text="@string/change_title"
+      android:textColor="@color/black"
+      android:textSize="15sp"
+      app:layout_constraintStart_toStartOf="@id/asset_image"
+      app:layout_constraintTop_toBottomOf="@id/asset_image" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/change_help_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/app_horizontal_padding"
+      android:text="@string/change_help"
+      android:textColor="@color/detail_info_content"
+      android:textSize="11sp"
+      app:layout_constraintBottom_toBottomOf="@id/change_title"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/change_title" />
+
+    <View
+      android:id="@+id/decor_top"
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+      android:layout_marginTop="10dp"
+      android:background="@drawable/divider_detail_content"
+      app:layout_constraintTop_toBottomOf="@id/change_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/repair_text"
+      isVisible='@{checklist.repairType == "REPAIR"}'
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:background="@drawable/bg_repair_text"
+      android:paddingHorizontal="14dp"
+      android:paddingVertical="4dp"
+      android:text="수리"
+      android:textColor="@color/purple_700"
+      app:layout_constraintStart_toStartOf="@id/asset_image"
+      app:layout_constraintTop_toBottomOf="@id/decor_top" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/purchase_text"
+      isVisible='@{checklist.repairType == "PURCHASE"}'
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:background="@drawable/bg_purchase_text"
+      android:paddingHorizontal="14dp"
+      android:paddingVertical="4dp"
+      android:text="구매"
+      android:textColor="#e15252"
+      app:layout_constraintStart_toStartOf="@id/asset_image"
+      app:layout_constraintTop_toBottomOf="@id/decor_top" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/flaw_part_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="14dp"
+      android:text="@{checklist.flawPart}"
+      android:textColor="@color/black"
+      android:textSize="14sp"
+      app:layout_constraintBottom_toTopOf="@id/content_text"
+      app:layout_constraintStart_toEndOf="@id/purchase_text"
+      app:layout_constraintTop_toTopOf="@id/purchase_text"
+      tools:text="다이얼버튼" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/content_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="3dp"
+      android:text="@{checklist.checkListContent}"
+      android:textColor="@color/detail_info_content"
+      android:textSize="12sp"
+      app:layout_constraintBottom_toBottomOf="@id/purchase_text"
+      app:layout_constraintStart_toStartOf="@id/flaw_part_text"
+      app:layout_constraintTop_toBottomOf="@id/flaw_part_text"
+      tools:text="다이얼버튼" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/date_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/app_horizontal_padding"
+      android:text="@{checklist.repairDate}"
+      android:textColor="@color/detail_info_content"
+      android:textSize="11sp"
+      app:layout_constraintBottom_toBottomOf="@id/flaw_part_text"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/flaw_part_text"
+      tools:text="2020-00-00" />
+
+    <View
+      android:id="@+id/decor_bottom"
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginHorizontal="@dimen/app_horizontal_padding"
+      android:layout_marginTop="12dp"
+      android:background="@drawable/divider_detail_content"
+      app:layout_constraintTop_toBottomOf="@id/content_text" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

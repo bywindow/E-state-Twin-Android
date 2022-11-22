@@ -2,6 +2,7 @@ package com.idiot.home.binding
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
@@ -99,6 +100,28 @@ object ViewBinding {
     when (estateType) {
       "APARTMENT" -> view.text = "아파트"
       "OFFICETELS" -> view.text = "오피스텔"
+    }
+  }
+
+  @JvmStatic
+  @BindingAdapter("categoryToText")
+  fun bindCategoryToText(view: AppCompatTextView, categoryToText: String) {
+    when (categoryToText) {
+      "HOMEAPPLIANCES" -> view.setText(com.idiot.home.R.string.category_home_appliance)
+      "FURNITURE" -> view.setText(com.idiot.home.R.string.category_furniture)
+      "BATHROOM" -> view.setText(com.idiot.home.R.string.category_bathroom)
+      "INTERIOR" -> view.setText(com.idiot.home.R.string.category_interior)
+      else -> return
+    }
+  }
+
+  @JvmStatic
+  @BindingAdapter("isVisible")
+  fun bindIsVisible(view: View, isVisible: Boolean) {
+    view.visibility = if (isVisible) {
+      View.VISIBLE
+    } else {
+      View.INVISIBLE
     }
   }
 }

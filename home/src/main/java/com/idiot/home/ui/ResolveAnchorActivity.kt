@@ -8,8 +8,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.idiot.home.R
 import com.idiot.home.databinding.ActivityResolveAnchorBinding
+import com.idiot.home.databinding.ChecklistBottomSheetDialogBinding
 import com.idiot.model.AssetIncludingChecklist
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.sceneview.ar.ArSceneView
@@ -30,6 +32,9 @@ class ResolveAnchorActivity : AppCompatActivity() {
   private val cloudAnchorNodes: MutableList<ArModelNode> = emptyList<ArModelNode>().toMutableList()
   private val threads: MutableList<Thread> = emptyList<Thread>().toMutableList()
 
+  private lateinit var bottomSheet: BottomSheetDialog
+  private lateinit var bottomSheetBinding: ChecklistBottomSheetDialogBinding
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_resolve_anchor)
@@ -44,6 +49,7 @@ class ResolveAnchorActivity : AppCompatActivity() {
       cloudAnchorEnabled = true
       instructions.searchPlaneInfoNode.position.y = -0.5f
     }
+    bottomSheet = BottomSheetDialog(this)
 
     resolveCloudAnchors()
     buttonClicked()
@@ -57,7 +63,7 @@ class ResolveAnchorActivity : AppCompatActivity() {
         ArModelNode(placementMode = PlacementMode.PLANE_HORIZONTAL_AND_VERTICAL).apply {
           parent = sceneView
           isVisible = false
-          onTap = { motionEvent: MotionEvent, renderable: Renderable? -> Timber.d("$it") }
+          onTap = { motionEvent: MotionEvent, renderable: Renderable? -> initBottomDialog(it) }
           loadModelAsync(
             context = sceneView.context,
             lifecycle = lifecycle,
@@ -67,6 +73,16 @@ class ResolveAnchorActivity : AppCompatActivity() {
       cloudAnchorNodes.add(cloudAnchorNode)
     }
     Timber.d("ANCHORS : $cloudAnchorNodes")
+  }
+
+  private fun initBottomDialog(item: AssetIncludingChecklist) {
+    bottomSheetBinding = DataBindingUtil.inflate(layoutInflater, R.layout.checklist_bottom_sheet_dialog, null, false)
+    bottomSheetBinding.model = item
+    bottomSheetBinding.checklist = item.checkLists?.last()
+    bottomSheet.apply {
+      setContentView(bottomSheetBinding.root)
+      if(!this@ResolveAnchorActivity.isFinishing) show()
+    }
   }
 
   private fun buttonClicked() {
