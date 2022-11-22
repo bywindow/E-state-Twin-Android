@@ -41,6 +41,7 @@ class HomeFragment : Fragment() {
     binding.homeRecommendList.itemAnimator = null
 
     initRecommendedEstate()
+    userRecommendButtonClicked()
     initRegisterButtonClicked()
     initSearchButtonClicked()
     return binding.root
@@ -58,6 +59,13 @@ class HomeFragment : Fragment() {
       } else {
         binding.homeUserRecommendTitle.text = "${viewModel.recommendedEstates.value.last().userBorough} 추천매물"
       }
+    }
+  }
+
+  private fun userRecommendButtonClicked() {
+    binding.userRecommendButton.setOnClickListener {
+      val direction = HomeFragmentDirections.actionHomeFragmentToEstateListFragment(viewModel.recommendedEstates.value.last().userBorough)
+      findNavController().navigate(direction)
     }
   }
 

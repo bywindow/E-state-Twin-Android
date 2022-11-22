@@ -12,6 +12,9 @@
     <action
       android:id="@+id/action_homeFragment_to_houseDetailFragment"
       app:destination="@id/houseDetailFragment" />
+    <action
+      android:id="@+id/action_homeFragment_to_estateListFragment"
+      app:destination="@id/estateListFragment" />
   </fragment>
   <fragment
     android:id="@+id/houseDetailFragment"
@@ -32,5 +35,14 @@
     <argument
       android:name="model"
       app:argType="string"/>
+  </fragment>
+  <fragment
+    android:id="@+id/estateListFragment"
+    android:name="com.idiot.home.ui.EstateListFragment"
+    android:label="fragment_estate_list"
+    tools:layout="@layout/fragment_estate_list">
+    <argument
+      android:name="borough"
+      app:argType="string" />
   </fragment>
 </navigation>
