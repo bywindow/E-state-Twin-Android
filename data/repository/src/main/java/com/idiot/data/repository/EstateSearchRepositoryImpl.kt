@@ -6,6 +6,7 @@ import com.idiot.data.api.EstateClient
 import com.idiot.model.EstateSearchResponse
 import com.idiot.model.users.SearchByBorough
 import okhttp3.RequestBody.Companion.toRequestBody
+import timber.log.Timber
 import javax.inject.Inject
 
 class EstateSearchRepositoryImpl @Inject constructor(
@@ -18,7 +19,9 @@ class EstateSearchRepositoryImpl @Inject constructor(
     val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
     val gson = Gson()
     val json = gson.toJson(data)
-    val response = estateClient.requestEstateSearchList(token, json.toRequestBody())
+    Timber.d("json : $json")
+    val response = estateClient.requestEstateSearchList("Bearer $token", json.toRequestBody())
+    Timber.d("response : $response")
     return if (response.isSuccessful) response.body() as List<EstateSearchResponse> else emptyList()
   }
 

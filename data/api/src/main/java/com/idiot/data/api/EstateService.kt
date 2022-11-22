@@ -142,8 +142,8 @@ interface EstateService {
     @Header("Content-Type") contentType: String = "application/json",
     @Header("Authorization") accessToken: String,
     @Query("page") page: Int = 0,
-    @Query("size") size: Int? = null,
-    @Query("sort") sort: List<String>? = null,
+    @Query("size") size: Int? = 100,
+    @Query("sort") sort: List<String> = listOf(""),
     @Body body: RequestBody
   ): Response<List<EstateSearchResponse>>
 }

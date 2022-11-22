@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.idiot.data.repository.R
@@ -80,5 +81,24 @@ object ViewBinding {
       .placeholder(ColorDrawable(Color.parseColor("#D1D1D1")))
       .error(com.idiot.utils.R.drawable.ic_image_error_2)
       .into(view)
+  }
+
+  @JvmStatic
+  @BindingAdapter("transactionType")
+  fun bindTransactionType(view: AppCompatTextView, transactionType: String) {
+    when (transactionType) {
+      "MONTHLYRENT" -> view.text = "월세"
+      "LEASE" -> view.text = "전세"
+      "TRADING" -> view.text = "매매"
+    }
+  }
+
+  @JvmStatic
+  @BindingAdapter("estateType")
+  fun bindEstateType(view: AppCompatTextView, estateType: String) {
+    when (estateType) {
+      "APARTMENT" -> view.text = "아파트"
+      "OFFICETELS" -> view.text = "오피스텔"
+    }
   }
 }
