@@ -44,5 +44,8 @@
     <argument
       android:name="borough"
       app:argType="string" />
+    <action
+      android:id="@+id/action_estateListFragment_to_houseDetailFragment"
+      app:destination="@id/houseDetailFragment" />
   </fragment>
 </navigation>

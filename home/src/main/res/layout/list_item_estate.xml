@@ -13,11 +13,18 @@
       name="town"
       type="String" />
 
+    <variable
+      name="clickListener"
+      type="android.view.View.OnClickListener" />
+
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="105dp">
+    android:layout_height="105dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:onClick="@{clickListener}">
 
     <androidx.appcompat.widget.AppCompatImageView
       android:id="@+id/image_view"
@@ -135,10 +142,10 @@
       android:id="@+id/meter_unit"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:paddingTop="2dp"
       android:text="@string/square_meter"
       android:textColor="@color/black"
       android:textSize="12sp"
-      android:paddingTop="2dp"
       app:layout_constraintBottom_toBottomOf="@id/size_text"
       app:layout_constraintStart_toEndOf="@id/size_text" />
 

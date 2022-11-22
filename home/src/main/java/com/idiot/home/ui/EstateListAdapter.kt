@@ -3,6 +3,7 @@ package com.idiot.home.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,10 @@ class EstateListAdapter(private val town: String) :
     fun bind(item: EstateSearchResponse) {
       binding.model = item
       binding.town = town
+      binding.setClickListener {
+        val direction = EstateListFragmentDirections.actionEstateListFragmentToHouseDetailFragment(item.id)
+        it.findNavController().navigate(direction)
+      }
     }
   }
 
