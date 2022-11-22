@@ -70,7 +70,7 @@ class HouseDetailFragment : Fragment() {
   private fun navigateButtonClicked() {
     binding.threeDimenButton.setOnClickListener {
       val data =
-        "https://arvr.google.com/scene-viewer/1.0?file=https://idiot-model-bucket.s3.ap-northeast-2.amazonaws.com/Model/12/anam.glb"
+        "https://arvr.google.com/scene-viewer/1.0?file=${viewModel.detailEstate.value?.model}"
       val intent = Intent(Intent.ACTION_VIEW)
       intent.data = Uri.parse(data).buildUpon().appendQueryParameter("mode", "3d_only").build()
       startActivity(intent)
