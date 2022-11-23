@@ -99,12 +99,12 @@
           android:id="@+id/house_type"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="유형"
           android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
           android:textColor="@color/gray_500"
           tools:text="아파트" />
 
         <View
+          android:visibility="gone"
           android:layout_width="2dp"
           android:layout_height="2dp"
           android:layout_gravity="center"
@@ -112,10 +112,10 @@
           android:background="@color/gray_500" />
 
         <TextView
+          android:visibility="gone"
           android:id="@+id/house_address"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="지역"
           android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
           android:textColor="@color/gray_500"
           tools:text="반포동" />

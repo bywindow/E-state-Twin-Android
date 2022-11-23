@@ -67,6 +67,13 @@ interface EstateService {
     @Path("estateId") estateId: Long
   ): Response<DetailEstate>
 
+  @GET("asset/{assetId}")
+  suspend fun requestGetAssets(
+    @Header("Content-Type") contentType: String = "application/json",
+    @Header("Authorization") accessToken: String,
+    @Path("assetId") assetId: Long
+  ): Response<AssetIncludingChecklist>
+
   @GET("user/tenant/list")
   suspend fun requestGetTenantMode(
     @Header("Content-Type") contentType: String = "application/json",

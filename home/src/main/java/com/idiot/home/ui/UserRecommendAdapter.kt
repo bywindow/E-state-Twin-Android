@@ -51,7 +51,11 @@ class UserRecommendAdapter(private val recommendedList: List<RecommendedEstate>)
     fun bind(item: RecommendedEstate) {
       binding.imageUrl = item.estateThumbNail
       binding.estateType.text = EnumToText.changeTransactionType(item.transactionType)
-      binding.housePrice.text = item.sellingFee.toString()
+      if (item.transactionType == "MONTHLYRENT") {
+        binding.housePrice.text = "${item.deposit} / ${item.monthlyRent}"
+      } else {
+        binding.housePrice.text = item.deposit.toString()
+      }
       binding.houseType.text = EnumToText.changeEstateType(item.estateType)
       binding.houseAddress.text = item.town
     }

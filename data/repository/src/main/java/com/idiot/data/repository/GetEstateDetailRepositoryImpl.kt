@@ -2,6 +2,7 @@ package com.idiot.data.repository
 
 import androidx.annotation.WorkerThread
 import com.idiot.data.api.EstateClient
+import com.idiot.model.AssetIncludingChecklist
 import com.idiot.model.DetailEstate
 import kotlinx.coroutines.flow.flow
 import timber.log.Timber
@@ -23,5 +24,16 @@ class GetEstateDetailRepositoryImpl @Inject constructor(
     )
     Timber.d("DETAIL REPO : $response")
     return if (response.isSuccessful) response.body() as DetailEstate else null
+  }
+
+  @WorkerThread
+  override suspend fun requestGetAssets(assetId: Long): AssetIncludingChecklist? {
+    val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
+    val response = estateClient.requestGetAssets(
+      accessToken = "Bearer $token",
+      assetId = assetId
+    )
+    Timber.d("ASSET RESPONSE : $response")
+    return if (response.isSuccessful) response.body() as AssetIncludingChecklist else null
   }
 }

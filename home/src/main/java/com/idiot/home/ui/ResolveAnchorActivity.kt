@@ -19,6 +19,8 @@ import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
 import io.github.sceneview.renderable.Renderable
 import io.github.sceneview.utils.setFullScreen
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 
@@ -76,12 +78,16 @@ class ResolveAnchorActivity : AppCompatActivity() {
   }
 
   private fun initBottomDialog(item: AssetIncludingChecklist) {
-    bottomSheetBinding = DataBindingUtil.inflate(layoutInflater, R.layout.checklist_bottom_sheet_dialog, null, false)
-    bottomSheetBinding.model = item
-    bottomSheetBinding.checklist = item.checkLists?.last()
-    bottomSheet.apply {
-      setContentView(bottomSheetBinding.root)
-      if(!this@ResolveAnchorActivity.isFinishing) show()
+    lifecycleScope.launch {
+      viewModel.fetchChecklist(item.id).collect(){
+        bottomSheetBinding = DataBindingUtil.inflate(layoutInflater, R.layout.checklist_bottom_sheet_dialog, null, false)
+        bottomSheetBinding.model = viewModel.anchorDetail.value
+        bottomSheetBinding.checklist = viewModel.anchorDetail.value?.checkLists?.last()
+        bottomSheet.apply {
+          setContentView(bottomSheetBinding.root)
+          if(!this@ResolveAnchorActivity.isFinishing) show()
+        }
+      }
     }
   }
 

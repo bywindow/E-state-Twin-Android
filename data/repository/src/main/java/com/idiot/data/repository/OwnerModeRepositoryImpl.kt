@@ -4,6 +4,7 @@ import androidx.annotation.WorkerThread
 import com.idiot.data.api.EstateClient
 import com.idiot.model.AssetIncludingChecklist
 import com.idiot.model.OwnerModeResponse
+import timber.log.Timber
 import javax.inject.Inject
 
 class OwnerModeRepositoryImpl @Inject constructor(
@@ -17,6 +18,7 @@ class OwnerModeRepositoryImpl @Inject constructor(
     return try {
       val token = userPreferenceRepository.getAccessToken().getOrNull().orEmpty()
       val response = estateClient.requestGetOwnerMode("Bearer $token")
+      Timber.d("owner mode : $response")
       if (response.isSuccessful) response.body() as List<OwnerModeResponse> else emptyList()
     } catch (e: Exception) {
       e.printStackTrace()
